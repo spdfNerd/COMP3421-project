@@ -1,3 +1,8 @@
 Library/
 UserSettings/
 .vsconfig
+*.meta
+Temp/
+obj/
+Logs/
+.vs/
