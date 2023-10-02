@@ -14,13 +14,13 @@ public class Player : MonoBehaviour {
 
     private void Move() {
         if (Input.GetKey(KeyCode.W)) {
-            transform.Translate(Vector2.up * movementSpeed * Time.deltaTime);
+            transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
         } else if (Input.GetKey(KeyCode.A)) {
-            transform.Translate(Vector2.left * movementSpeed * Time.deltaTime);
+            transform.Translate(Vector3.left * movementSpeed * Time.deltaTime);
         } else if (Input.GetKey(KeyCode.S)) {
-            transform.Translate(Vector2.down * movementSpeed * Time.deltaTime);
+            transform.Translate(Vector3.back* movementSpeed * Time.deltaTime);
         } else if (Input.GetKey(KeyCode.D)) {
-            transform.Translate(Vector2.right * movementSpeed * Time.deltaTime);
+            transform.Translate(Vector3.right * movementSpeed * Time.deltaTime);
         }
     }
 
