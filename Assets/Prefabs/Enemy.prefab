@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8504324721861398693}
   - component: {fileID: 7733356654979716745}
   - component: {fileID: 5211277466989336233}
-  - component: {fileID: 2123642577820393684}
+  - component: {fileID: 3830211809524542280}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ff38d07891f05a344826ccbd619d1234, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -106,7 +106,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2123642577820393684
+--- !u!114 &3830211809524542280
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,5 +118,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa74220a7b937e246931339a9a2cc9b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints: {fileID: 0}
   loopCount: 2
+  speed: 10

@@ -1,10 +1,14 @@
+using UnityEditor.SearchService;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
-	public Transform waypoints;
 	public int loopCount = 2;
+	public float speed = 10f;
 
+	private LevelManager levelManager;
+
+	private Transform waypoints;
 	private Transform startWaypoints;
 	private Transform mainWaypoints;
 	private Transform endWaypoints;
@@ -16,6 +20,9 @@ public class Enemy : MonoBehaviour {
 	private int loopCounter = 0;
 
 	private void Start() {
+		levelManager = FindFirstObjectByType<LevelManager>();
+		waypoints = levelManager.waypoints;
+
 		startWaypoints = waypoints.GetChild(0);
 		mainWaypoints = waypoints.GetChild(1);
 		endWaypoints = waypoints.GetChild(2);
@@ -28,14 +35,14 @@ public class Enemy : MonoBehaviour {
 	}
 
 	private void Move() {
-		Vector2 direction = nextWaypoint.position - transform.position;
+		Vector3 direction = nextWaypoint.position - transform.position;
 		direction = direction.normalized;
-		transform.Translate(direction * 10f * Time.deltaTime, Space.World);
+		transform.Translate(direction * speed * Time.deltaTime, Space.World);
 
-		if (Vector2.Distance(transform.position, nextWaypoint.position) <= 0.1f) {
+		if (Vector3.Distance(transform.position, nextWaypoint.position) <= 0.1f) {
 			nextWaypoint = GetNextWaypoint();
-		}
-	}
+        }
+    }
 
 	private Transform GetNextWaypoint() {
 		if (startWaypointCounter >= startWaypoints.childCount) {
