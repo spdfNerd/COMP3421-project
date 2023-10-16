@@ -1,10 +1,10 @@
-using UnityEditor.SearchService;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour {
+public class Customer : MonoBehaviour {
 
 	public int loopCount = 2;
 	public float speed = 10f;
+	public int worth = 50;
 
 	private LevelManager levelManager;
 
@@ -48,7 +48,7 @@ public class Enemy : MonoBehaviour {
 		if (startWaypointCounter >= startWaypoints.childCount) {
 			if (loopCounter >= loopCount || (loopCounter == loopCount - 1 && mainWaypointCounter == mainWaypoints.childCount)) {
 				if (endWaypointCounter >= endWaypoints.childCount) {
-					Destroy();
+					Die(true);
 					return null;
 				} else {
 					return endWaypoints.GetChild(endWaypointCounter++);
@@ -65,7 +65,12 @@ public class Enemy : MonoBehaviour {
 		}
 	}
 
-	private void Destroy() {
+	public void Die(bool survived) {
+		if (survived) {
+			levelManager.Reputation--;
+		} else {
+            levelManager.Money += worth;
+		}
 		Destroy(gameObject);
 	}
 
