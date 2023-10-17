@@ -7,6 +7,7 @@ public class Customer : MonoBehaviour {
 	public int worth = 50;
 
 	private LevelManager levelManager;
+	private WaveManager waveManager;
 
 	private Transform waypoints;
 	private Transform startWaypoints;
@@ -21,7 +22,9 @@ public class Customer : MonoBehaviour {
 
 	private void Start() {
 		levelManager = FindFirstObjectByType<LevelManager>();
-		waypoints = levelManager.waypoints;
+		waveManager = FindFirstObjectByType<WaveManager>();
+
+		waypoints = waveManager.waypoints;
 
 		startWaypoints = waypoints.GetChild(0);
 		mainWaypoints = waypoints.GetChild(1);
@@ -41,8 +44,8 @@ public class Customer : MonoBehaviour {
 
 		if (Vector3.Distance(transform.position, nextWaypoint.position) <= 0.1f) {
 			nextWaypoint = GetNextWaypoint();
-        }
-    }
+		}
+	}
 
 	private Transform GetNextWaypoint() {
 		if (startWaypointCounter >= startWaypoints.childCount) {
@@ -69,8 +72,9 @@ public class Customer : MonoBehaviour {
 		if (survived) {
 			levelManager.Reputation--;
 		} else {
-            levelManager.Money += worth;
+			levelManager.Money += worth;
 		}
+		waveManager.DecrementEnemyCount();
 		Destroy(gameObject);
 	}
 

@@ -101,7 +101,7 @@ MonoBehaviour:
   projectile: {fileID: 4132448846344263893, guid: 8d9265c435bc1b9479187ea59a8675ce, type: 3}
   firePoint: {fileID: 6598278176162629246}
   range: 4
-  fireCooldown: 2
+  fireCooldown: 0.5
 --- !u!1 &4954987432220302915
 GameObject:
   m_ObjectHideFlags: 0

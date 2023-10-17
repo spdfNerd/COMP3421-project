@@ -2665,6 +2665,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1345317533}
   - component: {fileID: 1345317534}
+  - component: {fileID: 1345317535}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -2701,10 +2702,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingMoney: 200
   startingReputation: 50
-  waypoints: {fileID: 876312293}
-  enemyPrefab: {fileID: 9045602439349780909, guid: e7579515e13f4cc41ab4a602187c9a89, type: 3}
   moneyText: {fileID: 1328803377}
   reputationText: {fileID: 2034910122}
+--- !u!114 &1345317535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345317532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad2175c0832cee4fafcd71ef96c2772, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints: {fileID: 876312293}
+  enemyPrefab: {fileID: 9045602439349780909, guid: e7579515e13f4cc41ab4a602187c9a89, type: 3}
+  startWaveButton: {fileID: 1458181906}
 --- !u!4 &1368707066 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6971845782293993661, guid: 7c3b6bec99969fa42a4c4cf522df3eda, type: 3}
@@ -2930,7 +2944,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1458181907}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1345317535}
+        m_TargetAssemblyTypeName: WaveManager, Assembly-CSharp
+        m_MethodName: StartWave
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1458181907
 MonoBehaviour:
   m_ObjectHideFlags: 0
