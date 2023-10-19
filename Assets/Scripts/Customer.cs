@@ -1,12 +1,13 @@
-using UnityEditor.SearchService;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour {
+public class Customer : MonoBehaviour {
 
 	public int loopCount = 2;
 	public float speed = 10f;
+	public int worth = 50;
 
 	private LevelManager levelManager;
+	private WaveManager waveManager;
 
 	private Transform waypoints;
 	private Transform startWaypoints;
@@ -21,7 +22,9 @@ public class Enemy : MonoBehaviour {
 
 	private void Start() {
 		levelManager = FindFirstObjectByType<LevelManager>();
-		waypoints = levelManager.waypoints;
+		waveManager = FindFirstObjectByType<WaveManager>();
+
+		waypoints = waveManager.waypoints;
 
 		startWaypoints = waypoints.GetChild(0);
 		mainWaypoints = waypoints.GetChild(1);
@@ -41,14 +44,14 @@ public class Enemy : MonoBehaviour {
 
 		if (Vector3.Distance(transform.position, nextWaypoint.position) <= 0.1f) {
 			nextWaypoint = GetNextWaypoint();
-        }
-    }
+		}
+	}
 
 	private Transform GetNextWaypoint() {
 		if (startWaypointCounter >= startWaypoints.childCount) {
 			if (loopCounter >= loopCount || (loopCounter == loopCount - 1 && mainWaypointCounter == mainWaypoints.childCount)) {
 				if (endWaypointCounter >= endWaypoints.childCount) {
-					Destroy();
+					Die(true);
 					return null;
 				} else {
 					return endWaypoints.GetChild(endWaypointCounter++);
@@ -65,7 +68,13 @@ public class Enemy : MonoBehaviour {
 		}
 	}
 
-	private void Destroy() {
+	public void Die(bool survived) {
+		if (survived) {
+			levelManager.Reputation--;
+		} else {
+			levelManager.Money += worth;
+		}
+		waveManager.DecrementEnemyCount();
 		Destroy(gameObject);
 	}
 

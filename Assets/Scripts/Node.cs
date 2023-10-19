@@ -39,8 +39,8 @@ public class Node : MonoBehaviour
 			return;
 		}
 
-        LevelManager.Money -= 20;
-        Debug.Log("Money left " + LevelManager.Money);
+		levelManager.Money -= 20;
+        Debug.Log("Money left " + levelManager.Money);
     }
 
     void OnMouseEnter () {
