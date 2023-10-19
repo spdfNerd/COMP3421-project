@@ -10,8 +10,9 @@ public class Shop : MonoBehaviour
         levelManager = LevelManager.instance;
     }
 
-    public void PurchaseSushiTower () {
-        Debug.Log("Sushi Tower Purchased");
+    public void SelectSushiTower () {
+        Debug.Log("Sushi Tower Selected");
+        Debug.Log(levelManager.sushiTowerPrefab);
         levelManager.SetTowerToBuild(levelManager.sushiTowerPrefab);
     }
 

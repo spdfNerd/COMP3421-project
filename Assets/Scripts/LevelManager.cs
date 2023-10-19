@@ -17,6 +17,17 @@ public class LevelManager : MonoBehaviour {
     private int enemyCount = 0;
     private Transform spawnpoint;
 
+    void Awake ()
+	{
+		if (instance != null)
+		{
+			Debug.Log("More than one LevelManager in scene!");
+            // Debug.LogError("More than one LevelManager in scene!");
+			return;
+		}
+		instance = this;
+	}
+
     private void Start() {
         spawnpoint = waypoints.GetChild(0).GetChild(0);
 
@@ -33,10 +44,19 @@ public class LevelManager : MonoBehaviour {
     }
 
     public GameObject GetTowerToBuild () {
+        if (towerToBuild == null)
+		{
+            Debug.Log("brooooo null tower");
+		}
         return towerToBuild;
     }
 
     public void SetTowerToBuild (GameObject tower) {
+        // Debug.Log(tower);
+        if (tower != null)
+		{
+            Debug.Log("building ayyy");
+		}
         towerToBuild = tower;
     }
 
