@@ -6,6 +6,7 @@ public class Node : MonoBehaviour
 
     LevelManager levelManager;
 
+    public Vector3 positionOffset;
     public Color hoverColour;
     private Renderer rend;
     private Color startColour;
@@ -18,6 +19,11 @@ public class Node : MonoBehaviour
         rend = GetComponent<Renderer>();
         startColour = rend.material.color;
     }
+
+    public Vector3 GetBuildPosition ()
+	{
+		return transform.position + positionOffset;
+	}
 
     void OnMouseDown () {
         Debug.Log("Pressed");
@@ -35,12 +41,46 @@ public class Node : MonoBehaviour
         // if there is already a tower on the tile
         if (tower != null)
 		{
-            Debug.Log("Can't build there");
+            Debug.Log("Can't build there, shall sell now");
+            SellTower(tower);
 			return;
 		}
 
-		levelManager.Money -= 20;
+        BuildTower(levelManager.GetTowerToBuild());
+		
+    }
+
+    void BuildTower (GameObject towerToBuild) {
+        if (levelManager.Money < 350)
+		{
+			Debug.Log("Not enough money to build that!");
+			return;
+		}
+
+		// PlayerStats.Money -= blueprint.cost;
+        // levelManager.Money -= 20;
         Debug.Log("Money left " + levelManager.Money);
+
+		GameObject _tower = (GameObject)Instantiate(levelManager.sushiTowerPrefab, GetBuildPosition(), Quaternion.identity);
+		tower = _tower;
+
+		// towerBlueprint = blueprint;
+
+		// GameObject effect = (GameObject)Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
+		// Destroy(effect, 5f);
+
+		Debug.Log("Tower built!");
+    }
+
+    void SellTower (GameObject towerToSell) {
+        // PlayerStats.Money += turretBlueprint.GetSellAmount();
+
+
+		// GameObject effect = (GameObject)Instantiate(buildManager.sellEffect, GetBuildPosition(), Quaternion.identity);
+		// Destroy(effect, 5f);
+
+		Destroy(tower);
+		tower = null;
     }
 
     void OnMouseEnter () {

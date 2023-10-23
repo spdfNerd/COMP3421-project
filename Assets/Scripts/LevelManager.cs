@@ -12,6 +12,11 @@ public class LevelManager : MonoBehaviour {
     public Transform enemyPrefab;
 
 	public GameObject sushiTowerPrefab;
+    public GameObject burgerTowerPrefab;
+    public GameObject pizzaTowerPrefab;
+    public GameObject noodlesTowerPrefab;
+    public GameObject waiterTowerPrefab;
+    public GameObject fridgeTowerPrefab;
 
 	public TextMeshProUGUI moneyText;
 	public TextMeshProUGUI reputationText;
@@ -61,7 +66,7 @@ public class LevelManager : MonoBehaviour {
     public GameObject GetTowerToBuild () {
         if (towerToBuild == null)
 		{
-            Debug.Log("brooooo null tower");
+            Debug.Log("no tower to build");
 		}
         return towerToBuild;
     }
@@ -70,7 +75,7 @@ public class LevelManager : MonoBehaviour {
         // Debug.Log(tower);
         if (tower != null)
 		{
-            Debug.Log("building ayyy");
+            Debug.Log("set the tower");
 		}
         towerToBuild = tower;
     }
