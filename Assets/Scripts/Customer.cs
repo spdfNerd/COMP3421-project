@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Customer : MonoBehaviour {
@@ -9,67 +11,76 @@ public class Customer : MonoBehaviour {
 	private LevelManager levelManager;
 	private WaveManager waveManager;
 
-	private Transform waypoints;
-	private Transform startWaypoints;
-	private Transform mainWaypoints;
-	private Transform endWaypoints;
-
 	private Transform nextWaypoint;
-	private int startWaypointCounter = 1;
-	private int mainWaypointCounter = 0;
-	private int endWaypointCounter = 0;
-	private int loopCounter = 0;
+	private Queue<Transform> nextWaypoints;
+	private bool reachedWaypoint = false;
+
+	private List<FoodType> requests;
+	private bool requestsSatisfied = false;
 
 	private void Start() {
 		levelManager = FindFirstObjectByType<LevelManager>();
 		waveManager = FindFirstObjectByType<WaveManager>();
 
-		waypoints = waveManager.waypoints;
+		nextWaypoints = new Queue<Transform>();
+		GetWaypoints();
 
-		startWaypoints = waypoints.GetChild(0);
-		mainWaypoints = waypoints.GetChild(1);
-		endWaypoints = waypoints.GetChild(2);
-
-		nextWaypoint = GetNextWaypoint();
+		GenerateRequests();
 	}
 
 	public void Update() {
-		Move();
-	}
-
-	private void Move() {
-		Vector3 direction = nextWaypoint.position - transform.position;
-		direction = direction.normalized;
-		transform.Translate(direction * speed * Time.deltaTime, Space.World);
-
-		if (Vector3.Distance(transform.position, nextWaypoint.position) <= 0.1f) {
-			nextWaypoint = GetNextWaypoint();
-		}
-	}
-
-	private Transform GetNextWaypoint() {
-		if (startWaypointCounter >= startWaypoints.childCount) {
-			if (loopCounter >= loopCount || (loopCounter == loopCount - 1 && mainWaypointCounter == mainWaypoints.childCount)) {
-				if (endWaypointCounter >= endWaypoints.childCount) {
-					Die(true);
-					return null;
-				} else {
-					return endWaypoints.GetChild(endWaypointCounter++);
-				}
-			} else {
-				if (mainWaypointCounter >= mainWaypoints.childCount) {
-					mainWaypointCounter = 0;
-					loopCounter++;
-				}
-				return mainWaypoints.GetChild(mainWaypointCounter++);
+		if (nextWaypoint == null || reachedWaypoint) {
+			if (nextWaypoints.Count == 0) {
+				Exit();
+				return;
 			}
-		} else {
-			return startWaypoints.GetChild(startWaypointCounter++);
+			nextWaypoint = nextWaypoints.Dequeue();
+			reachedWaypoint = false;
+		}
+		Move(nextWaypoint);
+	}
+
+	private void GetWaypoints() {
+		foreach (Transform child in waveManager.waypoints.GetChild(0)) {
+			nextWaypoints.Enqueue(child);
+		}
+		for (int i = 0; i < loopCount; i++) {
+			foreach (Transform child in waveManager.waypoints.GetChild(1)) {
+				nextWaypoints.Enqueue(child);
+			}
+		}
+		foreach (Transform child in waveManager.waypoints.GetChild(2)) {
+			nextWaypoints.Enqueue(child);
 		}
 	}
 
-	public void Die(bool survived) {
-		if (survived) {
+	private void GenerateRequests() {
+		requests = new List<FoodType>(2);
+		int numFoodTypes = Enum.GetNames(typeof(FoodType)).Length;
+		requests.ForEach(request => { request = (FoodType)UnityEngine.Random.Range(0, numFoodTypes - 1); });
+	}
+
+	private void Move(Transform nextWaypoint) {
+		if (!reachedWaypoint) {
+			Vector3 direction = nextWaypoint.position - transform.position;
+			direction = direction.normalized;
+			transform.Translate(direction * speed * Time.deltaTime, Space.World);
+			reachedWaypoint = Vector3.Distance(transform.position, nextWaypoint.position) < 0.1f;
+		}
+	}
+
+	public void SatisfyRequest(Food food) {
+		if (!requestsSatisfied && requests.Contains(food.type)) {
+			requests.Remove(food.type);
+			if (requests.Count == 0) {
+				requestsSatisfied = true;
+				Debug.Log("Satisfied!");
+			}
+		}
+	}
+
+	public void Exit() {
+		if (!requestsSatisfied) {
 			levelManager.Reputation--;
 		} else {
 			levelManager.Money += worth;

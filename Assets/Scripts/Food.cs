@@ -3,10 +3,7 @@ using UnityEngine;
 public class Food : MonoBehaviour {
 
 	public float speed = 25f;
-
-	private void Start() {
-		
-	}
+	public FoodType type;
 
 	private void Update() {
 		Move();
@@ -24,7 +21,7 @@ public class Food : MonoBehaviour {
 
 		Customer customer = collider.GetComponent<Customer>();
 		if (customer != null) {
-			customer.Die(false);
+			customer.SatisfyRequest(this);
 			Destroy(gameObject);
 			return;
 		}
