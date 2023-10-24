@@ -4,10 +4,12 @@ using UnityEngine;
 public class Shop : MonoBehaviour
 {
     LevelManager levelManager;
+    Player player;
 
     void Start()
     {
         levelManager = LevelManager.instance;
+        player = Player.instance;
     }
 
     public void SelectSushiTower () {
@@ -45,6 +47,30 @@ public class Shop : MonoBehaviour
         Debug.Log(levelManager.fridgeTowerPrefab);
         levelManager.SetTowerToBuild(levelManager.fridgeTowerPrefab);
     }
+
+    public void BuyTower () {
+        Debug.Log("Pressed");
+
+        // no tower selected to build
+        if (levelManager.GetTowerToBuild() == null)
+            return;
+
+        // if there is already a tower on the tile
+        // if (Node.tower != null)
+		// {
+        //     Debug.Log("Can't build there, shall sell now");
+        //     SellTower(Node.tower);
+		// 	return;
+		// }
+
+        player.currentNode.BuildTower(levelManager.GetTowerToBuild());
+		
+    }
+
+    public Vector3 GetBuildPosition ()
+	{
+		return player.GetPosition();
+	}
 
     // Update is called once per frame
     void Update()

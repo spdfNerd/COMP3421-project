@@ -11,7 +11,7 @@ public class LevelManager : MonoBehaviour {
     public Transform waypoints;
     public Transform enemyPrefab;
 
-	public GameObject sushiTowerPrefab;
+    public GameObject sushiTowerPrefab;
     public GameObject burgerTowerPrefab;
     public GameObject pizzaTowerPrefab;
     public GameObject noodlesTowerPrefab;
@@ -60,7 +60,6 @@ public class LevelManager : MonoBehaviour {
 	private void Start() {
 		Money = startingMoney;
 		Reputation = startingReputation;
-
 	}
 
     public GameObject GetTowerToBuild () {
