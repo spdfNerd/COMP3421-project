@@ -55,16 +55,11 @@ public class Shop : MonoBehaviour
         if (levelManager.GetTowerToBuild() == null)
             return;
 
-        // if there is already a tower on the tile
-        // if (Node.tower != null)
-		// {
-        //     Debug.Log("Can't build there, shall sell now");
-        //     SellTower(Node.tower);
-		// 	return;
-		// }
-
         player.currentNode.BuildTower(levelManager.GetTowerToBuild());
-		
+    }
+
+    public void SellTower () {
+		player.currentNode.DestroyTower();
     }
 
     public Vector3 GetBuildPosition ()

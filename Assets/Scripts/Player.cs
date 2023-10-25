@@ -4,7 +4,10 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
 	public static Player instance;
+	[HideInInspector]
 	public Node currentNode;
+	[HideInInspector]
+	public Node previousNode;
 	public float movementSpeed = 40f;
 
 	private bool[] directions = new bool[] { false, false, false, false };
@@ -25,11 +28,11 @@ public class Player : MonoBehaviour {
 		RaycastHit hit;
 		if (Physics.Raycast(transform.position, Vector3.down, out hit)) {
 			Node node = hit.transform.GetComponent<Node>();
-			if (node != null) {
-				// currentNode.OnPlayerExit();
+			if (node != null && node != currentNode) {
+				previousNode = currentNode;
 				currentNode = node;
 				currentNode.OnPlayerEnter();
-				// Debug.Log(currentNode.transform.position);
+				previousNode.OnPlayerExit();
 			}
 		}
 	}

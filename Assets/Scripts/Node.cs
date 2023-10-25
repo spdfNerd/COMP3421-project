@@ -59,6 +59,7 @@ public class Node : MonoBehaviour
 			return;
 		}
 
+        // if there is already a tower on the tile
         if (tower != null)
 		{
             Debug.Log("Can't build there");
@@ -81,7 +82,7 @@ public class Node : MonoBehaviour
 		Debug.Log("Tower built!");
     }
 
-    void SellTower (GameObject towerToSell) {
+    public void DestroyTower () {
         // PlayerStats.Money += turretBlueprint.GetSellAmount();
 
 
@@ -103,11 +104,6 @@ public class Node : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if (transform.position == player.GetPosition()) {
-        //     rend.material.color = hoverColour;
-        // } else {
-        //     rend.material.color = startColour;
-        // }
-        // Debug.Log(player.GetPosition());
+
     }
 }
