@@ -13,6 +13,9 @@ public class Node : MonoBehaviour
     private Color startColour;
     
     public GameObject tower;
+    private int towerPrice;
+    private int runningCost;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -21,11 +24,6 @@ public class Node : MonoBehaviour
         rend = GetComponent<Renderer>();
         startColour = rend.material.color;
     }
-
-    // public Vector3 GetPlayerPosition ()
-	// {
-	// 	return player.transform.position;
-	// }
 
     // void BuyTower () {
     //     Debug.Log("Pressed");
@@ -52,30 +50,25 @@ public class Node : MonoBehaviour
 		
     // }
 
-    public void BuildTower (GameObject towerToBuild) {
-        if (levelManager.Money < 350)
-		{
-			Debug.Log("Not enough money to build that!");
-			return;
-		}
-
+    public void BuildTower (GameObject towerToBuild, int selectedTowerPrice) {
         // if there is already a tower on the tile
         if (tower != null)
 		{
             Debug.Log("Can't build there");
-            // SellTower(Node.tower);
 			return;
 		}
 
-		// PlayerStats.Money -= blueprint.cost;
-        // levelManager.Money -= 20;
+        if (levelManager.Money < selectedTowerPrice)
+		{
+			Debug.Log("Not enough money to build that!");
+			return;
+		}
+        levelManager.Money -= selectedTowerPrice;
         Debug.Log("Money left " + levelManager.Money);
 
-		GameObject _tower = (GameObject)Instantiate(levelManager.sushiTowerPrefab, player.GetPosition(), Quaternion.identity);
+		GameObject _tower = (GameObject)Instantiate(towerToBuild, player.GetPosition(), Quaternion.identity);
 		tower = _tower;
-
-		// towerBlueprint = blueprint;
-
+        towerPrice = selectedTowerPrice;
 		// GameObject effect = (GameObject)Instantiate(buildManager.buildEffect, GetPlayerPosition(), Quaternion.identity);
 		// Destroy(effect, 5f);
 
@@ -83,14 +76,20 @@ public class Node : MonoBehaviour
     }
 
     public void DestroyTower () {
-        // PlayerStats.Money += turretBlueprint.GetSellAmount();
-
-
+        // if there is no tower on the tile
+        if (tower == null)
+		{
+            Debug.Log("Nothing to sell");
+			return;
+		}
 		// GameObject effect = (GameObject)Instantiate(buildManager.sellEffect, GetPlayerPosition(), Quaternion.identity);
 		// Destroy(effect, 5f);
 
 		Destroy(tower);
 		tower = null;
+
+        levelManager.Money += towerPrice;
+        Debug.Log("Money left " + levelManager.Money);
     }
 
     public void OnPlayerEnter () {

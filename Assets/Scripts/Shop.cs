@@ -6,6 +6,16 @@ public class Shop : MonoBehaviour
     LevelManager levelManager;
     Player player;
 
+    public int sushiTowerPrice;
+    public int burgerTowerPrice;
+    public int pizzaTowerPrice;
+    public int noodlesTowerPrice;
+    public int waiterTowerPrice;
+    public int fridgeTowerPrice;
+
+    private int selectedTowerPrice;
+
+
     void Start()
     {
         levelManager = LevelManager.instance;
@@ -14,38 +24,38 @@ public class Shop : MonoBehaviour
 
     public void SelectSushiTower () {
         Debug.Log("Sushi Tower Selected");
-        Debug.Log(levelManager.sushiTowerPrefab);
         levelManager.SetTowerToBuild(levelManager.sushiTowerPrefab);
+        selectedTowerPrice = sushiTowerPrice;
     }
 
     public void SelectBurgerTower () {
         Debug.Log("Burger Tower Selected");
-        Debug.Log(levelManager.burgerTowerPrefab);
         levelManager.SetTowerToBuild(levelManager.burgerTowerPrefab);
+        selectedTowerPrice = burgerTowerPrice;
     }
 
     public void SelectPizzaTower () {
         Debug.Log("Sushi Tower Selected");
-        Debug.Log(levelManager.pizzaTowerPrefab);
         levelManager.SetTowerToBuild(levelManager.pizzaTowerPrefab);
+        selectedTowerPrice = pizzaTowerPrice;
     }
 
     public void SelectNoodlesTower () {
         Debug.Log("Noodles Tower Selected");
-        Debug.Log(levelManager.noodlesTowerPrefab);
         levelManager.SetTowerToBuild(levelManager.noodlesTowerPrefab);
+        selectedTowerPrice = noodlesTowerPrice;
     }
 
     public void SelectWaiterTower () {
         Debug.Log("Waiter Tower Selected");
-        Debug.Log(levelManager.waiterTowerPrefab);
         levelManager.SetTowerToBuild(levelManager.waiterTowerPrefab);
+        selectedTowerPrice = waiterTowerPrice;
     }
 
     public void SelectFridgeTower () {
         Debug.Log("Fridge Tower Selected");
-        Debug.Log(levelManager.fridgeTowerPrefab);
         levelManager.SetTowerToBuild(levelManager.fridgeTowerPrefab);
+        selectedTowerPrice = fridgeTowerPrice;
     }
 
     public void BuyTower () {
@@ -55,7 +65,7 @@ public class Shop : MonoBehaviour
         if (levelManager.GetTowerToBuild() == null)
             return;
 
-        player.currentNode.BuildTower(levelManager.GetTowerToBuild());
+        player.currentNode.BuildTower(levelManager.GetTowerToBuild(), selectedTowerPrice);
     }
 
     public void SellTower () {

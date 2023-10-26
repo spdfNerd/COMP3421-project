@@ -47391,6 +47391,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f29c47cba4b88423f940841f05f069db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sushiTowerPrice: 80
+  burgerTowerPrice: 70
+  pizzaTowerPrice: 60
+  noodlesTowerPrice: 50
+  waiterPrice: 30
+  fridgePrice: 50
 --- !u!1 &1945267312 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
