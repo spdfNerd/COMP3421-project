@@ -5,6 +5,9 @@ public class Player : MonoBehaviour {
 
 	public float movementSpeed = 40f;
 
+	[HideInInspector]
+	public Node currentNode;
+
 	private bool[] directions = new bool[] { false, false, false, false };
 	private Vector3 velocity = Vector3.zero;
 
@@ -12,6 +15,7 @@ public class Player : MonoBehaviour {
 		GetVelocity();
 		Move();
 	}
+
 	private void GetVelocity() {
 		directions[0] = Input.GetKey(KeyCode.W);
 		directions[1] = Input.GetKey(KeyCode.A);

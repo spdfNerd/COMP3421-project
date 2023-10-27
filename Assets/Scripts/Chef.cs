@@ -1,18 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Chef : MonoBehaviour
-{
-	// Start is called before the first frame update
-	void Start()
-	{
-		
+public class Chef : MonoBehaviour {
+
+	public float cooldown = 1f;
+	public FoodType foodType;
+	
+	private float cooldownTimer;
+	private int foodCount;
+
+	private void Start() {
+		cooldownTimer = cooldown;
+		foodCount = 0;
 	}
 
-	// Update is called once per frame
-	void Update()
-	{
-		
+	private void Update() {
+		if (cooldownTimer <= 0f) {
+			ProduceFood();
+			cooldownTimer = cooldown;
+		} else {
+			cooldownTimer -= Time.deltaTime;
+		}
 	}
+
+	private void ProduceFood() {
+		foodCount++;
+	}
+
 }
