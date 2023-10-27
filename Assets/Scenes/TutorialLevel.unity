@@ -29964,17 +29964,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2006917393}
   m_SourcePrefab: {fileID: 100100000, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
---- !u!114 &1328803377 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5916411397530103052, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-  m_PrefabInstance: {fileID: 8128740576184468851}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1328853358 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
@@ -32601,17 +32590,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
   tower: {fileID: 0}
---- !u!114 &1458181906 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9136802832617806359, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-  m_PrefabInstance: {fileID: 8128740576184468851}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1460621525 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
@@ -46657,17 +46635,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 920352699}
   m_SourcePrefab: {fileID: 100100000, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
---- !u!114 &2034910122 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7822047389235766064, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-  m_PrefabInstance: {fileID: 8128740576184468851}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2035334058
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50306,26 +50273,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 964670866056294259, guid: 7df76b8e52be3de4f9781b5d60d56738, type: 3}
-      propertyPath: moneyText
-      value: 
-      objectReference: {fileID: 1328803377}
-    - target: {fileID: 964670866056294259, guid: 7df76b8e52be3de4f9781b5d60d56738, type: 3}
-      propertyPath: waypoints
-      value: 
-      objectReference: {fileID: 876312293}
-    - target: {fileID: 964670866056294259, guid: 7df76b8e52be3de4f9781b5d60d56738, type: 3}
-      propertyPath: reputationText
-      value: 
-      objectReference: {fileID: 2034910122}
     - target: {fileID: 1134661119793969957, guid: 7df76b8e52be3de4f9781b5d60d56738, type: 3}
       propertyPath: waypoints
       value: 
       objectReference: {fileID: 876312293}
-    - target: {fileID: 1134661119793969957, guid: 7df76b8e52be3de4f9781b5d60d56738, type: 3}
-      propertyPath: startWaveButton
-      value: 
-      objectReference: {fileID: 1458181906}
     - target: {fileID: 5950833492371533802, guid: 7df76b8e52be3de4f9781b5d60d56738, type: 3}
       propertyPath: m_Name
       value: LevelManager
