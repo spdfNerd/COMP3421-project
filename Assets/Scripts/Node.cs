@@ -14,7 +14,7 @@ public class Node : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        levelManager = LevelManager.instance;
+        levelManager = LevelManager.Instance;
         rend = GetComponent<Renderer>();
         startColour = rend.material.color;
     }

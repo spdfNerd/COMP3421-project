@@ -19,10 +19,10 @@ public class Player : MonoBehaviour {
 	private void Start() {
 		CapsuleCollider collider = GetComponent<CapsuleCollider>();
 		float width = collider.radius;
-		minX = LevelManager.instance.leftWall.position.x + width;
-		maxX = LevelManager.instance.rightWall.position.x - width;
-		minZ = LevelManager.instance.frontWall.position.z + width;
-		maxZ = LevelManager.instance.backWall.position.z - width;
+		minX = LevelManager.Instance.leftWall.position.x + width;
+		maxX = LevelManager.Instance.rightWall.position.x - width;
+		minZ = LevelManager.Instance.frontWall.position.z + width;
+		maxZ = LevelManager.Instance.backWall.position.z - width;
 	}
 
 	private void Update() {

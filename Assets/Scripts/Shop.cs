@@ -7,7 +7,7 @@ public class Shop : MonoBehaviour
 
     void Start()
     {
-        levelManager = LevelManager.instance;
+        levelManager = LevelManager.Instance;
     }
 
     public void SelectSushiTower () {

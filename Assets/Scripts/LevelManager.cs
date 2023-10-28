@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour {
 
-    public static LevelManager instance;
+    public static LevelManager Instance;
 
 	public int startingMoney;
 	public int startingReputation;
@@ -45,19 +45,18 @@ public class LevelManager : MonoBehaviour {
 		set => round = value;
 	}
 
-	void Awake() {
-		if (instance != null) {
+	private void Awake() {
+		if (Instance != null) {
 			Debug.Log("More than one LevelManager in scene!");
 			// Debug.LogError("More than one LevelManager in scene!");
 			return;
 		}
-		instance = this;
+		Instance = this;
 	}
 
 	private void Start() {
 		Money = startingMoney;
 		Reputation = startingReputation;
-
 	}
 
     public GameObject GetTowerToBuild () {
