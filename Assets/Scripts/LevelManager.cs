@@ -13,6 +13,11 @@ public class LevelManager : MonoBehaviour {
 	public TextMeshProUGUI moneyText;
 	public TextMeshProUGUI reputationText;
 
+	public Transform frontWall;
+	public Transform backWall;
+	public Transform leftWall;
+	public Transform rightWall;
+
 	private int money = 0;
 	private int reputation = 0;
 	private int round = 0;
