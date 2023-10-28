@@ -15,6 +15,7 @@ public class Player : MonoBehaviour {
 
 	[HideInInspector]
 	public Node currentNode;
+	private Inventory inventory;
 
 	private void Start() {
 		CapsuleCollider collider = GetComponent<CapsuleCollider>();
@@ -23,11 +24,14 @@ public class Player : MonoBehaviour {
 		maxX = LevelManager.instance.rightWall.position.x - width;
 		minZ = LevelManager.instance.frontWall.position.z + width;
 		maxZ = LevelManager.instance.backWall.position.z - width;
+
+		inventory = GetComponent<Inventory>();
 	}
 
 	private void Update() {
 		GetVelocity();
 		Move();
+		UpdateInventory();
 	}
 
 	private void GetVelocity() {
@@ -47,6 +51,12 @@ public class Player : MonoBehaviour {
 		float xPos = Mathf.Clamp(transform.position.x, minX, maxX);
 		float zPos = Mathf.Clamp(transform.position.z, minZ, maxZ);
 		transform.position = new Vector3(xPos, transform.position.y, zPos);
+	}
+
+	private void UpdateInventory() {
+		foreach (FoodType key in inventory.inventory.Keys) {
+			Debug.LogFormat("{0} count: {1}", key, inventory.inventory[key]);
+		}
 	}
 
 }
