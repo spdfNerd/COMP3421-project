@@ -36,6 +36,11 @@ public class LevelManager : MonoBehaviour {
 		}
 	}
 
+    public int RunningCost {
+		get => runningCost;
+		set => runningCost = value;
+	}
+
 	public int Reputation {
 		get => reputation;
 		set {

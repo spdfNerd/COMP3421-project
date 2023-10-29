@@ -13,8 +13,9 @@ public class Node : MonoBehaviour
     private Color startColour;
     
     public GameObject tower;
-    private int towerPrice;
-    private int runningCost;
+    private int towerHirePrice;
+    private int towerSellPrice;
+    private int towerRunningCost;
     
     // Start is called before the first frame update
     void Start()
@@ -25,32 +26,7 @@ public class Node : MonoBehaviour
         startColour = rend.material.color;
     }
 
-    // void BuyTower () {
-    //     Debug.Log("Pressed");
-
-    //     // no tower selected to build
-    //     if (levelManager.GetTowerToBuild() == null)
-    //         return;
-
-    //     // if (tower == null)
-	// 	// {
-    //     //     Debug.Log("yikessss");
-	// 	// 	return;
-	// 	// }
-
-    //     // if there is already a tower on the tile
-    //     if (tower != null)
-	// 	{
-    //         Debug.Log("Can't build there, shall sell now");
-    //         SellTower(tower);
-	// 		return;
-	// 	}
-
-    //     BuildTower(levelManager.GetTowerToBuild());
-		
-    // }
-
-    public void BuildTower (GameObject towerToBuild, int selectedTowerPrice) {
+    public void BuildTower (GameObject towerToBuild, int selectedTowerHirePrice, int selectedTowerSellPrice, int selectedTowerRunningCost) {
         // if there is already a tower on the tile
         if (tower != null)
 		{
@@ -58,21 +34,25 @@ public class Node : MonoBehaviour
 			return;
 		}
 
-        if (levelManager.Money < selectedTowerPrice)
+        if (levelManager.Money < selectedTowerHirePrice)
 		{
 			Debug.Log("Not enough money to build that!");
 			return;
 		}
-        levelManager.Money -= selectedTowerPrice;
+        levelManager.Money -= selectedTowerHirePrice;
         Debug.Log("Money left " + levelManager.Money);
 
 		GameObject _tower = (GameObject)Instantiate(towerToBuild, player.GetPosition(), Quaternion.identity);
 		tower = _tower;
-        towerPrice = selectedTowerPrice;
+        towerHirePrice = selectedTowerHirePrice;
+        towerSellPrice = selectedTowerSellPrice;
+        towerRunningCost = selectedTowerRunningCost;
+        levelManager.RunningCost += towerRunningCost;
 		// GameObject effect = (GameObject)Instantiate(buildManager.buildEffect, GetPlayerPosition(), Quaternion.identity);
 		// Destroy(effect, 5f);
 
 		Debug.Log("Tower built!");
+        Debug.Log(levelManager.RunningCost);
     }
 
     public void DestroyTower () {
@@ -88,8 +68,9 @@ public class Node : MonoBehaviour
 		Destroy(tower);
 		tower = null;
 
-        levelManager.Money += towerPrice;
+        levelManager.Money += towerSellPrice;
         Debug.Log("Money left " + levelManager.Money);
+        levelManager.RunningCost -= towerRunningCost;
     }
 
     public void OnPlayerEnter () {

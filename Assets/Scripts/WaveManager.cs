@@ -35,6 +35,7 @@ public class WaveManager : MonoBehaviour {
 		levelManager.Round++;
 		startWaveButton.interactable = false;
 		StartCoroutine(SpawnEnemies());
+		levelManager.Money -= levelManager.RunningCost;
 	}
 
 	private IEnumerator SpawnEnemies() {

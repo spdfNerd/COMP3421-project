@@ -30,6 +30,8 @@ public class Shop : MonoBehaviour
     
     private GameObject selectedTower;
     private int selectedTowerHirePrice;
+    private int selectedTowerSellPrice;
+    private int selectedTowerRunningCost;
 
 
     void Start()
@@ -45,6 +47,8 @@ public class Shop : MonoBehaviour
         levelManager.SetTowerToBuild(levelManager.sushiTowerPrefab);
         selectedTower = GameObject.Find("SushiChef");
         selectedTowerHirePrice = sushiTowerHirePrice;
+        selectedTowerSellPrice = sushiTowerSellPrice;
+        selectedTowerRunningCost = sushiTowerRunningCost;
     }
 
     public void SelectBurgerTower () {
@@ -52,6 +56,8 @@ public class Shop : MonoBehaviour
         levelManager.SetTowerToBuild(levelManager.burgerTowerPrefab);
         selectedTower = GameObject.Find("BurgerChef");
         selectedTowerHirePrice = burgerTowerHirePrice;
+        selectedTowerSellPrice = burgerTowerSellPrice;
+        selectedTowerRunningCost = burgerTowerRunningCost;
     }
 
     public void SelectPizzaTower () {
@@ -59,6 +65,8 @@ public class Shop : MonoBehaviour
         levelManager.SetTowerToBuild(levelManager.pizzaTowerPrefab);
         selectedTower = GameObject.Find("PizzaChef");
         selectedTowerHirePrice = pizzaTowerHirePrice;
+        selectedTowerSellPrice = pizzaTowerSellPrice;
+        selectedTowerRunningCost = pizzaTowerRunningCost;
     }
 
     public void SelectNoodlesTower () {
@@ -66,6 +74,8 @@ public class Shop : MonoBehaviour
         levelManager.SetTowerToBuild(levelManager.noodlesTowerPrefab);
         selectedTower = GameObject.Find("NoodlesChef");
         selectedTowerHirePrice = noodlesTowerHirePrice;
+        selectedTowerSellPrice = noodlesTowerSellPrice;
+        selectedTowerRunningCost = noodlesTowerRunningCost;
     }
 
     public void SelectWaiterTower () {
@@ -73,6 +83,8 @@ public class Shop : MonoBehaviour
         levelManager.SetTowerToBuild(levelManager.waiterTowerPrefab);
         selectedTower = GameObject.Find("Waiter");
         selectedTowerHirePrice = waiterTowerHirePrice;
+        selectedTowerSellPrice = waiterTowerSellPrice;
+        selectedTowerRunningCost = waiterTowerRunningCost;
     }
 
     public void SelectFridgeTower () {
@@ -80,6 +92,8 @@ public class Shop : MonoBehaviour
         levelManager.SetTowerToBuild(levelManager.fridgeTowerPrefab);
         selectedTower = GameObject.Find("Fridge");
         selectedTowerHirePrice = fridgeTowerHirePrice;
+        selectedTowerSellPrice = fridgeTowerSellPrice;
+        selectedTowerRunningCost = fridgeTowerRunningCost;
     }
 
     public void BuyTower () {
@@ -89,7 +103,7 @@ public class Shop : MonoBehaviour
         if (levelManager.GetTowerToBuild() == null)
             return;
 
-        player.currentNode.BuildTower(levelManager.GetTowerToBuild(), selectedTowerHirePrice);
+        player.currentNode.BuildTower(levelManager.GetTowerToBuild(), selectedTowerHirePrice, selectedTowerSellPrice, selectedTowerRunningCost);
     }
 
     public void SellTower () {
