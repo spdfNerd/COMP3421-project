@@ -29,6 +29,8 @@ public class Shop : MonoBehaviour
 
     public GameObject[] kitchenStaff;
     public Button waitStaff;
+    public Button buyButton;
+    public Button sellButton;
     
     private GameObject selectedTower;
     private int selectedTowerHirePrice;
@@ -140,6 +142,14 @@ public class Shop : MonoBehaviour
                     selectedTower = null;
                     levelManager.SetTowerToBuild(null);
                 }
+            }
+
+            if (player.currentNode.tower == null) {
+                buyButton.interactable = true;
+                sellButton.interactable = false;
+            } else {
+                buyButton.interactable = false;
+                sellButton.interactable = true;
             }
         }
     }
