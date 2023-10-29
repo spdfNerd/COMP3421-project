@@ -27,11 +27,7 @@ public class Chef : MonoBehaviour {
 
 	private void ProduceFood() {
 		foodCount++;
-		if (foodCount == 0) {
-			foodCountText.text = "";
-		} else {
-			foodCountText.text = foodCount.ToString();
-		}
+		foodCountText.text = foodCount == 0 ? "" : foodCount.ToString();
 	}
 
 }
