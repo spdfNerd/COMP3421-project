@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Customer : MonoBehaviour {
@@ -8,22 +9,38 @@ public class Customer : MonoBehaviour {
 	public float speed = 10f;
 	public int worth = 50;
 
-	private LevelManager levelManager;
-	private WaveManager waveManager;
+	public TextMeshProUGUI foodCountText;
 
 	private Transform nextWaypoint;
 	private Queue<Transform> nextWaypoints;
 	private bool reachedWaypoint = false;
 
-	private List<FoodType> requests;
+	private int loopCounter = 0;
+	private bool isLooping = false;
+	private bool pathFinished = false;
+
+	private FoodType foodTypeRequested;
+	private int foodCountRequested;
 	private bool requestsSatisfied = false;
 
-	private void Start() {
-		levelManager = FindFirstObjectByType<LevelManager>();
-		waveManager = FindFirstObjectByType<WaveManager>();
+	public FoodType FoodTypeRequested {
+		get => foodTypeRequested;
+		set {
+			foodTypeRequested = value;
+		}
+	}
 
+	public int FoodCountRequested {
+		get => foodCountRequested;
+		set {
+			foodCountRequested = value;
+			foodCountText.text = foodCountRequested.ToString();
+		}
+	}
+
+	private void Start() {
 		nextWaypoints = new Queue<Transform>();
-		GetWaypoints();
+		QueueWaypoints();
 
 		GenerateRequests();
 	}
@@ -31,33 +48,48 @@ public class Customer : MonoBehaviour {
 	public void Update() {
 		if (nextWaypoint == null || reachedWaypoint) {
 			if (nextWaypoints.Count == 0) {
-				Exit();
-				return;
+				QueueWaypoints();
+			} else {
+				nextWaypoint = nextWaypoints.Dequeue();
+				reachedWaypoint = false;
 			}
-			nextWaypoint = nextWaypoints.Dequeue();
-			reachedWaypoint = false;
 		}
 		Move(nextWaypoint);
 	}
 
-	private void GetWaypoints() {
-		foreach (Transform child in waveManager.waypoints.GetChild(0)) {
-			nextWaypoints.Enqueue(child);
+	private void QueueWaypoints() {
+		if (pathFinished) {
+			Exit();
+			return;
 		}
-		for (int i = 0; i < loopCount; i++) {
-			foreach (Transform child in waveManager.waypoints.GetChild(1)) {
-				nextWaypoints.Enqueue(child);
+
+		if (!isLooping) {
+			QueueWaypointsFromTransform(WaveManager.Instance.waypoints.GetChild(0));
+			isLooping = true;
+		} else {
+			if (loopCounter < loopCount && !requestsSatisfied) {
+				QueueWaypointsFromTransform(WaveManager.Instance.waypoints.GetChild(1));
+				loopCounter++;
+			} else {
+				QueueWaypointsFromTransform(WaveManager.Instance.waypoints.GetChild(2));
+				pathFinished = true;
 			}
 		}
-		foreach (Transform child in waveManager.waypoints.GetChild(2)) {
+	}
+
+	private void QueueWaypointsFromTransform(Transform transform) {
+		foreach (Transform child in transform) {
 			nextWaypoints.Enqueue(child);
 		}
 	}
 
 	private void GenerateRequests() {
-		requests = new List<FoodType>(2);
-		int numFoodTypes = Enum.GetNames(typeof(FoodType)).Length;
-		requests.ForEach(request => { request = (FoodType)UnityEngine.Random.Range(0, numFoodTypes - 1); });
+		FoodTypeRequested = (FoodType) UnityEngine.Random.Range(0, GetFoodTypeMaxValue());
+		FoodCountRequested = UnityEngine.Random.Range(1, 4);
+	}
+
+	private int GetFoodTypeMaxValue() {
+		return LevelManager.Instance.Round < 2 * 4 ? (int) Mathf.Ceil(LevelManager.Instance.Round / 2f) : Enum.GetValues(typeof(FoodType)).Length;
 	}
 
 	private void Move(Transform nextWaypoint) {
@@ -70,22 +102,23 @@ public class Customer : MonoBehaviour {
 	}
 
 	public void SatisfyRequest(Food food) {
-		if (!requestsSatisfied && requests.Contains(food.type)) {
-			requests.Remove(food.type);
-			if (requests.Count == 0) {
-				requestsSatisfied = true;
-				Debug.Log("Satisfied!");
-			}
+		if (food.type != FoodTypeRequested) {
+			return;
+		}
+
+		FoodCountRequested--;
+		if (FoodCountRequested == 0) {
+			Debug.Log("Satisfied!");
 		}
 	}
 
 	public void Exit() {
 		if (!requestsSatisfied) {
-			levelManager.Reputation--;
+			LevelManager.Instance.Reputation--;
 		} else {
-			levelManager.Money += worth;
+			LevelManager.Instance.Money += worth;
 		}
-		waveManager.DecrementEnemyCount();
+		WaveManager.Instance.DecrementEnemyCount();
 		Destroy(gameObject);
 	}
 

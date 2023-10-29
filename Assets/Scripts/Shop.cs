@@ -38,12 +38,15 @@ public class Shop : MonoBehaviour
     private int selectedTowerRunningCost;
 
 
-    void Start()
-    {
-        levelManager = LevelManager.instance;
+    private void Start() {
+        levelManager = LevelManager.Instance;
         player = Player.instance;
         kitchenStaff = GameObject.FindGameObjectsWithTag("KitchenStaff");
         waitStaff = GameObject.FindWithTag("WaitStaff").GetComponent<Button>();
+    }
+
+    private void Update() {
+        CheckNode();
     }
 
     public void SelectSushiTower () {
@@ -106,13 +109,12 @@ public class Shop : MonoBehaviour
 		player.currentNode.DestroyTower();
     }
 
-    public Vector3 GetBuildPosition ()
-	{
+    public Vector3 GetBuildPosition () {
 		return player.GetPosition();
 	}
 
     // Check to see which shop object should be displayed depending on player location
-    void CheckNode () {
+    private void CheckNode () {
         if (player.currentNode != null) {
             if (player.currentNode.tag == "KitchenNode") {
                 waitStaff.interactable = false;
@@ -146,9 +148,4 @@ public class Shop : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        CheckNode();
-    }
 }
