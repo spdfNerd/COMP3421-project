@@ -6,7 +6,11 @@ public class Chef : MonoBehaviour {
 	public float cooldown = 1f;
 	public FoodType foodType;
 	public TextMeshProUGUI foodCountText;
-	
+
+	public int hirePrice;
+	public int sellPrice;
+	public int runningCost;
+
 	private float cooldownTimer;
 	private int foodCount;
 

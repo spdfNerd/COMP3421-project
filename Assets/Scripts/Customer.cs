@@ -7,7 +7,8 @@ public class Customer : MonoBehaviour {
 
 	public int loopCount = 2;
 	public float speed = 10f;
-	public int worth = 50;
+
+	public int reputationPenalty = 10;
 
 	public TextMeshProUGUI foodCountText;
 
@@ -18,6 +19,8 @@ public class Customer : MonoBehaviour {
 	private int loopCounter = 0;
 	private bool isLooping = false;
 	private bool pathFinished = false;
+
+	private int rewardsToGrant = 0;
 
 	private FoodType foodTypeRequested;
 	private int foodCountRequested;
@@ -110,13 +113,21 @@ public class Customer : MonoBehaviour {
 		if (FoodCountRequested == 0) {
 			Debug.Log("Satisfied!");
 		}
+
+		int foodReward;
+		bool success = LevelManager.Instance.foodRewards.TryGetValue(food.type, out foodReward);
+		if (success) {
+			rewardsToGrant += foodReward;
+		} else {
+			Debug.LogError("Food reward has not been entered yet!");
+		}
 	}
 
 	public void Exit() {
 		if (!requestsSatisfied) {
-			LevelManager.Instance.Reputation--;
+			LevelManager.Instance.Reputation -= reputationPenalty;
 		} else {
-			LevelManager.Instance.Money += worth;
+			LevelManager.Instance.Money += rewardsToGrant;
 		}
 		WaveManager.Instance.DecrementEnemyCount();
 		Destroy(gameObject);

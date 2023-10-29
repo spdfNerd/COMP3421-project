@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -5299657561207226983}
   m_Layer: 0
   m_Name: Chef
-  m_TagString: Untagged
+  m_TagString: KitchenStaff
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49,6 +49,9 @@ MonoBehaviour:
   cooldown: 1
   foodType: 0
   foodCountText: {fileID: 8165561905657482325}
+  hirePrice: 0
+  sellPrice: 0
+  runningCost: 0
 --- !u!1 &3807911688802817956
 GameObject:
   m_ObjectHideFlags: 0

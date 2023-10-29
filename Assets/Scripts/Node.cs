@@ -10,43 +10,31 @@ public class Node : MonoBehaviour {
     private Renderer rend;
     private Color startColour;
 
-    public GameObject tower;
-    private int towerHirePrice;
+    [HideInInspector]
+    public Transform tower;
     private int towerSellPrice;
     private int towerRunningCost;
 
-    // Start is called before the first frame update
-    private void Start() {
+	private void Start() {
         levelManager = LevelManager.Instance;
-        player = Player.instance;
+        player = Player.Instance;
         rend = GetComponent<Renderer>();
         startColour = rend.material.color;
     }
 
-    public void BuildTower(GameObject towerToBuild, int selectedTowerHirePrice, int selectedTowerSellPrice, int selectedTowerRunningCost) {
-        // if there is already a tower on the tile
-        if (tower != null) {
-            Debug.Log("Can't build there");
-            return;
-        }
+    public void BuildTower(Transform towerToBuild, int hirePrice, int sellPrice, int runningCost) {
+        levelManager.Money -= hirePrice;
 
-        if (levelManager.Money < selectedTowerHirePrice) {
-            Debug.Log("Not enough money to build that!");
-            return;
-        }
-        levelManager.Money -= selectedTowerHirePrice;
-
-        GameObject _tower = (GameObject) Instantiate(towerToBuild, player.GetPosition(), Quaternion.identity);
-        tower = _tower;
-        towerHirePrice = selectedTowerHirePrice;
-        towerSellPrice = selectedTowerSellPrice;
-        towerRunningCost = selectedTowerRunningCost;
-        levelManager.RunningCost += towerRunningCost;
+        Transform tower = Instantiate(towerToBuild, transform.position + positionOffset, Quaternion.identity);
+        this.tower = tower;
+        towerSellPrice = sellPrice;
+        towerRunningCost = runningCost;
+        levelManager.RunningCost += runningCost;
 
         Debug.Log("Tower built!");
     }
 
-    public void DestroyTower() {
+    public void SellTower() {
         // if there is no tower on the tile
         if (tower == null) {
             Debug.Log("Nothing to sell");

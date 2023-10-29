@@ -10,6 +10,10 @@ public class Waiter : MonoBehaviour {
 	public float range = 4f;
 	public float fireCooldown = 2f;
 
+	public int hirePrice;
+	public int sellPrice;
+	public int runningCost;
+
 	public TextMeshProUGUI foodCountText;
 
 	private Transform target = null;

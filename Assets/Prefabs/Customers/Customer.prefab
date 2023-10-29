@@ -313,7 +313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa74220a7b937e246931339a9a2cc9b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loopCount: 2
-  speed: 10
-  worth: 50
+  loopCount: 5
+  speed: 20
+  reputationPenalty: 10
   foodCountText: {fileID: 6112262983322000378}

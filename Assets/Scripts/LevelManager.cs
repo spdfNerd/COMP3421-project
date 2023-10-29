@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -8,18 +9,12 @@ public class LevelManager : MonoBehaviour {
 	public int startingMoney;
 	public int startingReputation;
 
-    public GameObject sushiTowerPrefab;
-    public GameObject burgerTowerPrefab;
-    public GameObject pizzaTowerPrefab;
-    public GameObject noodlesTowerPrefab;
-    public GameObject waiterTowerPrefab;
-    public GameObject fridgeTowerPrefab;
-
 	public TextMeshProUGUI moneyText;
 	public TextMeshProUGUI reputationText;
 
 	public Transform nodeParent;
 	public Transform node;
+	public Transform kitchenNode;
 	public int mapWidth = 24;
 	public int mapHeight = 24;
 
@@ -34,6 +29,8 @@ public class LevelManager : MonoBehaviour {
 
 	private GameObject towerToBuild;
     private int runningCost = 0;
+
+	public Dictionary<FoodType, int> foodRewards;
 
 	public int Money {
 		get => money;
@@ -72,19 +69,31 @@ public class LevelManager : MonoBehaviour {
 	private void Start() {
 		Money = startingMoney;
 		Reputation = startingReputation;
+		InitFoodRewards();
 
-		for (int i = -mapWidth / 2; i < mapWidth / 2; i++) {
-			for (int j = -mapHeight / 2; j < mapHeight / 2; j++) {
-				Instantiate(node, new Vector3(i * 4, 0f, j * 4), Quaternion.identity, nodeParent);
+		for (int i = -mapWidth / 2; i < mapWidth / 2 + 1; i++) {
+			for (int j = -mapHeight / 2; j < mapHeight / 2 + 1; j++) {
+				Instantiate(i >= 2 && j >= 6 ? kitchenNode : node, new Vector3(i * 4, 0f, j * 4), Quaternion.identity, nodeParent);
 			}
 		}
 	}
 
-    public GameObject GetTowerToBuild () {
+	private void InitFoodRewards() {
+		foodRewards = new Dictionary<FoodType, int>();
+		foodRewards.Add(FoodType.PIZZA, 50);
+		foodRewards.Add(FoodType.BURGER, 100);
+		foodRewards.Add(FoodType.SUSHI, 125);
+		foodRewards.Add(FoodType.NOODLE, 150);
+		foodRewards.Add(FoodType.COKE, 40);
+		foodRewards.Add(FoodType.WATER, 20);
+	}
+
+
+	public GameObject GetTowerToBuild() {
         return towerToBuild;
     }
 
-    public void SetTowerToBuild (GameObject tower) {
+    public void SetTowerToBuild(GameObject tower) {
         towerToBuild = tower;
     }
 

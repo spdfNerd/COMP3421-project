@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-	public static Player instance;
+	public static Player Instance;
 	[HideInInspector]
 	public Node currentNode;
 	[HideInInspector]
@@ -19,11 +19,11 @@ public class Player : MonoBehaviour {
 	private Vector3 velocity = Vector3.zero;
 
 	private void Awake() {
-		if (instance != null) {
+		if (Instance != null) {
 			Debug.Log("More than one Player in scene!");
 			return;
 		}
-		instance = this;
+		Instance = this;
 	}
 
 	private void Start() {

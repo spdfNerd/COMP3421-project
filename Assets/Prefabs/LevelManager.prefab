@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6313517045624647459}
   - component: {fileID: 964670866056294259}
   - component: {fileID: 1134661119793969957}
+  - component: {fileID: 3552611188793140248}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -47,9 +48,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingMoney: 400
   startingReputation: 50
-  sushiTowerPrefab: {fileID: 15617541570370368, guid: 98440fd214f2c704ea26806d98b72ef0, type: 3}
-  moneyText: {fileID: 2283580808767185929, guid: 450a03502d7eb5a458b9bf2c69568c19, type: 3}
-  reputationText: {fileID: 6803763032391997340, guid: b955f03470bd9004e8e258b95d1775d5, type: 3}
+  moneyText: {fileID: 0}
+  reputationText: {fileID: 0}
+  nodeParent: {fileID: 0}
+  node: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+  kitchenNode: {fileID: 2794450210263201508, guid: 7829cb2c9dd5f5f40859151fa4653b93, type: 3}
+  mapWidth: 24
+  mapHeight: 24
+  frontWall: {fileID: 0}
+  backWall: {fileID: 0}
+  leftWall: {fileID: 0}
+  rightWall: {fileID: 0}
 --- !u!114 &1134661119793969957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,4 +73,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waypoints: {fileID: 0}
   enemyPrefab: {fileID: 9045602439349780909, guid: e7579515e13f4cc41ab4a602187c9a89, type: 3}
-  startWaveButton: {fileID: 2645790306385369340, guid: ad5ed4adfcb314545bbef74d2db2855d, type: 3}
+  startWaveButton: {fileID: 0}
+--- !u!114 &3552611188793140248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5950833492371533802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80af265412646eb4a9e43dd0c227165a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sushiTowerPrefab: {fileID: 3246167590149267767, guid: ad3712eb77b78c74994741b381f40774, type: 3}
+  burgerTowerPrefab: {fileID: 1616419476327217012, guid: eae89f8ef6118d54e834eaff1c884f7f, type: 3}
+  pizzaTowerPrefab: {fileID: 3459076067257062456, guid: 5a7825d93b4e2384e94ebcecb229cf62, type: 3}
+  noodlesTowerPrefab: {fileID: 2697950695243699862, guid: 4b25968a849593a4eb93a25a04ee4a07, type: 3}
+  waiterTowerPrefab: {fileID: 3550817822578954969, guid: d8ebcfee9fde32e41b9d5fe87c41f9ee, type: 3}
+  fridgeTowerPrefab: {fileID: 3718583968090340071, guid: 1e74d0f119905e54797abc4b659dfcf2, type: 3}
+  towerToBuild: {fileID: 0}
