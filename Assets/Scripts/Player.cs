@@ -3,6 +3,11 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+	public static Player instance;
+	[HideInInspector]
+	public Node currentNode;
+	[HideInInspector]
+	public Node previousNode;
 	public float movementSpeed = 40f;
 
 	[HideInInspector]
@@ -11,9 +16,29 @@ public class Player : MonoBehaviour {
 	private bool[] directions = new bool[] { false, false, false, false };
 	private Vector3 velocity = Vector3.zero;
 
+	void Awake() {
+		if (instance != null) {
+			Debug.Log("More than one Player in scene!");
+			return;
+		}
+		instance = this;
+	}
+
 	private void Update() {
 		GetVelocity();
 		Move();
+		RaycastHit hit;
+		if (Physics.Raycast(transform.position, Vector3.down, out hit)) {
+			Node node = hit.transform.GetComponent<Node>();
+			if (node != null && node != currentNode) {
+				previousNode = currentNode;
+				currentNode = node;
+				currentNode.OnPlayerEnter();
+				if (previousNode != null) {
+					previousNode.OnPlayerExit();
+				}
+			}
+		}
 	}
 
 	private void GetVelocity() {
@@ -30,6 +55,11 @@ public class Player : MonoBehaviour {
 
 	private void Move() {
 		transform.Translate(velocity);
+	}
+
+	public Vector3 GetPosition ()
+	{
+		return transform.position;
 	}
 
 }
