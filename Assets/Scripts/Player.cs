@@ -3,6 +3,11 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+	public static Player instance;
+	[HideInInspector]
+	public Node currentNode;
+	[HideInInspector]
+	public Node previousNode;
 	public float movementSpeed = 40f;
 
 	private float minX;
@@ -13,9 +18,6 @@ public class Player : MonoBehaviour {
 	private bool[] directions = new bool[] { false, false, false, false };
 	private Vector3 velocity = Vector3.zero;
 
-	[HideInInspector]
-	public Node currentNode;
-
 	private void Start() {
 		CapsuleCollider collider = GetComponent<CapsuleCollider>();
 		float width = collider.radius;
@@ -24,10 +26,21 @@ public class Player : MonoBehaviour {
 		minZ = LevelManager.Instance.frontWall.position.z + width;
 		maxZ = LevelManager.Instance.backWall.position.z - width;
 	}
-
 	private void Update() {
 		GetVelocity();
 		Move();
+		RaycastHit hit;
+		if (Physics.Raycast(transform.position, Vector3.down, out hit)) {
+			Node node = hit.transform.GetComponent<Node>();
+			if (node != null && node != currentNode) {
+				previousNode = currentNode;
+				currentNode = node;
+				currentNode.OnPlayerEnter();
+				if (previousNode != null) {
+					previousNode.OnPlayerExit();
+				}
+			}
+		}
 	}
 
 	private void GetVelocity() {
@@ -47,6 +60,10 @@ public class Player : MonoBehaviour {
 		float xPos = Mathf.Clamp(transform.position.x, minX, maxX);
 		float zPos = Mathf.Clamp(transform.position.z, minZ, maxZ);
 		transform.position = new Vector3(xPos, transform.position.y, zPos);
+	}
+
+	public Vector3 GetPosition () {
+		return transform.position;
 	}
 
 }

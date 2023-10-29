@@ -7,8 +7,13 @@ public class LevelManager : MonoBehaviour {
 
 	public int startingMoney;
 	public int startingReputation;
-    
-	public GameObject sushiTowerPrefab;
+
+    public GameObject sushiTowerPrefab;
+    public GameObject burgerTowerPrefab;
+    public GameObject pizzaTowerPrefab;
+    public GameObject noodlesTowerPrefab;
+    public GameObject waiterTowerPrefab;
+    public GameObject fridgeTowerPrefab;
 
 	public TextMeshProUGUI moneyText;
 	public TextMeshProUGUI reputationText;
@@ -23,6 +28,7 @@ public class LevelManager : MonoBehaviour {
 	private int round = 0;
 
 	private GameObject towerToBuild;
+    private int runningCost = 0;
 
 	public int Money {
 		get => money;
@@ -30,6 +36,11 @@ public class LevelManager : MonoBehaviour {
 			money = value;
 			moneyText.text = "$" + money;
 		}
+	}
+
+    public int RunningCost {
+		get => runningCost;
+		set => runningCost = value;
 	}
 
 	public int Reputation {
@@ -48,7 +59,6 @@ public class LevelManager : MonoBehaviour {
 	private void Awake() {
 		if (Instance != null) {
 			Debug.Log("More than one LevelManager in scene!");
-			// Debug.LogError("More than one LevelManager in scene!");
 			return;
 		}
 		Instance = this;
@@ -60,19 +70,10 @@ public class LevelManager : MonoBehaviour {
 	}
 
     public GameObject GetTowerToBuild () {
-        if (towerToBuild == null)
-		{
-            Debug.Log("brooooo null tower");
-		}
         return towerToBuild;
     }
 
     public void SetTowerToBuild (GameObject tower) {
-        // Debug.Log(tower);
-        if (tower != null)
-		{
-            Debug.Log("building ayyy");
-		}
         towerToBuild = tower;
     }
 
