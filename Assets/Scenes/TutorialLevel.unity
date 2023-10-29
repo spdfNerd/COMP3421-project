@@ -473,6 +473,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 310788985}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &316194667
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 316194668}
+  m_Layer: 0
+  m_Name: FrontWall
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &316194668
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316194667}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 13, z: -50.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1693205348}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &333457319
 GameObject:
   m_ObjectHideFlags: 0
@@ -505,6 +536,37 @@ Transform:
   - {fileID: 582187376}
   - {fileID: 2000923554}
   m_Father: {fileID: 876312293}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &353871930
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 353871931}
+  m_Layer: 0
+  m_Name: Nodes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &353871931
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 353871930}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1693205348}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &399957825 stripped
 GameObject:
@@ -911,7 +973,7 @@ GameObject:
   - component: {fileID: 898014473}
   - component: {fileID: 898014472}
   m_Layer: 0
-  m_Name: Wall (2)
+  m_Name: LeftWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1183,7 +1245,7 @@ GameObject:
   - component: {fileID: 991769845}
   - component: {fileID: 991769844}
   m_Layer: 0
-  m_Name: Wall (1)
+  m_Name: BackWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1492,7 +1554,7 @@ GameObject:
   - component: {fileID: 1519835797}
   - component: {fileID: 1519835796}
   m_Layer: 0
-  m_Name: Wall
+  m_Name: RightWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1689,38 +1751,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1554397111}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1618768269
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1618768270}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1618768270
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1618768269}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1693205348}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1679768800
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1808,16 +1838,18 @@ Transform:
   m_GameObject: {fileID: 1693205347}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 940232988}
+  - {fileID: 353871931}
   - {fileID: 1519835795}
   - {fileID: 991769843}
   - {fileID: 898014471}
+  - {fileID: 316194668}
   - {fileID: 1377702994}
-  m_Father: {fileID: 1618768270}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1750223611
 GameObject:
@@ -2797,13 +2829,37 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 964670866056294259, guid: 7df76b8e52be3de4f9781b5d60d56738, type: 3}
+      propertyPath: node
+      value: 
+      objectReference: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+    - target: {fileID: 964670866056294259, guid: 7df76b8e52be3de4f9781b5d60d56738, type: 3}
+      propertyPath: backWall
+      value: 
+      objectReference: {fileID: 991769843}
+    - target: {fileID: 964670866056294259, guid: 7df76b8e52be3de4f9781b5d60d56738, type: 3}
+      propertyPath: leftWall
+      value: 
+      objectReference: {fileID: 898014471}
+    - target: {fileID: 964670866056294259, guid: 7df76b8e52be3de4f9781b5d60d56738, type: 3}
+      propertyPath: frontWall
+      value: 
+      objectReference: {fileID: 316194668}
+    - target: {fileID: 964670866056294259, guid: 7df76b8e52be3de4f9781b5d60d56738, type: 3}
       propertyPath: moneyText
       value: 
       objectReference: {fileID: 1328803377}
     - target: {fileID: 964670866056294259, guid: 7df76b8e52be3de4f9781b5d60d56738, type: 3}
+      propertyPath: rightWall
+      value: 
+      objectReference: {fileID: 1519835795}
+    - target: {fileID: 964670866056294259, guid: 7df76b8e52be3de4f9781b5d60d56738, type: 3}
       propertyPath: waypoints
       value: 
       objectReference: {fileID: 876312293}
+    - target: {fileID: 964670866056294259, guid: 7df76b8e52be3de4f9781b5d60d56738, type: 3}
+      propertyPath: nodeParent
+      value: 
+      objectReference: {fileID: 353871931}
     - target: {fileID: 964670866056294259, guid: 7df76b8e52be3de4f9781b5d60d56738, type: 3}
       propertyPath: reputationText
       value: 
@@ -2874,5 +2930,5 @@ SceneRoots:
   - {fileID: 1071917374}
   - {fileID: 8128740576184468851}
   - {fileID: 2069133446}
-  - {fileID: 1618768270}
+  - {fileID: 1693205348}
   - {fileID: 3728253761914718948}

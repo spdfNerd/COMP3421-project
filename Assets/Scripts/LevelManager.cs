@@ -18,6 +18,11 @@ public class LevelManager : MonoBehaviour {
 	public TextMeshProUGUI moneyText;
 	public TextMeshProUGUI reputationText;
 
+	public Transform nodeParent;
+	public Transform node;
+	public int mapWidth = 24;
+	public int mapHeight = 24;
+
 	public Transform frontWall;
 	public Transform backWall;
 	public Transform leftWall;
@@ -67,6 +72,12 @@ public class LevelManager : MonoBehaviour {
 	private void Start() {
 		Money = startingMoney;
 		Reputation = startingReputation;
+
+		for (int i = -mapWidth / 2; i < mapWidth / 2; i++) {
+			for (int j = -mapHeight / 2; j < mapHeight / 2; j++) {
+				Instantiate(node, new Vector3(i * 4, 0f, j * 4), Quaternion.identity, nodeParent);
+			}
+		}
 	}
 
     public GameObject GetTowerToBuild () {
