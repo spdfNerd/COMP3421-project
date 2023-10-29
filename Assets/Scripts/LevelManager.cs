@@ -7,9 +7,6 @@ public class LevelManager : MonoBehaviour {
 
 	public int startingMoney;
 	public int startingReputation;
-    
-    public Transform waypoints;
-    public Transform enemyPrefab;
 
     public GameObject sushiTowerPrefab;
     public GameObject burgerTowerPrefab;
