@@ -57,7 +57,6 @@ public class LevelManager : MonoBehaviour {
 	void Awake() {
 		if (instance != null) {
 			Debug.Log("More than one LevelManager in scene!");
-			// Debug.LogError("More than one LevelManager in scene!");
 			return;
 		}
 		instance = this;
@@ -69,19 +68,10 @@ public class LevelManager : MonoBehaviour {
 	}
 
     public GameObject GetTowerToBuild () {
-        if (towerToBuild == null)
-		{
-            Debug.Log("no tower to build");
-		}
         return towerToBuild;
     }
 
     public void SetTowerToBuild (GameObject tower) {
-        // Debug.Log(tower);
-        if (tower != null)
-		{
-            Debug.Log("set the tower");
-		}
         towerToBuild = tower;
     }
 

@@ -16,7 +16,6 @@ public class Player : MonoBehaviour {
 	void Awake() {
 		if (instance != null) {
 			Debug.Log("More than one Player in scene!");
-			// Debug.LogError("More than one LevelManager in scene!");
 			return;
 		}
 		instance = this;

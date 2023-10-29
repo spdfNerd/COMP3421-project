@@ -47,7 +47,6 @@ public class Shop : MonoBehaviour
     }
 
     public void SelectSushiTower () {
-        Debug.Log("Sushi Tower Selected");
         levelManager.SetTowerToBuild(levelManager.sushiTowerPrefab);
         selectedTower = GameObject.Find("SushiChef");
         selectedTowerHirePrice = sushiTowerHirePrice;
@@ -56,7 +55,6 @@ public class Shop : MonoBehaviour
     }
 
     public void SelectBurgerTower () {
-        Debug.Log("Burger Tower Selected");
         levelManager.SetTowerToBuild(levelManager.burgerTowerPrefab);
         selectedTower = GameObject.Find("BurgerChef");
         selectedTowerHirePrice = burgerTowerHirePrice;
@@ -65,7 +63,6 @@ public class Shop : MonoBehaviour
     }
 
     public void SelectPizzaTower () {
-        Debug.Log("Sushi Tower Selected");
         levelManager.SetTowerToBuild(levelManager.pizzaTowerPrefab);
         selectedTower = GameObject.Find("PizzaChef");
         selectedTowerHirePrice = pizzaTowerHirePrice;
@@ -74,7 +71,6 @@ public class Shop : MonoBehaviour
     }
 
     public void SelectNoodlesTower () {
-        Debug.Log("Noodles Tower Selected");
         levelManager.SetTowerToBuild(levelManager.noodlesTowerPrefab);
         selectedTower = GameObject.Find("NoodlesChef");
         selectedTowerHirePrice = noodlesTowerHirePrice;
@@ -83,7 +79,6 @@ public class Shop : MonoBehaviour
     }
 
     public void SelectWaiterTower () {
-        Debug.Log("Waiter Tower Selected");
         levelManager.SetTowerToBuild(levelManager.waiterTowerPrefab);
         selectedTower = GameObject.Find("Waiter");
         selectedTowerHirePrice = waiterTowerHirePrice;
@@ -92,7 +87,6 @@ public class Shop : MonoBehaviour
     }
 
     public void SelectFridgeTower () {
-        Debug.Log("Fridge Tower Selected");
         levelManager.SetTowerToBuild(levelManager.fridgeTowerPrefab);
         selectedTower = GameObject.Find("Fridge");
         selectedTowerHirePrice = fridgeTowerHirePrice;
@@ -101,8 +95,6 @@ public class Shop : MonoBehaviour
     }
 
     public void BuyTower () {
-        Debug.Log("Pressed");
-
         // no tower selected to build
         if (levelManager.GetTowerToBuild() == null)
             return;

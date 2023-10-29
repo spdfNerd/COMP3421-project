@@ -40,7 +40,6 @@ public class Node : MonoBehaviour
 			return;
 		}
         levelManager.Money -= selectedTowerHirePrice;
-        Debug.Log("Money left " + levelManager.Money);
 
 		GameObject _tower = (GameObject)Instantiate(towerToBuild, player.GetPosition(), Quaternion.identity);
 		tower = _tower;
@@ -48,11 +47,8 @@ public class Node : MonoBehaviour
         towerSellPrice = selectedTowerSellPrice;
         towerRunningCost = selectedTowerRunningCost;
         levelManager.RunningCost += towerRunningCost;
-		// GameObject effect = (GameObject)Instantiate(buildManager.buildEffect, GetPlayerPosition(), Quaternion.identity);
-		// Destroy(effect, 5f);
 
 		Debug.Log("Tower built!");
-        Debug.Log(levelManager.RunningCost);
     }
 
     public void DestroyTower () {
@@ -62,14 +58,11 @@ public class Node : MonoBehaviour
             Debug.Log("Nothing to sell");
 			return;
 		}
-		// GameObject effect = (GameObject)Instantiate(buildManager.sellEffect, GetPlayerPosition(), Quaternion.identity);
-		// Destroy(effect, 5f);
 
 		Destroy(tower);
 		tower = null;
 
         levelManager.Money += towerSellPrice;
-        Debug.Log("Money left " + levelManager.Money);
         levelManager.RunningCost -= towerRunningCost;
     }
 
