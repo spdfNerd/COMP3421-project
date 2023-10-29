@@ -32,7 +32,9 @@ public class Player : MonoBehaviour {
 				previousNode = currentNode;
 				currentNode = node;
 				currentNode.OnPlayerEnter();
-				previousNode.OnPlayerExit();
+				if (previousNode != null) {
+					previousNode.OnPlayerExit();
+				}
 			}
 		}
 	}

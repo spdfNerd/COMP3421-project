@@ -191,11 +191,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (268)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -268,7 +272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1001 &14220043
 PrefabInstance:
@@ -531,11 +535,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (257)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -608,7 +616,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1 &26130829 stripped
 GameObject:
@@ -1223,6 +1231,10 @@ PrefabInstance:
     - target: {fileID: 7786229570037556212, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_Name
       value: NoodlesChef
+      objectReference: {fileID: 0}
+    - target: {fileID: 7786229570037556212, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: m_TagString
+      value: KitchenStaff
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2255,11 +2267,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (328)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2392,7 +2408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1 &91323322 stripped
 GameObject:
@@ -2417,7 +2433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1 &94761150 stripped
 GameObject:
@@ -3421,7 +3437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1001 &146972884
 PrefabInstance:
@@ -3664,11 +3680,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (188)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3741,7 +3761,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1001 &154607201
 PrefabInstance:
@@ -4988,108 +5008,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1743754285}
   m_SourcePrefab: {fileID: 100100000, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
---- !u!1001 &213562632
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 238021563}
-    m_Modifications:
-    - target: {fileID: 6560960741340584313, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6560960741340584313, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6560960741340584313, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6560960741340584313, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6560960741340584313, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6560960741340584313, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6560960741340584313, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6560960741340584313, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6560960741340584313, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6560960741340584313, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6560960741340584313, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6560960741340584313, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6560960741340584313, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6560960741340584313, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6560960741340584313, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6560960741340584313, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6560960741340584313, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6560960741340584313, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6560960741340584313, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6560960741340584313, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7786229570037556212, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_Name
-      value: ShopItem (6)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
---- !u!224 &213562633 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6560960741340584313, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-  m_PrefabInstance: {fileID: 213562632}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &213573130 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
@@ -5827,7 +5745,6 @@ RectTransform:
   - {fileID: 45542249}
   - {fileID: 732638239}
   - {fileID: 401671498}
-  - {fileID: 213562633}
   m_Father: {fileID: 1943740669}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
@@ -5855,7 +5772,7 @@ MonoBehaviour:
   m_ChildAlignment: 1
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 70, y: 70}
+  m_CellSize: {x: 90, y: 90}
   m_Spacing: {x: 10, y: 10}
   m_Constraint: 1
   m_ConstraintCount: 2
@@ -6324,7 +6241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!4 &258336510 stripped
 Transform:
@@ -6546,11 +6463,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (256)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6623,7 +6544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1001 &274936621
 PrefabInstance:
@@ -7576,11 +7497,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (272)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7653,7 +7578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1 &317018173 stripped
 GameObject:
@@ -7686,11 +7611,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (296)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7763,7 +7692,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1001 &318635203
 PrefabInstance:
@@ -8964,11 +8893,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (228)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9041,7 +8974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1001 &355914318
 PrefabInstance:
@@ -9554,11 +9487,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (232)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9631,7 +9568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1001 &396343999
 PrefabInstance:
@@ -9821,6 +9758,10 @@ PrefabInstance:
     - target: {fileID: 7786229570037556212, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_Name
       value: Fridge
+      objectReference: {fileID: 0}
+    - target: {fileID: 7786229570037556212, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: m_TagString
+      value: KitchenStaff
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10601,11 +10542,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (352)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10661,11 +10606,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (360)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11570,11 +11519,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (217)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11647,7 +11600,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1 &470853202 stripped
 GameObject:
@@ -11867,7 +11820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1001 &484831929
 PrefabInstance:
@@ -13375,11 +13328,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (340)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15328,11 +15285,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (345)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15388,11 +15349,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (332)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16120,11 +16085,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (361)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16277,7 +16246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1 &650931321 stripped
 GameObject:
@@ -16477,7 +16446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1 &661420123 stripped
 GameObject:
@@ -16735,11 +16704,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (312)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16812,7 +16785,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1 &676022292 stripped
 GameObject:
@@ -17908,6 +17881,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Waiter
       objectReference: {fileID: 0}
+    - target: {fileID: 7786229570037556212, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: m_TagString
+      value: WaiterStaff
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18594,11 +18571,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (329)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22608,11 +22589,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (336)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23177,7 +23162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1 &976370253 stripped
 GameObject:
@@ -24139,11 +24124,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (173)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -24216,7 +24205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1001 &1028212213
 PrefabInstance:
@@ -24224,11 +24213,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (253)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -24301,7 +24294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1 &1029016175 stripped
 GameObject:
@@ -24489,11 +24482,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (177)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -24566,7 +24563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1 &1048123679 stripped
 GameObject:
@@ -25793,11 +25790,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (192)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25870,7 +25871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1001 &1083938643
 PrefabInstance:
@@ -26103,11 +26104,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (288)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -26180,7 +26185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1 &1095174269 stripped
 GameObject:
@@ -27281,6 +27286,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BurgerChef
       objectReference: {fileID: 0}
+    - target: {fileID: 7786229570037556212, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: m_TagString
+      value: KitchenStaff
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27899,7 +27908,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1 &1191067831 stripped
 GameObject:
@@ -28542,11 +28551,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (248)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -28619,7 +28632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1001 &1221490492
 PrefabInstance:
@@ -28962,11 +28975,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (308)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -29039,7 +29056,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1 &1232349240 stripped
 GameObject:
@@ -29369,7 +29386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1 &1241443360 stripped
 GameObject:
@@ -30060,11 +30077,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (353)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -30655,11 +30676,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (209)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -30732,7 +30757,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1 &1284419589 stripped
 GameObject:
@@ -32337,10 +32362,10 @@ MonoBehaviour:
   waypoints: {fileID: 876312293}
   enemyPrefab: {fileID: 9045602439349780909, guid: e7579515e13f4cc41ab4a602187c9a89, type: 3}
   sushiTowerPrefab: {fileID: 15617541570370368, guid: 98440fd214f2c704ea26806d98b72ef0, type: 3}
-  burgerTowerPrefab: {fileID: 0}
-  pizzaTowerPrefab: {fileID: 0}
-  noodlesTowerPrefab: {fileID: 0}
-  waiterTowerPrefab: {fileID: 0}
+  burgerTowerPrefab: {fileID: 15617541570370368, guid: 98440fd214f2c704ea26806d98b72ef0, type: 3}
+  pizzaTowerPrefab: {fileID: 15617541570370368, guid: 98440fd214f2c704ea26806d98b72ef0, type: 3}
+  noodlesTowerPrefab: {fileID: 15617541570370368, guid: 98440fd214f2c704ea26806d98b72ef0, type: 3}
+  waiterTowerPrefab: {fileID: 1788694466408399608, guid: d8ebcfee9fde32e41b9d5fe87c41f9ee, type: 3}
   fridgeTowerPrefab: {fileID: 0}
   moneyText: {fileID: 1328803377}
   reputationText: {fileID: 2034910122}
@@ -32600,11 +32625,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (213)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -32677,7 +32706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1001 &1361053583
 PrefabInstance:
@@ -32975,11 +33004,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (216)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -33052,7 +33085,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1001 &1373575673
 PrefabInstance:
@@ -33268,11 +33301,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (208)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -33345,7 +33382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1 &1389943828 stripped
 GameObject:
@@ -34078,11 +34115,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (196)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -34155,7 +34196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1 &1428385129 stripped
 GameObject:
@@ -34383,11 +34424,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (356)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -35025,7 +35070,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1001 &1470412560
 PrefabInstance:
@@ -35033,11 +35078,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (348)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -35618,11 +35667,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (320)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -36916,6 +36969,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PizzaChef
       objectReference: {fileID: 0}
+    - target: {fileID: 7786229570037556212, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: m_TagString
+      value: KitchenStaff
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -36932,11 +36989,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (236)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -37009,7 +37070,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1001 &1549384941
 PrefabInstance:
@@ -37164,7 +37225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1001 &1553733890
 PrefabInstance:
@@ -38532,11 +38593,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (252)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -38609,7 +38674,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1 &1631360205 stripped
 GameObject:
@@ -39062,11 +39127,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (292)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -39139,7 +39208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1001 &1651594498
 PrefabInstance:
@@ -39612,11 +39681,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (289)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -39689,7 +39762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1 &1669397028 stripped
 GameObject:
@@ -40441,7 +40514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1 &1693205347
 GameObject:
@@ -40477,6 +40550,7 @@ Transform:
   - {fileID: 1519835795}
   - {fileID: 991769843}
   - {fileID: 898014471}
+  - {fileID: 1856947127}
   - {fileID: 2004741559}
   - {fileID: 1377702994}
   m_Father: {fileID: 0}
@@ -40994,7 +41068,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1001 &1717489448
 PrefabInstance:
@@ -41002,11 +41076,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (316)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -41079,7 +41157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1 &1723213673 stripped
 GameObject:
@@ -41427,11 +41505,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (321)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -43077,11 +43159,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (176)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -43154,7 +43240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1001 &1798381925
 PrefabInstance:
@@ -43492,11 +43578,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (337)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -43578,17 +43668,13 @@ Transform:
   m_Children:
   - {fileID: 759517035}
   - {fileID: 83760793}
-  - {fileID: 87868556}
   - {fileID: 831378404}
-  - {fileID: 143674301}
   - {fileID: 894505161}
   - {fileID: 517906743}
   - {fileID: 505061653}
   - {fileID: 447414206}
   - {fileID: 1445756240}
-  - {fileID: 1925216613}
   - {fileID: 53538061}
-  - {fileID: 1552859160}
   - {fileID: 976370254}
   - {fileID: 128629779}
   - {fileID: 280692903}
@@ -43614,11 +43700,9 @@ Transform:
   - {fileID: 1676044949}
   - {fileID: 323034775}
   - {fileID: 745421495}
-  - {fileID: 2035334059}
   - {fileID: 1537571118}
   - {fileID: 79054102}
   - {fileID: 1745071333}
-  - {fileID: 1936129898}
   - {fileID: 60220590}
   - {fileID: 48935940}
   - {fileID: 1149808097}
@@ -43626,11 +43710,9 @@ Transform:
   - {fileID: 1681904247}
   - {fileID: 963954577}
   - {fileID: 308067340}
-  - {fileID: 2068725338}
   - {fileID: 1551756549}
   - {fileID: 797260785}
   - {fileID: 487509534}
-  - {fileID: 1023494924}
   - {fileID: 307261821}
   - {fileID: 1875165585}
   - {fileID: 644930790}
@@ -43638,11 +43720,9 @@ Transform:
   - {fileID: 490751452}
   - {fileID: 227765903}
   - {fileID: 2114329910}
-  - {fileID: 1796580250}
   - {fileID: 1529041467}
   - {fileID: 1949734655}
   - {fileID: 897008856}
-  - {fileID: 1046782410}
   - {fileID: 1316243905}
   - {fileID: 1463553370}
   - {fileID: 46606728}
@@ -43650,9 +43730,7 @@ Transform:
   - {fileID: 1918933113}
   - {fileID: 792057444}
   - {fileID: 677489728}
-  - {fileID: 1692377059}
   - {fileID: 564785786}
-  - {fileID: 255463399}
   - {fileID: 358466742}
   - {fileID: 1072515390}
   - {fileID: 107746273}
@@ -43686,7 +43764,6 @@ Transform:
   - {fileID: 2054855014}
   - {fileID: 338645831}
   - {fileID: 553779256}
-  - {fileID: 154214716}
   - {fileID: 153961016}
   - {fileID: 1660686517}
   - {fileID: 295347471}
@@ -43698,7 +43775,6 @@ Transform:
   - {fileID: 1232554490}
   - {fileID: 590543908}
   - {fileID: 174345314}
-  - {fileID: 1082832474}
   - {fileID: 1929202241}
   - {fileID: 782384539}
   - {fileID: 1987059319}
@@ -43710,7 +43786,6 @@ Transform:
   - {fileID: 1105789859}
   - {fileID: 173074853}
   - {fileID: 845758728}
-  - {fileID: 1428342068}
   - {fileID: 609487788}
   - {fileID: 2137720980}
   - {fileID: 953091217}
@@ -43722,17 +43797,13 @@ Transform:
   - {fileID: 96613303}
   - {fileID: 534627097}
   - {fileID: 960888260}
-  - {fileID: 650882311}
   - {fileID: 1270540206}
-  - {fileID: 483916695}
   - {fileID: 2121889886}
   - {fileID: 1308355879}
   - {fileID: 756233323}
   - {fileID: 516780155}
   - {fileID: 993605272}
-  - {fileID: 974896902}
   - {fileID: 872427226}
-  - {fileID: 661159142}
   - {fileID: 33179766}
   - {fileID: 1964610029}
   - {fileID: 464630196}
@@ -43758,11 +43829,9 @@ Transform:
   - {fileID: 840015574}
   - {fileID: 754393631}
   - {fileID: 1588588460}
-  - {fileID: 1385841311}
   - {fileID: 332929169}
   - {fileID: 856917140}
   - {fileID: 1595993216}
-  - {fileID: 1283674409}
   - {fileID: 2115056624}
   - {fileID: 768376340}
   - {fileID: 1316679456}
@@ -43770,11 +43839,9 @@ Transform:
   - {fileID: 1346766262}
   - {fileID: 1422056778}
   - {fileID: 1484957472}
-  - {fileID: 1823364396}
   - {fileID: 443206593}
   - {fileID: 922031768}
   - {fileID: 60051603}
-  - {fileID: 1360686133}
   - {fileID: 493316699}
   - {fileID: 1457865275}
   - {fileID: 808833777}
@@ -43782,11 +43849,9 @@ Transform:
   - {fileID: 1553733891}
   - {fileID: 1754355865}
   - {fileID: 1170271560}
-  - {fileID: 1373473415}
   - {fileID: 830803021}
   - {fileID: 1992480352}
   - {fileID: 1489552545}
-  - {fileID: 469718581}
   - {fileID: 851269718}
   - {fileID: 1680966002}
   - {fileID: 502146405}
@@ -43794,9 +43859,7 @@ Transform:
   - {fileID: 291739131}
   - {fileID: 2025310347}
   - {fileID: 1103544046}
-  - {fileID: 1241183097}
   - {fileID: 178026259}
-  - {fileID: 1467973812}
   - {fileID: 1610005800}
   - {fileID: 1439954795}
   - {fileID: 767284839}
@@ -43830,7 +43893,6 @@ Transform:
   - {fileID: 1549384942}
   - {fileID: 154607202}
   - {fileID: 1076847896}
-  - {fileID: 355555303}
   - {fileID: 448770757}
   - {fileID: 1744922842}
   - {fileID: 1875816192}
@@ -43842,7 +43904,6 @@ Transform:
   - {fileID: 1520595062}
   - {fileID: 460551083}
   - {fileID: 213573131}
-  - {fileID: 395906216}
   - {fileID: 619331016}
   - {fileID: 517493077}
   - {fileID: 335847809}
@@ -43854,7 +43915,6 @@ Transform:
   - {fileID: 2004303914}
   - {fileID: 1071079211}
   - {fileID: 524740560}
-  - {fileID: 1546463783}
   - {fileID: 1126066200}
   - {fileID: 1239180710}
   - {fileID: 1120522002}
@@ -43866,13 +43926,11 @@ Transform:
   - {fileID: 32854155}
   - {fileID: 356705794}
   - {fileID: 907887417}
-  - {fileID: 1815896180}
   - {fileID: 2074036519}
   - {fileID: 1970415079}
   - {fileID: 1391182587}
   - {fileID: 579510011}
   - {fileID: 1154974053}
-  - {fileID: 1878637424}
   - {fileID: 517628600}
   - {fileID: 568831041}
   - {fileID: 1954264286}
@@ -43896,11 +43954,9 @@ Transform:
   - {fileID: 493985479}
   - {fileID: 406584453}
   - {fileID: 1191067832}
-  - {fileID: 1218984878}
   - {fileID: 303707392}
   - {fileID: 455437294}
   - {fileID: 208057096}
-  - {fileID: 1876147333}
   - {fileID: 368062890}
   - {fileID: 199705985}
   - {fileID: 406992021}
@@ -43908,11 +43964,9 @@ Transform:
   - {fileID: 588173407}
   - {fileID: 1273424391}
   - {fileID: 1640410830}
-  - {fileID: 1621683862}
   - {fileID: 222458881}
   - {fileID: 2025655805}
   - {fileID: 45316000}
-  - {fileID: 1028212214}
   - {fileID: 26130830}
   - {fileID: 940241585}
   - {fileID: 1221490493}
@@ -43920,11 +43974,9 @@ Transform:
   - {fileID: 253333402}
   - {fileID: 1756067966}
   - {fileID: 1492554695}
-  - {fileID: 268060874}
   - {fileID: 294903221}
   - {fileID: 747474771}
   - {fileID: 1081632980}
-  - {fileID: 25067930}
   - {fileID: 1147381846}
   - {fileID: 1154344815}
   - {fileID: 253301040}
@@ -43932,7 +43984,6 @@ Transform:
   - {fileID: 1531667739}
   - {fileID: 1697300047}
   - {fileID: 573399073}
-  - {fileID: 91323323}
   - {fileID: 2051371008}
   - {fileID: 924263357}
   - {fileID: 694533982}
@@ -43962,7 +44013,6 @@ Transform:
   - {fileID: 1957199230}
   - {fileID: 1372510535}
   - {fileID: 1673213739}
-  - {fileID: 13446979}
   - {fileID: 1146630396}
   - {fileID: 2121244630}
   - {fileID: 650931322}
@@ -43974,7 +44024,6 @@ Transform:
   - {fileID: 600505206}
   - {fileID: 1852994198}
   - {fileID: 1096598290}
-  - {fileID: 316080694}
   - {fileID: 1254430310}
   - {fileID: 396344000}
   - {fileID: 892068853}
@@ -43986,7 +44035,6 @@ Transform:
   - {fileID: 617791438}
   - {fileID: 1520727576}
   - {fileID: 560287475}
-  - {fileID: 2018340260}
   - {fileID: 1166496471}
   - {fileID: 2119445370}
   - {fileID: 63151223}
@@ -43998,13 +44046,11 @@ Transform:
   - {fileID: 2129942266}
   - {fileID: 1275425054}
   - {fileID: 1427517975}
-  - {fileID: 1183328948}
   - {fileID: 1910959253}
   - {fileID: 1942810899}
   - {fileID: 661420124}
   - {fileID: 752948899}
   - {fileID: 169023428}
-  - {fileID: 1811326329}
   - {fileID: 787563691}
   - {fileID: 275593197}
   - {fileID: 733981823}
@@ -44028,11 +44074,9 @@ Transform:
   - {fileID: 2098603979}
   - {fileID: 1898989887}
   - {fileID: 308398569}
-  - {fileID: 1094230558}
   - {fileID: 1467146709}
   - {fileID: 1055052917}
   - {fileID: 1682411576}
-  - {fileID: 1666153554}
   - {fileID: 336619619}
   - {fileID: 1415966561}
   - {fileID: 1590312823}
@@ -44040,11 +44084,9 @@ Transform:
   - {fileID: 1395521536}
   - {fileID: 1786656694}
   - {fileID: 2079835175}
-  - {fileID: 1650984883}
   - {fileID: 1692068737}
   - {fileID: 889973973}
   - {fileID: 684395915}
-  - {fileID: 2100826143}
   - {fileID: 1787863826}
   - {fileID: 1499678057}
   - {fileID: 1764530389}
@@ -44052,11 +44094,9 @@ Transform:
   - {fileID: 330582025}
   - {fileID: 1104404264}
   - {fileID: 1153134893}
-  - {fileID: 317827021}
   - {fileID: 720160318}
   - {fileID: 1613862583}
   - {fileID: 394965604}
-  - {fileID: 1848595947}
   - {fileID: 1497294694}
   - {fileID: 808455730}
   - {fileID: 1306976411}
@@ -44064,7 +44104,6 @@ Transform:
   - {fileID: 1758277940}
   - {fileID: 695766040}
   - {fileID: 1462182872}
-  - {fileID: 1715630271}
   - {fileID: 540261635}
   - {fileID: 567000367}
   - {fileID: 446340118}
@@ -44094,7 +44133,6 @@ Transform:
   - {fileID: 225488732}
   - {fileID: 141822308}
   - {fileID: 410341057}
-  - {fileID: 1230781849}
   - {fileID: 811603568}
   - {fileID: 1487454211}
   - {fileID: 1226033371}
@@ -44106,7 +44144,6 @@ Transform:
   - {fileID: 1639230364}
   - {fileID: 462416811}
   - {fileID: 321352529}
-  - {fileID: 674386098}
   - {fileID: 1508117963}
   - {fileID: 1645865011}
   - {fileID: 1428385130}
@@ -44118,7 +44155,6 @@ Transform:
   - {fileID: 1997003038}
   - {fileID: 137246780}
   - {fileID: 392936523}
-  - {fileID: 1717489449}
   - {fileID: 1019609527}
   - {fileID: 1068461585}
   - {fileID: 520928330}
@@ -44168,7 +44204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1001 &1813343534
 PrefabInstance:
@@ -44338,7 +44374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1001 &1823364395
 PrefabInstance:
@@ -44346,11 +44382,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (212)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -44423,7 +44463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1001 &1823629797
 PrefabInstance:
@@ -44431,11 +44471,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (364)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -45061,11 +45105,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (297)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -45138,7 +45186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1 &1851683642 stripped
 GameObject:
@@ -45310,6 +45358,91 @@ MonoBehaviour:
   positionOffset: {x: 0, y: 0, z: 0}
   hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
   tower: {fileID: 0}
+--- !u!1 &1856947126
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1856947127}
+  m_Layer: 0
+  m_Name: KitchenNodes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1856947127
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856947126}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 87868556}
+  - {fileID: 143674301}
+  - {fileID: 1925216613}
+  - {fileID: 1552859160}
+  - {fileID: 2035334059}
+  - {fileID: 1936129898}
+  - {fileID: 2068725338}
+  - {fileID: 1023494924}
+  - {fileID: 1796580250}
+  - {fileID: 1046782410}
+  - {fileID: 1692377059}
+  - {fileID: 255463399}
+  - {fileID: 154214716}
+  - {fileID: 1082832474}
+  - {fileID: 1428342068}
+  - {fileID: 650882311}
+  - {fileID: 483916695}
+  - {fileID: 974896902}
+  - {fileID: 661159142}
+  - {fileID: 1385841311}
+  - {fileID: 1283674409}
+  - {fileID: 1823364396}
+  - {fileID: 1360686133}
+  - {fileID: 1373473415}
+  - {fileID: 469718581}
+  - {fileID: 1241183097}
+  - {fileID: 1467973812}
+  - {fileID: 355555303}
+  - {fileID: 395906216}
+  - {fileID: 1546463783}
+  - {fileID: 1815896180}
+  - {fileID: 1878637424}
+  - {fileID: 1218984878}
+  - {fileID: 1876147333}
+  - {fileID: 1621683862}
+  - {fileID: 1028212214}
+  - {fileID: 268060874}
+  - {fileID: 25067930}
+  - {fileID: 91323323}
+  - {fileID: 13446979}
+  - {fileID: 316080694}
+  - {fileID: 2018340260}
+  - {fileID: 1183328948}
+  - {fileID: 1811326329}
+  - {fileID: 1094230558}
+  - {fileID: 1666153554}
+  - {fileID: 1650984883}
+  - {fileID: 2100826143}
+  - {fileID: 317827021}
+  - {fileID: 1848595947}
+  - {fileID: 1715630271}
+  - {fileID: 1230781849}
+  - {fileID: 674386098}
+  - {fileID: 1717489449}
+  m_Father: {fileID: 1693205348}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1857142373
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45741,11 +45874,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (249)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -45818,7 +45955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1 &1876683306 stripped
 GameObject:
@@ -45883,7 +46020,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1 &1880959943 stripped
 GameObject:
@@ -46748,7 +46885,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1 &1929202240 stripped
 GameObject:
@@ -47031,11 +47168,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (169)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -47108,7 +47249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1 &1939256587
 GameObject:
@@ -47391,12 +47532,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f29c47cba4b88423f940841f05f069db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sushiTowerPrice: 80
-  burgerTowerPrice: 70
-  pizzaTowerPrice: 60
-  noodlesTowerPrice: 50
-  waiterPrice: 30
-  fridgePrice: 50
+  sushiTowerHirePrice: 250
+  sushiTowerSellPrice: 125
+  sushiTowerRunningCost: 50
+  burgerTowerHirePrice: 200
+  burgerTowerSellPrice: 100
+  burgerTowerRunningCost: 40
+  pizzaTowerHirePrice: 100
+  pizzaTowerSellPrice: 50
+  pizzaTowerRunningCost: 20
+  noodlesTowerHirePrice: 300
+  noodlesTowerSellPrice: 150
+  noodlesTowerRunningCost: 60
+  waiterTowerHirePrice: 150
+  waiterTowerSellPrice: 75
+  waiterTowerRunningCost: 30
+  fridgeTowerHirePrice: 150
+  fridgeTowerSellPrice: 75
+  fridgeTowerRunningCost: 30
+  kitchenStaff: []
+  waiterStaff: {fileID: 0}
 --- !u!1 &1945267312 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
@@ -48912,7 +49067,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2004741559
 Transform:
   m_ObjectHideFlags: 0
@@ -49031,11 +49186,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (276)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -49108,7 +49267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1 &2018405043 stripped
 GameObject:
@@ -49552,11 +49711,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (168)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -49629,7 +49792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1001 &2038036290
 PrefabInstance:
@@ -50387,11 +50550,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (172)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -50464,7 +50631,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1001 &2069022624
 PrefabInstance:
@@ -51015,11 +51182,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (293)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -51092,7 +51263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
-  hoverColour: {r: 0.8962264, g: 0.35933605, b: 0.70145893, a: 0}
+  hoverColour: {r: 1, g: 0.7902567, b: 0.1273585, a: 0}
   tower: {fileID: 0}
 --- !u!1001 &2102821847
 PrefabInstance:
@@ -51742,11 +51913,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (324)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -52477,11 +52652,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1810899409}
+    m_TransformParent: {fileID: 1856947127}
     m_Modifications:
     - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_Name
       value: Node (344)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534525928222948730, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: m_TagString
+      value: KitchenNode
       objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -52874,6 +53053,10 @@ PrefabInstance:
     - target: {fileID: 7799754140591015163, guid: 1360884b14933425c811179a82008164, type: 3}
       propertyPath: m_Name
       value: SushiChef
+      objectReference: {fileID: 0}
+    - target: {fileID: 7799754140591015163, guid: 1360884b14933425c811179a82008164, type: 3}
+      propertyPath: m_TagString
+      value: KitchenStaff
       objectReference: {fileID: 0}
     - target: {fileID: 8933815439475395646, guid: 1360884b14933425c811179a82008164, type: 3}
       propertyPath: m_text

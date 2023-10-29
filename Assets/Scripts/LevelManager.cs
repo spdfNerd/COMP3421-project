@@ -26,6 +26,7 @@ public class LevelManager : MonoBehaviour {
 	private int round = 0;
 
 	private GameObject towerToBuild;
+    private int runningCost = 0;
 
 	public int Money {
 		get => money;
