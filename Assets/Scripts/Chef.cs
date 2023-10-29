@@ -1,9 +1,11 @@
+using TMPro;
 using UnityEngine;
 
 public class Chef : MonoBehaviour {
 
 	public float cooldown = 1f;
 	public FoodType foodType;
+	public TextMeshProUGUI foodCountText;
 	
 	private float cooldownTimer;
 	private int foodCount;
@@ -11,6 +13,7 @@ public class Chef : MonoBehaviour {
 	private void Start() {
 		cooldownTimer = cooldown;
 		foodCount = 0;
+		foodCountText.text = "";
 	}
 
 	private void Update() {
@@ -24,6 +27,7 @@ public class Chef : MonoBehaviour {
 
 	private void ProduceFood() {
 		foodCount++;
+		foodCountText.text = foodCount == 0 ? "" : foodCount.ToString();
 	}
 
 }
