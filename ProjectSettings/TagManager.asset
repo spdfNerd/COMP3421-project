@@ -6,7 +6,7 @@ TagManager:
   tags:
   - KitchenNode
   - KitchenStaff
-  - WaiterStaff
+  - WaitStaff
   layers:
   - Default
   - TransparentFX

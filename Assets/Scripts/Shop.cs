@@ -1,5 +1,7 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class Shop : MonoBehaviour
 {
@@ -26,7 +28,7 @@ public class Shop : MonoBehaviour
     public int fridgeTowerRunningCost;
 
     public GameObject[] kitchenStaff;
-    public GameObject waiterStaff;
+    public Button waitStaff;
     
     private GameObject selectedTower;
     private int selectedTowerHirePrice;
@@ -39,7 +41,7 @@ public class Shop : MonoBehaviour
         levelManager = LevelManager.instance;
         player = Player.instance;
         kitchenStaff = GameObject.FindGameObjectsWithTag("KitchenStaff");
-        waiterStaff = GameObject.FindWithTag("WaiterStaff");
+        waitStaff = GameObject.FindWithTag("WaitStaff").GetComponent<Button>();
     }
 
     public void SelectSushiTower () {
@@ -119,22 +121,22 @@ public class Shop : MonoBehaviour
     void CheckNode () {
         if (player.currentNode != null) {
             if (player.currentNode.tag == "KitchenNode") {
-                waiterStaff.SetActive(false);
+                waitStaff.interactable = false;
                 foreach (GameObject staff in kitchenStaff)
                 {
-                    staff.SetActive(true);
+                    staff.GetComponent<Button>().interactable = true;
                 }
                 if (selectedTower!= null && selectedTower.tag != "KitchenStaff") {
                     selectedTower = null;
                     levelManager.SetTowerToBuild(null);
                 }
             } else {
-                waiterStaff.SetActive(true);
+                waitStaff.interactable = true;
                 foreach (GameObject staff in kitchenStaff)
                 {
-                    staff.SetActive(false);
+                    staff.GetComponent<Button>().interactable = false;
                 }
-                if (selectedTower!= null && selectedTower.tag != "WaiterStaff") {
+                if (selectedTower!= null && selectedTower.tag != "WaitStaff") {
                     selectedTower = null;
                     levelManager.SetTowerToBuild(null);
                 }
