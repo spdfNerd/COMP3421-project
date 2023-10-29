@@ -1915,6 +1915,8 @@ MonoBehaviour:
   fridgeTowerRunningCost: 30
   kitchenStaff: []
   waitStaff: {fileID: 0}
+  buyButton: {fileID: 8934016261841271279}
+  sellButton: {fileID: 96056735017228527}
 --- !u!1 &7930541338049672860
 GameObject:
   m_ObjectHideFlags: 0
@@ -2375,7 +2377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.81960785, g: 0.23175995, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.10067611, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
