@@ -10,9 +10,6 @@ public class Player : MonoBehaviour {
 	public Node previousNode;
 	public float movementSpeed = 40f;
 
-	[HideInInspector]
-	public Node currentNode;
-
 	private bool[] directions = new bool[] { false, false, false, false };
 	private Vector3 velocity = Vector3.zero;
 
