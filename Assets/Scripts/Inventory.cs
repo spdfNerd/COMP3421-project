@@ -1,22 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class Inventory : MonoBehaviour {
+public class Inventory {
 
-	public Dictionary<FoodType, int> inventory;
+	private Dictionary<FoodType, int> inventory;
 
-	private void Start() {
-		InitInventory();
+	public Inventory() {
+		Init();
 	}
 
-	public void AddItem(FoodType type, int count) {
+	public void AddItem(FoodType type, int count = 1) {
 		inventory[type] += count;
 	}
 
-	public void AddItems(Tuple<FoodType, int>[] tuples) {
-		foreach (Tuple<FoodType, int> tuple in tuples) {
-			AddItem(tuple.Item1, tuple.Item2);
+	public void AddItems(Dictionary<FoodType, int> items) {
+		foreach (FoodType type in items.Keys) {
+			AddItem(type, items[type]);
 		}
 	}
 
@@ -24,19 +23,37 @@ public class Inventory : MonoBehaviour {
 		inventory[type] -= count;
 	}
 
-	public void RemoveItems(Tuple<FoodType, int>[] tuples) {
-		foreach (Tuple<FoodType, int> tuple in tuples) {
-			RemoveItem(tuple.Item1, tuple.Item2);
+	public void RemoveItems(Dictionary<FoodType, int> items) {
+		foreach (FoodType type in items.Keys) {
+			RemoveItem(type, items[type]);
 		}
 	}
 
-	public void ClearInventory() {
+	public void ClearItem(FoodType type) {
+		inventory[type] = 0;
+	}
+
+	public int GetItemCount(FoodType foodType) {
+		return inventory[foodType];
+	}
+
+	public void CopyTo(Inventory other, bool clearOtherFirst = false) {
+		if (clearOtherFirst) {
+			other.Clear();
+		}
+
+		foreach (FoodType type in inventory.Keys) {
+			other.AddItem(type, inventory[type]);
+		}
+	}
+
+	public void Clear() {
 		foreach (FoodType key in inventory.Keys) {
 			inventory[key] = 0;
 		}
 	}
 
-	private void InitInventory() {
+	private void Init() {
 		inventory = new Dictionary<FoodType, int>();
 		foreach (FoodType type in Enum.GetValues(typeof(FoodType))) {
 			inventory.Add(type, 0);

@@ -1,4 +1,5 @@
 using System;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
@@ -21,6 +22,9 @@ public class Player : MonoBehaviour {
 	private bool[] directions = new bool[] { false, false, false, false };
 
 	private Inventory inventory;
+	private Waiter currentWaiter;
+	private bool shouldCollect;
+	private bool shouldGiveFood;
 
 	private void Awake() {
 		if (Instance != null) {
@@ -38,7 +42,9 @@ public class Player : MonoBehaviour {
 		minZ = LevelManager.Instance.frontWall.position.z + width;
 		maxZ = LevelManager.Instance.backWall.position.z - width;
 
-		inventory = GetComponent<Inventory>();
+		inventory = new Inventory();
+		shouldCollect = false;
+		shouldGiveFood = false;
 	}
 
 	private void Update() {
@@ -47,7 +53,12 @@ public class Player : MonoBehaviour {
 		Move(direction);
 
 		UpdateCurrentNode();
-		UpdateInventory();
+		if (shouldCollect) {
+			UpdateInventory();
+		}
+		if (shouldGiveFood) {
+			TransferFood();
+		}
 	}
 
 	private Vector3 GetDirection() {
@@ -64,6 +75,10 @@ public class Player : MonoBehaviour {
 	}
 
 	private void RotateModel(Vector3 direction) {
+		if (direction == Vector3.zero) {
+			return;
+		}
+
 		Quaternion lookRotation = Quaternion.LookRotation(direction);
 		Vector3 rotation = Quaternion.Lerp(gfx.rotation, lookRotation, rotateSpeed).eulerAngles;
 		gfx.rotation = Quaternion.Euler(0f, rotation.y, 0f);
@@ -83,14 +98,24 @@ public class Player : MonoBehaviour {
 		RaycastHit hit;
 		if (Physics.Raycast(transform.position, Vector3.down, out hit, rayLength)) {
 			Node node = hit.transform.GetComponent<Node>();
+
 			if (node != null && node != currentNode) {
 				previousNode = currentNode;
 				currentNode = node;
 				currentNode.OnPlayerEnter();
+
+				shouldCollect = hit.transform.GetComponent<CollectionNode>() != null;
+				if (node.tower != null) {
+					currentWaiter = node.tower.GetComponent<Waiter>();
+					shouldGiveFood = currentWaiter != null;
+				}
 			}
 		} else {
 			previousNode = currentNode;
 			currentNode = null;
+			shouldCollect = false;
+			currentWaiter = null;
+			shouldGiveFood = false;
 		}
 
 		if (previousNode != null) {
@@ -103,8 +128,21 @@ public class Player : MonoBehaviour {
 	}
 
 	private void UpdateInventory() {
-		foreach (FoodType key in inventory.inventory.Keys) {
-			Debug.LogFormat("{0} count: {1}", key, inventory.inventory[key]);
+		CollectionNode.Instance.TransferInventory(inventory);
+	}
+
+	private void TransferFood() {
+		if (currentWaiter.FoodCount > 0) {
+			return;
+		}
+
+		foreach (FoodType type in Enum.GetValues(typeof(FoodType))) {
+			int count = inventory.GetItemCount(type);
+			Debug.LogFormat("{0}: {1}", type, count);
+			if (count > 0) {
+				currentWaiter.UpdateFoodType(type, count);
+				inventory.ClearItem(type);
+			}
 		}
 	}
 

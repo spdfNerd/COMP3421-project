@@ -2,9 +2,6 @@ using UnityEngine;
 
 public class Node : MonoBehaviour {
 
-    private LevelManager levelManager;
-    private Player player;
-
     public Vector3 positionOffset;
     public Color hoverColour;
     private Color startColour;
@@ -15,23 +12,27 @@ public class Node : MonoBehaviour {
     private int towerSellPrice;
     private int towerRunningCost;
 
-	private void Start() {
-        levelManager = LevelManager.Instance;
-        player = Player.Instance;
+    private Kitchen kitchen;
+    private Chef chef;
+
+    private void Start() {
         rend = GetComponent<Renderer>();
         startColour = rend.material.color;
+
+        kitchen = transform.parent.GetComponent<Kitchen>();
     }
 
     public void BuildTower(Transform towerToBuild, int hirePrice, int sellPrice, int runningCost) {
-        levelManager.Money -= hirePrice;
+        LevelManager.Instance.Money -= hirePrice;
 
-        Transform tower = Instantiate(towerToBuild, transform.position + positionOffset, Quaternion.identity);
-        this.tower = tower;
+        tower = Instantiate(towerToBuild, transform.position + positionOffset, Quaternion.identity);
         towerSellPrice = sellPrice;
         towerRunningCost = runningCost;
-        levelManager.RunningCost += runningCost;
+        LevelManager.Instance.RunningCost += runningCost;
 
-        Debug.Log("Tower built!");
+        if (kitchen != null) {
+            chef = tower.GetComponent<Chef>();
+        }
     }
 
     public void SellTower() {
@@ -43,12 +44,13 @@ public class Node : MonoBehaviour {
 
         Destroy(tower);
         tower = null;
+        chef = null;
 
-        levelManager.Money += towerSellPrice;
-        levelManager.RunningCost -= towerRunningCost;
+        LevelManager.Instance.Money += towerSellPrice;
+        LevelManager.Instance.RunningCost -= towerRunningCost;
     }
 
-    public void OnPlayerEnter() {
+	public void OnPlayerEnter() {
         rend.material.color = hoverColour;
     }
 

@@ -14,6 +14,7 @@ public class LevelManager : MonoBehaviour {
 
 	public Transform nodeParent;
 	public Transform node;
+	public Transform kitchenNodeParent;
 	public Transform kitchenNode;
 	public Transform collectionNode;
 	public int mapWidth = 24;
@@ -75,9 +76,11 @@ public class LevelManager : MonoBehaviour {
 		for (int i = -mapWidth / 2; i < mapWidth / 2 + 1; i++) {
 			for (int j = -mapHeight / 2; j < mapHeight / 2 + 1; j++) {
 				if (i == 1 && j == 9) {
-					Instantiate(collectionNode, new Vector3(i * 4, 0f, j * 4), Quaternion.identity, nodeParent);
+					Instantiate(collectionNode, new Vector3(i * 4, 0f, j * 4), Quaternion.identity, kitchenNodeParent);
 				} else {
-					Instantiate(i >= 2 && j >= 6 ? kitchenNode : node, new Vector3(i * 4, 0f, j * 4), Quaternion.identity, nodeParent);
+					Transform nodeToInstantiate = i >= 2 && j >= 6 ? kitchenNode : node;
+					Transform nodeParent = i >= 2 && j >= 6 ? kitchenNodeParent : this.nodeParent;
+					Instantiate(nodeToInstantiate, new Vector3(i * 4, 0f, j * 4), Quaternion.identity, nodeParent);
 				}
 			}
 		}

@@ -47,9 +47,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae7ad18bd9e8744f90ed27d37b6d3be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 5946826240972178037, guid: d6571d11d211253438f8a0a8723dceb2, type: 3}
+  projectiles:
+  - {fileID: 5946826240972178037, guid: d6571d11d211253438f8a0a8723dceb2, type: 3}
+  - {fileID: 8850751285570170224, guid: a548c7477161d3e408b6db63d71ce90f, type: 3}
+  - {fileID: 7824184375256628600, guid: ad02265af8245aa4f84513e09322d8d8, type: 3}
+  - {fileID: 2192095508650909922, guid: 4013e7595ddcb734786c11944ea90550, type: 3}
+  - {fileID: 2202783362058195599, guid: a81402280cd02c14095dce51af374a03, type: 3}
+  - {fileID: 8023568439856625945, guid: 768a7bfcb0f429142858c288380f4f1f, type: 3}
   firePoint: {fileID: 6598278176162629246}
-  range: 4
+  range: 20
   fireCooldown: 0.5
   hirePrice: 150
   sellPrice: 75
@@ -244,14 +250,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6450280598530794900}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 535858910518708740}
   m_Father: {fileID: 3550817822578954969}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &7088655813828131415
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Waiter : MonoBehaviour {
 
-	public Transform projectile;
+	public Transform[] projectiles;
 	public Transform firePoint;
 
 	public float range = 4f;
@@ -59,7 +59,7 @@ public class Waiter : MonoBehaviour {
 			return;
 		}
 
-		float targetDistance = 0f;
+		float targetDistance = Mathf.Infinity;
 		Collider[] colliders = Physics.OverlapSphere(transform.position, range);
 		if (colliders.Length == 0) {
 			return;
@@ -91,7 +91,7 @@ public class Waiter : MonoBehaviour {
 
 		if (timer <= 0f) {
 			Vector3 direction = target.position - firePoint.position;
-			Instantiate(projectile, firePoint.position, Quaternion.LookRotation(direction));
+			Instantiate(projectiles[(int) foodType], firePoint.position, Quaternion.LookRotation(direction));
 			timer = fireCooldown;
 			FoodCount--;
 		} else {

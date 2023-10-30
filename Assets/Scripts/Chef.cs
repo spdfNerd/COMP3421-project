@@ -14,10 +14,17 @@ public class Chef : MonoBehaviour {
 	private float cooldownTimer;
 	private int foodCount;
 
+	public int FoodCount {
+		get => foodCount;
+		set {
+			foodCount = value;
+			foodCountText.text = foodCount == 0 ? "" : foodCount.ToString();
+		}
+	}
+
 	private void Start() {
 		cooldownTimer = cooldown;
-		foodCount = 0;
-		foodCountText.text = "";
+		FoodCount = 0;
 	}
 
 	private void Update() {
@@ -29,9 +36,12 @@ public class Chef : MonoBehaviour {
 		}
 	}
 
+	public void ResetFoodCount() {
+		FoodCount = 0;
+	}
+
 	private void ProduceFood() {
-		foodCount++;
-		foodCountText.text = foodCount == 0 ? "" : foodCount.ToString();
+		FoodCount++;
 	}
 
 }
