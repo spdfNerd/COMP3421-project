@@ -53,6 +53,7 @@ MonoBehaviour:
   nodeParent: {fileID: 0}
   node: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
   kitchenNode: {fileID: 2794450210263201508, guid: 7829cb2c9dd5f5f40859151fa4653b93, type: 3}
+  collectionNode: {fileID: 4343190089493070277, guid: 217536411b408ca4c8e8d8a2ff5b324a, type: 3}
   mapWidth: 24
   mapHeight: 24
   frontWall: {fileID: 0}

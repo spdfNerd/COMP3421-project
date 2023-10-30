@@ -7,8 +7,11 @@ public class Customer : MonoBehaviour {
 
 	public int loopCount = 2;
 	public float speed = 10f;
+	public float rotateSpeed = 0.5f;
 
 	public int reputationPenalty = 10;
+
+	public Transform gfx;
 
 	public TextMeshProUGUI foodCountText;
 
@@ -57,7 +60,9 @@ public class Customer : MonoBehaviour {
 				reachedWaypoint = false;
 			}
 		}
-		Move(nextWaypoint);
+
+		Vector3 moveDir = Move(nextWaypoint);
+		RotateModel(moveDir);
 	}
 
 	private void QueueWaypoints() {
@@ -88,20 +93,29 @@ public class Customer : MonoBehaviour {
 
 	private void GenerateRequests() {
 		FoodTypeRequested = (FoodType) UnityEngine.Random.Range(0, GetFoodTypeMaxValue());
-		FoodCountRequested = UnityEngine.Random.Range(1, 4);
+		FoodCountRequested = UnityEngine.Random.Range(1, 5);
 	}
 
 	private int GetFoodTypeMaxValue() {
-		return LevelManager.Instance.Round < 2 * 4 ? (int) Mathf.Ceil(LevelManager.Instance.Round / 2f) : Enum.GetValues(typeof(FoodType)).Length;
+		return LevelManager.Instance.Round < 2 * 4
+			? (int) Mathf.Ceil(LevelManager.Instance.Round / 2f)
+			: Enum.GetValues(typeof(FoodType)).Length;
 	}
 
-	private void Move(Transform nextWaypoint) {
+	private Vector3 Move(Transform nextWaypoint) {
+		Vector3 direction = nextWaypoint.position - transform.position;
+		direction.Normalize();
 		if (!reachedWaypoint) {
-			Vector3 direction = nextWaypoint.position - transform.position;
-			direction = direction.normalized;
 			transform.Translate(direction * speed * Time.deltaTime, Space.World);
 			reachedWaypoint = Vector3.Distance(transform.position, nextWaypoint.position) < 0.1f;
 		}
+		return direction;
+	}
+
+	private void RotateModel(Vector3 direction) {
+		Quaternion lookRotation = Quaternion.LookRotation(direction);
+		Vector3 rotation = Quaternion.Lerp(gfx.rotation, lookRotation, rotateSpeed).eulerAngles;
+		gfx.rotation = Quaternion.Euler(0f, rotation.y, 0f);
 	}
 
 	public void SatisfyRequest(Food food) {

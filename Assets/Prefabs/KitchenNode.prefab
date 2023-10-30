@@ -16,22 +16,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: KitchenNode
       objectReference: {fileID: 0}
-    - target: {fileID: 3379170058364493882, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
-      propertyPath: hoverColour.a
-      value: 0.5019608
-      objectReference: {fileID: 0}
-    - target: {fileID: 3379170058364493882, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
-      propertyPath: hoverColour.b
-      value: 0.1254902
-      objectReference: {fileID: 0}
-    - target: {fileID: 3379170058364493882, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
-      propertyPath: hoverColour.g
-      value: 0.7921569
-      objectReference: {fileID: 0}
-    - target: {fileID: 3379170058364493882, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
-      propertyPath: hoverColour.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -72,6 +56,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8598480840101527280, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2ceb5a88d2b99ba459c2f9c9d0a4e89b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

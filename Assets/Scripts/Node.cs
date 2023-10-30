@@ -7,8 +7,8 @@ public class Node : MonoBehaviour {
 
     public Vector3 positionOffset;
     public Color hoverColour;
-    private Renderer rend;
     private Color startColour;
+    private Renderer rend;
 
     [HideInInspector]
     public Transform tower;

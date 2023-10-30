@@ -7,9 +7,9 @@ public class WaveManager : MonoBehaviour {
 	public static WaveManager Instance;
 
 	public Transform waypoints;
-	public Transform enemyPrefab;
-
 	public Button startWaveButton;
+
+	public Wave[] waves;
 
 	private LevelManager levelManager;
 
@@ -42,15 +42,33 @@ public class WaveManager : MonoBehaviour {
 	}
 
 	private IEnumerator SpawnEnemies() {
-		for (int i = 0; i < 10; i++) {
-			Instantiate(enemyPrefab, spawnpoint.position, Quaternion.identity);
-			enemyCount++;
-			yield return new WaitForSeconds(1f);
+		Wave wave = waves[LevelManager.Instance.Round - 1];
+		for (int i = 0; i < wave.subWave.Length; i++) {
+			Wave.SubWave subWave = wave.subWave[i];
+			for (int j = 0; j < subWave.count; j++) {
+				Instantiate(subWave.customer, spawnpoint.position, Quaternion.identity);
+				enemyCount++;
+				yield return new WaitForSeconds(subWave.spawnRate);
+			}
 		}
 	}
 
 	public void DecrementEnemyCount() {
 		enemyCount--;
+	}
+
+}
+
+[System.Serializable]
+public class Wave {
+
+	public SubWave[] subWave;
+
+	[System.Serializable]
+	public class SubWave {
+		public Transform customer;
+		public int count;
+		public float spawnRate;
 	}
 
 }
