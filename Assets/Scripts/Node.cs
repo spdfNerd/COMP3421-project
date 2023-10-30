@@ -1,59 +1,59 @@
-using System;
 using UnityEngine;
 
-public class Node : MonoBehaviour
-{
+public class Node : MonoBehaviour {
 
-    LevelManager levelManager;
+    private LevelManager levelManager;
+    private Player player;
 
+    public Vector3 positionOffset;
     public Color hoverColour;
     private Renderer rend;
     private Color startColour;
-    
-    public GameObject tower;
-    // Start is called before the first frame update
-    void Start()
-    {
-        levelManager = LevelManager.instance;
+
+    [HideInInspector]
+    public Transform tower;
+    private int towerSellPrice;
+    private int towerRunningCost;
+
+	private void Start() {
+        levelManager = LevelManager.Instance;
+        player = Player.Instance;
         rend = GetComponent<Renderer>();
         startColour = rend.material.color;
     }
 
-    void OnMouseDown () {
-        Debug.Log("Pressed");
+    public void BuildTower(Transform towerToBuild, int hirePrice, int sellPrice, int runningCost) {
+        levelManager.Money -= hirePrice;
 
-        // no tower selected to build
-        if (levelManager.GetTowerToBuild() == null)
-            return;
+        Transform tower = Instantiate(towerToBuild, transform.position + positionOffset, Quaternion.identity);
+        this.tower = tower;
+        towerSellPrice = sellPrice;
+        towerRunningCost = runningCost;
+        levelManager.RunningCost += runningCost;
 
-        // if (tower == null)
-		// {
-        //     Debug.Log("yikessss");
-		// 	return;
-		// }
-
-        // if there is already a tower on the tile
-        if (tower != null)
-		{
-            Debug.Log("Can't build there");
-			return;
-		}
-
-		levelManager.Money -= 20;
-        Debug.Log("Money left " + levelManager.Money);
+        Debug.Log("Tower built!");
     }
 
-    void OnMouseEnter () {
+    public void SellTower() {
+        // if there is no tower on the tile
+        if (tower == null) {
+            Debug.Log("Nothing to sell");
+            return;
+        }
+
+        Destroy(tower);
+        tower = null;
+
+        levelManager.Money += towerSellPrice;
+        levelManager.RunningCost -= towerRunningCost;
+    }
+
+    public void OnPlayerEnter() {
         rend.material.color = hoverColour;
     }
 
-    void OnMouseExit () {
+    public void OnPlayerExit() {
         rend.material.color = startColour;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

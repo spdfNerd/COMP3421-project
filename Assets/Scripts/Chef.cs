@@ -6,7 +6,11 @@ public class Chef : MonoBehaviour {
 	public float cooldown = 1f;
 	public FoodType foodType;
 	public TextMeshProUGUI foodCountText;
-	
+
+	public int hirePrice;
+	public int sellPrice;
+	public int runningCost;
+
 	private float cooldownTimer;
 	private int foodCount;
 
@@ -27,11 +31,7 @@ public class Chef : MonoBehaviour {
 
 	private void ProduceFood() {
 		foodCount++;
-		if (foodCount == 0) {
-			foodCountText.text = "";
-		} else {
-			foodCountText.text = foodCount.ToString();
-		}
+		foodCountText.text = foodCount == 0 ? "" : foodCount.ToString();
 	}
 
 }

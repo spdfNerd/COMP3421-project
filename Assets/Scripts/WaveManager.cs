@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class WaveManager : MonoBehaviour {
 
+	public static WaveManager Instance;
+
 	public Transform waypoints;
 	public Transform enemyPrefab;
 
@@ -12,9 +14,16 @@ public class WaveManager : MonoBehaviour {
 	private LevelManager levelManager;
 
 	private int enemyCount = 0;
-	private bool waveIsActive = false;
 
 	private Transform spawnpoint;
+
+	private void Awake() {
+		if (Instance != null) {
+			Debug.LogError("More than one WaveManager in scene!");
+			return;
+		}
+		Instance = this;
+	}
 
 	private void Start() {
 		levelManager = FindFirstObjectByType<LevelManager>();
@@ -22,23 +31,17 @@ public class WaveManager : MonoBehaviour {
 	}
 
 	private void Update() {
-		if (waveIsActive) {
-			if (enemyCount <= 0) {
-				enemyCount = 0;
-				waveIsActive = false;
-				startWaveButton.interactable = true;
-			}
-		}
+		startWaveButton.interactable = enemyCount == 0;
 	}
 
 	public void StartWave() {
 		levelManager.Round++;
 		startWaveButton.interactable = false;
 		StartCoroutine(SpawnEnemies());
+		levelManager.Money -= levelManager.RunningCost;
 	}
 
 	private IEnumerator SpawnEnemies() {
-		waveIsActive = true;
 		for (int i = 0; i < 10; i++) {
 			Instantiate(enemyPrefab, spawnpoint.position, Quaternion.identity);
 			enemyCount++;
