@@ -101,5 +101,4 @@ public class Shop : MonoBehaviour {
             sellButton.interactable = true;
         }
     }
-
 }
