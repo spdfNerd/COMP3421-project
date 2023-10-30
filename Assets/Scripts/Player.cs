@@ -34,21 +34,11 @@ public class Player : MonoBehaviour {
 		minZ = LevelManager.Instance.frontWall.position.z + width;
 		maxZ = LevelManager.Instance.backWall.position.z - width;
 	}
+
 	private void Update() {
 		GetVelocity();
 		Move();
-		RaycastHit hit;
-		if (Physics.Raycast(transform.position, Vector3.down, out hit)) {
-			Node node = hit.transform.GetComponent<Node>();
-			if (node != null && node != currentNode) {
-				previousNode = currentNode;
-				currentNode = node;
-				currentNode.OnPlayerEnter();
-				if (previousNode != null) {
-					previousNode.OnPlayerExit();
-				}
-			}
-		}
+		UpdateCurrentNode();
 	}
 
 	private void GetVelocity() {
@@ -68,6 +58,28 @@ public class Player : MonoBehaviour {
 		float xPos = Mathf.Clamp(transform.position.x, minX, maxX);
 		float zPos = Mathf.Clamp(transform.position.z, minZ, maxZ);
 		transform.position = new Vector3(xPos, transform.position.y, zPos);
+	}
+
+	private void UpdateCurrentNode() {
+		CapsuleCollider collider = GetComponent<CapsuleCollider>();
+		float rayLength = collider.height / 2f + 0.5f;
+
+		RaycastHit hit;
+		if (Physics.Raycast(transform.position, Vector3.down, out hit, rayLength)) {
+			Node node = hit.transform.GetComponent<Node>();
+			if (node != null && node != currentNode) {
+				previousNode = currentNode;
+				currentNode = node;
+				currentNode.OnPlayerEnter();
+			}
+		} else {
+			previousNode = currentNode;
+			currentNode = null;
+		}
+
+		if (previousNode != null) {
+			previousNode.OnPlayerExit();
+		}
 	}
 
 	public Vector3 GetPosition () {
