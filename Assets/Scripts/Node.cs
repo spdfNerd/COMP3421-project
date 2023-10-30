@@ -42,7 +42,7 @@ public class Node : MonoBehaviour {
             return;
         }
 
-        Destroy(tower);
+        Destroy(tower.gameObject);
         tower = null;
         chef = null;
 

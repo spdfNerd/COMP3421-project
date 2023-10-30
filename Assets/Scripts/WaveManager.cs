@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class WaveManager : MonoBehaviour {
@@ -38,7 +39,6 @@ public class WaveManager : MonoBehaviour {
 		levelManager.Round++;
 		startWaveButton.interactable = false;
 		StartCoroutine(SpawnEnemies());
-		levelManager.Money -= levelManager.RunningCost;
 	}
 
 	private IEnumerator SpawnEnemies() {
@@ -55,6 +55,21 @@ public class WaveManager : MonoBehaviour {
 
 	public void DecrementEnemyCount() {
 		enemyCount--;
+		if (enemyCount == 0) {
+			levelManager.Money -= levelManager.RunningCost;
+		}
+
+		CheckCanContinue();
+	}
+
+	private void CheckCanContinue() {
+		if (LevelManager.Instance.Reputation <= 0 || LevelManager.Instance.Money < 0) {
+			// Switch to lose screen
+			SceneManager.LoadScene("LoseScreen");
+		} else if (LevelManager.Instance.Round == waves.Length && enemyCount == 0) {
+			// Switch to win screen
+			SceneManager.LoadScene("WinScreen");
+		}
 	}
 
 }

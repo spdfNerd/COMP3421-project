@@ -113,6 +113,10 @@ public class Customer : MonoBehaviour {
 	}
 
 	private void RotateModel(Vector3 direction) {
+		if (direction == Vector3.zero) {
+			return;
+		}
+
 		Quaternion lookRotation = Quaternion.LookRotation(direction);
 		Vector3 rotation = Quaternion.Lerp(gfx.rotation, lookRotation, rotateSpeed).eulerAngles;
 		gfx.rotation = Quaternion.Euler(0f, rotation.y, 0f);
@@ -125,7 +129,7 @@ public class Customer : MonoBehaviour {
 
 		FoodCountRequested--;
 		if (FoodCountRequested == 0) {
-			Debug.Log("Satisfied!");
+			requestsSatisfied = true;
 		}
 
 		int foodReward;

@@ -138,7 +138,6 @@ public class Player : MonoBehaviour {
 
 		foreach (FoodType type in Enum.GetValues(typeof(FoodType))) {
 			int count = inventory.GetItemCount(type);
-			Debug.LogFormat("{0}: {1}", type, count);
 			if (count > 0) {
 				currentWaiter.UpdateFoodType(type, count);
 				inventory.ClearItem(type);

@@ -56,7 +56,7 @@ MonoBehaviour:
   - {fileID: 8023568439856625945, guid: 768a7bfcb0f429142858c288380f4f1f, type: 3}
   firePoint: {fileID: 6598278176162629246}
   range: 20
-  fireCooldown: 0.5
+  fireCooldown: 1
   hirePrice: 150
   sellPrice: 75
   runningCost: 30

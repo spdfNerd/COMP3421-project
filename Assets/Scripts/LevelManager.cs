@@ -11,6 +11,7 @@ public class LevelManager : MonoBehaviour {
 
 	public TextMeshProUGUI moneyText;
 	public TextMeshProUGUI reputationText;
+	public TextMeshProUGUI roundsText;
 
 	public Transform nodeParent;
 	public Transform node;
@@ -57,7 +58,10 @@ public class LevelManager : MonoBehaviour {
 
 	public int Round {
 		get => round;
-		set => round = value;
+		set {
+			round = value;
+			roundsText.text = "Round " + round;
+		}
 	}
 
 	private void Awake() {

@@ -71,6 +71,9 @@ public class Waiter : MonoBehaviour {
 			if (customer.FoodTypeRequested != FoodType) {
 				continue;
 			}
+			if (customer.FoodCountRequested <= 0) {
+				continue;
+			}
 
 			if (target == null) {
 				target = collider.transform;
@@ -91,7 +94,9 @@ public class Waiter : MonoBehaviour {
 
 		if (timer <= 0f) {
 			Vector3 direction = target.position - firePoint.position;
-			Instantiate(projectiles[(int) foodType], firePoint.position, Quaternion.LookRotation(direction));
+			Transform foodTransform = Instantiate(projectiles[(int) foodType], firePoint.position, Quaternion.LookRotation(direction));
+			Food food = foodTransform.GetComponent<Food>();
+			food.SetTarget(target);
 			timer = fireCooldown;
 			FoodCount--;
 		} else {

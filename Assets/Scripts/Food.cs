@@ -5,7 +5,13 @@ public class Food : MonoBehaviour {
 	public float speed = 25f;
 	public FoodType type;
 
+	private Transform target;
+
 	private void Update() {
+		if (target == null) {
+			Destroy(gameObject);
+			return;
+		}
 		Move();
 	}
 
@@ -27,8 +33,13 @@ public class Food : MonoBehaviour {
 		}
 	}
 
+	public void SetTarget(Transform target) {
+		this.target = target;
+	}
+
 	private void Move() {
-		transform.Translate(Vector3.forward * speed * Time.deltaTime);
+		transform.Translate(speed * Time.deltaTime * (target.position - transform.position).normalized, Space.World);
+		transform.LookAt(target);
 	}
 
 }
