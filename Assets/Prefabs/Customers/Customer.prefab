@@ -315,5 +315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loopCount: 5
   speed: 20
+  rotateSpeed: 0.1
   reputationPenalty: 10
+  gfx: {fileID: 1800407521417279620}
   foodCountText: {fileID: 6112262983322000378}

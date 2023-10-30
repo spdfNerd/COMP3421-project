@@ -3786,6 +3786,22 @@ PrefabInstance:
       propertyPath: waves.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1134661119793969957, guid: 7df76b8e52be3de4f9781b5d60d56738, type: 3}
+      propertyPath: waves.Array.data[0].subWave.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1134661119793969957, guid: 7df76b8e52be3de4f9781b5d60d56738, type: 3}
+      propertyPath: waves.Array.data[0].subWave.Array.data[0].count
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1134661119793969957, guid: 7df76b8e52be3de4f9781b5d60d56738, type: 3}
+      propertyPath: waves.Array.data[0].subWave.Array.data[0].customer
+      value: 
+      objectReference: {fileID: 1863023483181425114, guid: 6febb67ccd91b3a47b503cd8abff1861, type: 3}
+    - target: {fileID: 1134661119793969957, guid: 7df76b8e52be3de4f9781b5d60d56738, type: 3}
+      propertyPath: waves.Array.data[0].subWave.Array.data[0].spawnRate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5950833492371533802, guid: 7df76b8e52be3de4f9781b5d60d56738, type: 3}
       propertyPath: m_Name
       value: LevelManager

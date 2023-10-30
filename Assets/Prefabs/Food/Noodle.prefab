@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1894846841818162553, guid: 8d9265c435bc1b9479187ea59a8675ce, type: 3}
       propertyPath: m_Name
-      value: Food
+      value: Noodle
       objectReference: {fileID: 0}
     - target: {fileID: 4132448846344263893, guid: 8d9265c435bc1b9479187ea59a8675ce, type: 3}
       propertyPath: m_LocalPosition.x
@@ -54,6 +54,76 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5405716878689080552, guid: 8d9265c435bc1b9479187ea59a8675ce, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6961636261096619353}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d9265c435bc1b9479187ea59a8675ce, type: 3}
+--- !u!4 &7797558105983151327 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5405716878689080552, guid: 8d9265c435bc1b9479187ea59a8675ce, type: 3}
+  m_PrefabInstance: {fileID: 2824472838492092471}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7428135866475289266
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7797558105983151327}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 892072191aacb524bb39e3970deb6761, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 892072191aacb524bb39e3970deb6761, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 892072191aacb524bb39e3970deb6761, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 892072191aacb524bb39e3970deb6761, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 892072191aacb524bb39e3970deb6761, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 892072191aacb524bb39e3970deb6761, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 892072191aacb524bb39e3970deb6761, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 892072191aacb524bb39e3970deb6761, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 892072191aacb524bb39e3970deb6761, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 892072191aacb524bb39e3970deb6761, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 892072191aacb524bb39e3970deb6761, type: 3}
+      propertyPath: m_Name
+      value: noodles
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 892072191aacb524bb39e3970deb6761, type: 3}
+--- !u!4 &6961636261096619353 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 892072191aacb524bb39e3970deb6761, type: 3}
+  m_PrefabInstance: {fileID: 7428135866475289266}
+  m_PrefabAsset: {fileID: 0}

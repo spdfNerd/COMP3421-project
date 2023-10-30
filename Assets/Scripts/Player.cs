@@ -9,6 +9,9 @@ public class Player : MonoBehaviour {
 	[HideInInspector]
 	public Node previousNode;
 	public float movementSpeed = 40f;
+	public float rotateSpeed = 0.1f;
+
+	public Transform gfx;
 
 	private float minX;
 	private float maxX;
@@ -16,7 +19,6 @@ public class Player : MonoBehaviour {
 	private float maxZ;
 
 	private bool[] directions = new bool[] { false, false, false, false };
-	private Vector3 velocity = Vector3.zero;
 
 	private void Awake() {
 		if (Instance != null) {
@@ -36,12 +38,13 @@ public class Player : MonoBehaviour {
 	}
 
 	private void Update() {
-		GetVelocity();
-		Move();
+		Vector3 direction = GetDirection();
+		RotateModel(direction);
+		Move(direction);
 		UpdateCurrentNode();
 	}
 
-	private void GetVelocity() {
+	private Vector3 GetDirection() {
 		directions[0] = Input.GetKey(KeyCode.W);
 		directions[1] = Input.GetKey(KeyCode.A);
 		directions[2] = Input.GetKey(KeyCode.S);
@@ -49,12 +52,19 @@ public class Player : MonoBehaviour {
 
 		Vector3 zDir = Vector3.forward * (Convert.ToInt32(directions[0]) - Convert.ToInt32(directions[2]));
 		Vector3 xDir = Vector3.right * (Convert.ToInt32(directions[3]) - Convert.ToInt32(directions[1]));
+		Vector3 direction = xDir + zDir;
 
-		velocity = (xDir + zDir) * movementSpeed * Time.deltaTime;
+		return direction.normalized;
 	}
 
-	private void Move() {
-		transform.Translate(velocity);
+	private void RotateModel(Vector3 direction) {
+		Quaternion lookRotation = Quaternion.LookRotation(direction);
+		Vector3 rotation = Quaternion.Lerp(gfx.rotation, lookRotation, rotateSpeed).eulerAngles;
+		gfx.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+	}
+
+	private void Move(Vector3 direction) {
+		transform.Translate(movementSpeed * Time.deltaTime * direction);
 		float xPos = Mathf.Clamp(transform.position.x, minX, maxX);
 		float zPos = Mathf.Clamp(transform.position.z, minZ, maxZ);
 		transform.position = new Vector3(xPos, transform.position.y, zPos);
