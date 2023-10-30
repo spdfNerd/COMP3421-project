@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae7ad18bd9e8744f90ed27d37b6d3be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 4132448846344263893, guid: 8d9265c435bc1b9479187ea59a8675ce, type: 3}
+  projectile: {fileID: 5946826240972178037, guid: d6571d11d211253438f8a0a8723dceb2, type: 3}
   firePoint: {fileID: 6598278176162629246}
   range: 4
   fireCooldown: 0.5

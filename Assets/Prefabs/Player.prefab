@@ -100,6 +100,8 @@ MonoBehaviour:
   currentNode: {fileID: 0}
   previousNode: {fileID: 0}
   movementSpeed: 25
+  rotateSpeed: 0.1
+  gfx: {fileID: 4571159383177287110}
 --- !u!1 &4318741563796764385
 GameObject:
   m_ObjectHideFlags: 0

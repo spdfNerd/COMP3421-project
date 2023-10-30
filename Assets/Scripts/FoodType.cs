@@ -1,9 +1,9 @@
 public enum FoodType {
 
-	SUSHI,
-	NOODLE,
 	PIZZA,
 	BURGER,
+	SUSHI,
+	NOODLE,
 	COKE,
 	WATER
 
