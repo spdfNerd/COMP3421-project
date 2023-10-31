@@ -32,6 +32,7 @@ Transform:
   m_Children:
   - {fileID: 3050640992569901874}
   - {fileID: 6598278176162629246}
+  - {fileID: 2177797560807738028}
   - {fileID: 3684378180009488985}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -54,13 +55,52 @@ MonoBehaviour:
   - {fileID: 2192095508650909922, guid: 4013e7595ddcb734786c11944ea90550, type: 3}
   - {fileID: 2202783362058195599, guid: a81402280cd02c14095dce51af374a03, type: 3}
   - {fileID: 8023568439856625945, guid: 768a7bfcb0f429142858c288380f4f1f, type: 3}
+  icons:
+  - {fileID: -8679921383154817045, guid: 34e90a2749ab345439cdcb0c39fe8b06, type: 3}
+  - {fileID: -8679921383154817045, guid: 6d7642f72581e954b8e965907cac0a84, type: 3}
+  - {fileID: -8679921383154817045, guid: d048311918dc6a6458fe6d287deb6638, type: 3}
+  - {fileID: -8679921383154817045, guid: 892072191aacb524bb39e3970deb6761, type: 3}
+  - {fileID: -8679921383154817045, guid: fec2d5eacb3a02e4f9786859416a8ce5, type: 3}
+  - {fileID: -8679921383154817045, guid: 7d79546303ea2014bb5413016a0fe6d6, type: 3}
   firePoint: {fileID: 6598278176162629246}
+  foodHolder: {fileID: 2177797560807738028}
   range: 20
   fireCooldown: 1
   hirePrice: 150
   sellPrice: 75
   runningCost: 30
   foodCountText: {fileID: 5953588067595620293}
+--- !u!1 &4497746603409791249
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2177797560807738028}
+  m_Layer: 0
+  m_Name: FoodHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2177797560807738028
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4497746603409791249}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.132, y: 0.29, z: -0.917}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 3550817822578954969}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4831294811355822652
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,7 +200,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 4
   m_VerticalAlignment: 1024
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -294,8 +334,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 35.4, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.02, y: 3.64}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 2.5753, y: 3.64}
+  m_SizeDelta: {x: 162.3551, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &26836626872056987
 Canvas:

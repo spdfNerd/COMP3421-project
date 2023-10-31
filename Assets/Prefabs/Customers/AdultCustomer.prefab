@@ -86,6 +86,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AdultCustomer
       objectReference: {fileID: 0}
+    - target: {fileID: 8665635530594592543, guid: e7579515e13f4cc41ab4a602187c9a89, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.75
+      objectReference: {fileID: 0}
     - target: {fileID: 9045602439349780909, guid: e7579515e13f4cc41ab4a602187c9a89, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

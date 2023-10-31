@@ -12,6 +12,8 @@ public class Customer : MonoBehaviour {
 	public int reputationPenalty = 10;
 
 	public Transform gfx;
+	public Transform foodHolder;
+	public Transform[] foods;
 
 	public TextMeshProUGUI foodCountText;
 
@@ -40,7 +42,7 @@ public class Customer : MonoBehaviour {
 		get => foodCountRequested;
 		set {
 			foodCountRequested = value;
-			foodCountText.text = foodCountRequested.ToString();
+			foodCountText.text = foodCountRequested == 0 ? "" : foodCountRequested.ToString();
 		}
 	}
 
@@ -94,6 +96,7 @@ public class Customer : MonoBehaviour {
 	private void GenerateRequests() {
 		FoodTypeRequested = (FoodType) UnityEngine.Random.Range(0, GetFoodTypeMaxValue());
 		FoodCountRequested = UnityEngine.Random.Range(1, 5);
+		Instantiate(foods[(int) FoodTypeRequested], foodHolder);
 	}
 
 	private int GetFoodTypeMaxValue() {
@@ -130,6 +133,7 @@ public class Customer : MonoBehaviour {
 		FoodCountRequested--;
 		if (FoodCountRequested == 0) {
 			requestsSatisfied = true;
+			Destroy(foodHolder.GetChild(0).gameObject);
 		}
 
 		int foodReward;

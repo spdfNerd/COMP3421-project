@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using TMPro;
 using UnityEngine;
@@ -6,7 +5,9 @@ using UnityEngine;
 public class Waiter : MonoBehaviour {
 
 	public Transform[] projectiles;
+	public Transform[] icons;
 	public Transform firePoint;
+	public Transform foodHolder;
 
 	public float range = 4f;
 	public float fireCooldown = 2f;
@@ -35,6 +36,10 @@ public class Waiter : MonoBehaviour {
 		set {
 			foodCount = value;
 			foodCountText.text = foodCount == 0 ? "" : foodCount.ToString();
+
+			if (foodCount == 0 && foodHolder.childCount > 0) {
+				Destroy(foodHolder.GetChild(0).gameObject);
+			}
 		}
 	}
 
@@ -50,13 +55,22 @@ public class Waiter : MonoBehaviour {
 	}
 
 	public void UpdateFoodType(FoodType type, int count) {
-		FoodType = type;
-		FoodCount = count;
+		if (FoodCount == 0) {
+			FoodType = type;
+			FoodCount = count;
+			if (count > 0) {
+				Instantiate(icons[(int) type], foodHolder);
+			}
+		}
 	}
 
 	private void FindTarget() {
 		if (target != null) {
-			return;
+			if (target.GetComponent<Customer>().FoodCountRequested == 0) {
+				target = null;
+			} else {
+				return;
+			}
 		}
 
 		float targetDistance = Mathf.Infinity;
