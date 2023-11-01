@@ -4,14 +4,18 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
 	public static Player Instance;
+
+	[Header("Movement Settings")]
+	public float movementSpeed = 40f;
+	public float rotateSpeed = 0.1f;
+
+	[Header("Graphics")]
+	public Transform gfx;
+
 	[HideInInspector]
 	public Node currentNode;
 	[HideInInspector]
 	public Node previousNode;
-	public float movementSpeed = 40f;
-	public float rotateSpeed = 0.1f;
-
-	public Transform gfx;
 
 	private float minX;
 	private float maxX;
@@ -34,12 +38,7 @@ public class Player : MonoBehaviour {
 	}
 
 	private void Start() {
-		CapsuleCollider collider = GetComponent<CapsuleCollider>();
-		float width = collider.radius;
-		minX = LevelManager.Instance.leftWall.position.x + width;
-		maxX = LevelManager.Instance.rightWall.position.x - width;
-		minZ = LevelManager.Instance.frontWall.position.z + width;
-		maxZ = LevelManager.Instance.backWall.position.z - width;
+		SetConstraints();
 
 		inventory = new Inventory();
 		shouldCollect = false;
@@ -58,6 +57,15 @@ public class Player : MonoBehaviour {
 		if (shouldGiveFood) {
 			TransferFood();
 		}
+	}
+
+	private void SetConstraints() {
+		CapsuleCollider collider = GetComponent<CapsuleCollider>();
+		float width = collider.radius;
+		minX = LevelManager.Instance.leftWall.position.x + width;
+		maxX = LevelManager.Instance.rightWall.position.x - width;
+		minZ = LevelManager.Instance.frontWall.position.z + width;
+		maxZ = LevelManager.Instance.backWall.position.z - width;
 	}
 
 	private Vector3 GetDirection() {

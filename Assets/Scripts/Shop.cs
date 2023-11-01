@@ -5,10 +5,13 @@ public class Shop : MonoBehaviour {
 
     public static Shop Instance;
 
-    public GameObject[] kitchenStaff;
+	public Button buyButton;
+	public Button sellButton;
+
+    [HideInInspector]
+	public GameObject[] kitchenStaff;
+    [HideInInspector]
     public Button waitStaff;
-    public Button buyButton;
-    public Button sellButton;
     
     private GameObject selectedTower;
 

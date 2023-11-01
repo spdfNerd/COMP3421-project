@@ -63,7 +63,6 @@
     <Compile Include="Assets\Scripts\Customer.cs" />
     <Compile Include="Assets\Scripts\SceneManager.cs" />
     <Compile Include="Assets\Scripts\Node.cs" />
-    <Compile Include="Assets\Scripts\Kitchen.cs" />
     <Compile Include="Assets\Scripts\Fridge.cs" />
     <Compile Include="Assets\Scripts\Shop.cs" />
     <Compile Include="Assets\Scripts\Inventory.cs" />

@@ -2,9 +2,12 @@ using UnityEngine;
 
 public class Node : MonoBehaviour {
 
-    public Vector3 positionOffset;
+	public NodeType type;
+
+	public Vector3 positionOffset;
     public Color hoverColour;
-    private Color startColour;
+
+	private Color startColour;
     private Renderer rend;
 
     [HideInInspector]
@@ -12,14 +15,11 @@ public class Node : MonoBehaviour {
     private int towerSellPrice;
     private int towerRunningCost;
 
-    private Kitchen kitchen;
     private Chef chef;
 
     private void Start() {
         rend = GetComponent<Renderer>();
         startColour = rend.material.color;
-
-        kitchen = transform.parent.GetComponent<Kitchen>();
     }
 
     public void BuildTower(Transform towerToBuild, int hirePrice, int sellPrice, int runningCost) {
@@ -30,7 +30,7 @@ public class Node : MonoBehaviour {
         towerRunningCost = runningCost;
         LevelManager.Instance.RunningCost += runningCost;
 
-        if (kitchen != null) {
+        if (type == NodeType.KITCHEN) {
             chef = tower.GetComponent<Chef>();
         }
     }
@@ -57,5 +57,13 @@ public class Node : MonoBehaviour {
     public void OnPlayerExit() {
         rend.material.color = startColour;
     }
+
+}
+
+public enum NodeType {
+    
+    NORMAL,
+    KITCHEN,
+    COLLECTION
 
 }
