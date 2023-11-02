@@ -13,9 +13,7 @@ public class Waiter : MonoBehaviour {
 	public float fireCooldown = 2f;
 
 	[Header("Costs")]
-	public int hirePrice;
-	public int sellPrice;
-	public int runningCost;
+	public StaffCosts costs;
 
 	[Header("Graphics")]
 	public Transform[] icons;

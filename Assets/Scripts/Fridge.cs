@@ -2,8 +2,7 @@
 
 public class Fridge : MonoBehaviour {
 
-	public int hirePrice;
-	public int sellPrice;
-	public int runningCost;
+	[Header("Costs")]
+	public StaffCosts costs;
 
 }

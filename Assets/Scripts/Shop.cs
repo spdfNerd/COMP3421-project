@@ -42,27 +42,17 @@ public class Shop : MonoBehaviour {
 		Waiter waiterComponent = towerToBuild.GetComponent<Waiter>();
 		Fridge fridgeComponent = towerToBuild.GetComponent<Fridge>();
 
-		int hirePrice, sellPrice, runningCost;
+        StaffCosts costs = new StaffCosts();
 		if (chefComponent != null) {
-			hirePrice = chefComponent.hirePrice;
-			sellPrice = chefComponent.sellPrice;
-			runningCost = chefComponent.runningCost;
+            costs = chefComponent.costs;
 		} else if (waiterComponent != null) {
-			hirePrice = waiterComponent.hirePrice;
-			sellPrice = waiterComponent.sellPrice;
-			runningCost = waiterComponent.runningCost;
+			costs = waiterComponent.costs;
 		} else if (fridgeComponent != null) {
-			hirePrice = fridgeComponent.hirePrice;
-			sellPrice = fridgeComponent.sellPrice;
-			runningCost = fridgeComponent.runningCost;
-		} else {
-			hirePrice = 0;
-			sellPrice = 0;
-			runningCost = 0;
+			costs = fridgeComponent.costs;
 		}
 
-		if (BuildManager.Instance.CheckCanBuild(hirePrice)) {
-			Player.Instance.currentNode.BuildTower(towerToBuild, hirePrice, sellPrice, runningCost);
+		if (BuildManager.Instance.CheckCanBuild(costs.hirePrice)) {
+			Player.Instance.currentNode.BuildTower(towerToBuild, costs);
 		}
 	}
 
@@ -104,4 +94,19 @@ public class Shop : MonoBehaviour {
             sellButton.interactable = true;
         }
     }
+}
+
+[System.Serializable]
+public class StaffCosts {
+
+    public int hirePrice;
+    public int sellPrice;
+    public int runningCost;
+
+    public StaffCosts() {
+        hirePrice = 0;
+        sellPrice = 0;
+        runningCost = 0;
+    }
+
 }

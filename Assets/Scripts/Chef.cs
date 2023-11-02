@@ -8,9 +8,7 @@ public class Chef : MonoBehaviour {
 	public FoodType foodType;
 
 	[Header("Costs")]
-	public int hirePrice;
-	public int sellPrice;
-	public int runningCost;
+	public StaffCosts costs;
 
 	[Header("Graphics")]
 	public TextMeshProUGUI foodCountText;

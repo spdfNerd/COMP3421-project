@@ -42,8 +42,8 @@ public class WaveManager : MonoBehaviour {
 
 	private IEnumerator SpawnEnemies() {
 		Wave wave = waves[LevelManager.Instance.Round - 1];
-		for (int i = 0; i < wave.subWave.Length; i++) {
-			Wave.SubWave subWave = wave.subWave[i];
+		for (int i = 0; i < wave.subWaves.Length; i++) {
+			Wave.SubWave subWave = wave.subWaves[i];
 			for (int j = 0; j < subWave.count; j++) {
 				Instantiate(subWave.customer, spawnpoint.position, Quaternion.identity);
 				enemyCount++;
@@ -76,7 +76,7 @@ public class WaveManager : MonoBehaviour {
 [System.Serializable]
 public class Wave {
 
-	public SubWave[] subWave;
+	public SubWave[] subWaves;
 
 	[System.Serializable]
 	public class SubWave {

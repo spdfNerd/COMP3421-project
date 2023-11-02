@@ -22,13 +22,13 @@ public class Node : MonoBehaviour {
         startColour = rend.material.color;
     }
 
-    public void BuildTower(Transform towerToBuild, int hirePrice, int sellPrice, int runningCost) {
-        LevelManager.Instance.Money -= hirePrice;
+    public void BuildTower(Transform towerToBuild, StaffCosts costs) {
+        LevelManager.Instance.Money -= costs.hirePrice;
 
         tower = Instantiate(towerToBuild, transform.position + positionOffset, Quaternion.identity);
-        towerSellPrice = sellPrice;
-        towerRunningCost = runningCost;
-        LevelManager.Instance.RunningCost += runningCost;
+        towerSellPrice = costs.sellPrice;
+        towerRunningCost = costs.runningCost;
+        LevelManager.Instance.RunningCost += costs.runningCost;
 
         if (type == NodeType.KITCHEN) {
             chef = tower.GetComponent<Chef>();
