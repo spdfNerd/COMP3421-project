@@ -22,7 +22,7 @@ public class Player : MonoBehaviour {
 	private float minZ;
 	private float maxZ;
 
-	private bool[] directions = new bool[] { false, false, false, false };
+	private Direction direction;
 
 	private Inventory inventory;
 	private Waiter currentWaiter;
@@ -39,6 +39,7 @@ public class Player : MonoBehaviour {
 
 	private void Start() {
 		SetConstraints();
+		direction = Direction.NONE;
 
 		inventory = new Inventory();
 		shouldCollect = false;
@@ -46,9 +47,9 @@ public class Player : MonoBehaviour {
 	}
 
 	private void Update() {
-		Vector3 direction = GetDirection();
-		RotateModel(direction);
-		Move(direction);
+		GetDirection();
+		RotateModel();
+		Move();
 
 		UpdateCurrentNode();
 		if (shouldCollect) {
@@ -68,31 +69,44 @@ public class Player : MonoBehaviour {
 		maxZ = LevelManager.Instance.backWall.position.z - width;
 	}
 
-	private Vector3 GetDirection() {
-		directions[0] = Input.GetKey(KeyCode.W);
-		directions[1] = Input.GetKey(KeyCode.A);
-		directions[2] = Input.GetKey(KeyCode.S);
-		directions[3] = Input.GetKey(KeyCode.D);
-
-		Vector3 zDir = Vector3.forward * (Convert.ToInt32(directions[0]) - Convert.ToInt32(directions[2]));
-		Vector3 xDir = Vector3.right * (Convert.ToInt32(directions[3]) - Convert.ToInt32(directions[1]));
-		Vector3 direction = xDir + zDir;
-
-		return direction.normalized;
+	private void GetDirection() {
+		if (Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S)) {
+			if (Input.GetKey(KeyCode.A)) {
+				direction = Direction.NORTHWEST;
+			} else if (Input.GetKey(KeyCode.D)) {
+				direction = Direction.NORTHEAST;
+			} else {
+				direction = Direction.NORTH;
+			}
+		} else if (Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.W)) {
+			if (Input.GetKey(KeyCode.A)) {
+				direction = Direction.SOUTHWEST;
+			} else if (Input.GetKey(KeyCode.D)) {
+				direction = Direction.SOUTHEAST;
+			} else {
+				direction = Direction.SOUTH;
+			}
+		} else if (Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D)) {
+			direction = Direction.WEST;
+		} else if (Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A)) {
+			direction = Direction.EAST;
+		} else {
+			direction = Direction.NONE;
+		}
 	}
 
-	private void RotateModel(Vector3 direction) {
-		if (direction == Vector3.zero) {
+	private void RotateModel() {
+		if (GetDirectionAsVector() == Vector3.zero) {
 			return;
 		}
 
-		Quaternion lookRotation = Quaternion.LookRotation(direction);
+		Quaternion lookRotation = Quaternion.LookRotation(GetDirectionAsVector());
 		Vector3 rotation = Quaternion.Lerp(gfx.rotation, lookRotation, rotateSpeed).eulerAngles;
 		gfx.rotation = Quaternion.Euler(0f, rotation.y, 0f);
 	}
 
-	private void Move(Vector3 direction) {
-		transform.Translate(movementSpeed * Time.deltaTime * direction);
+	private void Move() {
+		transform.Translate(movementSpeed * Time.deltaTime * GetDirectionAsVector());
 		float xPos = Mathf.Clamp(transform.position.x, minX, maxX);
 		float zPos = Mathf.Clamp(transform.position.z, minZ, maxZ);
 		transform.position = new Vector3(xPos, transform.position.y, zPos);
@@ -105,7 +119,6 @@ public class Player : MonoBehaviour {
 		RaycastHit hit;
 		if (Physics.Raycast(transform.position, Vector3.down, out hit, rayLength)) {
 			Node node = hit.transform.GetComponent<Node>();
-
 			if (node != null && node != currentNode) {
 				previousNode = currentNode;
 				currentNode = node;
@@ -134,6 +147,42 @@ public class Player : MonoBehaviour {
 		return transform.position;
 	}
 
+	public Vector3 GetDirectionAsVector() {
+		Vector3 dirVec = Vector3.zero;
+		switch (direction) {
+			case Direction.NORTH:
+				dirVec = Vector3.forward;
+				break;
+			case Direction.NORTHEAST:
+				dirVec = Vector3.forward + Vector3.right;
+				break;
+			case Direction.EAST:
+				dirVec = Vector3.right;
+				break;
+			case Direction.SOUTHEAST:
+				dirVec = Vector3.back + Vector3.right;
+				break;
+			case Direction.SOUTH:
+				dirVec = Vector3.back;
+				break;
+			case Direction.SOUTHWEST:
+				dirVec = Vector3.back + Vector3.left;
+				break;
+			case Direction.WEST:
+				dirVec = Vector3.left;
+				break;
+			case Direction.NORTHWEST:
+				dirVec = Vector3.forward + Vector3.left;
+				break;
+			case Direction.NONE:
+			default:
+				dirVec = Vector3.zero;
+				break;
+
+		}
+		return dirVec.normalized;
+	}
+
 	private void UpdateInventory() {
 		CollectionNode.Instance.TransferInventory(inventory);
 	}
@@ -151,5 +200,19 @@ public class Player : MonoBehaviour {
 			}
 		}
 	}
+
+}
+
+public enum Direction {
+	
+	NONE,
+	NORTH,
+	NORTHEAST,
+	EAST,
+	SOUTHEAST,
+	SOUTH,
+	SOUTHWEST,
+	WEST,
+	NORTHWEST
 
 }
