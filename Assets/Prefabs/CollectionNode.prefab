@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CollectionNode
       objectReference: {fileID: 0}
+    - target: {fileID: 3379170058364493882, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+      propertyPath: type
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -54,8 +54,8 @@ public class Fridge : MonoBehaviour {
 	}
 
 	private void GenerateDrinks() {
-		cokeCount++;
-		waterCount++;
+		CokeCount++;
+		WaterCount++;
 	}
 
 }

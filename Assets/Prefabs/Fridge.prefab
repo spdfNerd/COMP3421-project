@@ -293,7 +293,7 @@ Transform:
   m_GameObject: {fileID: 5740336067498879788}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -351,8 +351,8 @@ MonoBehaviour:
     hirePrice: 150
     sellPrice: 75
     runningCost: 30
-  cokeCountText: {fileID: 0}
-  waterCountText: {fileID: 0}
+  cokeCountText: {fileID: 2573776985879174082}
+  waterCountText: {fileID: 8793516356333588000}
 --- !u!1 &8115751578304712774
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,7 +390,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 20.083, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.9347, y: 10.51}
+  m_AnchoredPosition: {x: 0.9347, y: 7.13}
   m_SizeDelta: {x: 526.0972, y: 192.3311}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &8727945637654979093
