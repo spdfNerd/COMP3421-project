@@ -24,6 +24,18 @@ PrefabInstance:
       propertyPath: runningCost
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: -5299657561207226983, guid: 98440fd214f2c704ea26806d98b72ef0, type: 3}
+      propertyPath: costs.hirePrice
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: -5299657561207226983, guid: 98440fd214f2c704ea26806d98b72ef0, type: 3}
+      propertyPath: costs.sellPrice
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: -5299657561207226983, guid: 98440fd214f2c704ea26806d98b72ef0, type: 3}
+      propertyPath: costs.runningCost
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 15617541570370368, guid: 98440fd214f2c704ea26806d98b72ef0, type: 3}
       propertyPath: m_Name
       value: SushiChef
@@ -91,15 +103,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: d048311918dc6a6458fe6d287deb6638, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.5
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d048311918dc6a6458fe6d287deb6638, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.5
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d048311918dc6a6458fe6d287deb6638, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2.5
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d048311918dc6a6458fe6d287deb6638, type: 3}
       propertyPath: m_LocalPosition.x
