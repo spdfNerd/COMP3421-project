@@ -15,6 +15,7 @@ public class Waiter : MonoBehaviour {
 	public int hirePrice;
 	public int sellPrice;
 	public int runningCost;
+	public int upgradePrice;
 
 	public TextMeshProUGUI foodCountText;
 

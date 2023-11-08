@@ -9,6 +9,7 @@ public class Shop : MonoBehaviour {
     public Button waitStaff;
     public Button buyButton;
     public Button sellButton;
+    public Button upgradeButton;
     
     private GameObject selectedTower;
 
@@ -31,6 +32,7 @@ public class Shop : MonoBehaviour {
 
 	public void BuyTower() {
         Transform towerToBuild = BuildManager.Instance.towerToBuild;
+        Transform upgradedTowerToBuild = BuildManager.Instance.upgradedTowerToBuild;
 		if (towerToBuild == null) {
 			return;
 		}
@@ -39,29 +41,37 @@ public class Shop : MonoBehaviour {
 		Waiter waiterComponent = towerToBuild.GetComponent<Waiter>();
 		Fridge fridgeComponent = towerToBuild.GetComponent<Fridge>();
 
-		int hirePrice, sellPrice, runningCost;
+		int hirePrice, sellPrice, runningCost, upgradePrice;
 		if (chefComponent != null) {
 			hirePrice = chefComponent.hirePrice;
 			sellPrice = chefComponent.sellPrice;
 			runningCost = chefComponent.runningCost;
+            upgradePrice = chefComponent.upgradePrice;
 		} else if (waiterComponent != null) {
 			hirePrice = waiterComponent.hirePrice;
 			sellPrice = waiterComponent.sellPrice;
 			runningCost = waiterComponent.runningCost;
+            upgradePrice = waiterComponent.upgradePrice;
 		} else if (fridgeComponent != null) {
 			hirePrice = fridgeComponent.hirePrice;
 			sellPrice = fridgeComponent.sellPrice;
 			runningCost = fridgeComponent.runningCost;
+            upgradePrice = fridgeComponent.upgradePrice;
 		} else {
 			hirePrice = 0;
 			sellPrice = 0;
 			runningCost = 0;
+            upgradePrice = 0;
 		}
 
 		if (BuildManager.Instance.CheckCanBuild(hirePrice)) {
-			Player.Instance.currentNode.BuildTower(towerToBuild, hirePrice, sellPrice, runningCost);
+			Player.Instance.currentNode.BuildTower(towerToBuild, upgradedTowerToBuild, hirePrice, sellPrice, runningCost, upgradePrice);
 		}
 	}
+
+    public void UpgradeTower() {
+        Player.Instance.currentNode.UpgradeTower();
+    }
 
 	public void SellTower() {
         Player.Instance.currentNode.SellTower();
@@ -96,9 +106,11 @@ public class Shop : MonoBehaviour {
         if (Player.Instance.currentNode.tower == null) {
             buyButton.interactable = true;
             sellButton.interactable = false;
+            upgradeButton.interactable = false;
         } else {
             buyButton.interactable = false;
             sellButton.interactable = true;
+            upgradeButton.interactable = true;
         }
     }
 }

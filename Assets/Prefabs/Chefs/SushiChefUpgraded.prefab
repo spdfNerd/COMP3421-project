@@ -42,8 +42,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 15617541570370368, guid: 98440fd214f2c704ea26806d98b72ef0, type: 3}
       propertyPath: m_Name
-      value: SushiChef
+      value: SushiChefUpgraded
       objectReference: {fileID: 0}
+    - target: {fileID: 2609172698445179447, guid: 98440fd214f2c704ea26806d98b72ef0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 6699446615349125189, guid: 892072191aacb524bb39e3970deb6761, type: 3}
     - target: {fileID: 5648779257005954381, guid: 98440fd214f2c704ea26806d98b72ef0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

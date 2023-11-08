@@ -1,16 +1,20 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Node : MonoBehaviour {
 
     public Vector3 positionOffset;
     public Color hoverColour;
+    public Color hatColour;
     private Color startColour;
     private Renderer rend;
 
     [HideInInspector]
     public Transform tower;
+    public Transform upgradedTowerPrefab;
     private int towerSellPrice;
     private int towerRunningCost;
+    private int towerUpgradePrice;
 
     private Kitchen kitchen;
     private Chef chef;
@@ -22,17 +26,37 @@ public class Node : MonoBehaviour {
         kitchen = transform.parent.GetComponent<Kitchen>();
     }
 
-    public void BuildTower(Transform towerToBuild, int hirePrice, int sellPrice, int runningCost) {
+    public void BuildTower(Transform towerToBuild, Transform upgradedTowerToBuild, int hirePrice, int sellPrice, int runningCost, int upgradePrice) {
         LevelManager.Instance.Money -= hirePrice;
 
         tower = Instantiate(towerToBuild, transform.position + positionOffset, Quaternion.identity);
         towerSellPrice = sellPrice;
         towerRunningCost = runningCost;
         LevelManager.Instance.RunningCost += runningCost;
+        towerUpgradePrice = upgradePrice;
+        upgradedTowerPrefab = upgradedTowerToBuild;
 
-        if (kitchen != null) {
+        // if (kitchen != null) {
             chef = tower.GetComponent<Chef>();
-        }
+        // }
+    }
+
+    public void UpgradeTower() {
+        if (!BuildManager.Instance.CheckCanUpgrade(towerUpgradePrice)) {
+            Debug.Log("checked can upgrade");
+			return;
+		}
+
+        // increase the sell price and running cost after upgrading?
+        LevelManager.Instance.Money -= towerUpgradePrice;
+
+        Destroy(tower.gameObject);
+        tower = null;
+        chef = null;
+        tower = Instantiate(upgradedTowerPrefab, transform.position + positionOffset, Quaternion.identity);
+
+        // chef.Instance.FoodLimit += 5;
+        Debug.Log("upgraded");
     }
 
     public void SellTower() {

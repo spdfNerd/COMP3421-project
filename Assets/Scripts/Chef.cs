@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Chef : MonoBehaviour {
 
+	public static Chef Instance;
 	public float cooldown = 1f;
 	public FoodType foodType;
 	public TextMeshProUGUI foodCountText;
@@ -10,6 +11,8 @@ public class Chef : MonoBehaviour {
 	public int hirePrice;
 	public int sellPrice;
 	public int runningCost;
+	public int upgradePrice;
+	public int foodLimit;
 
 	private float cooldownTimer;
 	private int foodCount;
@@ -19,6 +22,13 @@ public class Chef : MonoBehaviour {
 		set {
 			foodCount = value;
 			foodCountText.text = foodCount == 0 ? "" : foodCount.ToString();
+		}
+	}
+
+	public int FoodLimit {
+		get => foodLimit;
+		set {
+			foodLimit = value;
 		}
 	}
 
@@ -41,7 +51,14 @@ public class Chef : MonoBehaviour {
 	}
 
 	private void ProduceFood() {
-		FoodCount++;
+		if (FoodCount < foodLimit) {
+			FoodCount++;
+		}
 	}
+
+	// public void IncreaseFoodLimit(int newLimit) {
+	// 	foodLimit = newLimit;
+	// 	Debug.Log("Increased limit");
+	// }
 
 }

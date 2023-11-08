@@ -87,6 +87,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -5299657561207226983, guid: 98440fd214f2c704ea26806d98b72ef0, type: 3}
+      propertyPath: chefHat
+      value: 
+      objectReference: {fileID: -5179218777290457093, guid: 53c54ab9b47dc2146ad3ae9ba1ca99f4, type: 3}
+    - target: {fileID: -5299657561207226983, guid: 98440fd214f2c704ea26806d98b72ef0, type: 3}
+      propertyPath: foodLimit
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -5299657561207226983, guid: 98440fd214f2c704ea26806d98b72ef0, type: 3}
       propertyPath: hirePrice
       value: 100
       objectReference: {fileID: 0}
@@ -97,6 +105,14 @@ PrefabInstance:
     - target: {fileID: -5299657561207226983, guid: 98440fd214f2c704ea26806d98b72ef0, type: 3}
       propertyPath: runningCost
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -5299657561207226983, guid: 98440fd214f2c704ea26806d98b72ef0, type: 3}
+      propertyPath: upgradePrice
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: -5299657561207226983, guid: 98440fd214f2c704ea26806d98b72ef0, type: 3}
+      propertyPath: foodCountLimit
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 15617541570370368, guid: 98440fd214f2c704ea26806d98b72ef0, type: 3}
       propertyPath: m_Name

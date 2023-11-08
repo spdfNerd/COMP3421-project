@@ -49,9 +49,12 @@ MonoBehaviour:
   cooldown: 1
   foodType: 0
   foodCountText: {fileID: 8165561905657482325}
+  chefHat: {fileID: -5179218777290457093, guid: f059b80f4cf080546a925bb18cf0e189, type: 3}
   hirePrice: 0
   sellPrice: 0
   runningCost: 0
+  upgradePrice: 0
+  foodLimit: 0
 --- !u!1 &3807911688802817956
 GameObject:
   m_ObjectHideFlags: 0
