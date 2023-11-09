@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class Waiter : MonoBehaviour {
 
+	[Header("Shoot Settings")]
 	public Transform[] projectiles;
-	public Transform[] icons;
 	public Transform firePoint;
 	public Transform foodHolder;
 
 	public float range = 4f;
 	public float fireCooldown = 2f;
 
-	public int hirePrice;
-	public int sellPrice;
-	public int runningCost;
+	[Header("Costs")]
+	public StaffCosts costs;
 
+	[Header("Graphics")]
+	public Transform[] icons;
 	public TextMeshProUGUI foodCountText;
 
 	private Transform target = null;

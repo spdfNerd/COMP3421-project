@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class WaveManager : MonoBehaviour {
@@ -11,8 +10,6 @@ public class WaveManager : MonoBehaviour {
 	public Button startWaveButton;
 
 	public Wave[] waves;
-
-	private LevelManager levelManager;
 
 	private int enemyCount = 0;
 
@@ -27,7 +24,6 @@ public class WaveManager : MonoBehaviour {
 	}
 
 	private void Start() {
-		levelManager = FindFirstObjectByType<LevelManager>();
 		spawnpoint = waypoints.GetChild(0).GetChild(0);
 	}
 
@@ -36,19 +32,23 @@ public class WaveManager : MonoBehaviour {
 	}
 
 	public void StartWave() {
-		levelManager.Round++;
+		LevelManager.Instance.Round++;
 		startWaveButton.interactable = false;
 		StartCoroutine(SpawnEnemies());
 	}
 
 	private IEnumerator SpawnEnemies() {
-		Wave wave = waves[LevelManager.Instance.Round - 1];
-		for (int i = 0; i < wave.subWave.Length; i++) {
-			Wave.SubWave subWave = wave.subWave[i];
-			for (int j = 0; j < subWave.count; j++) {
-				Instantiate(subWave.customer, spawnpoint.position, Quaternion.identity);
-				enemyCount++;
-				yield return new WaitForSeconds(subWave.spawnRate);
+		if (LevelManager.Instance.Round >= waves.Length && LevelManager.Instance.IsEndlessMode) {
+			// Generate random waves for endless mode
+		} else {
+			Wave wave = waves[LevelManager.Instance.Round - 1];
+			for (int i = 0; i < wave.subWaves.Length; i++) {
+				Wave.SubWave subWave = wave.subWaves[i];
+				for (int j = 0; j < subWave.count; j++) {
+					Instantiate(subWave.customer, spawnpoint.position, Quaternion.identity);
+					enemyCount++;
+					yield return new WaitForSeconds(subWave.spawnRate);
+				}
 			}
 		}
 	}
@@ -56,19 +56,25 @@ public class WaveManager : MonoBehaviour {
 	public void DecrementEnemyCount() {
 		enemyCount--;
 		if (enemyCount == 0) {
-			levelManager.Money -= levelManager.RunningCost;
+			LevelManager.Instance.Money -= LevelManager.Instance.RunningCost;
 		}
 
 		CheckCanContinue();
 	}
 
 	private void CheckCanContinue() {
-		if (LevelManager.Instance.Reputation <= 0 || LevelManager.Instance.Money < 0) {
-			// Switch to lose screen
-			SceneManager.LoadScene("LoseScreen");
-		} else if (LevelManager.Instance.Round == waves.Length && enemyCount == 0) {
-			// Switch to win screen
-			SceneManager.LoadScene("WinScreen");
+		if (LevelManager.Instance.IsEndlessMode) {
+			if (LevelManager.Instance.Reputation <= 0 || LevelManager.Instance.Money < 0) {
+				// Switch to game summary screen
+			}
+		} else {
+			if (LevelManager.Instance.Reputation <= 0 || LevelManager.Instance.Money < 0) {
+				// Switch to lose screen
+				SceneManager.LoadScene("LoseScreen");
+			} else if (LevelManager.Instance.Round == waves.Length && enemyCount == 0) {
+				// Switch to win screen
+				SceneManager.LoadScene("WinScreen");
+			}
 		}
 	}
 
@@ -77,7 +83,7 @@ public class WaveManager : MonoBehaviour {
 [System.Serializable]
 public class Wave {
 
-	public SubWave[] subWave;
+	public SubWave[] subWaves;
 
 	[System.Serializable]
 	public class SubWave {

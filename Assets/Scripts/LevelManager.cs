@@ -6,13 +6,16 @@ public class LevelManager : MonoBehaviour {
 
     public static LevelManager Instance;
 
+	[Header("Player Stats")]
 	public int startingMoney;
 	public int startingReputation;
 
+	[Header("HUD Objects")]
 	public TextMeshProUGUI moneyText;
 	public TextMeshProUGUI reputationText;
 	public TextMeshProUGUI roundsText;
 
+	[Header("Map Settings")]
 	public Transform nodeParent;
 	public Transform node;
 	public Transform kitchenNodeParent;
@@ -21,6 +24,7 @@ public class LevelManager : MonoBehaviour {
 	public int mapWidth = 24;
 	public int mapHeight = 24;
 
+	[Header("Map Constraints")]
 	public Transform frontWall;
 	public Transform backWall;
 	public Transform leftWall;
@@ -29,6 +33,7 @@ public class LevelManager : MonoBehaviour {
 	private int money = 0;
 	private int reputation = 0;
 	private int round = 0;
+	private bool isEndlessMode;
 
 	private GameObject towerToBuild;
     private int runningCost = 0;
@@ -64,6 +69,11 @@ public class LevelManager : MonoBehaviour {
 		}
 	}
 
+	public bool IsEndlessMode {
+		get => isEndlessMode;
+		set => isEndlessMode = value;
+	}
+
 	private void Awake() {
 		if (Instance != null) {
 			Debug.Log("More than one LevelManager in scene!");
@@ -77,17 +87,7 @@ public class LevelManager : MonoBehaviour {
 		Reputation = startingReputation;
 		InitFoodRewards();
 
-		for (int i = -mapWidth / 2; i < mapWidth / 2 + 1; i++) {
-			for (int j = -mapHeight / 2; j < mapHeight / 2 + 1; j++) {
-				if (i == 1 && j == 9) {
-					Instantiate(collectionNode, new Vector3(i * 4, 0f, j * 4), Quaternion.identity, kitchenNodeParent);
-				} else {
-					Transform nodeToInstantiate = i >= 2 && j >= 6 ? kitchenNode : node;
-					Transform nodeParent = i >= 2 && j >= 6 ? kitchenNodeParent : this.nodeParent;
-					Instantiate(nodeToInstantiate, new Vector3(i * 4, 0f, j * 4), Quaternion.identity, nodeParent);
-				}
-			}
-		}
+		GenerateNodes();
 	}
 
 	private void InitFoodRewards() {
@@ -100,6 +100,19 @@ public class LevelManager : MonoBehaviour {
 		foodRewards.Add(FoodType.WATER, 20);
 	}
 
+	private void GenerateNodes() {
+		for (int i = -mapWidth / 2; i < mapWidth / 2 + 1; i++) {
+			for (int j = -mapHeight / 2; j < mapHeight / 2 + 1; j++) {
+				if (i == 1 && j == 9) {
+					Instantiate(collectionNode, new Vector3(i * 4, 0f, j * 4), Quaternion.identity, kitchenNodeParent);
+				} else {
+					Transform nodeToInstantiate = i >= 2 && j >= 6 ? kitchenNode : node;
+					Transform nodeParent = i >= 2 && j >= 6 ? kitchenNodeParent : this.nodeParent;
+					Instantiate(nodeToInstantiate, new Vector3(i * 4, 0f, j * 4), Quaternion.identity, nodeParent);
+				}
+			}
+		}
+	}
 
 	public GameObject GetTowerToBuild() {
         return towerToBuild;

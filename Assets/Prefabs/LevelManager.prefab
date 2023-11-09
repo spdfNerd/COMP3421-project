@@ -50,8 +50,10 @@ MonoBehaviour:
   startingReputation: 50
   moneyText: {fileID: 0}
   reputationText: {fileID: 0}
+  roundsText: {fileID: 0}
   nodeParent: {fileID: 0}
   node: {fileID: 3763095184894613192, guid: b1bb68b32b0f04cab84d9215ed5ffd15, type: 3}
+  kitchenNodeParent: {fileID: 0}
   kitchenNode: {fileID: 2794450210263201508, guid: 7829cb2c9dd5f5f40859151fa4653b93, type: 3}
   collectionNode: {fileID: 4343190089493070277, guid: 217536411b408ca4c8e8d8a2ff5b324a, type: 3}
   mapWidth: 24
@@ -73,8 +75,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypoints: {fileID: 0}
-  enemyPrefab: {fileID: 9045602439349780909, guid: e7579515e13f4cc41ab4a602187c9a89, type: 3}
   startWaveButton: {fileID: 0}
+  waves:
+  - subWaves:
+    - customer: {fileID: 1863023483181425114, guid: 6febb67ccd91b3a47b503cd8abff1861, type: 3}
+      count: 2
+      spawnRate: 8
+  - subWaves:
+    - customer: {fileID: 6839195491087686425, guid: 76e78d6a87e2310448d044b38bfcc548, type: 3}
+      count: 1
+      spawnRate: 8
+    - customer: {fileID: 1863023483181425114, guid: 6febb67ccd91b3a47b503cd8abff1861, type: 3}
+      count: 2
+      spawnRate: 8
+  - subWaves:
+    - customer: {fileID: 1863023483181425114, guid: 6febb67ccd91b3a47b503cd8abff1861, type: 3}
+      count: 1
+      spawnRate: 5
+    - customer: {fileID: 5094075812522821016, guid: 16467c7b3550c2243bb7756b84d5d23d, type: 3}
+      count: 2
+      spawnRate: 5
+    - customer: {fileID: 6839195491087686425, guid: 76e78d6a87e2310448d044b38bfcc548, type: 3}
+      count: 2
+      spawnRate: 4
+  - subWaves:
+    - customer: {fileID: 1863023483181425114, guid: 6febb67ccd91b3a47b503cd8abff1861, type: 3}
+      count: 2
+      spawnRate: 5
+    - customer: {fileID: 5094075812522821016, guid: 16467c7b3550c2243bb7756b84d5d23d, type: 3}
+      count: 1
+      spawnRate: 4
+    - customer: {fileID: 6839195491087686425, guid: 76e78d6a87e2310448d044b38bfcc548, type: 3}
+      count: 3
+      spawnRate: 7
+  - subWaves:
+    - customer: {fileID: 1863023483181425114, guid: 6febb67ccd91b3a47b503cd8abff1861, type: 3}
+      count: 4
+      spawnRate: 8
+    - customer: {fileID: 6503221840761620611, guid: a15074e3bfa05c64e85b70287e3a37bc, type: 3}
+      count: 1
+      spawnRate: 0
 --- !u!114 &3552611188793140248
 MonoBehaviour:
   m_ObjectHideFlags: 0

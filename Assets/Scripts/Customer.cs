@@ -5,12 +5,15 @@ using UnityEngine;
 
 public class Customer : MonoBehaviour {
 
+	[Header("Movement Settings")]
 	public int loopCount = 2;
 	public float speed = 10f;
 	public float rotateSpeed = 0.5f;
 
+	[Header("Penalty Settings")]
 	public int reputationPenalty = 10;
 
+	[Header("Graphics")]
 	public Transform gfx;
 	public Transform foodHolder;
 	public Transform[] foods;
