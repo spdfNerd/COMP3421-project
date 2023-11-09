@@ -110,7 +110,12 @@ public class Shop : MonoBehaviour {
         } else {
             buyButton.interactable = false;
             sellButton.interactable = true;
-            upgradeButton.interactable = true;
+            if (Player.Instance.currentNode.isUpgraded) {
+                upgradeButton.interactable = false;
+            } else {
+                upgradeButton.interactable = true;
+            }
         }
     }
+
 }

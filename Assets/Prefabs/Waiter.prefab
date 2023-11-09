@@ -65,10 +65,11 @@ MonoBehaviour:
   firePoint: {fileID: 6598278176162629246}
   foodHolder: {fileID: 2177797560807738028}
   range: 20
-  fireCooldown: 1
+  fireCooldown: 2
   hirePrice: 150
   sellPrice: 75
   runningCost: 30
+  upgradePrice: 75
   foodCountText: {fileID: 5953588067595620293}
 --- !u!1 &4497746603409791249
 GameObject:

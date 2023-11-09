@@ -12,16 +12,19 @@ public class Node : MonoBehaviour {
     [HideInInspector]
     public Transform tower;
     public Transform upgradedTowerPrefab;
+    public bool isUpgraded;
     private int towerSellPrice;
     private int towerRunningCost;
     private int towerUpgradePrice;
 
     private Kitchen kitchen;
     private Chef chef;
+    private Waiter waiter;
 
     private void Start() {
         rend = GetComponent<Renderer>();
         startColour = rend.material.color;
+        isUpgraded = false;
 
         kitchen = transform.parent.GetComponent<Kitchen>();
     }
@@ -51,11 +54,17 @@ public class Node : MonoBehaviour {
         LevelManager.Instance.Money -= towerUpgradePrice;
 
         Destroy(tower.gameObject);
-        tower = null;
-        chef = null;
         tower = Instantiate(upgradedTowerPrefab, transform.position + positionOffset, Quaternion.identity);
+        chef = tower.GetComponent<Chef>();
+        waiter = tower.GetComponent<Waiter>();
+        if (chef != null) {
+            chef.Upgrade();
+        } else if (waiter != null) {
+            waiter.Upgrade();
+        }
 
-        // chef.Instance.FoodLimit += 5;
+        isUpgraded = true;
+
         Debug.Log("upgraded");
     }
 
@@ -69,6 +78,8 @@ public class Node : MonoBehaviour {
         Destroy(tower.gameObject);
         tower = null;
         chef = null;
+        waiter = null;
+        isUpgraded = false;
 
         LevelManager.Instance.Money += towerSellPrice;
         LevelManager.Instance.RunningCost -= towerRunningCost;

@@ -46,10 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ac0a4ef2ff71847a4e0c1f63d67aca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 1
+  cooldown: 2
   foodType: 0
   foodCountText: {fileID: 8165561905657482325}
-  chefHat: {fileID: -5179218777290457093, guid: f059b80f4cf080546a925bb18cf0e189, type: 3}
   hirePrice: 0
   sellPrice: 0
   runningCost: 0

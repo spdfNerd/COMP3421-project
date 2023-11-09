@@ -56,9 +56,10 @@ public class Chef : MonoBehaviour {
 		}
 	}
 
-	// public void IncreaseFoodLimit(int newLimit) {
-	// 	foodLimit = newLimit;
-	// 	Debug.Log("Increased limit");
-	// }
+	public void Upgrade() {
+		foodLimit = 10;
+		cooldown = 1f;
+		Debug.Log("Increased limit");
+	}
 
 }
