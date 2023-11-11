@@ -80,15 +80,17 @@ public class WaveManager : MonoBehaviour {
 	private Wave GenerateRandomWave() {
 		int roundsAfterEnd = LevelManager.Instance.Round - waves.Length - 1;
 		float maxSpacing = 8f;
+		int normalCustomersCount = Mathf.FloorToInt(roundsAfterEnd / 3f);
+		int karenCustomersCount = Mathf.FloorToInt(roundsAfterEnd / 6f);
 
 		Wave wave = new Wave();
-		for (int i = 0; i < Mathf.FloorToInt(roundsAfterEnd / 3f); i++) {
-			wave.AddSubWave((CustomerType) UnityEngine.Random.Range(0, Enum.GetValues(typeof(CustomerType)).Length - 1),
+		for (int i = 0; i < normalCustomersCount; i++) {
+			wave.InsertSubWave((CustomerType) UnityEngine.Random.Range(0, Enum.GetValues(typeof(CustomerType)).Length - 1),
 				UnityEngine.Random.Range(3, i),
 				UnityEngine.Random.Range(maxSpacing - 0.25f * i, maxSpacing));
 		}
-		for (int i = 0; i < Mathf.FloorToInt(roundsAfterEnd / 6f); i++) {
-			wave.AddSubWave(CustomerType.KAREN,
+		for (int i = 0; i < karenCustomersCount; i++) {
+			wave.InsertSubWave(CustomerType.KAREN,
 				UnityEngine.Random.Range(1, i),
 				UnityEngine.Random.Range(maxSpacing / 2f - 0.5f * i, maxSpacing / 2f));
 		}
@@ -119,8 +121,13 @@ public class Wave {
 
 	public List<SubWave> subWaves;
 
-	public void AddSubWave(CustomerType type, int count, float spawnRate) {
-		subWaves.Add(new SubWave(type, count, spawnRate));
+	public void InsertSubWave(CustomerType type, int count, float spawnRate, bool insertRandomly = true) {
+		SubWave subWave = new(type, count, spawnRate);
+		if (insertRandomly) {
+			subWaves.Insert(UnityEngine.Random.Range(0, subWaves.Count), subWave);
+		} else {
+			subWaves.Add(subWave);
+		}
 	}
 
 	public void RandomiseSubWaves() {
