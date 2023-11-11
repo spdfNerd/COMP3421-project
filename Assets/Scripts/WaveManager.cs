@@ -45,7 +45,7 @@ public class WaveManager : MonoBehaviour {
 	}
 
 	private IEnumerator SpawnEnemies() {
-		Wave wave = LevelManager.Instance.IsEndlessMode && LevelManager.Instance.Round >= waves.Length
+		Wave wave = HasNoPrescribedWaves() || IsPastPrescribedRounds()
 			? GenerateRandomWave()
 			: waves[LevelManager.Instance.Round - 1];
 
@@ -77,11 +77,19 @@ public class WaveManager : MonoBehaviour {
 		};
 	}
 
+	public bool HasNoPrescribedWaves() {
+		return waves == null || waves.Length == 0;
+	}
+
+	public bool IsPastPrescribedRounds() {
+		return LevelManager.Instance.IsEndlessMode && LevelManager.Instance.Round >= waves.Length;
+	}
+
 	private Wave GenerateRandomWave() {
 		int roundsAfterEnd = LevelManager.Instance.Round - waves.Length - 1;
 		float maxSpacing = 8f;
-		int normalCustomersCount = Mathf.FloorToInt(roundsAfterEnd / 3f);
-		int karenCustomersCount = Mathf.FloorToInt(roundsAfterEnd / 6f);
+		int normalCustomersCount = Mathf.FloorToInt(roundsAfterEnd / 3f) + 2;
+		int karenCustomersCount = Mathf.FloorToInt(roundsAfterEnd / 6f) + 1;
 
 		Wave wave = new Wave();
 		for (int i = 0; i < normalCustomersCount; i++) {
@@ -116,10 +124,10 @@ public class WaveManager : MonoBehaviour {
 
 }
 
-[System.Serializable]
+[Serializable]
 public class Wave {
 
-	public List<SubWave> subWaves;
+	public List<SubWave> subWaves = new();
 
 	public void InsertSubWave(CustomerType type, int count, float spawnRate, bool insertRandomly = true) {
 		SubWave subWave = new(type, count, spawnRate);
@@ -130,10 +138,7 @@ public class Wave {
 		}
 	}
 
-	public void RandomiseSubWaves() {
-	}
-
-	[System.Serializable]
+	[Serializable]
 	public class SubWave {
 		
 		public CustomerType customer;
@@ -146,6 +151,18 @@ public class Wave {
 			this.spawnRate = spawnRate;
 		}
 
+		public override string ToString() {
+			return string.Format("{0}x {1} at {2} per second", count, customer.ToString(), (1f / spawnRate).ToString("0.000"));
+		}
+
+	}
+
+	public override string ToString() {
+		string result = "";
+		for (int i = 0; i < subWaves.Count; i++) {
+			result += string.Format("Sub-wave {0}: {1}\n", i + 1, subWaves[i].ToString());
+		}
+		return result;
 	}
 
 }

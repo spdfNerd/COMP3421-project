@@ -61,7 +61,6 @@
     <Compile Include="Assets\Scripts\Editor\InlinePropertyDrawer.cs" />
     <Compile Include="Assets\Scripts\Editor\StaffCostsEditor.cs" />
     <Compile Include="Assets\Scripts\Editor\SubWaveEditor.cs" />
-    <Compile Include="Assets\Scripts\Editor\WaveEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
