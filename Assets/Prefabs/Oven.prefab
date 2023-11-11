@@ -41,7 +41,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1986124924872658191}
-  - component: {fileID: -503195055136786535}
   m_Layer: 0
   m_Name: Oven
   m_TagString: Untagged
@@ -65,28 +64,6 @@ Transform:
   - {fileID: 979986688747668986}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &-503195055136786535
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9127417345709281055}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 20ef624c583fcf444a647cb2fa8c8324, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &2383743999264270096
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -109,11 +86,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d41cba8df094aed47813c50acb76a016, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071067
+      value: 0.7071685
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d41cba8df094aed47813c50acb76a016, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: -0.7070451
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d41cba8df094aed47813c50acb76a016, type: 3}
       propertyPath: m_LocalRotation.y
@@ -121,11 +98,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d41cba8df094aed47813c50acb76a016, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d41cba8df094aed47813c50acb76a016, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -89.99
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d41cba8df094aed47813c50acb76a016, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
