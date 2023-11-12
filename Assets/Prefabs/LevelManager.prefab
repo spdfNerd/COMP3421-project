@@ -76,43 +76,47 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waypoints: {fileID: 0}
   startWaveButton: {fileID: 0}
+  adultCustomer: {fileID: 1863023483181425114, guid: 6febb67ccd91b3a47b503cd8abff1861, type: 3}
+  childCustomer: {fileID: 6839195491087686425, guid: 76e78d6a87e2310448d044b38bfcc548, type: 3}
+  elderlyCustomer: {fileID: 5094075812522821016, guid: 16467c7b3550c2243bb7756b84d5d23d, type: 3}
+  karenCustomer: {fileID: 6503221840761620611, guid: a15074e3bfa05c64e85b70287e3a37bc, type: 3}
   waves:
   - subWaves:
-    - customer: {fileID: 1863023483181425114, guid: 6febb67ccd91b3a47b503cd8abff1861, type: 3}
+    - customer: 0
       count: 2
       spawnRate: 8
   - subWaves:
-    - customer: {fileID: 6839195491087686425, guid: 76e78d6a87e2310448d044b38bfcc548, type: 3}
+    - customer: 1
       count: 1
       spawnRate: 8
-    - customer: {fileID: 1863023483181425114, guid: 6febb67ccd91b3a47b503cd8abff1861, type: 3}
+    - customer: 0
       count: 2
       spawnRate: 8
   - subWaves:
-    - customer: {fileID: 1863023483181425114, guid: 6febb67ccd91b3a47b503cd8abff1861, type: 3}
+    - customer: 0
       count: 1
       spawnRate: 5
-    - customer: {fileID: 5094075812522821016, guid: 16467c7b3550c2243bb7756b84d5d23d, type: 3}
+    - customer: 2
       count: 2
       spawnRate: 5
-    - customer: {fileID: 6839195491087686425, guid: 76e78d6a87e2310448d044b38bfcc548, type: 3}
+    - customer: 1
       count: 2
       spawnRate: 4
   - subWaves:
-    - customer: {fileID: 1863023483181425114, guid: 6febb67ccd91b3a47b503cd8abff1861, type: 3}
+    - customer: 0
       count: 2
       spawnRate: 5
-    - customer: {fileID: 5094075812522821016, guid: 16467c7b3550c2243bb7756b84d5d23d, type: 3}
+    - customer: 2
       count: 1
       spawnRate: 4
-    - customer: {fileID: 6839195491087686425, guid: 76e78d6a87e2310448d044b38bfcc548, type: 3}
+    - customer: 1
       count: 3
       spawnRate: 7
   - subWaves:
-    - customer: {fileID: 1863023483181425114, guid: 6febb67ccd91b3a47b503cd8abff1861, type: 3}
+    - customer: 0
       count: 4
       spawnRate: 8
-    - customer: {fileID: 6503221840761620611, guid: a15074e3bfa05c64e85b70287e3a37bc, type: 3}
+    - customer: 3
       count: 1
       spawnRate: 0
 --- !u!114 &3552611188793140248

@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{DE9E328A-1490-AEE3-16A5-DEA7BA415F76}</ProjectGuid>
+    <ProjectGuid>{790D7B0B-3F4B-2037-735F-EBE38FB2D94A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -61,7 +61,6 @@
     <Compile Include="Assets\Scripts\Editor\InlinePropertyDrawer.cs" />
     <Compile Include="Assets\Scripts\Editor\StaffCostsEditor.cs" />
     <Compile Include="Assets\Scripts\Editor\SubWaveEditor.cs" />
-    <Compile Include="Assets\Scripts\Editor\WaveEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -886,7 +885,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{1BEDADC8-90E4-77C3-D67B-D079A774C892}</Project>
+      <Project>{024FB27F-B90E-C382-45EC-D96246F7C8F4}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
   </ItemGroup>

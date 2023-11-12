@@ -104,7 +104,7 @@ public class Customer : MonoBehaviour {
 
 	private int GetFoodTypeMaxValue() {
 		return LevelManager.Instance.Round < 2 * 4
-			? (int) Mathf.Ceil(LevelManager.Instance.Round / 2f)
+			? Mathf.CeilToInt(LevelManager.Instance.Round / 2f)
 			: Enum.GetValues(typeof(FoodType)).Length;
 	}
 
