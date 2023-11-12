@@ -4,14 +4,22 @@ using UnityEngine.UI;
 public class Node : MonoBehaviour {
 
     public Vector3 positionOffset;
+    // public Vector3 butttonsPositionOffset;
     public Color hoverColour;
-    public Color hatColour;
     private Color startColour;
     private Renderer rend;
 
     [HideInInspector]
     public Transform tower;
     public Transform upgradedTowerPrefab;
+    // public Transform towerUIButtons;
+    // public Transform towerUIButtonsPrefab;
+    // public Transform towerUIButtons;
+    // public Transform towerUIButtonsPrefab;
+    // public Transform rotateButtonPrefab;
+    // public Transform upgradeButtonPrefab;
+    // public Transform rotateButton;
+    // public Transform upgradeButton;
     public bool isUpgraded;
     private int towerSellPrice;
     private int towerRunningCost;
@@ -87,6 +95,15 @@ public class Node : MonoBehaviour {
 
 	public void OnPlayerEnter() {
         rend.material.color = hoverColour;
+        // if (tower != null) {
+        //     // TowerUI.Instance.DisplayButtons();
+        //     // towerUIButtons = Instantiate(towerUIButtonsPrefab);
+        //     upgradeButton = Instantiate(upgradeButtonPrefab, towerUIButtons.transform);
+        //     // upgradeButton = Instantiate(upgradeButtonPrefab,Player.Instance.GetPosition() + butttonsPositionOffset, Quaternion.identity);
+        //     // upgradeButton = Instantiate<GameObject>(upgradeButtonPrefab, towerUIButtons);
+
+        // }
+
     }
 
     public void OnPlayerExit() {

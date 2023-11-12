@@ -119,5 +119,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 3, z: 0}
+  butttonsPositionOffset: {x: 0, y: 10, z: 0}
   hoverColour: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 0}
   tower: {fileID: 0}
+  upgradedTowerPrefab: {fileID: 0}
+  towerUIButtons: {fileID: 0}
+  towerUIButtonsPrefab: {fileID: 1209519575743346190, guid: ecdf905b45b494e03a699e5d417c3e84, type: 3}
+  rotateButtonPrefab: {fileID: 1670300124797438624, guid: dd8215a38c2084e7585a83569cfb9505, type: 3}
+  upgradeButtonPrefab: {fileID: 7368774577897185271, guid: 94d49a689c1954aceb2df5529bee1d50, type: 3}
+  rotateButton: {fileID: 0}
+  upgradeButton: {fileID: 0}
+  isUpgraded: 0

@@ -69,9 +69,9 @@ public class Shop : MonoBehaviour {
 		}
 	}
 
-    public void UpgradeTower() {
-        Player.Instance.currentNode.UpgradeTower();
-    }
+    // public void UpgradeTower() {
+    //     Player.Instance.currentNode.UpgradeTower();
+    // }
 
 	public void SellTower() {
         Player.Instance.currentNode.SellTower();
