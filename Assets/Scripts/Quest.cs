@@ -8,11 +8,15 @@ public class Quest
     public string quest_name;
     public int point_reward;
     public QuestType type;
-    public bool is_completed;
-    
-}
+    public bool is_completed = false;
+    public int required_amount;
+    public int current_amount;
 
-public enum QuestType { 
-    Spend, // Spend some amount of cash
-    Serve, // Serve a type of food or a type of customer
+    public void Update() { 
+        if (current_amount >= required_amount)
+        {
+            is_completed = true;
+        }
+    }
+    
 }
