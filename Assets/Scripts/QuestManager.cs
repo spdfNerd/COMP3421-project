@@ -1,39 +1,93 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class QuestManager : MonoBehaviour
-{
-    public Quest first_quest; // index 0
-    public Quest second_quest; // index 1
-    public Quest third_quest; // index 2
-    public Quest[] quests;
-    public int[] used_indices = new int[] {-1,-1,-1};
+public class QuestManager : MonoBehaviour {
 
-    // Counters for quest
-    public int first_quest_counter = 0;
-    public int second_quest_counter = 0;
-    public int third_quest_counter = 0;
+	public static QuestManager Instance;
 
+	public Transform questsPanel;
+    public Transform[] questPool;
 
-    public Quest update_quest(int i) {
-        int index = Random.Range(0, quests.Length);
-        while (used_indices.Contains(index)) {
-            index = Random.Range(0, quests.Length);
-        }
+    [HideInInspector]
+    public int[] usedIndices;
+	[HideInInspector]
+	public QuestType[] questTypes;
+	private Transform[] currentQuests;
 
-        used_indices[i] = index;
-        return quests[index];
-    }
+	private void Awake() {
+		if (Instance != null) {
+			Debug.Log("More than one QuestManager in scene!");
+			return;
+		}
+		Instance = this;
+	}
 
-    public void Update()
-    {
-        if (first_quest.is_completed)
-            first_quest = update_quest(0);
-        if (second_quest.is_completed)
-            second_quest = update_quest(1);
-        if (third_quest.is_completed)
-            third_quest = update_quest(2);
-    }
+	private void Start() {
+		if (!LevelManager.Instance.isEndlessMode) {
+			enabled = false;
+			return;
+		}
+
+		currentQuests = new Transform[3];
+		usedIndices = new int[] { 0, 1, 2 };
+		questTypes = new QuestType[currentQuests.Length];
+
+		InitCurrentQuests();
+	}
+
+	public void UpdateQuest(int index) {
+		int newQuestIndex = Random.Range(0, questPool.Length);
+		while (usedIndices.Contains(newQuestIndex)) {
+			newQuestIndex = Random.Range(0, questPool.Length);
+		}
+		usedIndices[index] = newQuestIndex;
+
+		Destroy(currentQuests[index].gameObject);
+		Transform newQuest = Instantiate(questPool[newQuestIndex], questsPanel);
+		questTypes[index] = newQuest.GetComponent<Quest>().questType;
+		currentQuests[index] = newQuest;
+	}
+
+	public void NotifyQuestCompleted(int index) {
+		UpdateQuest(index);
+	}
+
+	public void TryUpdateSpendQuestProgress(int amount) {
+		TryUpdateQuestProgress(QuestType.SPEND, amount);
+	}
+
+	public void TryUpdateServeFoodQuestProgress(FoodType foodType, int amount = 1) {
+		TryUpdateQuestProgress(QuestType.SERVE_FOOD, amount, foodType);
+	}
+
+	public void TryUpdateServeCustomerQuestProgress(CustomerType customerType, int amount = 1) {
+		TryUpdateQuestProgress(QuestType.SERVE_CUSTOMER, amount, FoodType.PIZZA, customerType);
+	}
+
+	private void InitCurrentQuests() {
+		for (int i = 0; i < usedIndices.Length; i++) {
+			currentQuests[i] = Instantiate(questPool[i], questsPanel);
+			questTypes[i] = currentQuests[i].GetComponent<Quest>().questType;
+		}
+	}
+
+	private void TryUpdateQuestProgress(QuestType questType, int amount,
+		FoodType foodType = FoodType.PIZZA, CustomerType customerType = CustomerType.ADULT) {
+		for (int i = 0; i < questTypes.Length; i++) {
+			if (questTypes[i] != questType) {
+				continue;
+			}
+
+			Quest quest = currentQuests[i].GetComponent<Quest>();
+			if (questType == QuestType.SERVE_FOOD && quest.foodType != foodType) {
+				continue;
+			} else if (questType == QuestType.SERVE_CUSTOMER && quest.customerType != customerType) {
+				continue;
+			} else {
+				quest.AddToProgress(amount);
+			}
+		}
+	}
+
 }

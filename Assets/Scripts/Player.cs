@@ -51,7 +51,7 @@ public class Player : MonoBehaviour {
 		RotateModel();
 		Move();
 
-		UpdateCurrentNode();
+		CheckForNode();
 		if (shouldCollect) {
 			UpdateInventory();
 		}
@@ -112,34 +112,17 @@ public class Player : MonoBehaviour {
 		transform.position = new Vector3(xPos, transform.position.y, zPos);
 	}
 
-	private void UpdateCurrentNode() {
+	private void CheckForNode() {
 		CapsuleCollider collider = GetComponent<CapsuleCollider>();
-		float rayLength = collider.height / 2f + 0.5f;
+		float rayLength = collider.height / 2f + 0.3f;
 
 		RaycastHit hit;
 		if (Physics.Raycast(transform.position, Vector3.down, out hit, rayLength)) {
-			Node node = hit.transform.GetComponent<Node>();
-			if (node != null && node != currentNode) {
+			if (hit.transform.TryGetComponent(out Node node)) {
 				previousNode = currentNode;
 				currentNode = node;
-				currentNode.OnPlayerEnter();
-
-				shouldCollect = hit.transform.GetComponent<CollectionNode>() != null;
-				if (node.tower != null) {
-					currentWaiter = node.tower.GetComponent<Waiter>();
-					shouldGiveFood = currentWaiter != null;
-				}
+				UpdateCurrentNode();
 			}
-		} else {
-			previousNode = currentNode;
-			currentNode = null;
-			shouldCollect = false;
-			currentWaiter = null;
-			shouldGiveFood = false;
-		}
-
-		if (previousNode != null) {
-			previousNode.OnPlayerExit();
 		}
 	}
 
@@ -189,16 +172,42 @@ public class Player : MonoBehaviour {
 	}
 
 	private void TransferFood() {
-		if (currentWaiter.FoodCount > 0) {
+		FoodType foodType = (FoodType) inventoryScreen.SelectedItem;
+		if (currentWaiter.FoodCount > 0 && currentWaiter.FoodType != foodType) {
 			return;
 		}
 
-		FoodType type = (FoodType) inventoryScreen.SelectedItem;
-		int count = inventory.GetItemCount(type);
+		int count = inventory.GetItemCount(foodType);
 		if (count > 0) {
-			currentWaiter.UpdateFoodType(type, count);
-			inventory.ClearItem(type);
-			inventoryScreen.SetCountToZero(type);
+			currentWaiter.UpdateFoodType(foodType, count);
+			inventory.ClearItem(foodType);
+			inventoryScreen.SetCountToZero(foodType);
+		}
+	}
+
+	private void UpdateCurrentNode() {
+		if (previousNode == currentNode) {
+			return;
+		}
+
+		if (previousNode != null) {
+			previousNode.OnPlayerExit();
+		}
+
+		if (currentNode != null) {
+			currentNode.OnPlayerEnter();
+			shouldCollect = currentNode.GetComponent<CollectionNode>() != null;
+			if (currentNode.tower != null) {
+				currentWaiter = currentNode.tower.GetComponent<Waiter>();
+				shouldGiveFood = currentWaiter != null;
+			} else {
+				currentWaiter = null;
+				shouldGiveFood = false;
+			}
+		} else {
+			shouldCollect = false;
+			currentWaiter = null;
+			shouldGiveFood = false;
 		}
 	}
 

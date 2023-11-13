@@ -82,7 +82,7 @@ public class WaveManager : MonoBehaviour {
 	}
 
 	public bool IsPastPrescribedRounds() {
-		return LevelManager.Instance.IsEndlessMode && LevelManager.Instance.Round >= waves.Length;
+		return LevelManager.Instance.isEndlessMode && LevelManager.Instance.Round >= waves.Length;
 	}
 
 	private Wave GenerateRandomWave() {
@@ -107,7 +107,7 @@ public class WaveManager : MonoBehaviour {
 	}
 
 	private void CheckCanContinue() {
-		if (LevelManager.Instance.IsEndlessMode) {
+		if (LevelManager.Instance.isEndlessMode) {
 			if (LevelManager.Instance.Reputation <= 0 || LevelManager.Instance.Money < 0) {
 				// Switch to game summary screen
 			}
