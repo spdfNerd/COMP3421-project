@@ -198,6 +198,7 @@ public class Player : MonoBehaviour {
 		if (count > 0) {
 			currentWaiter.UpdateFoodType(type, count);
 			inventory.ClearItem(type);
+			inventoryScreen.SetCountToZero(type);
 		}
 	}
 

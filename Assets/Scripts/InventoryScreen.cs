@@ -56,7 +56,7 @@ public class InventoryScreen : MonoBehaviour {
 		}
 	}
 
-	public void SetTextToZero(FoodType type) {
+	public void SetCountToZero(FoodType type) {
 		foodCountTexts[(int) type].text = "0";
 	}
 
