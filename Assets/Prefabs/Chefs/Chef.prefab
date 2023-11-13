@@ -374,6 +374,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: chef
       objectReference: {fileID: 0}
+    - target: {fileID: 8664241214609367062, guid: f059b80f4cf080546a925bb18cf0e189, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8664241214609367062, guid: f059b80f4cf080546a925bb18cf0e189, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8664241214609367062, guid: f059b80f4cf080546a925bb18cf0e189, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8664241214609367062, guid: f059b80f4cf080546a925bb18cf0e189, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

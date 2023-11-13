@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class Node : MonoBehaviour {
 
     public Vector3 positionOffset;
-    // public Vector3 butttonsPositionOffset;
+    public Vector3 buttonPositionOffset;
     public Color hoverColour;
     private Color startColour;
     private Renderer rend;
@@ -12,14 +12,8 @@ public class Node : MonoBehaviour {
     [HideInInspector]
     public Transform tower;
     public Transform upgradedTowerPrefab;
-    // public Transform towerUIButtons;
-    // public Transform towerUIButtonsPrefab;
-    // public Transform towerUIButtons;
-    // public Transform towerUIButtonsPrefab;
-    // public Transform rotateButtonPrefab;
-    // public Transform upgradeButtonPrefab;
-    // public Transform rotateButton;
-    // public Transform upgradeButton;
+    public GameObject rotateButton;
+    public GameObject upgradeButton;
     public bool isUpgraded;
     private int towerSellPrice;
     private int towerRunningCost;
@@ -50,6 +44,7 @@ public class Node : MonoBehaviour {
         // if (kitchen != null) {
             chef = tower.GetComponent<Chef>();
         // }
+        DisplayTowerUIButtons();
     }
 
     public void UpgradeTower() {
@@ -95,19 +90,33 @@ public class Node : MonoBehaviour {
 
 	public void OnPlayerEnter() {
         rend.material.color = hoverColour;
-        // if (tower != null) {
-        //     // TowerUI.Instance.DisplayButtons();
-        //     // towerUIButtons = Instantiate(towerUIButtonsPrefab);
-        //     upgradeButton = Instantiate(upgradeButtonPrefab, towerUIButtons.transform);
-        //     // upgradeButton = Instantiate(upgradeButtonPrefab,Player.Instance.GetPosition() + butttonsPositionOffset, Quaternion.identity);
-        //     // upgradeButton = Instantiate<GameObject>(upgradeButtonPrefab, towerUIButtons);
+        if (tower != null) {
+            DisplayTowerUIButtons();
+        }
+    }
 
-        // }
+    private void DisplayTowerUIButtons () {
+        rotateButton = Instantiate(Shop.Instance.rotateButtonPrefab) as GameObject;
+        rotateButton.transform.SetParent(BuildManager.Instance.canvas.transform, false);
+        Vector3 buttonPos = Player.Instance.currentNode.tower.transform.position - buttonPositionOffset;
+        rotateButton.transform.position = new Vector3(buttonPos.x, buttonPos.y, 0);
+        rotateButton.GetComponent<RectTransform>().localScale = new Vector3(0.5f, 0.5f, 0);
+        rotateButton.GetComponent<Button>().onClick.AddListener(() => Shop.Instance.Rotate());
 
+        upgradeButton = Instantiate(Shop.Instance.upgradeButtonPrefab) as GameObject;
+        upgradeButton.transform.SetParent(BuildManager.Instance.canvas.transform, false);
+        Vector3 upgButtonPos = Player.Instance.currentNode.tower.transform.position + buttonPositionOffset;
+        upgradeButton.transform.position = new Vector3(upgButtonPos.x, upgButtonPos.y, 0);
+        upgradeButton.GetComponent<RectTransform>().localScale = new Vector3(0.5f, 0.5f, 0);
+        upgradeButton.GetComponent<Button>().onClick.AddListener(() => Shop.Instance.UpgradeTower());
     }
 
     public void OnPlayerExit() {
         rend.material.color = startColour;
+        if (rotateButton && upgradeButton) {
+            Destroy(rotateButton);
+            Destroy(upgradeButton);
+        }
     }
 
 }

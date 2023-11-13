@@ -9,7 +9,8 @@ public class Shop : MonoBehaviour {
     public Button waitStaff;
     public Button buyButton;
     public Button sellButton;
-    public Button upgradeButton;
+    public GameObject rotateButtonPrefab;
+    public GameObject upgradeButtonPrefab;
     
     private GameObject selectedTower;
 
@@ -69,9 +70,16 @@ public class Shop : MonoBehaviour {
 		}
 	}
 
-    // public void UpgradeTower() {
-    //     Player.Instance.currentNode.UpgradeTower();
-    // }
+    public void Rotate () {
+        if (Player.Instance.currentNode.tower != null) {
+            GameObject towerGFX = Player.Instance.currentNode.tower.transform.Find("GFX").gameObject;
+            towerGFX.transform.Rotate(0, 90, 0); 
+        }
+    }
+
+    public void UpgradeTower() {
+        Player.Instance.currentNode.UpgradeTower();
+    }
 
 	public void SellTower() {
         Player.Instance.currentNode.SellTower();
@@ -106,14 +114,16 @@ public class Shop : MonoBehaviour {
         if (Player.Instance.currentNode.tower == null) {
             buyButton.interactable = true;
             sellButton.interactable = false;
-            upgradeButton.interactable = false;
         } else {
             buyButton.interactable = false;
             sellButton.interactable = true;
+        }
+
+        if (Player.Instance.currentNode.upgradeButton) {
             if (Player.Instance.currentNode.isUpgraded) {
-                upgradeButton.interactable = false;
+                Player.Instance.currentNode.upgradeButton.GetComponent<Button>().interactable = false;
             } else {
-                upgradeButton.interactable = true;
+                Player.Instance.currentNode.upgradeButton.GetComponent<Button>().interactable = true;
             }
         }
     }
