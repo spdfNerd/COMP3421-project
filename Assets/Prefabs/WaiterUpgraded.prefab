@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3550817822578954969}
   - component: {fileID: -6789661257437157315}
   m_Layer: 0
-  m_Name: Waiter
+  m_Name: WaiterUpgraded
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53,14 +53,6 @@ MonoBehaviour:
   - {fileID: 2192095508650909922, guid: 4013e7595ddcb734786c11944ea90550, type: 3}
   - {fileID: 2202783362058195599, guid: a81402280cd02c14095dce51af374a03, type: 3}
   - {fileID: 8023568439856625945, guid: 768a7bfcb0f429142858c288380f4f1f, type: 3}
-  firePoint: {fileID: 6598278176162629246}
-  foodHolder: {fileID: 2177797560807738028}
-  range: 20
-  fireCooldown: 1
-  costs:
-    hirePrice: 150
-    sellPrice: 75
-    runningCost: 30
   icons:
   - {fileID: -8679921383154817045, guid: 34e90a2749ab345439cdcb0c39fe8b06, type: 3}
   - {fileID: -8679921383154817045, guid: 6d7642f72581e954b8e965907cac0a84, type: 3}
@@ -68,6 +60,14 @@ MonoBehaviour:
   - {fileID: -8679921383154817045, guid: 892072191aacb524bb39e3970deb6761, type: 3}
   - {fileID: -8679921383154817045, guid: fec2d5eacb3a02e4f9786859416a8ce5, type: 3}
   - {fileID: -8679921383154817045, guid: 7d79546303ea2014bb5413016a0fe6d6, type: 3}
+  firePoint: {fileID: 6598278176162629246}
+  foodHolder: {fileID: 2177797560807738028}
+  range: 20
+  fireCooldown: 2
+  hirePrice: 150
+  sellPrice: 75
+  runningCost: 30
+  upgradePrice: 75
   foodCountText: {fileID: 5953588067595620293}
 --- !u!1 &4497746603409791249
 GameObject:
@@ -453,6 +453,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: waitor2
       objectReference: {fileID: 0}
+    - target: {fileID: 6273872601319623623, guid: 7f2f27c410d4df74699161502ee4a8eb, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -988981649587086123, guid: 0b8b49432ebc65a4aaabe66fb75ae16f, type: 3}
+    - target: {fileID: 7436138252459627526, guid: 7f2f27c410d4df74699161502ee4a8eb, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -7435582426736365258, guid: 5045232fe543acb4890c833ac471d65c, type: 3}
+    - target: {fileID: 7436138252459627526, guid: 7f2f27c410d4df74699161502ee4a8eb, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: -3210614076106884245, guid: dba946a03edae534caf9221a08d4417d, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

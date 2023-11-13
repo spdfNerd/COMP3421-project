@@ -5,6 +5,7 @@ public class Chef : MonoBehaviour {
 
 	[Header("Food Settings")]
 	public float cooldown = 1f;
+	public int foodLimit;
 	public FoodType foodType;
 
 	[Header("Costs")]
@@ -21,6 +22,13 @@ public class Chef : MonoBehaviour {
 		set {
 			foodCount = value;
 			foodCountText.text = foodCount == 0 ? "" : foodCount.ToString();
+		}
+	}
+
+	public int FoodLimit {
+		get => foodLimit;
+		set {
+			foodLimit = value;
 		}
 	}
 
@@ -43,7 +51,15 @@ public class Chef : MonoBehaviour {
 	}
 
 	private void ProduceFood() {
-		FoodCount++;
+		if (FoodCount < foodLimit) {
+			FoodCount++;
+		}
+	}
+
+	public void Upgrade() {
+		foodLimit = 10;
+		cooldown = 1f;
+		Debug.Log("Increased limit");
 	}
 
 }

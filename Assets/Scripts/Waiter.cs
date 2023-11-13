@@ -119,4 +119,9 @@ public class Waiter : MonoBehaviour {
 		}
 	}
 
+	public void Upgrade() {
+		// range = 20f;
+		fireCooldown = 1f;
+	}
+
 }

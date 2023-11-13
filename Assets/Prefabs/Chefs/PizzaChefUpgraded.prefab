@@ -10,19 +10,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 34e90a2749ab345439cdcb0c39fe8b06, type: 3}
       propertyPath: m_LocalScale.x
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 34e90a2749ab345439cdcb0c39fe8b06, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 34e90a2749ab345439cdcb0c39fe8b06, type: 3}
       propertyPath: m_LocalScale.z
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 34e90a2749ab345439cdcb0c39fe8b06, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.33
+      value: 1.15
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 34e90a2749ab345439cdcb0c39fe8b06, type: 3}
       propertyPath: m_LocalPosition.y
@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 34e90a2749ab345439cdcb0c39fe8b06, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.21
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 34e90a2749ab345439cdcb0c39fe8b06, type: 3}
       propertyPath: m_LocalRotation.w
@@ -78,7 +78,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 34e90a2749ab345439cdcb0c39fe8b06, type: 3}
   m_PrefabInstance: {fileID: 5712215615088204626}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &5983128211330528340
+--- !u!1001 &7230514998595350173
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -147,10 +147,10 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfb48b926cbc97d41b2310880c772cf4, type: 3}
---- !u!4 &6089691424402707391 stripped
+--- !u!4 &7195989591970908534 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cfb48b926cbc97d41b2310880c772cf4, type: 3}
-  m_PrefabInstance: {fileID: 5983128211330528340}
+  m_PrefabInstance: {fileID: 7230514998595350173}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9107797513855222133
 PrefabInstance:
@@ -181,6 +181,10 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: -5299657561207226983, guid: 98440fd214f2c704ea26806d98b72ef0, type: 3}
+      propertyPath: upgradePrice
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: -5299657561207226983, guid: 98440fd214f2c704ea26806d98b72ef0, type: 3}
       propertyPath: foodCountLimit
       value: 5
       objectReference: {fileID: 0}
@@ -202,8 +206,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 15617541570370368, guid: 98440fd214f2c704ea26806d98b72ef0, type: 3}
       propertyPath: m_Name
-      value: PizzaChef
+      value: PizzaChefUpgraded
       objectReference: {fileID: 0}
+    - target: {fileID: 2609172698445179447, guid: 98440fd214f2c704ea26806d98b72ef0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 6699446615349125189, guid: 892072191aacb524bb39e3970deb6761, type: 3}
     - target: {fileID: 5648779257005954381, guid: 98440fd214f2c704ea26806d98b72ef0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -260,16 +268,12 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8259084564015370659, guid: 98440fd214f2c704ea26806d98b72ef0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5933552464681702257, guid: 98440fd214f2c704ea26806d98b72ef0, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6089691424402707391}
+      addedObject: {fileID: 7195989591970908534}
     - targetCorrespondingSourceObject: {fileID: 948290986258601566, guid: 98440fd214f2c704ea26806d98b72ef0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5246522777174342841}
