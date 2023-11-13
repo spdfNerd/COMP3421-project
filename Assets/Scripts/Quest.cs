@@ -69,8 +69,6 @@ public class Quest : MonoBehaviour {
 
 		float width = progressBarBackground.rectTransform.rect.width * currentAmount / requiredAmount;
 		float height = progressBarBackground.rectTransform.rect.height;
-		//Rect barRect = progressBar.rectTransform.rect;
-		//barRect.width = width;
 		progressBar.rectTransform.sizeDelta = new Vector2(width, height);
 	}
 
