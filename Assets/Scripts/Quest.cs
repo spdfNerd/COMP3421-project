@@ -1,22 +1,48 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 [System.Serializable]
-public class Quest
-{
-    public string quest_name;
-    public int point_reward;
-    public QuestType type;
-    public bool is_completed = false;
-    public int required_amount;
-    public int current_amount;
+public class Quest {
 
-    public void Update() { 
-        if (current_amount >= required_amount)
-        {
-            is_completed = true;
-        }
-    }
+    public string questName;
+    public int pointReward;
+    public QuestType type;
+    public bool isCompleted = false;
+    public int requiredAmount;
+    public int currentAmount;
+
+    public void UpdateCurrentAmount(int newAmount) {
+		currentAmount = newAmount;
+	}
     
+}
+
+public class CashQuest : Quest {
+
+	public CashQuest(int amount) {
+		type = QuestType.SPEND;
+		requiredAmount = amount;
+	}
+
+}
+
+public class CustomerQuest : Quest {
+
+	public CustomerType customerType;
+
+	public CustomerQuest(int amount, CustomerType customerType) {
+		type = QuestType.SERVE;
+		requiredAmount = amount;
+		this.customerType = customerType;
+	}
+
+}
+
+public class FoodQuest : Quest {
+	
+	public FoodType foodType;
+
+	public FoodQuest(int amount, FoodType foodType) {
+		type = QuestType.SERVE;
+		requiredAmount = amount;
+		this.foodType = foodType;
+	}
+
 }
