@@ -5,7 +5,6 @@ public class BuildManager : MonoBehaviour {
 
 	public static BuildManager Instance;
 
-	public GameObject canvas;
 	public Transform sushiTowerPrefab;
 	public Transform upgradedSushiTowerPrefab;
 	public Transform burgerTowerPrefab;
@@ -81,7 +80,7 @@ public class BuildManager : MonoBehaviour {
 		return true;
 	}
 
-	public bool CheckCanUpgrade(int upgradePrice) {
+	public bool CanUpgrade(int upgradePrice) {
 		// if there is no tower on the tile
 		if (Player.Instance.currentNode.tower == null) {
 			Debug.Log("Can't upgrade a nonexistant tower");

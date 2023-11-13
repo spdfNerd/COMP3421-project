@@ -12,11 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelSelect.unity
     guid: 3bcfc282e3f78e147b4fd46c3ae8b067
   - enabled: 1
-    path: Assets/Scenes/TutorialLevel.unity
-    guid: 78fde0475e424964d9ca1f3497cf359b
+    path: Assets/Scenes/CreditScene.unity
+    guid: 981aebc591cda48b19df210bfb54d64d
   - enabled: 1
     path: Assets/Scenes/FirstLevel.unity
-    guid: d11cae6dde5f0294689c292c7c741bc8
+    guid: 78fde0475e424964d9ca1f3497cf359b
   - enabled: 1
     path: Assets/Scenes/WinScreen.unity
     guid: e8e1a771a2269401fab69c689d29d9d9

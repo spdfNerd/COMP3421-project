@@ -6,12 +6,25 @@ public class Food : MonoBehaviour {
 	public FoodType type;
 
 	private Transform target;
+	private Customer targetCustomer;
+	private bool questUpdated;
+
+	private void Start() {
+		if (target != null) {
+			targetCustomer = target.GetComponent<Customer>();
+		}
+		questUpdated = false;
+	}
 
 	private void Update() {
-		if (target == null) {
+		if (target == null || targetCustomer == null) {
+			Destroy(gameObject);
+			return;
+		} else if (targetCustomer.RequestsSatisfied) {
 			Destroy(gameObject);
 			return;
 		}
+
 		Move();
 	}
 
@@ -28,6 +41,7 @@ public class Food : MonoBehaviour {
 		Customer customer = collider.GetComponent<Customer>();
 		if (customer != null) {
 			customer.SatisfyRequest(this);
+			UpdateQuest();
 			Destroy(gameObject);
 			return;
 		}
@@ -35,6 +49,13 @@ public class Food : MonoBehaviour {
 
 	public void SetTarget(Transform target) {
 		this.target = target;
+	}
+
+	private void UpdateQuest() {
+		if (!questUpdated) {
+			QuestManager.Instance.TryUpdateServeFoodQuestProgress(type);
+			questUpdated = true;
+		}
 	}
 
 	private void Move() {

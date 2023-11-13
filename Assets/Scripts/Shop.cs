@@ -11,8 +11,7 @@ public class Shop : MonoBehaviour {
     public Button waitStaff;
     public Button buyButton;
     public Button sellButton;
-    public GameObject rotateButtonPrefab;
-    public GameObject upgradeButtonPrefab;
+    public GameObject upgradePanel;
     
     private GameObject selectedTower;
 
@@ -58,7 +57,7 @@ public class Shop : MonoBehaviour {
 		}
 	}
 
-    public void Rotate () {
+    public void Rotate() {
         if (Player.Instance.currentNode.tower != null) {
             GameObject towerGFX = Player.Instance.currentNode.tower.transform.Find("GFX").gameObject;
             towerGFX.transform.Rotate(0, 90, 0); 

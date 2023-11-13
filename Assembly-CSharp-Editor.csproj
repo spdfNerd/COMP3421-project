@@ -59,6 +59,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Editor\InlinePropertyDrawer.cs" />
+    <Compile Include="Assets\Scripts\Editor\QuestManagerEditor.cs" />
+    <Compile Include="Assets\Scripts\Editor\QuestEditor.cs" />
     <Compile Include="Assets\Scripts\Editor\StaffCostsEditor.cs" />
     <Compile Include="Assets\Scripts\Editor\SubWaveEditor.cs" />
   </ItemGroup>

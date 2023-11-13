@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Customer : MonoBehaviour {
 
+	public CustomerType customerType;
+
 	[Header("Movement Settings")]
 	public int loopCount = 2;
 	public float speed = 10f;
@@ -47,6 +49,10 @@ public class Customer : MonoBehaviour {
 			foodCountRequested = value;
 			foodCountText.text = foodCountRequested == 0 ? "" : foodCountRequested.ToString();
 		}
+	}
+
+	public bool RequestsSatisfied {
+		get => requestsSatisfied;
 	}
 
 	private void Start() {
@@ -153,6 +159,7 @@ public class Customer : MonoBehaviour {
 			LevelManager.Instance.Reputation -= reputationPenalty;
 		} else {
 			LevelManager.Instance.Money += rewardsToGrant;
+			QuestManager.Instance.TryUpdateServeCustomerQuestProgress(customerType);
 		}
 		WaveManager.Instance.DecrementEnemyCount();
 		Destroy(gameObject);

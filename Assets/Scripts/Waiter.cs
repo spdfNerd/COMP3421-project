@@ -62,6 +62,8 @@ public class Waiter : MonoBehaviour {
 			if (count > 0) {
 				Instantiate(icons[(int) type], foodHolder);
 			}
+		} else if (FoodType == type) {
+			FoodCount += count;
 		}
 	}
 
@@ -104,6 +106,9 @@ public class Waiter : MonoBehaviour {
 
 	private void Shoot() {
 		if (FoodCount == 0) {
+			if (foodHolder.childCount > 0) {
+				Destroy(foodHolder.GetChild(0).gameObject);
+			}
 			return;
 		}
 
@@ -119,9 +124,10 @@ public class Waiter : MonoBehaviour {
 		}
 	}
 
-	public void Upgrade() {
-		// range = 20f;
+	public void Upgrade(FoodType foodType, int foodCount) {
 		fireCooldown = 1f;
+		FoodType = foodType;
+		FoodCount = foodCount;
 	}
 
 }

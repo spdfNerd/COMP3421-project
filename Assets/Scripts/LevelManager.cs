@@ -23,6 +23,9 @@ public class LevelManager : MonoBehaviour {
 	public Transform collectionNode;
 	public int mapWidth = 24;
 	public int mapHeight = 24;
+	public Vector2 collectionNodePosition;
+	public Vector2 kitchenAreaStart;
+	public bool isEndlessMode;
 
 	[Header("Map Constraints")]
 	public Transform frontWall;
@@ -33,7 +36,6 @@ public class LevelManager : MonoBehaviour {
 	private int money = 0;
 	private int reputation = 0;
 	private int round = 0;
-	private bool isEndlessMode;
 
 	private GameObject towerToBuild;
     private int runningCost = 0;
@@ -69,11 +71,6 @@ public class LevelManager : MonoBehaviour {
 		}
 	}
 
-	public bool IsEndlessMode {
-		get => isEndlessMode;
-		set => isEndlessMode = value;
-	}
-
 	private void Awake() {
 		if (Instance != null) {
 			Debug.Log("More than one LevelManager in scene!");
@@ -103,11 +100,12 @@ public class LevelManager : MonoBehaviour {
 	private void GenerateNodes() {
 		for (int i = -mapWidth / 2; i < mapWidth / 2 + 1; i++) {
 			for (int j = -mapHeight / 2; j < mapHeight / 2 + 1; j++) {
-				if (i == 1 && j == 9) {
+				if (collectionNodePosition == new Vector2(i, j)) {
 					Instantiate(collectionNode, new Vector3(i * 4, 0f, j * 4), Quaternion.identity, kitchenNodeParent);
 				} else {
-					Transform nodeToInstantiate = i >= 2 && j >= 6 ? kitchenNode : node;
-					Transform nodeParent = i >= 2 && j >= 6 ? kitchenNodeParent : this.nodeParent;
+					bool isKitchenArea = i >= kitchenAreaStart.x && j >= kitchenAreaStart.y;
+					Transform nodeToInstantiate = isKitchenArea ? kitchenNode : node;
+					Transform nodeParent = isKitchenArea ? kitchenNodeParent : this.nodeParent;
 					Instantiate(nodeToInstantiate, new Vector3(i * 4, 0f, j * 4), Quaternion.identity, nodeParent);
 				}
 			}

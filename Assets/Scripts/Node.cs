@@ -33,8 +33,9 @@ public class Node : MonoBehaviour {
 
     public void BuildTower(Transform towerToBuild, Transform upgradedTowerToBuild, StaffCosts costs) {
         LevelManager.Instance.Money -= costs.hirePrice;
+		QuestManager.Instance.TryUpdateSpendQuestProgress(costs.hirePrice);
 
-        tower = Instantiate(towerToBuild, transform.position + positionOffset, Quaternion.identity);
+		tower = Instantiate(towerToBuild, transform.position + positionOffset, Quaternion.identity);
         towerSellPrice = costs.sellPrice;
         towerRunningCost = costs.runningCost;
         LevelManager.Instance.RunningCost += costs.runningCost;
@@ -48,27 +49,35 @@ public class Node : MonoBehaviour {
     }
 
     public void UpgradeTower() {
-        if (!BuildManager.Instance.CheckCanUpgrade(towerUpgradePrice)) {
-            Debug.Log("checked can upgrade");
+        if (!BuildManager.Instance.CanUpgrade(towerUpgradePrice)) {
+            Debug.Log("Cannot upgrade");
 			return;
 		}
 
-        // increase the sell price and running cost after upgrading?
         LevelManager.Instance.Money -= towerUpgradePrice;
+        towerSellPrice += towerUpgradePrice / 2;
+
+        FoodType foodType = FoodType.PIZZA;
+        int foodCount = 0;
+        if (chef != null) {
+            foodType = chef.foodType;
+            foodCount = chef.FoodCount;
+        } else if (waiter != null) {
+            foodType = waiter.FoodType;
+            foodCount = waiter.FoodCount;
+        }
 
         Destroy(tower.gameObject);
         tower = Instantiate(upgradedTowerPrefab, transform.position + positionOffset, Quaternion.identity);
         chef = tower.GetComponent<Chef>();
         waiter = tower.GetComponent<Waiter>();
         if (chef != null) {
-            chef.Upgrade();
+            chef.Upgrade(foodType, foodCount);
         } else if (waiter != null) {
-            waiter.Upgrade();
+            waiter.Upgrade(foodType, foodCount);
         }
 
         isUpgraded = true;
-
-        Debug.Log("upgraded");
     }
 
     public void SellTower() {
@@ -96,28 +105,33 @@ public class Node : MonoBehaviour {
     }
 
     private void DisplayTowerUIButtons () {
-        rotateButton = Instantiate(Shop.Instance.rotateButtonPrefab) as GameObject;
-        rotateButton.transform.SetParent(BuildManager.Instance.canvas.transform, false);
-        Vector3 buttonPos = Player.Instance.currentNode.tower.transform.position - buttonPositionOffset;
-        rotateButton.transform.position = new Vector3(buttonPos.x, buttonPos.y, 0);
-        rotateButton.GetComponent<RectTransform>().localScale = new Vector3(0.5f, 0.5f, 0);
+		Transform shopTransform = Shop.Instance.upgradePanel.transform;
+        Transform towerTransform = Player.Instance.currentNode.tower.transform;
+
+		Vector3 position = shopTransform.position;
+        position.x = towerTransform.position.x;
+        position.z = towerTransform.position.z;
+        shopTransform.position = position;
+
+        Transform rotateButton = shopTransform.GetChild(0).GetChild(0);
+        Transform upgradeButton = shopTransform.GetChild(0).GetChild(1);
         rotateButton.GetComponent<Button>().onClick.AddListener(() => Shop.Instance.Rotate());
-
-        upgradeButton = Instantiate(Shop.Instance.upgradeButtonPrefab) as GameObject;
-        upgradeButton.transform.SetParent(BuildManager.Instance.canvas.transform, false);
-        Vector3 upgButtonPos = Player.Instance.currentNode.tower.transform.position + buttonPositionOffset;
-        upgradeButton.transform.position = new Vector3(upgButtonPos.x, upgButtonPos.y, 0);
-        upgradeButton.GetComponent<RectTransform>().localScale = new Vector3(0.5f, 0.5f, 0);
         upgradeButton.GetComponent<Button>().onClick.AddListener(() => Shop.Instance.UpgradeTower());
+
+        shopTransform.gameObject.SetActive(true);
     }
 
-    public void OnPlayerExit() {
+	public void OnPlayerExit() {
         rend.material.color = startColour;
-        if (rotateButton && upgradeButton) {
-            Destroy(rotateButton);
-            Destroy(upgradeButton);
-        }
-    }
+
+		Transform shopTransform = Shop.Instance.upgradePanel.transform;
+		Transform rotateButton = shopTransform.GetChild(0).GetChild(0);
+		Transform upgradeButton = shopTransform.GetChild(0).GetChild(1);
+
+        rotateButton.GetComponent<Button>().onClick.RemoveAllListeners();
+        upgradeButton.GetComponent<Button>().onClick.RemoveAllListeners();
+		Shop.Instance.upgradePanel.SetActive(false);
+	}
 
 }
 
