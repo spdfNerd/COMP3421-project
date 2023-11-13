@@ -46,12 +46,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ac0a4ef2ff71847a4e0c1f63d67aca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 1
+  cooldown: 2
   foodType: 0
   foodCountText: {fileID: 8165561905657482325}
   hirePrice: 0
   sellPrice: 0
   runningCost: 0
+  upgradePrice: 0
+  foodLimit: 0
 --- !u!1 &3807911688802817956
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,6 +373,22 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f059b80f4cf080546a925bb18cf0e189, type: 3}
       propertyPath: m_Name
       value: chef
+      objectReference: {fileID: 0}
+    - target: {fileID: 8664241214609367062, guid: f059b80f4cf080546a925bb18cf0e189, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8664241214609367062, guid: f059b80f4cf080546a925bb18cf0e189, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8664241214609367062, guid: f059b80f4cf080546a925bb18cf0e189, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8664241214609367062, guid: f059b80f4cf080546a925bb18cf0e189, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

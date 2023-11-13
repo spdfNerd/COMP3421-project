@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +10,11 @@ public class WaveManager : MonoBehaviour {
 
 	public Transform waypoints;
 	public Button startWaveButton;
+
+	public Transform adultCustomer;
+	public Transform childCustomer;
+	public Transform elderlyCustomer;
+	public Transform karenCustomer;
 
 	public Wave[] waves;
 
@@ -38,17 +45,16 @@ public class WaveManager : MonoBehaviour {
 	}
 
 	private IEnumerator SpawnEnemies() {
-		if (LevelManager.Instance.Round >= waves.Length && LevelManager.Instance.IsEndlessMode) {
-			// Generate random waves for endless mode
-		} else {
-			Wave wave = waves[LevelManager.Instance.Round - 1];
-			for (int i = 0; i < wave.subWaves.Length; i++) {
-				Wave.SubWave subWave = wave.subWaves[i];
-				for (int j = 0; j < subWave.count; j++) {
-					Instantiate(subWave.customer, spawnpoint.position, Quaternion.identity);
-					enemyCount++;
-					yield return new WaitForSeconds(subWave.spawnRate);
-				}
+		Wave wave = HasNoPrescribedWaves() || IsPastPrescribedRounds()
+			? GenerateRandomWave()
+			: waves[LevelManager.Instance.Round - 1];
+
+		for (int i = 0; i < wave.subWaves.Count; i++) {
+			Wave.SubWave subWave = wave.subWaves[i];
+			for (int j = 0; j < subWave.count; j++) {
+				Instantiate(GetCustomerTransform(subWave.customer), spawnpoint.position, Quaternion.identity);
+				enemyCount++;
+				yield return new WaitForSeconds(subWave.spawnRate);
 			}
 		}
 	}
@@ -60,6 +66,44 @@ public class WaveManager : MonoBehaviour {
 		}
 
 		CheckCanContinue();
+	}
+
+	public Transform GetCustomerTransform(CustomerType type) {
+		return type switch {
+			CustomerType.CHILD => childCustomer,
+			CustomerType.ELDERLY => elderlyCustomer,
+			CustomerType.KAREN => karenCustomer,
+			_ => adultCustomer,
+		};
+	}
+
+	public bool HasNoPrescribedWaves() {
+		return waves == null || waves.Length == 0;
+	}
+
+	public bool IsPastPrescribedRounds() {
+		return LevelManager.Instance.IsEndlessMode && LevelManager.Instance.Round >= waves.Length;
+	}
+
+	private Wave GenerateRandomWave() {
+		int roundsAfterEnd = LevelManager.Instance.Round - waves.Length - 1;
+		float maxSpacing = 8f;
+		int normalCustomersCount = Mathf.FloorToInt(roundsAfterEnd / 3f) + 2;
+		int karenCustomersCount = Mathf.FloorToInt(roundsAfterEnd / 6f) + 1;
+
+		Wave wave = new Wave();
+		for (int i = 0; i < normalCustomersCount; i++) {
+			wave.InsertSubWave((CustomerType) UnityEngine.Random.Range(0, Enum.GetValues(typeof(CustomerType)).Length - 1),
+				UnityEngine.Random.Range(3, i),
+				UnityEngine.Random.Range(maxSpacing - 0.25f * i, maxSpacing));
+		}
+		for (int i = 0; i < karenCustomersCount; i++) {
+			wave.InsertSubWave(CustomerType.KAREN,
+				UnityEngine.Random.Range(1, i),
+				UnityEngine.Random.Range(maxSpacing / 2f - 0.5f * i, maxSpacing / 2f));
+		}
+
+		return wave;
 	}
 
 	private void CheckCanContinue() {
@@ -80,16 +124,45 @@ public class WaveManager : MonoBehaviour {
 
 }
 
-[System.Serializable]
+[Serializable]
 public class Wave {
 
-	public SubWave[] subWaves;
+	public List<SubWave> subWaves = new();
 
-	[System.Serializable]
+	public void InsertSubWave(CustomerType type, int count, float spawnRate, bool insertRandomly = true) {
+		SubWave subWave = new(type, count, spawnRate);
+		if (insertRandomly) {
+			subWaves.Insert(UnityEngine.Random.Range(0, subWaves.Count), subWave);
+		} else {
+			subWaves.Add(subWave);
+		}
+	}
+
+	[Serializable]
 	public class SubWave {
-		public Transform customer;
+		
+		public CustomerType customer;
 		public int count;
 		public float spawnRate;
+
+		public SubWave(CustomerType customer, int count, float spawnRate) {
+			this.customer = customer;
+			this.count = count;
+			this.spawnRate = spawnRate;
+		}
+
+		public override string ToString() {
+			return string.Format("{0}x {1} at {2} per second", count, customer.ToString(), (1f / spawnRate).ToString("0.000"));
+		}
+
+	}
+
+	public override string ToString() {
+		string result = "";
+		for (int i = 0; i < subWaves.Count; i++) {
+			result += string.Format("Sub-wave {0}: {1}\n", i + 1, subWaves[i].ToString());
+		}
+		return result;
 	}
 
 }

@@ -119,5 +119,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 3, z: 0}
+  buttonPositionOffset: {x: 5, y: 0, z: 0}
   hoverColour: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 0}
   tower: {fileID: 0}
+  upgradedTowerPrefab: {fileID: 0}
+  rotateButton: {fileID: 0}
+  upgradeButton: {fileID: 0}
+  isUpgraded: 0

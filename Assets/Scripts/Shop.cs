@@ -5,13 +5,14 @@ public class Shop : MonoBehaviour {
 
     public static Shop Instance;
 
-	public Button buyButton;
-	public Button sellButton;
-
     [HideInInspector]
 	public GameObject[] kitchenStaff;
     [HideInInspector]
     public Button waitStaff;
+    public Button buyButton;
+    public Button sellButton;
+    public GameObject rotateButtonPrefab;
+    public GameObject upgradeButtonPrefab;
     
     private GameObject selectedTower;
 
@@ -34,6 +35,7 @@ public class Shop : MonoBehaviour {
 
 	public void BuyTower() {
         Transform towerToBuild = BuildManager.Instance.towerToBuild;
+        Transform upgradedTowerToBuild = BuildManager.Instance.upgradedTowerToBuild;
 		if (towerToBuild == null) {
 			return;
 		}
@@ -52,9 +54,20 @@ public class Shop : MonoBehaviour {
 		}
 
 		if (BuildManager.Instance.CheckCanBuild(costs.hirePrice)) {
-			Player.Instance.currentNode.BuildTower(towerToBuild, costs);
+			Player.Instance.currentNode.BuildTower(towerToBuild, upgradedTowerToBuild, costs);
 		}
 	}
+
+    public void Rotate () {
+        if (Player.Instance.currentNode.tower != null) {
+            GameObject towerGFX = Player.Instance.currentNode.tower.transform.Find("GFX").gameObject;
+            towerGFX.transform.Rotate(0, 90, 0); 
+        }
+    }
+
+    public void UpgradeTower() {
+        Player.Instance.currentNode.UpgradeTower();
+    }
 
 	public void SellTower() {
         Player.Instance.currentNode.SellTower();
@@ -93,7 +106,16 @@ public class Shop : MonoBehaviour {
             buyButton.interactable = false;
             sellButton.interactable = true;
         }
+
+        if (Player.Instance.currentNode.upgradeButton) {
+            if (Player.Instance.currentNode.isUpgraded) {
+                Player.Instance.currentNode.upgradeButton.GetComponent<Button>().interactable = false;
+            } else {
+                Player.Instance.currentNode.upgradeButton.GetComponent<Button>().interactable = true;
+            }
+        }
     }
+
 }
 
 [System.Serializable]
@@ -102,11 +124,13 @@ public class StaffCosts {
     public int hirePrice;
     public int sellPrice;
     public int runningCost;
+    public int upgradePrice;
 
     public StaffCosts() {
         hirePrice = 0;
         sellPrice = 0;
         runningCost = 0;
+        upgradePrice = 0;
     }
 
 }
