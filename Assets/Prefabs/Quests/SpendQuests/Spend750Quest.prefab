@@ -110,11 +110,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2485631566131527911, guid: 9461f42d481f7294a98b08a52860853f, type: 3}
       propertyPath: m_Name
-      value: Spend4500Quest
+      value: Spend750Quest
       objectReference: {fileID: 0}
     - target: {fileID: 3664372869414683777, guid: 9461f42d481f7294a98b08a52860853f, type: 3}
       propertyPath: m_text
-      value: Spend $4500
+      value: Spend $750
       objectReference: {fileID: 0}
     - target: {fileID: 3664372869414683777, guid: 9461f42d481f7294a98b08a52860853f, type: 3}
       propertyPath: m_fontSizeBase
@@ -142,7 +142,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7804008634793227781, guid: 9461f42d481f7294a98b08a52860853f, type: 3}
       propertyPath: questName
-      value: Spend $4500
+      value: Spend $750
       objectReference: {fileID: 0}
     - target: {fileID: 7804008634793227781, guid: 9461f42d481f7294a98b08a52860853f, type: 3}
       propertyPath: questType
@@ -154,7 +154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7804008634793227781, guid: 9461f42d481f7294a98b08a52860853f, type: 3}
       propertyPath: requiredAmount
-      value: 4500
+      value: 750
       objectReference: {fileID: 0}
     - target: {fileID: 7804008634793227781, guid: 9461f42d481f7294a98b08a52860853f, type: 3}
       propertyPath: reputationReward

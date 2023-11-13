@@ -155,7 +155,7 @@ MonoBehaviour:
   questPool:
   - {fileID: 3876337687951774051, guid: 7e4070bc857f3a340960bbd8706a103c, type: 3}
   - {fileID: 3876337687951774051, guid: a8a779929bba87a40bb3043814f1d5d9, type: 3}
-  - {fileID: 3876337687951774051, guid: bdaea6ee9e842674c801555394672fc5, type: 3}
+  - {fileID: 3876337687951774051, guid: cdc4b266cbcf3fe40a89c234eafcad89, type: 3}
   - {fileID: 3876337687951774051, guid: 0603e6c4df235ba45ac59bdc1df07eea, type: 3}
   - {fileID: 3876337687951774051, guid: 71fd3c4a8ec04d74ea626ba5af5d0a65, type: 3}
   - {fileID: 3876337687951774051, guid: 45003e950ca9cf74584e0316350c7e3f, type: 3}
@@ -164,7 +164,7 @@ MonoBehaviour:
   - {fileID: 3876337687951774051, guid: 49d7bb2ef1846964e941dc67a175a05b, type: 3}
   - {fileID: 3876337687951774051, guid: e489d55fc513f75439a82b5e4db9700e, type: 3}
   - {fileID: 3876337687951774051, guid: a2c78008644da294ea0704848f51954c, type: 3}
-  - {fileID: 3876337687951774051, guid: cdc4b266cbcf3fe40a89c234eafcad89, type: 3}
+  - {fileID: 3876337687951774051, guid: bdaea6ee9e842674c801555394672fc5, type: 3}
   - {fileID: 3876337687951774051, guid: ef8724c53d107fc4c87dce2a1e6273d2, type: 3}
   - {fileID: 3876337687951774051, guid: f419919334d0f5c408fa4456a579500f, type: 3}
   usedIndices: ffffffffffffffffffffffff

@@ -15,8 +15,6 @@ public class Node : MonoBehaviour {
     private int towerSellPrice;
     private int towerRunningCost;
 
-    private Chef chef;
-
     private void Start() {
         rend = GetComponent<Renderer>();
         startColour = rend.material.color;
@@ -24,15 +22,12 @@ public class Node : MonoBehaviour {
 
     public void BuildTower(Transform towerToBuild, StaffCosts costs) {
         LevelManager.Instance.Money -= costs.hirePrice;
+		QuestManager.Instance.TryUpdateSpendQuestProgress(costs.hirePrice);
 
-        tower = Instantiate(towerToBuild, transform.position + positionOffset, Quaternion.identity);
+		tower = Instantiate(towerToBuild, transform.position + positionOffset, Quaternion.identity);
         towerSellPrice = costs.sellPrice;
         towerRunningCost = costs.runningCost;
         LevelManager.Instance.RunningCost += costs.runningCost;
-
-        if (type == NodeType.KITCHEN) {
-            chef = tower.GetComponent<Chef>();
-        }
     }
 
     public void SellTower() {
@@ -44,7 +39,6 @@ public class Node : MonoBehaviour {
 
         Destroy(tower.gameObject);
         tower = null;
-        chef = null;
 
         LevelManager.Instance.Money += towerSellPrice;
         LevelManager.Instance.RunningCost -= towerRunningCost;

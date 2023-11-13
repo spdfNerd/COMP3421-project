@@ -114,8 +114,9 @@ public class Player : MonoBehaviour {
 
 	private void UpdateCurrentNode() {
 		CapsuleCollider collider = GetComponent<CapsuleCollider>();
-		float rayLength = collider.height / 2f + 0.5f;
+		float rayLength = collider.height / 2f + 0.3f;
 
+		Debug.DrawRay(transform.position, Vector3.down * rayLength, Color.red);
 		RaycastHit hit;
 		if (Physics.Raycast(transform.position, Vector3.down, out hit, rayLength)) {
 			Node node = hit.transform.GetComponent<Node>();
@@ -189,16 +190,16 @@ public class Player : MonoBehaviour {
 	}
 
 	private void TransferFood() {
-		if (currentWaiter.FoodCount > 0) {
+		FoodType foodType = (FoodType) inventoryScreen.SelectedItem;
+		if (currentWaiter.FoodCount > 0 && currentWaiter.FoodType != foodType) {
 			return;
 		}
 
-		FoodType type = (FoodType) inventoryScreen.SelectedItem;
-		int count = inventory.GetItemCount(type);
+		int count = inventory.GetItemCount(foodType);
 		if (count > 0) {
-			currentWaiter.UpdateFoodType(type, count);
-			inventory.ClearItem(type);
-			inventoryScreen.SetCountToZero(type);
+			currentWaiter.UpdateFoodType(foodType, count);
+			inventory.ClearItem(foodType);
+			inventoryScreen.SetCountToZero(foodType);
 		}
 	}
 
