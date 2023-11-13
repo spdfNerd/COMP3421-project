@@ -5,26 +5,41 @@ public class QuestEditor : Editor {
 
 	private Quest quest;
 
-	public override void OnInspectorGUI() {
+	private void OnEnable() {
 		quest = (Quest) target;
+	}
+
+	public override void OnInspectorGUI() {
+		using (new EditorGUI.DisabledScope(true)) {
+			EditorGUILayout.PropertyField(serializedObject.FindProperty("m_Script"));
+		}
 		DrawDetailsFields();
 		DrawRequirementFields();
 		DrawRewardsFields();
+		DrawGraphicsFields();
+		serializedObject.ApplyModifiedProperties();
+
+		if (quest.questNameText != null) {
+			quest.questNameText.text = quest.questName;
+		}
+		if (quest.rewardsText != null) {
+			quest.rewardsText.text = quest.GetRewardsText();
+		}
 	}
 
 	private void DrawDetailsFields() {
-		quest.questName = EditorGUILayout.TextField("Quest Name", quest.questName);
-		quest.questType = (QuestType) EditorGUILayout.EnumPopup("Quest Type", quest.questType);
+		EditorGUILayout.PropertyField(serializedObject.FindProperty("questName"));
+		EditorGUILayout.PropertyField(serializedObject.FindProperty("questType"));
 	}
 
 	private void DrawRequirementFields() {
-		quest.requiredAmount = EditorGUILayout.IntField("Required Amount", quest.requiredAmount);
+		EditorGUILayout.PropertyField(serializedObject.FindProperty("requiredAmount"));
 		switch (quest.questType) {
 			case QuestType.SERVE_FOOD:
-				quest.foodType = (FoodType) EditorGUILayout.EnumPopup("Food Type", quest.foodType);
+				EditorGUILayout.PropertyField(serializedObject.FindProperty("foodType"));
 				break;
 			case QuestType.SERVE_CUSTOMER:
-				quest.customerType = (CustomerType) EditorGUILayout.EnumPopup("Customer Type", quest.customerType);
+				EditorGUILayout.PropertyField(serializedObject.FindProperty("customerType"));
 				break;
 			default:
 				break;
@@ -35,12 +50,17 @@ public class QuestEditor : Editor {
 		switch (quest.questType) {
 			case QuestType.SERVE_FOOD:
 			case QuestType.SERVE_CUSTOMER:
-				quest.cashReward = EditorGUILayout.IntField("Cash Reward", quest.cashReward);
+				EditorGUILayout.PropertyField(serializedObject.FindProperty("cashReward"));
 				break;
 			case QuestType.SPEND:
-				quest.reputationReward = EditorGUILayout.IntField("Reputation Reward", quest.reputationReward);
+				EditorGUILayout.PropertyField(serializedObject.FindProperty("reputationReward"));
 				break;
 		}
+	}
+
+	private void DrawGraphicsFields() {
+		EditorGUILayout.PropertyField(serializedObject.FindProperty("questNameText"));
+		EditorGUILayout.PropertyField(serializedObject.FindProperty("rewardsText"));
 	}
 
 }

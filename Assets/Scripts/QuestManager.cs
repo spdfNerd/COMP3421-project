@@ -6,20 +6,12 @@ public class QuestManager : MonoBehaviour {
     public Quest firstQuest; // index 0
     public Quest secondQuest; // index 1
     public Quest thirdQuest; // index 2
+    public Transform questsPanel;
+
     public Quest[] questPool;
 
     [HideInInspector]
     public int[] usedIndices = new int[] { -1, -1, -1 };
-
-    public Quest UpdateQuest(int i) {
-        int index = Random.Range(0, questPool.Length);
-        while (usedIndices.Contains(index)) {
-            index = Random.Range(0, questPool.Length);
-        }
-
-        usedIndices[i] = index;
-        return questPool[index];
-    }
 
     public void Update() {
         if (firstQuest.IsCompleted) {
@@ -31,6 +23,19 @@ public class QuestManager : MonoBehaviour {
         if (thirdQuest.IsCompleted) {
 			thirdQuest = UpdateQuest(2);
 		}
-    }
+	}
+
+	public Quest UpdateQuest(int index) {
+		int newQuestIndex = Random.Range(0, questPool.Length);
+		while (usedIndices.Contains(newQuestIndex)) {
+			newQuestIndex = Random.Range(0, questPool.Length);
+		}
+		usedIndices[index] = newQuestIndex;
+
+		Quest newQuest = questPool[newQuestIndex];
+		Transform newQusetTransform = Instantiate(newQuest.transform, questsPanel);
+		newQusetTransform.SetSiblingIndex(index);
+		return newQuest;
+	}
 
 }
