@@ -65,7 +65,7 @@ public class InlinePropertyDrawer : PropertyDrawer {
 		}
 
 		for (int i = 0; i < properties.Length; i++) {
-			fieldLabelPos.x = i * (fieldWidth - (isFoldout ? 2 : 0));
+			fieldLabelPos.x = i * (fieldWidth - (isFoldout ? 2 : -5));
 			EditorGUI.LabelField(fieldLabelPos, properties[i].displayName);
 			fieldPos.x = i * (fieldWidth - (isFoldout ? 2 : -5));
 			EditorGUI.PropertyField(fieldPos, properties[i], GUIContent.none);

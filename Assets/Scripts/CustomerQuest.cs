@@ -13,4 +13,3 @@ public class CustomerQuest : Quest
         this.cust_type = c_type;
     }
 }
-}

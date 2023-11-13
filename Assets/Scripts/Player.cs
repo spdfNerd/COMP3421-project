@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
@@ -11,6 +10,7 @@ public class Player : MonoBehaviour {
 
 	[Header("Graphics")]
 	public Transform gfx;
+	public InventoryScreen inventoryScreen;
 
 	[HideInInspector]
 	public Node currentNode;
@@ -185,6 +185,7 @@ public class Player : MonoBehaviour {
 
 	private void UpdateInventory() {
 		CollectionNode.Instance.TransferInventory(inventory);
+		inventoryScreen.UpdateTexts(inventory);
 	}
 
 	private void TransferFood() {
@@ -192,12 +193,12 @@ public class Player : MonoBehaviour {
 			return;
 		}
 
-		foreach (FoodType type in Enum.GetValues(typeof(FoodType))) {
-			int count = inventory.GetItemCount(type);
-			if (count > 0) {
-				currentWaiter.UpdateFoodType(type, count);
-				inventory.ClearItem(type);
-			}
+		FoodType type = (FoodType) inventoryScreen.SelectedItem;
+		int count = inventory.GetItemCount(type);
+		if (count > 0) {
+			currentWaiter.UpdateFoodType(type, count);
+			inventory.ClearItem(type);
+			inventoryScreen.SetCountToZero(type);
 		}
 	}
 
