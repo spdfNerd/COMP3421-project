@@ -49,13 +49,13 @@ public class Node : MonoBehaviour {
     }
 
     public void UpgradeTower() {
-        if (!BuildManager.Instance.CheckCanUpgrade(towerUpgradePrice)) {
-            Debug.Log("checked can upgrade");
+        if (!BuildManager.Instance.CanUpgrade(towerUpgradePrice)) {
+            Debug.Log("Cannot upgrade");
 			return;
 		}
 
-        // increase the sell price and running cost after upgrading?
         LevelManager.Instance.Money -= towerUpgradePrice;
+        towerSellPrice += towerUpgradePrice / 2;
 
         Destroy(tower.gameObject);
         tower = Instantiate(upgradedTowerPrefab, transform.position + positionOffset, Quaternion.identity);
@@ -68,8 +68,6 @@ public class Node : MonoBehaviour {
         }
 
         isUpgraded = true;
-
-        Debug.Log("upgraded");
     }
 
     public void SellTower() {
@@ -115,7 +113,14 @@ public class Node : MonoBehaviour {
 
 	public void OnPlayerExit() {
         rend.material.color = startColour;
-        Shop.Instance.upgradePanel.SetActive(false);
+
+		Transform shopTransform = Shop.Instance.upgradePanel.transform;
+		Transform rotateButton = shopTransform.GetChild(0).GetChild(0);
+		Transform upgradeButton = shopTransform.GetChild(0).GetChild(1);
+
+        rotateButton.GetComponent<Button>().onClick.RemoveAllListeners();
+        upgradeButton.GetComponent<Button>().onClick.RemoveAllListeners();
+		Shop.Instance.upgradePanel.SetActive(false);
 	}
 
 }

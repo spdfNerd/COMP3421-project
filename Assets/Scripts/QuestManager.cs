@@ -24,6 +24,11 @@ public class QuestManager : MonoBehaviour {
 	}
 
 	private void Start() {
+		if (!LevelManager.Instance.isEndlessMode) {
+			enabled = false;
+			return;
+		}
+
 		currentQuests = new Transform[3];
 		usedIndices = new int[] { 0, 1, 2 };
 		questTypes = new QuestType[currentQuests.Length];

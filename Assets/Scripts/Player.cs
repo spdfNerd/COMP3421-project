@@ -124,30 +124,6 @@ public class Player : MonoBehaviour {
 				UpdateCurrentNode();
 			}
 		}
-		//if (Physics.Raycast(transform.position, Vector3.down, out hit, rayLength)) {
-		//	Node node = hit.transform.GetComponent<Node>();
-		//	if (node != null && node != currentNode) {
-		//		previousNode = currentNode;
-		//		currentNode = node;
-		//		currentNode.OnPlayerEnter();
-
-		//		shouldCollect = hit.transform.GetComponent<CollectionNode>() != null;
-		//		if (node.tower != null) {
-		//			currentWaiter = node.tower.GetComponent<Waiter>();
-		//			shouldGiveFood = currentWaiter != null;
-		//		}
-		//	}
-		//} else {
-		//	previousNode = currentNode;
-		//	currentNode = null;
-		//	shouldCollect = false;
-		//	currentWaiter = null;
-		//	shouldGiveFood = false;
-		//}
-
-		//if (previousNode != null && previousNode != currentNode) {
-		//	previousNode.OnPlayerExit();
-		//}
 	}
 
 	public Vector3 GetPosition () {
@@ -224,6 +200,9 @@ public class Player : MonoBehaviour {
 			if (currentNode.tower != null) {
 				currentWaiter = currentNode.tower.GetComponent<Waiter>();
 				shouldGiveFood = currentWaiter != null;
+			} else {
+				currentWaiter = null;
+				shouldGiveFood = false;
 			}
 		} else {
 			shouldCollect = false;

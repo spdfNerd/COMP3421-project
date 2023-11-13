@@ -61,6 +61,7 @@ MonoBehaviour:
     hirePrice: 150
     sellPrice: 75
     runningCost: 30
+    upgradePrice: 75
   icons:
   - {fileID: -8679921383154817045, guid: 34e90a2749ab345439cdcb0c39fe8b06, type: 3}
   - {fileID: -8679921383154817045, guid: 6d7642f72581e954b8e965907cac0a84, type: 3}

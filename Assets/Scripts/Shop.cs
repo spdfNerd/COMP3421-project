@@ -57,7 +57,7 @@ public class Shop : MonoBehaviour {
 		}
 	}
 
-    public void Rotate () {
+    public void Rotate() {
         if (Player.Instance.currentNode.tower != null) {
             GameObject towerGFX = Player.Instance.currentNode.tower.transform.Find("GFX").gameObject;
             towerGFX.transform.Rotate(0, 90, 0); 

@@ -62,6 +62,8 @@ public class Waiter : MonoBehaviour {
 			if (count > 0) {
 				Instantiate(icons[(int) type], foodHolder);
 			}
+		} else if (FoodType == type) {
+			FoodCount += count;
 		}
 	}
 
@@ -104,6 +106,9 @@ public class Waiter : MonoBehaviour {
 
 	private void Shoot() {
 		if (FoodCount == 0) {
+			if (foodHolder.GetChild(0) != null) {
+				Destroy(foodHolder.GetChild(0).gameObject);
+			}
 			return;
 		}
 
