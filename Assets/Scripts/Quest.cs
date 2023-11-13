@@ -1,48 +1,31 @@
-[System.Serializable]
-public class Quest {
+using UnityEngine;
 
-    public string questName;
-    public int pointReward;
-    public QuestType type;
-    public bool isCompleted = false;
-    public int requiredAmount;
-    public int currentAmount;
+public class Quest : MonoBehaviour {
 
-    public void UpdateCurrentAmount(int newAmount) {
-		currentAmount = newAmount;
-	}
-    
-}
+	[Header("Quest Details")]
+	public string questName;
+	public QuestType questType;
 
-public class CashQuest : Quest {
-
-	public CashQuest(int amount) {
-		type = QuestType.SPEND;
-		requiredAmount = amount;
-	}
-
-}
-
-public class CustomerQuest : Quest {
-
+	[Header("Completion Conditions")]
+	public int requiredAmount;
+	public FoodType foodType;
 	public CustomerType customerType;
 
-	public CustomerQuest(int amount, CustomerType customerType) {
-		type = QuestType.SERVE;
-		requiredAmount = amount;
-		this.customerType = customerType;
+	[Header("Rewards")]
+	public int cashReward;
+	public int reputationReward;
+
+	private int currentAmount;
+	private bool isCompleted = false;
+
+	public int CurrentAmount {
+		get => currentAmount;
+		set => currentAmount = value;
 	}
 
-}
-
-public class FoodQuest : Quest {
-	
-	public FoodType foodType;
-
-	public FoodQuest(int amount, FoodType foodType) {
-		type = QuestType.SERVE;
-		requiredAmount = amount;
-		this.foodType = foodType;
+	public bool IsCompleted {
+		get => isCompleted;
+		set => isCompleted = value;
 	}
-
+    
 }

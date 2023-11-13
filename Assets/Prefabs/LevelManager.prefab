@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 964670866056294259}
   - component: {fileID: 1134661119793969957}
   - component: {fileID: 3552611188793140248}
+  - component: {fileID: 1861578265356926184}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -138,3 +139,41 @@ MonoBehaviour:
   waiterTowerPrefab: {fileID: 3550817822578954969, guid: d8ebcfee9fde32e41b9d5fe87c41f9ee, type: 3}
   fridgeTowerPrefab: {fileID: 3718583968090340071, guid: 1e74d0f119905e54797abc4b659dfcf2, type: 3}
   towerToBuild: {fileID: 0}
+--- !u!114 &1861578265356926184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5950833492371533802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91b15446f2936ac4a9ac22fa5512ba24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstQuest:
+    questName: Serve 10 Pizzas
+    questType: 1
+    requiredAmount: 10
+    foodType: 0
+    customerType: 0
+    cashReward: 0
+    reputationReward: 0
+  secondQuest:
+    questName: Server 10 Adults
+    questType: 2
+    requiredAmount: 10
+    foodType: 0
+    customerType: 0
+    cashReward: 0
+    reputationReward: 0
+  thirdQuest:
+    questName: Spend 1500 Cash
+    questType: 0
+    requiredAmount: 1500
+    foodType: 0
+    customerType: 0
+    cashReward: 0
+    reputationReward: 0
+  questPool: []
+  usedIndices: ffffffffffffffffffffffff

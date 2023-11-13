@@ -3288,10 +3288,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 876312293}
     - target: {fileID: 1134661119793969957, guid: 7df76b8e52be3de4f9781b5d60d56738, type: 3}
-      propertyPath: enemyPrefab
-      value: 
-      objectReference: {fileID: 6839195491087686425, guid: 76e78d6a87e2310448d044b38bfcc548, type: 3}
-    - target: {fileID: 1134661119793969957, guid: 7df76b8e52be3de4f9781b5d60d56738, type: 3}
       propertyPath: startWaveButton
       value: 
       objectReference: {fileID: 1458181906}

@@ -7,13 +7,9 @@ public class QuestManager : MonoBehaviour {
     public Quest secondQuest; // index 1
     public Quest thirdQuest; // index 2
     public Quest[] questPool;
+
     [HideInInspector]
     public int[] usedIndices = new int[] { -1, -1, -1 };
-
-    // Counters for quest
-    public int firstQuestCounter = 0;
-    public int secondQuestCounter = 0;
-    public int thirdQuestCounter = 0;
 
     public Quest UpdateQuest(int i) {
         int index = Random.Range(0, questPool.Length);
@@ -26,13 +22,13 @@ public class QuestManager : MonoBehaviour {
     }
 
     public void Update() {
-        if (firstQuest.isCompleted) {
+        if (firstQuest.IsCompleted) {
 			firstQuest = UpdateQuest(0);
 		}
-        if (secondQuest.isCompleted) {
+        if (secondQuest.IsCompleted) {
 			secondQuest = UpdateQuest(1);
 		}
-        if (thirdQuest.isCompleted) {
+        if (thirdQuest.IsCompleted) {
 			thirdQuest = UpdateQuest(2);
 		}
     }
