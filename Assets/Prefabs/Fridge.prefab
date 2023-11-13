@@ -310,6 +310,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3718583968090340071}
   - component: {fileID: 3277336325979208531}
+  - component: {fileID: 2754358723861215405}
   m_Layer: 0
   m_Name: Fridge
   m_TagString: Untagged
@@ -351,8 +352,31 @@ MonoBehaviour:
     hirePrice: 150
     sellPrice: 75
     runningCost: 30
+    upgradePrice: 0
   cokeCountText: {fileID: 2573776985879174082}
   waterCountText: {fileID: 8793516356333588000}
+--- !u!95 &2754358723861215405
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6979823290519906597}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c8440814223a6334f885f47a7e71b27d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8115751578304712774
 GameObject:
   m_ObjectHideFlags: 0
