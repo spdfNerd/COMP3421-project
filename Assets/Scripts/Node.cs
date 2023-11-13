@@ -57,14 +57,24 @@ public class Node : MonoBehaviour {
         LevelManager.Instance.Money -= towerUpgradePrice;
         towerSellPrice += towerUpgradePrice / 2;
 
+        FoodType foodType = FoodType.PIZZA;
+        int foodCount = 0;
+        if (chef != null) {
+            foodType = chef.foodType;
+            foodCount = chef.FoodCount;
+        } else if (waiter != null) {
+            foodType = waiter.FoodType;
+            foodCount = waiter.FoodCount;
+        }
+
         Destroy(tower.gameObject);
         tower = Instantiate(upgradedTowerPrefab, transform.position + positionOffset, Quaternion.identity);
         chef = tower.GetComponent<Chef>();
         waiter = tower.GetComponent<Waiter>();
         if (chef != null) {
-            chef.Upgrade();
+            chef.Upgrade(foodType, foodCount);
         } else if (waiter != null) {
-            waiter.Upgrade();
+            waiter.Upgrade(foodType, foodCount);
         }
 
         isUpgraded = true;

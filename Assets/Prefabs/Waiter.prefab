@@ -56,7 +56,7 @@ MonoBehaviour:
   firePoint: {fileID: 6598278176162629246}
   foodHolder: {fileID: 2177797560807738028}
   range: 20
-  fireCooldown: 1
+  fireCooldown: 3
   costs:
     hirePrice: 150
     sellPrice: 75

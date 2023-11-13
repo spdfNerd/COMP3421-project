@@ -5,7 +5,6 @@ public class BuildManager : MonoBehaviour {
 
 	public static BuildManager Instance;
 
-	public GameObject canvas;
 	public Transform sushiTowerPrefab;
 	public Transform upgradedSushiTowerPrefab;
 	public Transform burgerTowerPrefab;

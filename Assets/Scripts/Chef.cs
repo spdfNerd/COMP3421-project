@@ -27,9 +27,7 @@ public class Chef : MonoBehaviour {
 
 	public int FoodLimit {
 		get => foodLimit;
-		set {
-			foodLimit = value;
-		}
+		set => foodLimit = value;
 	}
 
 	private void Start() {
@@ -56,10 +54,11 @@ public class Chef : MonoBehaviour {
 		}
 	}
 
-	public void Upgrade() {
+	public void Upgrade(FoodType foodType, int foodCount) {
 		foodLimit = 10;
 		cooldown = 1f;
-		Debug.Log("Increased limit");
+		this.foodType = foodType;
+		FoodCount = foodCount;
 	}
 
 }
