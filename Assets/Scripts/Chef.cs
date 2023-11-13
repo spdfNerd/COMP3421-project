@@ -3,16 +3,16 @@ using UnityEngine;
 
 public class Chef : MonoBehaviour {
 
-	public static Chef Instance;
+	[Header("Food Settings")]
 	public float cooldown = 1f;
-	public FoodType foodType;
-	public TextMeshProUGUI foodCountText;
-
-	public int hirePrice;
-	public int sellPrice;
-	public int runningCost;
-	public int upgradePrice;
 	public int foodLimit;
+	public FoodType foodType;
+
+	[Header("Costs")]
+	public StaffCosts costs;
+
+	[Header("Graphics")]
+	public TextMeshProUGUI foodCountText;
 
 	private float cooldownTimer;
 	private int foodCount;

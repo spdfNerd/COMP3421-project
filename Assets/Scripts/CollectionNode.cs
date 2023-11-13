@@ -16,12 +16,19 @@ public class CollectionNode : MonoBehaviour {
 		Node[] nodes = transform.parent.GetComponentsInChildren<Node>();
 		foreach (Node node in nodes) {
 			Chef chef = null;
+			Fridge fridge = null;
 			if (node.tower != null) {
 				chef = node.tower.GetComponent<Chef>();
+				fridge = node.tower.GetComponent<Fridge>();
 			}
+
 			if (chef != null) {
 				other.AddItem(chef.foodType, chef.FoodCount);
 				chef.ResetFoodCount();
+			} else if (fridge != null) {
+				other.AddItem(FoodType.COKE, fridge.CokeCount);
+				other.AddItem(FoodType.WATER, fridge.WaterCount);
+				fridge.ResetDrinksCount();
 			}
 		}
 	}

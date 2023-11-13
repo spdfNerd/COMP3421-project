@@ -3,10 +3,13 @@ using UnityEngine.UI;
 
 public class Node : MonoBehaviour {
 
-    public Vector3 positionOffset;
+	public NodeType type;
+
+	public Vector3 positionOffset;
     public Vector3 buttonPositionOffset;
     public Color hoverColour;
-    private Color startColour;
+
+	private Color startColour;
     private Renderer rend;
 
     [HideInInspector]
@@ -19,7 +22,6 @@ public class Node : MonoBehaviour {
     private int towerRunningCost;
     private int towerUpgradePrice;
 
-    private Kitchen kitchen;
     private Chef chef;
     private Waiter waiter;
 
@@ -27,23 +29,21 @@ public class Node : MonoBehaviour {
         rend = GetComponent<Renderer>();
         startColour = rend.material.color;
         isUpgraded = false;
-
-        kitchen = transform.parent.GetComponent<Kitchen>();
     }
 
-    public void BuildTower(Transform towerToBuild, Transform upgradedTowerToBuild, int hirePrice, int sellPrice, int runningCost, int upgradePrice) {
-        LevelManager.Instance.Money -= hirePrice;
+    public void BuildTower(Transform towerToBuild, Transform upgradedTowerToBuild, StaffCosts costs) {
+        LevelManager.Instance.Money -= costs.hirePrice;
 
         tower = Instantiate(towerToBuild, transform.position + positionOffset, Quaternion.identity);
-        towerSellPrice = sellPrice;
-        towerRunningCost = runningCost;
-        LevelManager.Instance.RunningCost += runningCost;
-        towerUpgradePrice = upgradePrice;
+        towerSellPrice = costs.sellPrice;
+        towerRunningCost = costs.runningCost;
+        LevelManager.Instance.RunningCost += costs.runningCost;
+        towerUpgradePrice = costs.upgradePrice;
         upgradedTowerPrefab = upgradedTowerToBuild;
 
-        // if (kitchen != null) {
+        if (type == NodeType.KITCHEN) {
             chef = tower.GetComponent<Chef>();
-        // }
+        }
         DisplayTowerUIButtons();
     }
 
@@ -118,5 +118,13 @@ public class Node : MonoBehaviour {
             Destroy(upgradeButton);
         }
     }
+
+}
+
+public enum NodeType {
+    
+    NORMAL,
+    KITCHEN,
+    COLLECTION
 
 }

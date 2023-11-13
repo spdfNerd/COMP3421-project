@@ -40,6 +40,22 @@ PrefabInstance:
       propertyPath: foodCountLimit
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: -5299657561207226983, guid: 98440fd214f2c704ea26806d98b72ef0, type: 3}
+      propertyPath: costs.hirePrice
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: -5299657561207226983, guid: 98440fd214f2c704ea26806d98b72ef0, type: 3}
+      propertyPath: costs.sellPrice
+      value: 125
+      objectReference: {fileID: 0}
+    - target: {fileID: -5299657561207226983, guid: 98440fd214f2c704ea26806d98b72ef0, type: 3}
+      propertyPath: costs.runningCost
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: -5299657561207226983, guid: 98440fd214f2c704ea26806d98b72ef0, type: 3}
+      propertyPath: costs.upgradePrice
+      value: 125
+      objectReference: {fileID: 0}
     - target: {fileID: 15617541570370368, guid: 98440fd214f2c704ea26806d98b72ef0, type: 3}
       propertyPath: m_Name
       value: SushiChefUpgraded

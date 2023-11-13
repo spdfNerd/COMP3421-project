@@ -5,7 +5,9 @@ public class Shop : MonoBehaviour {
 
     public static Shop Instance;
 
-    public GameObject[] kitchenStaff;
+    [HideInInspector]
+	public GameObject[] kitchenStaff;
+    [HideInInspector]
     public Button waitStaff;
     public Button buyButton;
     public Button sellButton;
@@ -42,31 +44,17 @@ public class Shop : MonoBehaviour {
 		Waiter waiterComponent = towerToBuild.GetComponent<Waiter>();
 		Fridge fridgeComponent = towerToBuild.GetComponent<Fridge>();
 
-		int hirePrice, sellPrice, runningCost, upgradePrice;
+        StaffCosts costs = new StaffCosts();
 		if (chefComponent != null) {
-			hirePrice = chefComponent.hirePrice;
-			sellPrice = chefComponent.sellPrice;
-			runningCost = chefComponent.runningCost;
-            upgradePrice = chefComponent.upgradePrice;
+            costs = chefComponent.costs;
 		} else if (waiterComponent != null) {
-			hirePrice = waiterComponent.hirePrice;
-			sellPrice = waiterComponent.sellPrice;
-			runningCost = waiterComponent.runningCost;
-            upgradePrice = waiterComponent.upgradePrice;
+			costs = waiterComponent.costs;
 		} else if (fridgeComponent != null) {
-			hirePrice = fridgeComponent.hirePrice;
-			sellPrice = fridgeComponent.sellPrice;
-			runningCost = fridgeComponent.runningCost;
-            upgradePrice = fridgeComponent.upgradePrice;
-		} else {
-			hirePrice = 0;
-			sellPrice = 0;
-			runningCost = 0;
-            upgradePrice = 0;
+			costs = fridgeComponent.costs;
 		}
 
-		if (BuildManager.Instance.CheckCanBuild(hirePrice)) {
-			Player.Instance.currentNode.BuildTower(towerToBuild, upgradedTowerToBuild, hirePrice, sellPrice, runningCost, upgradePrice);
+		if (BuildManager.Instance.CheckCanBuild(costs.hirePrice)) {
+			Player.Instance.currentNode.BuildTower(towerToBuild, upgradedTowerToBuild, costs);
 		}
 	}
 
@@ -126,6 +114,23 @@ public class Shop : MonoBehaviour {
                 Player.Instance.currentNode.upgradeButton.GetComponent<Button>().interactable = true;
             }
         }
+    }
+
+}
+
+[System.Serializable]
+public class StaffCosts {
+
+    public int hirePrice;
+    public int sellPrice;
+    public int runningCost;
+    public int upgradePrice;
+
+    public StaffCosts() {
+        hirePrice = 0;
+        sellPrice = 0;
+        runningCost = 0;
+        upgradePrice = 0;
     }
 
 }

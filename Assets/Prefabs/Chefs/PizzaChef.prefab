@@ -10,19 +10,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 34e90a2749ab345439cdcb0c39fe8b06, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 34e90a2749ab345439cdcb0c39fe8b06, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 34e90a2749ab345439cdcb0c39fe8b06, type: 3}
       propertyPath: m_LocalScale.z
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 34e90a2749ab345439cdcb0c39fe8b06, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.15
+      value: 2.33
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 34e90a2749ab345439cdcb0c39fe8b06, type: 3}
       propertyPath: m_LocalPosition.y
@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 34e90a2749ab345439cdcb0c39fe8b06, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.7
+      value: 1.21
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 34e90a2749ab345439cdcb0c39fe8b06, type: 3}
       propertyPath: m_LocalRotation.w
@@ -181,16 +181,28 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: -5299657561207226983, guid: 98440fd214f2c704ea26806d98b72ef0, type: 3}
-      propertyPath: upgradePrice
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: -5299657561207226983, guid: 98440fd214f2c704ea26806d98b72ef0, type: 3}
       propertyPath: foodCountLimit
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: -5299657561207226983, guid: 98440fd214f2c704ea26806d98b72ef0, type: 3}
+      propertyPath: costs.hirePrice
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: -5299657561207226983, guid: 98440fd214f2c704ea26806d98b72ef0, type: 3}
+      propertyPath: costs.sellPrice
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: -5299657561207226983, guid: 98440fd214f2c704ea26806d98b72ef0, type: 3}
+      propertyPath: costs.runningCost
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -5299657561207226983, guid: 98440fd214f2c704ea26806d98b72ef0, type: 3}
+      propertyPath: costs.upgradePrice
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 15617541570370368, guid: 98440fd214f2c704ea26806d98b72ef0, type: 3}
       propertyPath: m_Name
-      value: PizzaChefOven
+      value: PizzaChef
       objectReference: {fileID: 0}
     - target: {fileID: 5648779257005954381, guid: 98440fd214f2c704ea26806d98b72ef0, type: 3}
       propertyPath: m_LocalPosition.x

@@ -5,12 +5,15 @@ using UnityEngine;
 
 public class Customer : MonoBehaviour {
 
+	[Header("Movement Settings")]
 	public int loopCount = 2;
 	public float speed = 10f;
 	public float rotateSpeed = 0.5f;
 
+	[Header("Penalty Settings")]
 	public int reputationPenalty = 10;
 
+	[Header("Graphics")]
 	public Transform gfx;
 	public Transform foodHolder;
 	public Transform[] foods;
@@ -101,7 +104,7 @@ public class Customer : MonoBehaviour {
 
 	private int GetFoodTypeMaxValue() {
 		return LevelManager.Instance.Round < 2 * 4
-			? (int) Mathf.Ceil(LevelManager.Instance.Round / 2f)
+			? Mathf.CeilToInt(LevelManager.Instance.Round / 2f)
 			: Enum.GetValues(typeof(FoodType)).Length;
 	}
 

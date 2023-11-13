@@ -53,6 +53,14 @@ MonoBehaviour:
   - {fileID: 2192095508650909922, guid: 4013e7595ddcb734786c11944ea90550, type: 3}
   - {fileID: 2202783362058195599, guid: a81402280cd02c14095dce51af374a03, type: 3}
   - {fileID: 8023568439856625945, guid: 768a7bfcb0f429142858c288380f4f1f, type: 3}
+  firePoint: {fileID: 6598278176162629246}
+  foodHolder: {fileID: 2177797560807738028}
+  range: 20
+  fireCooldown: 1
+  costs:
+    hirePrice: 150
+    sellPrice: 75
+    runningCost: 30
   icons:
   - {fileID: -8679921383154817045, guid: 34e90a2749ab345439cdcb0c39fe8b06, type: 3}
   - {fileID: -8679921383154817045, guid: 6d7642f72581e954b8e965907cac0a84, type: 3}
@@ -60,14 +68,6 @@ MonoBehaviour:
   - {fileID: -8679921383154817045, guid: 892072191aacb524bb39e3970deb6761, type: 3}
   - {fileID: -8679921383154817045, guid: fec2d5eacb3a02e4f9786859416a8ce5, type: 3}
   - {fileID: -8679921383154817045, guid: 7d79546303ea2014bb5413016a0fe6d6, type: 3}
-  firePoint: {fileID: 6598278176162629246}
-  foodHolder: {fileID: 2177797560807738028}
-  range: 20
-  fireCooldown: 2
-  hirePrice: 150
-  sellPrice: 75
-  runningCost: 30
-  upgradePrice: 75
   foodCountText: {fileID: 5953588067595620293}
 --- !u!1 &4497746603409791249
 GameObject:
