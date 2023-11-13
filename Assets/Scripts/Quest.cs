@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Quest : MonoBehaviour {
 
@@ -20,6 +21,10 @@ public class Quest : MonoBehaviour {
 	[Header("Graphics")]
 	public TextMeshProUGUI questNameText;
 	public TextMeshProUGUI rewardsText;
+	public TextMeshProUGUI progressText;
+
+	public Image progressBarBackground;
+	public Image progressBar;
 
 	private int currentAmount;
 
@@ -28,8 +33,10 @@ public class Quest : MonoBehaviour {
 	}
 
 	private void Start() {
+		currentAmount = 0;
 		questNameText.text = questName;
 		rewardsText.text = GetRewardsText();
+		UpdateProgress();
 	}
 
 	public string GetRewardsText() {
@@ -51,10 +58,20 @@ public class Quest : MonoBehaviour {
 
 	public void AddToProgress(int amount) {
 		currentAmount += amount;
-		Debug.Log(currentAmount);
+		UpdateProgress();
 		if (IsCompleted) {
 			QuestManager.Instance.NotifyQuestCompleted(transform.GetSiblingIndex());
 		}
+	}
+
+	private void UpdateProgress() {
+		progressText.text = string.Format("{0}/{1}", currentAmount, requiredAmount);
+
+		float width = progressBarBackground.rectTransform.rect.width * currentAmount / requiredAmount;
+		float height = progressBarBackground.rectTransform.rect.height;
+		//Rect barRect = progressBar.rectTransform.rect;
+		//barRect.width = width;
+		progressBar.rectTransform.sizeDelta = new Vector2(width, height);
 	}
 
 }

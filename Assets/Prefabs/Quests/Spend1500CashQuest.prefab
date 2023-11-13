@@ -88,6 +88,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 491574023941501930, guid: 9461f42d481f7294a98b08a52860853f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491574023941501930, guid: 9461f42d481f7294a98b08a52860853f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491574023941501930, guid: 9461f42d481f7294a98b08a52860853f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491574023941501930, guid: 9461f42d481f7294a98b08a52860853f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491574023941501930, guid: 9461f42d481f7294a98b08a52860853f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2485631566131527911, guid: 9461f42d481f7294a98b08a52860853f, type: 3}
       propertyPath: m_Name
       value: Spend1500CashQuest
@@ -99,6 +119,26 @@ PrefabInstance:
     - target: {fileID: 3664372869414683777, guid: 9461f42d481f7294a98b08a52860853f, type: 3}
       propertyPath: m_fontSizeBase
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6967598514010923454, guid: 9461f42d481f7294a98b08a52860853f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6967598514010923454, guid: 9461f42d481f7294a98b08a52860853f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6967598514010923454, guid: 9461f42d481f7294a98b08a52860853f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6967598514010923454, guid: 9461f42d481f7294a98b08a52860853f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6967598514010923454, guid: 9461f42d481f7294a98b08a52860853f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7804008634793227781, guid: 9461f42d481f7294a98b08a52860853f, type: 3}
       propertyPath: questName
@@ -119,6 +159,26 @@ PrefabInstance:
     - target: {fileID: 7804008634793227781, guid: 9461f42d481f7294a98b08a52860853f, type: 3}
       propertyPath: reputationReward
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8444212064965685007, guid: 9461f42d481f7294a98b08a52860853f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8444212064965685007, guid: 9461f42d481f7294a98b08a52860853f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8444212064965685007, guid: 9461f42d481f7294a98b08a52860853f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8444212064965685007, guid: 9461f42d481f7294a98b08a52860853f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8444212064965685007, guid: 9461f42d481f7294a98b08a52860853f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8842237485140302059, guid: 9461f42d481f7294a98b08a52860853f, type: 3}
       propertyPath: m_text

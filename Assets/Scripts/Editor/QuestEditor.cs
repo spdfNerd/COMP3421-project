@@ -61,6 +61,9 @@ public class QuestEditor : Editor {
 	private void DrawGraphicsFields() {
 		EditorGUILayout.PropertyField(serializedObject.FindProperty("questNameText"));
 		EditorGUILayout.PropertyField(serializedObject.FindProperty("rewardsText"));
+		EditorGUILayout.PropertyField(serializedObject.FindProperty("progressText"));
+		EditorGUILayout.PropertyField(serializedObject.FindProperty("progressBarBackground"));
+		EditorGUILayout.PropertyField(serializedObject.FindProperty("progressBar"));
 	}
 
 }

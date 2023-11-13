@@ -1,19 +1,19 @@
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class QuestManager : MonoBehaviour {
 
 	public static QuestManager Instance;
 
-	public Quest[] currentQuests;
-    public Transform questsPanel;
-
-    public Quest[] questPool;
+	public Transform questsPanel;
+    public Transform[] questPool;
 
     [HideInInspector]
     public int[] usedIndices;
 	[HideInInspector]
 	public QuestType[] questTypes;
+	private Transform[] currentQuests;
 
 	private void Awake() {
 		if (Instance != null) {
@@ -24,13 +24,11 @@ public class QuestManager : MonoBehaviour {
 	}
 
 	private void Start() {
-		usedIndices = new int[] { -1, -1, -1 };
+		currentQuests = new Transform[3];
+		usedIndices = new int[] { 0, 1, 2 };
 		questTypes = new QuestType[currentQuests.Length];
 
-		for (int i = 0; i < currentQuests.Length; i++) {
-			questTypes[i] = currentQuests[i].questType;
-			DisplayQuest(currentQuests[i], i, false);
-		}
+		InitCurrentQuests();
 	}
 
 	public void UpdateQuest(int index) {
@@ -40,10 +38,10 @@ public class QuestManager : MonoBehaviour {
 		}
 		usedIndices[index] = newQuestIndex;
 
-		Quest newQuest = questPool[newQuestIndex];
-		questTypes[index] = newQuest.questType;
+		Destroy(currentQuests[index].gameObject);
+		Transform newQuest = Instantiate(questPool[newQuestIndex], questsPanel);
+		questTypes[index] = newQuest.GetComponent<Quest>().questType;
 		currentQuests[index] = newQuest;
-		DisplayQuest(currentQuests[index], index);
 	}
 
 	public void NotifyQuestCompleted(int index) {
@@ -62,16 +60,11 @@ public class QuestManager : MonoBehaviour {
 		TryUpdateQuestProgress(QuestType.SERVE_CUSTOMER, amount, FoodType.PIZZA, customerType);
 	}
 
-	private void DisplayQuest(Quest quest, int index, bool isReplacing = true) {
-		if (isReplacing) {
-			GameObject oldQuest = questsPanel.GetChild(index).gameObject;
-			if (oldQuest != null) {
-				Destroy(oldQuest);
-			}
+	private void InitCurrentQuests() {
+		for (int i = 0; i < usedIndices.Length; i++) {
+			currentQuests[i] = Instantiate(questPool[i], questsPanel);
+			questTypes[i] = currentQuests[i].GetComponent<Quest>().questType;
 		}
-
-		Transform newQusetTransform = Instantiate(quest.transform, questsPanel);
-		newQusetTransform.SetSiblingIndex(index);
 	}
 
 	private void TryUpdateQuestProgress(QuestType questType, int amount,
@@ -81,7 +74,7 @@ public class QuestManager : MonoBehaviour {
 				continue;
 			}
 
-			Quest quest = currentQuests[i];
+			Quest quest = currentQuests[i].GetComponent<Quest>();
 			if (questType == QuestType.SERVE_FOOD && quest.foodType != foodType) {
 				continue;
 			} else if (questType == QuestType.SERVE_CUSTOMER && quest.customerType != customerType) {
