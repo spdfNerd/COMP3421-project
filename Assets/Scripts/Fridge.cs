@@ -51,6 +51,7 @@ public class Fridge : MonoBehaviour {
 	public void ResetDrinksCount() {
 		cokeCount = 0;
 		waterCount = 0;
+		// run Fridge door opening and closing animation?
 	}
 
 	private void GenerateDrinks() {
