@@ -151,29 +151,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91b15446f2936ac4a9ac22fa5512ba24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstQuest:
-    questName: Serve 10 Pizzas
-    questType: 1
-    requiredAmount: 10
-    foodType: 0
-    customerType: 0
-    cashReward: 0
-    reputationReward: 0
-  secondQuest:
-    questName: Server 10 Adults
-    questType: 2
-    requiredAmount: 10
-    foodType: 0
-    customerType: 0
-    cashReward: 0
-    reputationReward: 0
-  thirdQuest:
-    questName: Spend 1500 Cash
-    questType: 0
-    requiredAmount: 1500
-    foodType: 0
-    customerType: 0
-    cashReward: 0
-    reputationReward: 0
+  firstQuest: {fileID: 6752332486528467825, guid: 71fd3c4a8ec04d74ea626ba5af5d0a65, type: 3}
+  secondQuest: {fileID: 6752332486528467825, guid: a8a779929bba87a40bb3043814f1d5d9, type: 3}
+  thirdQuest: {fileID: 6752332486528467825, guid: bdaea6ee9e842674c801555394672fc5, type: 3}
+  questsPanel: {fileID: 0}
   questPool: []
   usedIndices: ffffffffffffffffffffffff

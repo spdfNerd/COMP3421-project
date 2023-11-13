@@ -13,7 +13,13 @@ public class QuestManager : MonoBehaviour {
     [HideInInspector]
     public int[] usedIndices = new int[] { -1, -1, -1 };
 
-    public void Update() {
+	private void Start() {
+		DisplayQuest(firstQuest, 0);
+		DisplayQuest(secondQuest, 1);
+		DisplayQuest(thirdQuest, 2);
+	}
+
+	public void Update() {
         if (firstQuest.IsCompleted) {
 			firstQuest = UpdateQuest(0);
 		}
@@ -33,9 +39,13 @@ public class QuestManager : MonoBehaviour {
 		usedIndices[index] = newQuestIndex;
 
 		Quest newQuest = questPool[newQuestIndex];
-		Transform newQusetTransform = Instantiate(newQuest.transform, questsPanel);
-		newQusetTransform.SetSiblingIndex(index);
+		DisplayQuest(newQuest, index);
 		return newQuest;
+	}
+
+	private void DisplayQuest(Quest quest, int index) {
+		Transform newQusetTransform = Instantiate(quest.transform, questsPanel);
+		newQusetTransform.SetSiblingIndex(index);
 	}
 
 }
