@@ -23,6 +23,7 @@ public class Chef : MonoBehaviour {
 			foodCount = value;
 			foodCount = Mathf.Clamp(foodCount, 0, foodLimit);
 			foodCountText.text = foodCount == 0 ? "" : foodCount.ToString();
+			foodCountText.color = foodCount == foodLimit ? Color.red : Color.white;
 		}
 	}
 
