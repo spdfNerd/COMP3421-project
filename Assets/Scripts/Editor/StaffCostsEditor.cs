@@ -5,7 +5,7 @@ using UnityEngine;
 public class StaffCostsEditor : InlinePropertyDrawer {
 
 	public override float GetPropertyHeight(SerializedProperty property, GUIContent label) {
-		SetPropertyNames("hirePrice", "sellPrice", "runningCost");
+		SetPropertyNames("hirePrice", "sellPrice", "runningCost", "upgradePrice");
 		SetFoldout(false);
 		return base.GetPropertyHeight(property, label);
 	}
