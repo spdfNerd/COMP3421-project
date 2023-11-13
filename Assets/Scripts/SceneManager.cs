@@ -6,6 +6,7 @@ public class SceneManager : MonoBehaviour {
 	public void LoadLevel(string sceneName) {
 		LoadScene(sceneName);
 	}
+
 	public void LoadLevelSelect() {
 		LoadScene("LevelSelect");
 	}
