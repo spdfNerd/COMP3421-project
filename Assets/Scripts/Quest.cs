@@ -51,6 +51,10 @@ public class Quest : MonoBehaviour {
 
 	public void AddToProgress(int amount) {
 		currentAmount += amount;
+		Debug.Log(currentAmount);
+		if (IsCompleted) {
+			QuestManager.Instance.NotifyQuestCompleted(transform.GetSiblingIndex());
+		}
 	}
 
 }

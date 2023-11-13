@@ -1,3 +1,4 @@
+using NUnit.Framework.Interfaces;
 using UnityEngine;
 
 public class Food : MonoBehaviour {
@@ -6,12 +7,23 @@ public class Food : MonoBehaviour {
 	public FoodType type;
 
 	private Transform target;
+	private Customer targetCustomer;
+
+	private void Start() {
+		if (target != null) {
+			targetCustomer = target.GetComponent<Customer>();
+		}
+	}
 
 	private void Update() {
-		if (target == null) {
+		if (target == null || targetCustomer == null) {
+			Destroy(gameObject);
+			return;
+		} else if (targetCustomer.RequestsSatisfied) {
 			Destroy(gameObject);
 			return;
 		}
+
 		Move();
 	}
 
@@ -28,6 +40,7 @@ public class Food : MonoBehaviour {
 		Customer customer = collider.GetComponent<Customer>();
 		if (customer != null) {
 			customer.SatisfyRequest(this);
+			QuestManager.Instance.TryUpdateServeFoodQuestProgress(type);
 			Destroy(gameObject);
 			return;
 		}

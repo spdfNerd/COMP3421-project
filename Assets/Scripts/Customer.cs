@@ -49,6 +49,10 @@ public class Customer : MonoBehaviour {
 		}
 	}
 
+	public bool RequestsSatisfied {
+		get => requestsSatisfied;
+	}
+
 	private void Start() {
 		nextWaypoints = new Queue<Transform>();
 		QueueWaypoints();

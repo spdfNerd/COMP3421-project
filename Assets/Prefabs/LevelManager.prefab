@@ -151,9 +151,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91b15446f2936ac4a9ac22fa5512ba24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstQuest: {fileID: 6752332486528467825, guid: 71fd3c4a8ec04d74ea626ba5af5d0a65, type: 3}
-  secondQuest: {fileID: 6752332486528467825, guid: a8a779929bba87a40bb3043814f1d5d9, type: 3}
-  thirdQuest: {fileID: 6752332486528467825, guid: bdaea6ee9e842674c801555394672fc5, type: 3}
+  currentQuests:
+  - {fileID: 6752332486528467825, guid: 71fd3c4a8ec04d74ea626ba5af5d0a65, type: 3}
+  - {fileID: 6752332486528467825, guid: a8a779929bba87a40bb3043814f1d5d9, type: 3}
+  - {fileID: 6752332486528467825, guid: bdaea6ee9e842674c801555394672fc5, type: 3}
   questsPanel: {fileID: 0}
   questPool: []
   usedIndices: ffffffffffffffffffffffff
+  questTypes: 
