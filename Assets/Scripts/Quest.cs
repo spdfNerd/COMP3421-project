@@ -22,16 +22,9 @@ public class Quest : MonoBehaviour {
 	public TextMeshProUGUI rewardsText;
 
 	private int currentAmount;
-	private bool isCompleted = false;
-
-	public int CurrentAmount {
-		get => currentAmount;
-		set => currentAmount = value;
-	}
 
 	public bool IsCompleted {
-		get => isCompleted;
-		set => isCompleted = value;
+		get => currentAmount >= requiredAmount;
 	}
 
 	private void Start() {
@@ -54,6 +47,10 @@ public class Quest : MonoBehaviour {
 		}
 
 		return rewardsText;
+	}
+
+	public void AddToProgress(int amount) {
+		currentAmount += amount;
 	}
 
 }
