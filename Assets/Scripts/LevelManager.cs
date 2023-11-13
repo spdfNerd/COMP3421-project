@@ -23,6 +23,7 @@ public class LevelManager : MonoBehaviour {
 	public Transform collectionNode;
 	public int mapWidth = 24;
 	public int mapHeight = 24;
+	public bool isEndlessMode;
 
 	[Header("Map Constraints")]
 	public Transform frontWall;
@@ -33,7 +34,6 @@ public class LevelManager : MonoBehaviour {
 	private int money = 0;
 	private int reputation = 0;
 	private int round = 0;
-	private bool isEndlessMode;
 
 	private GameObject towerToBuild;
     private int runningCost = 0;
@@ -67,11 +67,6 @@ public class LevelManager : MonoBehaviour {
 			round = value;
 			roundsText.text = "Round " + round;
 		}
-	}
-
-	public bool IsEndlessMode {
-		get => isEndlessMode;
-		set => isEndlessMode = value;
 	}
 
 	private void Awake() {
