@@ -21,13 +21,9 @@ public class Chef : MonoBehaviour {
 		get => foodCount;
 		set {
 			foodCount = value;
+			foodCount = Mathf.Clamp(foodCount, 0, foodLimit);
 			foodCountText.text = foodCount == 0 ? "" : foodCount.ToString();
 		}
-	}
-
-	public int FoodLimit {
-		get => foodLimit;
-		set => foodLimit = value;
 	}
 
 	private void Start() {
@@ -36,6 +32,10 @@ public class Chef : MonoBehaviour {
 	}
 
 	private void Update() {
+		if (FoodCount >= foodLimit) {
+			return;
+		}
+
 		if (cooldownTimer <= 0f) {
 			ProduceFood();
 			cooldownTimer = cooldown;
@@ -49,9 +49,7 @@ public class Chef : MonoBehaviour {
 	}
 
 	private void ProduceFood() {
-		if (FoodCount < foodLimit) {
-			FoodCount++;
-		}
+		FoodCount++;
 	}
 
 	public void Upgrade(FoodType foodType, int foodCount) {
