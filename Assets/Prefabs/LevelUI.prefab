@@ -1312,6 +1312,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2944052847353369602}
     m_Modifications:
+    - target: {fileID: 280751183645140838, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
+      propertyPath: rotateButtonPrefab
+      value: 
+      objectReference: {fileID: 6331773927302808264, guid: 43d991700118444cb9e5de3ecd11965c, type: 3}
+    - target: {fileID: 280751183645140838, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
+      propertyPath: upgradeButtonPrefab
+      value: 
+      objectReference: {fileID: 6330413620725841837, guid: 46a441bf9c68d4757ac72e066a8aa8cb, type: 3}
     - target: {fileID: 841793463821392650, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1

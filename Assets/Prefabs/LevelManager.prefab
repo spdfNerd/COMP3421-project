@@ -59,6 +59,7 @@ MonoBehaviour:
   collectionNode: {fileID: 4343190089493070277, guid: 217536411b408ca4c8e8d8a2ff5b324a, type: 3}
   mapWidth: 24
   mapHeight: 24
+  isEndlessMode: 0
   frontWall: {fileID: 0}
   backWall: {fileID: 0}
   leftWall: {fileID: 0}
@@ -132,13 +133,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80af265412646eb4a9e43dd0c227165a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
   sushiTowerPrefab: {fileID: 3246167590149267767, guid: ad3712eb77b78c74994741b381f40774, type: 3}
+  upgradedSushiTowerPrefab: {fileID: 3246167590149267767, guid: f47d93972214e4b86a65553a0d253eef, type: 3}
   burgerTowerPrefab: {fileID: 1616419476327217012, guid: eae89f8ef6118d54e834eaff1c884f7f, type: 3}
-  pizzaTowerPrefab: {fileID: 3459076067257062456, guid: 5a7825d93b4e2384e94ebcecb229cf62, type: 3}
+  upgradedBurgerTowerPrefab: {fileID: 1616419476327217012, guid: 546d610c93c7f450786ddf96ce0acb84, type: 3}
+  pizzaTowerPrefab: {fileID: 3459076067257062456, guid: 576b7a76f51ad4126986f7b6ad267069, type: 3}
+  upgradedPizzaTowerPrefab: {fileID: 3459076067257062456, guid: 00118d77043bc46b3846f0531f0a7239, type: 3}
   noodlesTowerPrefab: {fileID: 2697950695243699862, guid: 4b25968a849593a4eb93a25a04ee4a07, type: 3}
+  upgradedNoodlesTowerPrefab: {fileID: 2697950695243699862, guid: 6fa5bef02754b445f90274179553187c, type: 3}
   waiterTowerPrefab: {fileID: 3550817822578954969, guid: d8ebcfee9fde32e41b9d5fe87c41f9ee, type: 3}
+  upgradedWaiterTowerPrefab: {fileID: 3550817822578954969, guid: fea0f7ca643da467db87dcd87ddd7820, type: 3}
   fridgeTowerPrefab: {fileID: 3718583968090340071, guid: 1e74d0f119905e54797abc4b659dfcf2, type: 3}
   towerToBuild: {fileID: 0}
+  upgradedTowerToBuild: {fileID: 0}
 --- !u!114 &1861578265356926184
 MonoBehaviour:
   m_ObjectHideFlags: 0

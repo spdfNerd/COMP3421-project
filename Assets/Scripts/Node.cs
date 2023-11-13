@@ -97,28 +97,26 @@ public class Node : MonoBehaviour {
     }
 
     private void DisplayTowerUIButtons () {
-        rotateButton = Instantiate(Shop.Instance.rotateButtonPrefab) as GameObject;
-        rotateButton.transform.SetParent(BuildManager.Instance.canvas.transform, false);
-        Vector3 buttonPos = Player.Instance.currentNode.tower.transform.position - buttonPositionOffset;
-        rotateButton.transform.position = new Vector3(buttonPos.x, buttonPos.y, 0);
-        rotateButton.GetComponent<RectTransform>().localScale = new Vector3(0.5f, 0.5f, 0);
+		Transform shopTransform = Shop.Instance.upgradePanel.transform;
+        Transform towerTransform = Player.Instance.currentNode.tower.transform;
+
+		Vector3 position = shopTransform.position;
+        position.x = towerTransform.position.x;
+        position.z = towerTransform.position.z;
+        shopTransform.position = position;
+
+        Transform rotateButton = shopTransform.GetChild(0).GetChild(0);
+        Transform upgradeButton = shopTransform.GetChild(0).GetChild(1);
         rotateButton.GetComponent<Button>().onClick.AddListener(() => Shop.Instance.Rotate());
-
-        upgradeButton = Instantiate(Shop.Instance.upgradeButtonPrefab) as GameObject;
-        upgradeButton.transform.SetParent(BuildManager.Instance.canvas.transform, false);
-        Vector3 upgButtonPos = Player.Instance.currentNode.tower.transform.position + buttonPositionOffset;
-        upgradeButton.transform.position = new Vector3(upgButtonPos.x, upgButtonPos.y, 0);
-        upgradeButton.GetComponent<RectTransform>().localScale = new Vector3(0.5f, 0.5f, 0);
         upgradeButton.GetComponent<Button>().onClick.AddListener(() => Shop.Instance.UpgradeTower());
+
+        shopTransform.gameObject.SetActive(true);
     }
 
-    public void OnPlayerExit() {
+	public void OnPlayerExit() {
         rend.material.color = startColour;
-        if (rotateButton && upgradeButton) {
-            Destroy(rotateButton);
-            Destroy(upgradeButton);
-        }
-    }
+        Shop.Instance.upgradePanel.SetActive(false);
+	}
 
 }
 
