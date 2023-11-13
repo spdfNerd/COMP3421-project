@@ -10,6 +10,10 @@ public class SceneManager : MonoBehaviour {
 		LoadScene("LevelSelect");
 	}
 
+	public void LoadCredits() {
+		LoadScene("CreditScene");
+	}
+
 	public void QuitGame() {
 		Application.Quit();
 	}
