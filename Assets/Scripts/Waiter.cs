@@ -68,12 +68,8 @@ public class Waiter : MonoBehaviour {
 	}
 
 	private void FindTarget() {
-		if (target != null) {
-			if (target.GetComponent<Customer>().FoodCountRequested == 0) {
-				target = null;
-			} else {
-				return;
-			}
+		if (target != null && target.GetComponent<Customer>().FoodCountRequested == 0) {
+			target = null;
 		}
 
 		float targetDistance = Mathf.Infinity;

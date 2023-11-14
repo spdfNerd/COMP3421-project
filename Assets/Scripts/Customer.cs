@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Customer : MonoBehaviour {
@@ -142,6 +143,7 @@ public class Customer : MonoBehaviour {
 		FoodCountRequested--;
 		if (FoodCountRequested == 0) {
 			requestsSatisfied = true;
+			GetComponent<Collider>().enabled = false;
 			Destroy(foodHolder.GetChild(0).gameObject);
 		}
 
