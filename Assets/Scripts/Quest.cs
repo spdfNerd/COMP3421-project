@@ -60,6 +60,7 @@ public class Quest : MonoBehaviour {
 		currentAmount += amount;
 		UpdateProgress();
 		if (IsCompleted) {
+			Debug.Log("Completed!");
 			QuestManager.Instance.NotifyQuestCompleted(transform.GetSiblingIndex());
 		}
 	}

@@ -45,6 +45,7 @@ public class QuestManager : MonoBehaviour {
 
 		Destroy(currentQuests[index].gameObject);
 		Transform newQuest = Instantiate(questPool[newQuestIndex], questsPanel);
+		newQuest.SetSiblingIndex(index);
 		questTypes[index] = newQuest.GetComponent<Quest>().questType;
 		currentQuests[index] = newQuest;
 	}
