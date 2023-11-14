@@ -126,8 +126,7 @@ public class Waiter : MonoBehaviour {
 
 	public void Upgrade(FoodType foodType, int foodCount) {
 		fireCooldown = 1f;
-		FoodType = foodType;
-		FoodCount = foodCount;
+		UpdateFoodType(foodType, foodCount);
 	}
 
 }
