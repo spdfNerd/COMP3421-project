@@ -983,10 +983,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 964670866056294259, guid: 7df76b8e52be3de4f9781b5d60d56738, type: 3}
-      propertyPath: startingMoney
-      value: 800
-      objectReference: {fileID: 0}
-    - target: {fileID: 964670866056294259, guid: 7df76b8e52be3de4f9781b5d60d56738, type: 3}
       propertyPath: reputationText
       value: 
       objectReference: {fileID: 825179520}
@@ -1016,7 +1012,7 @@ PrefabInstance:
       objectReference: {fileID: 825179522}
     - target: {fileID: 1134661119793969957, guid: 7df76b8e52be3de4f9781b5d60d56738, type: 3}
       propertyPath: waves.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1134661119793969957, guid: 7df76b8e52be3de4f9781b5d60d56738, type: 3}
       propertyPath: waves.Array.data[0].subWaves.Array.size
