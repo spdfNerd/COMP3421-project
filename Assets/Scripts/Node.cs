@@ -44,7 +44,9 @@ public class Node : MonoBehaviour {
 
         if (type == NodeType.KITCHEN) {
             chef = tower.GetComponent<Chef>();
-        }
+        } else {
+			waiter = tower.GetComponent<Waiter>();
+		}
         DisplayTowerUIButtons();
     }
 
@@ -74,7 +76,7 @@ public class Node : MonoBehaviour {
         if (chef != null) {
             chef.Upgrade(foodType, foodCount);
         } else if (waiter != null) {
-            waiter.Upgrade(foodType, foodCount);
+			waiter.Upgrade(foodType, foodCount);
         }
 
         isUpgraded = true;

@@ -82,7 +82,7 @@ public class WaveManager : MonoBehaviour {
 	}
 
 	public bool IsPastPrescribedRounds() {
-		return LevelManager.Instance.isEndlessMode && LevelManager.Instance.Round >= waves.Length;
+		return LevelManager.Instance.isEndlessMode && LevelManager.Instance.Round > waves.Length;
 	}
 
 	private Wave GenerateRandomWave() {
