@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/FirstLevel.unity
     guid: 78fde0475e424964d9ca1f3497cf359b
   - enabled: 1
+    path: Assets/Scenes/EndlessLevel.unity
+    guid: 334b1d6a4e8138a4eb7d6520220220a2
+  - enabled: 1
     path: Assets/Scenes/WinScreen.unity
     guid: e8e1a771a2269401fab69c689d29d9d9
   - enabled: 1
