@@ -167,7 +167,7 @@ public class Player : MonoBehaviour {
 	}
 
 	private void UpdateInventory() {
-		CollectionNode.Instance.TransferInventory(inventory);
+		CollectionNode.Instance.TransferKitchenInventory(inventory);
 		inventoryScreen.UpdateTexts(inventory);
 	}
 

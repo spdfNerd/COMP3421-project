@@ -1,21 +1,24 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 public class BuildManager : MonoBehaviour {
 
+	// Singleton instance
 	public static BuildManager Instance;
 
+	[Header("Base Tower Models")]
 	public Transform sushiTowerPrefab;
-	public Transform upgradedSushiTowerPrefab;
 	public Transform burgerTowerPrefab;
-	public Transform upgradedBurgerTowerPrefab;
 	public Transform pizzaTowerPrefab;
-	public Transform upgradedPizzaTowerPrefab;
 	public Transform noodlesTowerPrefab;
-	public Transform upgradedNoodlesTowerPrefab;
 	public Transform waiterTowerPrefab;
-	public Transform upgradedWaiterTowerPrefab;
 	public Transform fridgeTowerPrefab;
+
+	[Header("Upgraded Tower Models")]
+	public Transform upgradedSushiTowerPrefab;
+	public Transform upgradedBurgerTowerPrefab;
+	public Transform upgradedPizzaTowerPrefab;
+	public Transform upgradedNoodlesTowerPrefab;
+	public Transform upgradedWaiterTowerPrefab;
 
 	[HideInInspector]
 	public Transform towerToBuild;
@@ -23,6 +26,7 @@ public class BuildManager : MonoBehaviour {
 	public Transform upgradedTowerToBuild;
 
 	private void Awake() {
+		// Ensure unique singleton instance in scene
 		if (Instance != null) {
 			Debug.LogError("More than one BuildManager in scene!");
 			return;
@@ -66,12 +70,13 @@ public class BuildManager : MonoBehaviour {
 	}
 
 	public bool CheckCanBuild(int hirePrice) {
-		// if there is already a tower on the tile
+		// Check if there is already a tower on the tile
 		if (Player.Instance.currentNode.tower != null) {
 			Debug.Log("Can't build there");
 			return false;
 		}
 
+		// Check that there is enough money to build
 		if (LevelManager.Instance.Money < hirePrice) {
 			Debug.Log("Not enough money to build that!");
 			return false;
@@ -81,17 +86,19 @@ public class BuildManager : MonoBehaviour {
 	}
 
 	public bool CanUpgrade(int upgradePrice) {
-		// if there is no tower on the tile
+		// Check that there is a tower on the tile
 		if (Player.Instance.currentNode.tower == null) {
 			Debug.Log("Can't upgrade a nonexistant tower");
 			return false;
 		}
 
+		// Check that the tower is not already upgraded
 		if (Player.Instance.currentNode.isUpgraded) {
 			Debug.Log("Already upgraded");
 			return false;
 		}
 
+		// Check that there is enough money to upgrade
 		if (LevelManager.Instance.Money < upgradePrice) {
 			Debug.Log("Not enough money to upgrade that!");
 			return false;

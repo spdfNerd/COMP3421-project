@@ -40,6 +40,7 @@ public class Fridge : MonoBehaviour {
 	}
 
 	private void Update() {
+		// Produce drinks if countdown timer is finished counting down
 		if (cooldownTimer <= 0) {
 			GenerateDrinks();
 			cooldownTimer = cooldown;
@@ -51,9 +52,11 @@ public class Fridge : MonoBehaviour {
 	public void ResetDrinksCount() {
 		cokeCount = 0;
 		waterCount = 0;
-		// run Fridge door opening and closing animation?
 	}
 
+	/// <summary>
+	/// Increment each of coke and water count
+	/// </summary>
 	private void GenerateDrinks() {
 		CokeCount++;
 		WaterCount++;

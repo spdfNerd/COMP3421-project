@@ -7,6 +7,7 @@ public class Food : MonoBehaviour {
 
 	private Transform target;
 	private Customer targetCustomer;
+	// Internal flag to ensure quest is not updated multiple times from one food
 	private bool questUpdated;
 
 	private void Start() {
@@ -18,9 +19,11 @@ public class Food : MonoBehaviour {
 
 	private void Update() {
 		if (target == null || targetCustomer == null) {
+			// Destroy projectile if no target or target is not customer
 			Destroy(gameObject);
 			return;
 		} else if (targetCustomer.RequestsSatisfied) {
+			// Destroy projectile if customer requests are satisfied
 			Destroy(gameObject);
 			return;
 		}
@@ -40,6 +43,7 @@ public class Food : MonoBehaviour {
 
 		Customer customer = collider.GetComponent<Customer>();
 		if (customer != null) {
+			// Satisfy the customer requests, then destroy projectile
 			customer.SatisfyRequest(this);
 			UpdateQuest();
 			Destroy(gameObject);
@@ -59,7 +63,9 @@ public class Food : MonoBehaviour {
 	}
 
 	private void Move() {
-		transform.Translate(speed * Time.deltaTime * (target.position - transform.position).normalized, Space.World);
+		Vector3 direction = target.position - transform.position;
+		direction.Normalize();
+		transform.Translate(speed * Time.deltaTime * direction, Space.World);
 		transform.LookAt(target);
 	}
 
