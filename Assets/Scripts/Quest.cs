@@ -60,7 +60,7 @@ public class Quest : MonoBehaviour {
 		currentAmount += amount;
 		UpdateProgress();
 		if (IsCompleted) {
-			Debug.Log("Completed!");
+			AddRewards();
 			QuestManager.Instance.NotifyQuestCompleted(transform.GetSiblingIndex());
 		}
 	}
@@ -71,6 +71,18 @@ public class Quest : MonoBehaviour {
 		float width = progressBarBackground.rectTransform.rect.width * currentAmount / requiredAmount;
 		float height = progressBarBackground.rectTransform.rect.height;
 		progressBar.rectTransform.sizeDelta = new Vector2(width, height);
+	}
+
+	private void AddRewards() {
+		switch (questType) {
+			case QuestType.SERVE_FOOD:
+			case QuestType.SERVE_CUSTOMER:
+				LevelManager.Instance.Money += cashReward;
+				break;
+			case QuestType.SPEND:
+				LevelManager.Instance.Reputation += reputationReward;
+				break;
+		}
 	}
 
 }

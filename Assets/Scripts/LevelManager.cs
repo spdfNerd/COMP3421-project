@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour {
 
+	// Singleton instance
     public static LevelManager Instance;
 
 	[Header("Player Stats")]
@@ -72,6 +73,7 @@ public class LevelManager : MonoBehaviour {
 	}
 
 	private void Awake() {
+		// Ensure unique singleton instance in scene
 		if (Instance != null) {
 			Debug.Log("More than one LevelManager in scene!");
 			return;
@@ -88,25 +90,27 @@ public class LevelManager : MonoBehaviour {
 	}
 
 	private void InitFoodRewards() {
-		foodRewards = new Dictionary<FoodType, int>();
-		foodRewards.Add(FoodType.PIZZA, 50);
-		foodRewards.Add(FoodType.BURGER, 100);
-		foodRewards.Add(FoodType.SUSHI, 125);
-		foodRewards.Add(FoodType.NOODLE, 150);
-		foodRewards.Add(FoodType.COKE, 40);
-		foodRewards.Add(FoodType.WATER, 20);
+		foodRewards = new Dictionary<FoodType, int> {
+			{ FoodType.PIZZA, 50 },
+			{ FoodType.BURGER, 100 },
+			{ FoodType.SUSHI, 125 },
+			{ FoodType.NOODLE, 150 },
+			{ FoodType.COKE, 40 },
+			{ FoodType.WATER, 20 }
+		};
 	}
 
 	private void GenerateNodes() {
 		for (int i = -mapWidth / 2; i < mapWidth / 2 + 1; i++) {
 			for (int j = -mapHeight / 2; j < mapHeight / 2 + 1; j++) {
+				Vector3 nodePos = new Vector3(i * 4, 0f, j * 4);
 				if (collectionNodePosition == new Vector2(i, j)) {
-					Instantiate(collectionNode, new Vector3(i * 4, 0f, j * 4), Quaternion.identity, kitchenNodeParent);
+					Instantiate(collectionNode, nodePos, Quaternion.identity, kitchenNodeParent);
 				} else {
 					bool isKitchenArea = i >= kitchenAreaStart.x && j >= kitchenAreaStart.y;
 					Transform nodeToInstantiate = isKitchenArea ? kitchenNode : node;
 					Transform nodeParent = isKitchenArea ? kitchenNodeParent : this.nodeParent;
-					Instantiate(nodeToInstantiate, new Vector3(i * 4, 0f, j * 4), Quaternion.identity, nodeParent);
+					Instantiate(nodeToInstantiate, nodePos, Quaternion.identity, nodeParent);
 				}
 			}
 		}

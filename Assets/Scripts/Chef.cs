@@ -21,8 +21,10 @@ public class Chef : MonoBehaviour {
 		get => foodCount;
 		set {
 			foodCount = value;
+			// Make sure that the food is between 0 and the food limit
 			foodCount = Mathf.Clamp(foodCount, 0, foodLimit);
 			foodCountText.text = foodCount == 0 ? "" : foodCount.ToString();
+			// Change the text colour to red if the food limit is reached
 			foodCountText.color = foodCount == foodLimit ? Color.red : Color.white;
 		}
 	}
@@ -37,6 +39,7 @@ public class Chef : MonoBehaviour {
 			return;
 		}
 
+		// Produce food if cooldown timer is finished counting down
 		if (cooldownTimer <= 0f) {
 			ProduceFood();
 			cooldownTimer = cooldown;
@@ -49,6 +52,9 @@ public class Chef : MonoBehaviour {
 		FoodCount = 0;
 	}
 
+	/// <summary>
+	/// Increment chef food count
+	/// </summary>
 	private void ProduceFood() {
 		FoodCount++;
 	}

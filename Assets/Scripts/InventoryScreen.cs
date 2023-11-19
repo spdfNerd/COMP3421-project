@@ -26,6 +26,7 @@ public class InventoryScreen : MonoBehaviour {
 	}
 
 	private void Update() {
+		// Set item selected based on number clicked on keyboard
 		if (Input.GetKey(KeyCode.Alpha1) || Input.GetKey(KeyCode.Keypad1)) {
 			SelectedItem = 0;
 		} else if (Input.GetKey(KeyCode.Alpha2) || Input.GetKey(KeyCode.Keypad2)) {
@@ -46,10 +47,6 @@ public class InventoryScreen : MonoBehaviour {
 		selectionIndicator.position = foodIcons[slot].position;
 	}
 
-	public int GetCurrentItemCount() {
-		return int.Parse(foodCountTexts[selectedItem].text);
-	}
-
 	public void UpdateTexts(Inventory inventory) {
 		for (int i = 0; i < Enum.GetValues(typeof(FoodType)).Length; i++) {
 			foodCountTexts[i].text = inventory.GetItemCount((FoodType) i).ToString();
@@ -58,12 +55,6 @@ public class InventoryScreen : MonoBehaviour {
 
 	public void SetCountToZero(FoodType type) {
 		foodCountTexts[(int) type].text = "0";
-	}
-
-	public void SetAllToZero() {
-		foreach (TextMeshProUGUI text in foodCountTexts) {
-			text.text = "0";
-		}
 	}
 
 }
