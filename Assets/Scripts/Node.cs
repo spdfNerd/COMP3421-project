@@ -22,8 +22,6 @@ public class Node : MonoBehaviour {
     private int towerRunningCost;
     private int towerUpgradePrice;
 
-    private Staff staff;
-
     private void Start() {
         rend = GetComponent<Renderer>();
         startColour = rend.material.color;
@@ -34,15 +32,13 @@ public class Node : MonoBehaviour {
         LevelManager.Instance.Money -= costs.hirePrice;
         UpdateQuest(costs);
 
-        // Create tower model and update related fields
+		// Create tower model and update related fields
 		tower = Instantiate(towerToBuild, transform.position + positionOffset, Quaternion.identity);
         towerSellPrice = costs.sellPrice;
         towerRunningCost = costs.runningCost;
         towerUpgradePrice = costs.upgradePrice;
         LevelManager.Instance.RunningCost += costs.runningCost;
 
-        staff = tower.GetComponent<Staff>();
-        
         DisplayTowerUIButtons();
     }
 
@@ -55,7 +51,7 @@ public class Node : MonoBehaviour {
         LevelManager.Instance.Money -= towerUpgradePrice;
         towerSellPrice += towerUpgradePrice / 2;
 
-        staff.Upgrade();
+        tower.GetComponent<Staff>().Upgrade();
         isUpgraded = true;
     }
 
@@ -106,7 +102,7 @@ public class Node : MonoBehaviour {
     /// </summary>
 	private void DisplayTowerUIButtons () {
 		Transform shopTransform = Shop.Instance.upgradePanel.transform;
-        Transform towerTransform = Player.Instance.currentNode.tower.transform;
+        Transform towerTransform = Player.Instance.GetCurrentTowerTransform();
 
         // Set buttons position
 		Vector3 position = towerTransform.position;
@@ -128,7 +124,6 @@ public class Node : MonoBehaviour {
 
     private void ResetNode() {
 		tower = null;
-		staff = null;
 		isUpgraded = false;
 	}
 

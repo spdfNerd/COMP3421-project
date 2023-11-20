@@ -22,7 +22,6 @@ public class Quest : MonoBehaviour {
 	public TextMeshProUGUI questNameText;
 	public TextMeshProUGUI rewardsText;
 	public TextMeshProUGUI progressText;
-
 	public Image progressBarBackground;
 	public Image progressBar;
 
@@ -56,7 +55,7 @@ public class Quest : MonoBehaviour {
 		return rewardsText;
 	}
 
-	public void AddToProgress(int amount) {
+	public void AddToQuestProgress(int amount) {
 		currentAmount += amount;
 		UpdateProgress();
 		if (IsCompleted) {
@@ -67,8 +66,12 @@ public class Quest : MonoBehaviour {
 
 	private void UpdateProgress() {
 		progressText.text = string.Format("{0}/{1}", currentAmount, requiredAmount);
+		UpdateProgressBar();
+	}
 
-		float width = progressBarBackground.rectTransform.rect.width * currentAmount / requiredAmount;
+	private void UpdateProgressBar() {
+		float progressPercentage = currentAmount / requiredAmount;
+		float width = progressBarBackground.rectTransform.rect.width * progressPercentage;
 		float height = progressBarBackground.rectTransform.rect.height;
 		progressBar.rectTransform.sizeDelta = new Vector2(width, height);
 	}

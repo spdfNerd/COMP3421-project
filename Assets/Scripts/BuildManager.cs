@@ -57,7 +57,7 @@ public class BuildManager : MonoBehaviour {
 
 	public bool CheckCanBuild(int hirePrice) {
 		// Check if there is already a tower on the tile
-		if (Player.Instance.currentNode.tower != null) {
+		if (Player.Instance.GetCurrentTowerTransform() != null) {
 			Debug.Log("Can't build there");
 			return false;
 		}
@@ -73,7 +73,7 @@ public class BuildManager : MonoBehaviour {
 
 	public bool CanUpgrade(int upgradePrice) {
 		// Check that there is a tower on the tile
-		if (Player.Instance.currentNode.tower == null) {
+		if (Player.Instance.GetCurrentTowerTransform() == null) {
 			Debug.Log("Can't upgrade a nonexistant tower");
 			return false;
 		}

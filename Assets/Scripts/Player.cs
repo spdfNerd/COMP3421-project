@@ -63,6 +63,50 @@ public class Player : MonoBehaviour {
 		}
 	}
 
+	public Transform GetCurrentTowerTransform() {
+		return currentNode.tower;
+	}
+
+	/// <summary>
+	/// Change Direction enum to a vector
+	/// </summary>
+	/// <returns>Normalised vector representing the current movement direction</returns>
+	public Vector3 GetDirectionAsVector() {
+		Vector3 _;
+		switch (direction) {
+			case Direction.NORTH:
+				_ = Vector3.forward;
+				break;
+			case Direction.NORTHEAST:
+				_ = Vector3.forward + Vector3.right;
+				break;
+			case Direction.EAST:
+				_ = Vector3.right;
+				break;
+			case Direction.SOUTHEAST:
+				_ = Vector3.back + Vector3.right;
+				break;
+			case Direction.SOUTH:
+				_ = Vector3.back;
+				break;
+			case Direction.SOUTHWEST:
+				_ = Vector3.back + Vector3.left;
+				break;
+			case Direction.WEST:
+				_ = Vector3.left;
+				break;
+			case Direction.NORTHWEST:
+				_ = Vector3.forward + Vector3.left;
+				break;
+			case Direction.NONE:
+			default:
+				_ = Vector3.zero;
+				break;
+
+		}
+		return _.normalized;
+	}
+
 	/// <summary>
 	/// Set player movement constraints so they move inside the map only
 	/// </summary>
@@ -142,46 +186,6 @@ public class Player : MonoBehaviour {
 		}
 	}
 
-	/// <summary>
-	/// Change Direction enum to a vector
-	/// </summary>
-	/// <returns>Normalised vector representing the current movement direction</returns>
-	public Vector3 GetDirectionAsVector() {
-		Vector3 _;
-		switch (direction) {
-			case Direction.NORTH:
-				_ = Vector3.forward;
-				break;
-			case Direction.NORTHEAST:
-				_ = Vector3.forward + Vector3.right;
-				break;
-			case Direction.EAST:
-				_ = Vector3.right;
-				break;
-			case Direction.SOUTHEAST:
-				_ = Vector3.back + Vector3.right;
-				break;
-			case Direction.SOUTH:
-				_ = Vector3.back;
-				break;
-			case Direction.SOUTHWEST:
-				_ = Vector3.back + Vector3.left;
-				break;
-			case Direction.WEST:
-				_ = Vector3.left;
-				break;
-			case Direction.NORTHWEST:
-				_ = Vector3.forward + Vector3.left;
-				break;
-			case Direction.NONE:
-			default:
-				_ = Vector3.zero;
-				break;
-
-		}
-		return _.normalized;
-	}
-
 	private void UpdateInventoryFromKitchen() {
 		CollectionNode.Instance.TransferKitchenInventory(inventory);
 		inventoryScreen.UpdateTexts(inventory);
@@ -219,8 +223,8 @@ public class Player : MonoBehaviour {
 		if (currentNode != null) {
 			currentNode.OnPlayerEnter();
 			shouldCollect = currentNode.GetComponent<CollectionNode>() != null;
-			if (currentNode.tower != null) {
-				currentWaiter = currentNode.tower.GetComponent<Waiter>();
+			if (GetCurrentTowerTransform() != null) {
+				currentWaiter = GetCurrentTowerTransform().GetComponent<Waiter>();
 				shouldGiveFood = currentWaiter != null;
 			} else {
 				currentWaiter = null;

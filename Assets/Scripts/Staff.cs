@@ -27,6 +27,14 @@ public abstract class Staff : MonoBehaviour {
 		UpgradeStats();
 	}
 
+	public GameObject GetActiveGFX() {
+		if (upgradedGFX.activeSelf) {
+			return upgradedGFX;
+		} else {
+			return baseGFX;
+		}
+	}
+
 	protected abstract void InitStaff();
 	protected abstract void UpgradeStats();
 

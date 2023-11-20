@@ -4,16 +4,17 @@ using UnityEngine.UI;
 public class Shop : MonoBehaviour {
 
     public static Shop Instance;
+    private static readonly string KitchenStaffTag = "KitchenStaff";
+    private static readonly string WaitStaffTag = "WaitStaff";
+    private static readonly string KitchenNodeTag = "KitchenNode";
 
     [HideInInspector]
-	public GameObject[] kitchenStaff;
+	public GameObject[] kitchenStaffButtons;
     [HideInInspector]
-    public Button waitStaff;
+    public Button waitStaffButton;
     public Button buyButton;
     public Button sellButton;
     public GameObject upgradePanel;
-    
-    private GameObject selectedTower;
 
     private void Awake() {
         if (Instance != null) {
@@ -24,12 +25,12 @@ public class Shop : MonoBehaviour {
     }
 
     private void Start() {
-        kitchenStaff = GameObject.FindGameObjectsWithTag("KitchenStaff");
-        waitStaff = GameObject.FindWithTag("WaitStaff").GetComponent<Button>();
+        kitchenStaffButtons = GameObject.FindGameObjectsWithTag(KitchenStaffTag);
+        waitStaffButton = GameObject.FindWithTag(WaitStaffTag).GetComponent<Button>();
     }
 
     private void Update() {
-        CheckNode();
+        UpdateShopButtons();
     }
 
 	public void BuyTower() {
@@ -38,18 +39,15 @@ public class Shop : MonoBehaviour {
 			return;
 		}
 
-		Chef chefComponent = towerToBuild.GetComponent<Chef>();
-		Waiter waiterComponent = towerToBuild.GetComponent<Waiter>();
+        Staff staffComponent = towerToBuild.GetComponent<Staff>();
 		Fridge fridgeComponent = towerToBuild.GetComponent<Fridge>();
 
-        StaffCosts costs = new StaffCosts();
-		if (chefComponent != null) {
-            costs = chefComponent.costs;
-		} else if (waiterComponent != null) {
-			costs = waiterComponent.costs;
-		} else if (fridgeComponent != null) {
+        StaffCosts costs;
+		if (fridgeComponent != null) {
 			costs = fridgeComponent.costs;
-		}
+		} else {
+            costs = staffComponent.costs;
+        }
 
 		if (BuildManager.Instance.CheckCanBuild(costs.hirePrice)) {
 			Player.Instance.currentNode.BuildTower(towerToBuild, costs);
@@ -57,9 +55,12 @@ public class Shop : MonoBehaviour {
 	}
 
     public void Rotate() {
-        if (Player.Instance.currentNode.tower != null) {
-            GameObject towerGFX = Player.Instance.currentNode.tower.transform.Find("GFX").gameObject;
-            towerGFX.transform.Rotate(0, 90, 0); 
+        if (Player.Instance.GetCurrentTowerTransform() != null) {
+            Staff staff = Player.Instance.GetCurrentTowerTransform().GetComponent<Staff>();
+            if (staff == null) {
+                return;
+            }
+			staff.GetActiveGFX().transform.Rotate(0, 90, 0);
         }
     }
 
@@ -71,64 +72,39 @@ public class Shop : MonoBehaviour {
         Player.Instance.currentNode.SellTower();
 	}
 
-	// Check to see which shop object should be displayed depending on player location
-	private void CheckNode() {
-        if (Player.Instance.currentNode == null) {
+	/// <summary>
+    /// Check to see which shop object should be displayed depending on player location
+    /// </summary>
+	private void UpdateShopButtons() {
+        Node node = Player.Instance.currentNode;
+        if (node == null) {
             return;
         }
+        
+        bool isKitchenNode = node.CompareTag(KitchenNodeTag);
+        // Set buttons to be active depending on tower type and where player is
+        waitStaffButton.interactable = !isKitchenNode;
+        foreach (GameObject staffButton in kitchenStaffButtons) {
+            staffButton.GetComponent<Button>().interactable = isKitchenNode;
+        }
 
-        if (Player.Instance.currentNode.tag == "KitchenNode") {
-            waitStaff.interactable = false;
-            foreach (GameObject staff in kitchenStaff) {
-                staff.GetComponent<Button>().interactable = true;
-            }
-            if (selectedTower != null && selectedTower.tag != "KitchenStaff") {
-                selectedTower = null;
+        // Clear selected tower if player moves between kitchen and normal nodes
+        Transform selectedTower = BuildManager.Instance.towerToBuild;
+        if (selectedTower != null) {
+            bool waiterInKitchen = isKitchenNode && selectedTower.CompareTag(WaitStaffTag);
+            bool chefNotInKitchen = !isKitchenNode && selectedTower.CompareTag(KitchenStaffTag);
+            if (waiterInKitchen || chefNotInKitchen) {
                 LevelManager.Instance.SetTowerToBuild(null);
             }
-        } else {
-            waitStaff.interactable = true;
-            foreach (GameObject staff in kitchenStaff) {
-                staff.GetComponent<Button>().interactable = false;
-            }
-            if (selectedTower != null && selectedTower.tag != "WaitStaff") {
-                selectedTower = null;
-				LevelManager.Instance.SetTowerToBuild(null);
-            }
         }
 
-        if (Player.Instance.currentNode.tower == null) {
-            buyButton.interactable = true;
-            sellButton.interactable = false;
-        } else {
-            buyButton.interactable = false;
-            sellButton.interactable = true;
+        bool hasStaff = node.tower != null;
+		buyButton.interactable = !hasStaff;
+        sellButton.interactable = hasStaff;
+
+        if (node.upgradeButton) {
+            node.upgradeButton.GetComponent<Button>().interactable = node.isUpgraded;
         }
-
-        if (Player.Instance.currentNode.upgradeButton) {
-            if (Player.Instance.currentNode.isUpgraded) {
-                Player.Instance.currentNode.upgradeButton.GetComponent<Button>().interactable = false;
-            } else {
-                Player.Instance.currentNode.upgradeButton.GetComponent<Button>().interactable = true;
-            }
-        }
-    }
-
-}
-
-[System.Serializable]
-public class StaffCosts {
-
-    public int hirePrice;
-    public int sellPrice;
-    public int runningCost;
-    public int upgradePrice;
-
-    public StaffCosts() {
-        hirePrice = 0;
-        sellPrice = 0;
-        runningCost = 0;
-        upgradePrice = 0;
     }
 
 }
