@@ -72,38 +72,17 @@ public class Player : MonoBehaviour {
 	/// </summary>
 	/// <returns>Normalised vector representing the current movement direction</returns>
 	public Vector3 GetDirectionAsVector() {
-		Vector3 _;
-		switch (direction) {
-			case Direction.NORTH:
-				_ = Vector3.forward;
-				break;
-			case Direction.NORTHEAST:
-				_ = Vector3.forward + Vector3.right;
-				break;
-			case Direction.EAST:
-				_ = Vector3.right;
-				break;
-			case Direction.SOUTHEAST:
-				_ = Vector3.back + Vector3.right;
-				break;
-			case Direction.SOUTH:
-				_ = Vector3.back;
-				break;
-			case Direction.SOUTHWEST:
-				_ = Vector3.back + Vector3.left;
-				break;
-			case Direction.WEST:
-				_ = Vector3.left;
-				break;
-			case Direction.NORTHWEST:
-				_ = Vector3.forward + Vector3.left;
-				break;
-			case Direction.NONE:
-			default:
-				_ = Vector3.zero;
-				break;
-
-		}
+		Vector3 _ = direction switch {
+			Direction.NORTH => Vector3.forward,
+			Direction.NORTHEAST => Vector3.forward + Vector3.right,
+			Direction.EAST => Vector3.right,
+			Direction.SOUTHEAST => Vector3.back + Vector3.right,
+			Direction.SOUTH => Vector3.back,
+			Direction.SOUTHWEST => Vector3.back + Vector3.left,
+			Direction.WEST => Vector3.left,
+			Direction.NORTHWEST => Vector3.forward + Vector3.left,
+			_ => Vector3.zero,
+		};
 		return _.normalized;
 	}
 

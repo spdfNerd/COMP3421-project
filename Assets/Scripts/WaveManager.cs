@@ -45,10 +45,12 @@ public class WaveManager : MonoBehaviour {
 	}
 
 	private IEnumerator SpawnEnemies() {
+		// Either get random wave if level is endless, or get pre-determined wave from wave list
 		Wave wave = HasNoPrescribedWaves() || IsPastPrescribedRounds()
 			? GenerateRandomWave()
 			: waves[LevelManager.Instance.Round - 1];
 
+		// Spawn all subwaves
 		for (int i = 0; i < wave.subWaves.Count; i++) {
 			Wave.SubWave subWave = wave.subWaves[i];
 			for (int j = 0; j < subWave.count; j++) {
@@ -88,19 +90,25 @@ public class WaveManager : MonoBehaviour {
 	private Wave GenerateRandomWave() {
 		int roundsAfterEnd = LevelManager.Instance.Round - waves.Length - 1;
 		float maxSpacing = 8f;
+		// Cap the amount of customers that can be spawned based on progress into endless mode
 		int normalCustomersCount = Mathf.FloorToInt(roundsAfterEnd / 3f) + 2;
 		int karenCustomersCount = Mathf.FloorToInt(roundsAfterEnd / 6f) + 1;
+		
+		Func<float, float> minNormalCustomerSpacing = i => Math.Max(0.25f, maxSpacing - 0.25f * i);
+		Func<float, float> minKarenCustomerSpacing = i => Math.Max(0.5f, maxSpacing / 2f - 0.5f * i);
 
 		Wave wave = new Wave();
 		for (int i = 0; i < normalCustomersCount; i++) {
+			// Randomise customer type, count,, and spacing
 			wave.InsertSubWave((CustomerType) UnityEngine.Random.Range(0, Enum.GetValues(typeof(CustomerType)).Length - 1),
 				UnityEngine.Random.Range(3, i),
-				UnityEngine.Random.Range(maxSpacing - 0.25f * i, maxSpacing));
+				UnityEngine.Random.Range(minNormalCustomerSpacing(i), maxSpacing));
 		}
 		for (int i = 0; i < karenCustomersCount; i++) {
+			// Randomise karen customer count and spacing
 			wave.InsertSubWave(CustomerType.KAREN,
 				UnityEngine.Random.Range(1, i),
-				UnityEngine.Random.Range(maxSpacing / 2f - 0.5f * i, maxSpacing / 2f));
+				UnityEngine.Random.Range(minKarenCustomerSpacing(i), maxSpacing / 2f));
 		}
 
 		return wave;
@@ -129,6 +137,14 @@ public class Wave {
 
 	public List<SubWave> subWaves = new();
 
+	/// <summary>
+	/// Insert sub-wave into the list of sub-waves in this wave.
+	/// By default, sub-wave is added to the end of the sub-waves list
+	/// </summary>
+	/// <param name="type">Type of Customer of the sub-wave</param>
+	/// <param name="count">Count of customers in the sub-wave</param>
+	/// <param name="spawnRate">Spawn rate of customers in the sub-wave</param>
+	/// <param name="insertRandomly">Insert the sub-wave into a random place in the list?</param>
 	public void InsertSubWave(CustomerType type, int count, float spawnRate, bool insertRandomly = true) {
 		SubWave subWave = new(type, count, spawnRate);
 		if (insertRandomly) {
