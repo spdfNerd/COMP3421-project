@@ -22,8 +22,7 @@ public class Node : MonoBehaviour {
     private int towerRunningCost;
     private int towerUpgradePrice;
 
-    private Chef chef;
-    private Waiter waiter;
+    private Staff staff;
 
     private void Start() {
         rend = GetComponent<Renderer>();
@@ -42,8 +41,7 @@ public class Node : MonoBehaviour {
         towerUpgradePrice = costs.upgradePrice;
         LevelManager.Instance.RunningCost += costs.runningCost;
 
-        chef = tower.GetComponent<Chef>();
-		waiter = tower.GetComponent<Waiter>();
+        staff = tower.GetComponent<Staff>();
         
         DisplayTowerUIButtons();
     }
@@ -57,17 +55,7 @@ public class Node : MonoBehaviour {
         LevelManager.Instance.Money -= towerUpgradePrice;
         towerSellPrice += towerUpgradePrice / 2;
 
-        // Disable base model and enable upgraded model
-        if (chef != null) {
-            chef.baseGFX.SetActive(false);
-            chef.upgradedGFX.SetActive(true);
-            chef.Upgrade();
-        } else if (waiter != null) {
-            waiter.baseGFX.SetActive(false);
-            waiter.upgradedGFX.SetActive(true);
-            waiter.Upgrade();
-        }
-
+        staff.Upgrade();
         isUpgraded = true;
     }
 
@@ -140,8 +128,7 @@ public class Node : MonoBehaviour {
 
     private void ResetNode() {
 		tower = null;
-		chef = null;
-		waiter = null;
+		staff = null;
 		isUpgraded = false;
 	}
 

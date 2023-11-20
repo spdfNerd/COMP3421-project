@@ -61,6 +61,7 @@
     <Compile Include="Assets\Scripts\InventoryScreen.cs" />
     <Compile Include="Assets\Scripts\CollectionNode.cs" />
     <Compile Include="Assets\Scripts\Food.cs" />
+    <Compile Include="Assets\Scripts\Staff.cs" />
     <Compile Include="Assets\Scripts\Customer.cs" />
     <Compile Include="Assets\Scripts\SceneManager.cs" />
     <Compile Include="Assets\Scripts\Node.cs" />

@@ -2,7 +2,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 
-public class Waiter : MonoBehaviour {
+public class Waiter : Staff {
 
 	[Header("Shoot Settings")]
 	public Transform[] projectiles;
@@ -12,14 +12,8 @@ public class Waiter : MonoBehaviour {
 	public float range = 4f;
 	public float fireCooldown = 2f;
 
-	[Header("Costs")]
-	public StaffCosts costs;
-
-	[Header("Graphics")]
-	public GameObject baseGFX;
-	public GameObject upgradedGFX;
+	[Header("Food Icons")]
 	public Transform[] icons;
-	public TextMeshProUGUI foodCountText;
 
 	private Transform target = null;
 	private float timer = 0f;
@@ -44,14 +38,6 @@ public class Waiter : MonoBehaviour {
 				Destroy(foodHolder.GetChild(0).gameObject);
 			}
 		}
-	}
-
-	private void Start() {
-		UpdateFoodType(0, 0);
-
-		// Make sure only the base model is active
-		baseGFX.SetActive(true);
-		upgradedGFX.SetActive(false);
 	}
 
 	private void Update() {
@@ -126,7 +112,11 @@ public class Waiter : MonoBehaviour {
 		}
 	}
 
-	public void Upgrade() {
+	protected override void InitStaff() {
+		UpdateFoodType(0, 0);
+	}
+
+	protected override void UpgradeStats() {
 		fireCooldown = 1f;
 	}
 
