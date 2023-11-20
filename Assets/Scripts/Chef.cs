@@ -12,6 +12,8 @@ public class Chef : MonoBehaviour {
 	public StaffCosts costs;
 
 	[Header("Graphics")]
+	public GameObject baseGFX;
+	public GameObject upgradedGFX;
 	public TextMeshProUGUI foodCountText;
 
 	private float cooldownTimer;
@@ -32,6 +34,10 @@ public class Chef : MonoBehaviour {
 	private void Start() {
 		cooldownTimer = cooldown;
 		FoodCount = 0;
+
+		// Make sure only the base model is active
+		baseGFX.SetActive(true);
+		upgradedGFX.SetActive(false);
 	}
 
 	private void Update() {
@@ -59,11 +65,9 @@ public class Chef : MonoBehaviour {
 		FoodCount++;
 	}
 
-	public void Upgrade(FoodType foodType, int foodCount) {
+	public void Upgrade() {
 		foodLimit = 10;
 		cooldown = 1f;
-		this.foodType = foodType;
-		FoodCount = foodCount;
 	}
 
 }

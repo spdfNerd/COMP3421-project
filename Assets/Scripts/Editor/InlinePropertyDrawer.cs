@@ -12,9 +12,9 @@ public class InlinePropertyDrawer : PropertyDrawer {
 	}
 
 	/// <summary>
-	/// Update whether drawer is folded out
+	/// Set whether drawer is a fold out drawer
 	/// </summary>
-	/// <param name="isFoldout">Whether drawer is folded out</param>
+	/// <param name="isFoldout">Whether drawer is a fold out drawer</param>
 	/// <param name="foldoutName">Name of fold out drawer</param>
 	public void SetFoldout(bool isFoldout, string foldoutName = "") {
 		this.isFoldout = isFoldout;
@@ -23,7 +23,7 @@ public class InlinePropertyDrawer : PropertyDrawer {
 
 	public override float GetPropertyHeight(SerializedProperty property, GUIContent label) {
 		// Minimum amount of lines = 2
-		int lines = property.isExpanded ? propertyNames.Length : 2;
+		int lines = (isFoldout && property.isExpanded) ? propertyNames.Length : 2;
 		return EditorGUIUtility.singleLineHeight * lines;
 	}
 

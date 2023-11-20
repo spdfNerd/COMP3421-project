@@ -34,7 +34,6 @@ public class Shop : MonoBehaviour {
 
 	public void BuyTower() {
         Transform towerToBuild = BuildManager.Instance.towerToBuild;
-        Transform upgradedTowerToBuild = BuildManager.Instance.upgradedTowerToBuild;
 		if (towerToBuild == null) {
 			return;
 		}
@@ -53,7 +52,7 @@ public class Shop : MonoBehaviour {
 		}
 
 		if (BuildManager.Instance.CheckCanBuild(costs.hirePrice)) {
-			Player.Instance.currentNode.BuildTower(towerToBuild, upgradedTowerToBuild, costs);
+			Player.Instance.currentNode.BuildTower(towerToBuild, costs);
 		}
 	}
 

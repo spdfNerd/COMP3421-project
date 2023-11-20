@@ -13,17 +13,8 @@ public class BuildManager : MonoBehaviour {
 	public Transform waiterTowerPrefab;
 	public Transform fridgeTowerPrefab;
 
-	[Header("Upgraded Tower Models")]
-	public Transform upgradedSushiTowerPrefab;
-	public Transform upgradedBurgerTowerPrefab;
-	public Transform upgradedPizzaTowerPrefab;
-	public Transform upgradedNoodlesTowerPrefab;
-	public Transform upgradedWaiterTowerPrefab;
-
 	[HideInInspector]
 	public Transform towerToBuild;
-	[HideInInspector]
-	public Transform upgradedTowerToBuild;
 
 	private void Awake() {
 		// Ensure unique singleton instance in scene
@@ -36,31 +27,26 @@ public class BuildManager : MonoBehaviour {
 
 	public void SelectSushiTower(ShopButton button) {
 		towerToBuild = sushiTowerPrefab;
-		upgradedTowerToBuild = upgradedSushiTowerPrefab;
 		button.ToggleSelect();
 	}
 
 	public void SelectBurgerTower(ShopButton button) {
 		towerToBuild = burgerTowerPrefab;
-		upgradedTowerToBuild = upgradedBurgerTowerPrefab;
 		button.ToggleSelect();
 	}
 
 	public void SelectPizzaTower(ShopButton button) {
 		towerToBuild = pizzaTowerPrefab;
-		upgradedTowerToBuild = upgradedPizzaTowerPrefab;
 		button.ToggleSelect();
 	}
 
 	public void SelectNoodlesTower(ShopButton button) {
 		towerToBuild = noodlesTowerPrefab;
-		upgradedTowerToBuild = upgradedNoodlesTowerPrefab;
 		button.ToggleSelect();
 	}
 
 	public void SelectWaiterTower(ShopButton button) {
 		towerToBuild = waiterTowerPrefab;
-		upgradedTowerToBuild = upgradedWaiterTowerPrefab;
 		button.ToggleSelect();
 	}
 

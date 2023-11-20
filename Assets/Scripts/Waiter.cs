@@ -16,6 +16,8 @@ public class Waiter : MonoBehaviour {
 	public StaffCosts costs;
 
 	[Header("Graphics")]
+	public GameObject baseGFX;
+	public GameObject upgradedGFX;
 	public Transform[] icons;
 	public TextMeshProUGUI foodCountText;
 
@@ -46,6 +48,10 @@ public class Waiter : MonoBehaviour {
 
 	private void Start() {
 		UpdateFoodType(0, 0);
+
+		// Make sure only the base model is active
+		baseGFX.SetActive(true);
+		upgradedGFX.SetActive(false);
 	}
 
 	private void Update() {
@@ -120,9 +126,8 @@ public class Waiter : MonoBehaviour {
 		}
 	}
 
-	public void Upgrade(FoodType foodType, int foodCount) {
+	public void Upgrade() {
 		fireCooldown = 1f;
-		UpdateFoodType(foodType, foodCount);
 	}
 
 }
