@@ -468,8 +468,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 90, y: 110}
-  m_SizeDelta: {x: 600, y: 50}
+  m_AnchoredPosition: {x: 90, y: 120}
+  m_SizeDelta: {x: 615, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &576597644
 MonoBehaviour:
@@ -492,7 +492,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "- Floorboards designed by Kjpargeter / Freepik \"http://www.freepik.com\"\n-
-    Upload icons created by Pixel Buddha - Flaticon \"https://www.flaticon.com/free-icons/upload\"
+    Wallpaper designed by macrovector / Freepik \"http://www.freepik.com\"\n- Upload
+    icons created by Pixel Buddha - Flaticon \"https://www.flaticon.com/free-icons/upload\"
     \n- Rotate left icons created by Febrian Hidayat - Flaticon\n\"https://www.flaticon.com/free-icons/rotate-left\""
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
