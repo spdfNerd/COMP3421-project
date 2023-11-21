@@ -93,22 +93,21 @@ public class WaveManager : MonoBehaviour {
 		// Cap the amount of customers that can be spawned based on progress into endless mode
 		int normalCustomersCount = Mathf.FloorToInt(roundsAfterEnd / 3f) + 2;
 		int karenCustomersCount = Mathf.FloorToInt(roundsAfterEnd / 6f) + 1;
-		
-		Func<float, float> minNormalCustomerSpacing = i => Math.Max(0.25f, maxSpacing - 0.25f * i);
-		Func<float, float> minKarenCustomerSpacing = i => Math.Max(0.5f, maxSpacing / 2f - 0.5f * i);
+
+		float MinCustomerSpacing(float i, float multiplier) => Math.Max(0.25f * multiplier, (maxSpacing / multiplier) - (0.25f * multiplier * i));
 
 		Wave wave = new Wave();
 		for (int i = 0; i < normalCustomersCount; i++) {
 			// Randomise customer type, count,, and spacing
 			wave.InsertSubWave((CustomerType) UnityEngine.Random.Range(0, Enum.GetValues(typeof(CustomerType)).Length - 1),
 				UnityEngine.Random.Range(3, i),
-				UnityEngine.Random.Range(minNormalCustomerSpacing(i), maxSpacing));
+				UnityEngine.Random.Range(MinCustomerSpacing(i, 1f), maxSpacing));
 		}
 		for (int i = 0; i < karenCustomersCount; i++) {
 			// Randomise karen customer count and spacing
 			wave.InsertSubWave(CustomerType.KAREN,
 				UnityEngine.Random.Range(1, i),
-				UnityEngine.Random.Range(minKarenCustomerSpacing(i), maxSpacing / 2f));
+				UnityEngine.Random.Range(MinCustomerSpacing(i, 2f), maxSpacing / 2f));
 		}
 
 		return wave;
