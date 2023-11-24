@@ -1498,22 +1498,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3359835360914962172, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1910045942}
-    - target: {fileID: 3359835360914962172, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectNoodlesTower
-      objectReference: {fileID: 0}
-    - target: {fileID: 4657323571192795005, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1910045942}
-    - target: {fileID: 4657323571192795005, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectBurgerTower
-      objectReference: {fileID: 0}
     - target: {fileID: 5024070729114049320, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1586,14 +1570,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5500574050492651603, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1910045942}
-    - target: {fileID: 5500574050492651603, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectFridgeTower
-      objectReference: {fileID: 0}
     - target: {fileID: 5632526663711998138, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1617,14 +1593,6 @@ PrefabInstance:
     - target: {fileID: 5632526663711998138, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6428146017975866021, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1910045942}
-    - target: {fileID: 6428146017975866021, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectSushiTower
       objectReference: {fileID: 0}
     - target: {fileID: 6642363149776111344, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1733,7 +1701,7 @@ PrefabInstance:
     - target: {fileID: 8043869300330226208, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
       propertyPath: upgradePanel
       value: 
-      objectReference: {fileID: 1489780833}
+      objectReference: {fileID: 1010674169}
     - target: {fileID: 8660615137518738376, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1785,22 +1753,6 @@ PrefabInstance:
     - target: {fileID: 8734416230839265777, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8948045398737649060, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1910045942}
-    - target: {fileID: 8948045398737649060, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectWaiterTower
-      objectReference: {fileID: 0}
-    - target: {fileID: 9037658407838198405, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1910045942}
-    - target: {fileID: 9037658407838198405, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectPizzaTower
       objectReference: {fileID: 0}
     - target: {fileID: 9136802832617806359, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2028,6 +1980,11 @@ Transform:
   - {fileID: 1512251532}
   m_Father: {fileID: 1452708530}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &1010674169 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8756467951157524884, guid: 5cecd1f21e7d59146ab68a78f3fb9504, type: 3}
+  m_PrefabInstance: {fileID: 20461526}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1033300630
 GameObject:
   m_ObjectHideFlags: 0
@@ -2784,11 +2741,6 @@ Transform:
   - {fileID: 1003982814}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1489780833 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6858442260925884125, guid: 5cecd1f21e7d59146ab68a78f3fb9504, type: 3}
-  m_PrefabInstance: {fileID: 20461526}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1512251531
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3358,17 +3310,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fad2175c0832cee4fafcd71ef96c2772, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1910045942 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3552611188793140248, guid: 7df76b8e52be3de4f9781b5d60d56738, type: 3}
-  m_PrefabInstance: {fileID: 698401183}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80af265412646eb4a9e43dd0c227165a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1994352628
