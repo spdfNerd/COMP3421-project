@@ -9,57 +9,27 @@ public class Shop : MonoBehaviour {
     private const string WaitStaffTag = "WaitStaff";
 
     [HideInInspector]
-	public GameObject[] kitchenStaffButtons;
+	public ShopButton[] kitchenStaffButtons;
     [HideInInspector]
-    public Button waitStaffButton;
+    public ShopButton waitStaffButton;
     public Button buyButton;
     public Button sellButton;
     public GameObject upgradePanel;
 
     private ShopButton selectedButton;
 
-    private void Awake() {
-        if (Instance != null) {
-            Debug.LogError("More than one Shop in scene!");
-            return;
-        }
-        Instance = this;
-    }
+	private void Awake() {
+		if (Instance != null) {
+			Debug.LogError("More than one Shop in scene!");
+			return;
+		}
+		Instance = this;
+	}
 
     private void Start() {
-        kitchenStaffButtons = GameObject.FindGameObjectsWithTag(KitchenStaffTag);
-        waitStaffButton = GameObject.FindWithTag(WaitStaffTag).GetComponent<Button>();
+		SetKitchenStaffButtons();
+        waitStaffButton = GameObject.FindWithTag(WaitStaffTag).GetComponent<ShopButton>();
     }
-
-	public void SelectPizzaTower(ShopButton button) {
-		BuildManager.Instance.SetTowerToBuild(BuildManager.PizzaTowerString);
-        SetSelectedButton(button);
-	}
-
-	public void SelectBurgerTower(ShopButton button) {
-		BuildManager.Instance.SetTowerToBuild(BuildManager.BurgerTowerString);
-		SetSelectedButton(button);
-	}
-
-	public void SelectSushiTower(ShopButton button) {
-		BuildManager.Instance.SetTowerToBuild(BuildManager.SushiTowerString);
-		SetSelectedButton(button);
-	}
-
-	public void SelectNoodlesTower(ShopButton button) {
-		BuildManager.Instance.SetTowerToBuild(BuildManager.NoodlesTowerString);
-		SetSelectedButton(button);
-	}
-
-	public void SelectWaiterTower(ShopButton button) {
-		BuildManager.Instance.SetTowerToBuild(BuildManager.WaiterTowerString);
-		SetSelectedButton(button);
-	}
-
-	public void SelectFridgeTower(ShopButton button) {
-		BuildManager.Instance.SetTowerToBuild(BuildManager.FridgeTowerString);
-		SetSelectedButton(button);
-	}
 
 	public void BuyTower() {
         Transform towerToBuild = BuildManager.Instance.towerToBuild;
@@ -88,10 +58,10 @@ public class Shop : MonoBehaviour {
     /// Check to see which shop object should be enabled depending on player location
     /// </summary>
 	public void UpdateButtons(Node node, bool isKitchenNode) {
-        // Set buttons to be enabled depending on tower type and where player is
-        waitStaffButton.interactable = !isKitchenNode;
-        foreach (GameObject staffButton in kitchenStaffButtons) {
-            staffButton.GetComponent<Button>().interactable = isKitchenNode;
+		// Set buttons to be enabled depending on tower type and where player is
+		waitStaffButton.interactable = !isKitchenNode && waitStaffButton.IsAffordable;
+        foreach (ShopButton staffButton in kitchenStaffButtons) {
+            staffButton.interactable = isKitchenNode && staffButton.IsAffordable;
         }
 
         bool hasStaff = node.tower != null;
@@ -103,18 +73,22 @@ public class Shop : MonoBehaviour {
         }
 	}
 
+	public void SetSelectedButton(ShopButton button) {
+		selectedButton = button;
+	}
+
 	public void ClearSelectedTower() {
 		if (selectedButton != null) {
 			selectedButton.SetSelected(false);
-			selectedButton = null;
 		}
-
-		BuildManager.Instance.SetTowerToBuild(BuildManager.NoTowerString);
 	}
 
-	private void SetSelectedButton(ShopButton button) {
-        button.SetSelected(true);
-        selectedButton = button;
-    }
+	private void SetKitchenStaffButtons() {
+		GameObject[] kitchenStaffButtonGOs = GameObject.FindGameObjectsWithTag(KitchenStaffTag);
+		kitchenStaffButtons = new ShopButton[kitchenStaffButtonGOs.Length];
+		for (int i = 0; i < kitchenStaffButtonGOs.Length; i++) {
+			kitchenStaffButtons[i] = kitchenStaffButtonGOs[i].GetComponent<ShopButton>();
+		}
+	}
 
 }

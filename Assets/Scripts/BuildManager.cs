@@ -5,22 +5,6 @@ public class BuildManager : MonoBehaviour {
 	// Singleton instance
 	public static BuildManager Instance;
 
-	public const string PizzaTowerString = "pizza";
-	public const string BurgerTowerString = "burger";
-	public const string SushiTowerString = "sushi";
-	public const string NoodlesTowerString = "noodles";
-	public const string WaiterTowerString = "waiter";
-	public const string FridgeTowerString = "fridge";
-	public const string NoTowerString = "none";
-
-	[Header("Base Tower Models")]
-	public Transform sushiTowerPrefab;
-	public Transform burgerTowerPrefab;
-	public Transform pizzaTowerPrefab;
-	public Transform noodlesTowerPrefab;
-	public Transform waiterTowerPrefab;
-	public Transform fridgeTowerPrefab;
-
 	[HideInInspector]
 	public Transform towerToBuild;
 
@@ -33,31 +17,8 @@ public class BuildManager : MonoBehaviour {
 		Instance = this;
 	}
 
-	public void SetTowerToBuild(string type) {
-		switch (type) {
-			case PizzaTowerString:
-				towerToBuild = sushiTowerPrefab;
-				break;
-			case BurgerTowerString:
-				towerToBuild = burgerTowerPrefab;
-				break;
-			case SushiTowerString:
-				towerToBuild = sushiTowerPrefab;
-				break;
-			case NoodlesTowerString:
-				towerToBuild = noodlesTowerPrefab;
-				break;
-			case WaiterTowerString:
-				towerToBuild = waiterTowerPrefab;
-				break;
-			case FridgeTowerString:
-				towerToBuild = fridgeTowerPrefab;
-				break;
-			case NoTowerString:
-			default:
-				towerToBuild = null;
-				break;
-		}
+	public void SetTowerToBuild(Transform towerPrefab) {
+		towerToBuild = towerPrefab;
 	}
 
 	public void BuildTower(StaffCosts costs) {

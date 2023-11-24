@@ -1053,30 +1053,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 280751183645140838}
-    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectNoodlesTower
-      objectReference: {fileID: 0}
-    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Shop, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 7794825251237270119}
-    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: ShopButton, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 7786229570037556212, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_Name
       value: NoodleChef
@@ -1085,6 +1061,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: KitchenStaff
       objectReference: {fileID: 0}
+    - target: {fileID: 8133145392273534193, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: baseTowerPrefab
+      value: 
+      objectReference: {fileID: 2697950695243699862, guid: 4b25968a849593a4eb93a25a04ee4a07, type: 3}
     - target: {fileID: 9156929146310591553, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1099,17 +1079,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6560960741340584313, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
   m_PrefabInstance: {fileID: 2085858086994558614}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7794825251237270119 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8133145392273534193, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-  m_PrefabInstance: {fileID: 2085858086994558614}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b8a310c986b40045ac775c4413aa9dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &5656287438274639310
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1208,30 +1177,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 280751183645140838}
-    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectWaiterTower
-      objectReference: {fileID: 0}
-    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Shop, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 4513055223036287295}
-    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: ShopButton, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 7786229570037556212, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_Name
       value: Waiter
@@ -1240,6 +1185,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: WaitStaff
       objectReference: {fileID: 0}
+    - target: {fileID: 8133145392273534193, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: baseTowerPrefab
+      value: 
+      objectReference: {fileID: 3550817822578954969, guid: d8ebcfee9fde32e41b9d5fe87c41f9ee, type: 3}
     - target: {fileID: 9156929146310591553, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1254,17 +1203,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6560960741340584313, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
   m_PrefabInstance: {fileID: 5656287438274639310}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4513055223036287295 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8133145392273534193, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-  m_PrefabInstance: {fileID: 5656287438274639310}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b8a310c986b40045ac775c4413aa9dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &5710224464202621679
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1363,30 +1301,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 280751183645140838}
-    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectPizzaTower
-      objectReference: {fileID: 0}
-    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Shop, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 4602808844838194718}
-    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: ShopButton, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 7786229570037556212, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_Name
       value: PizzaChef
@@ -1395,6 +1309,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: KitchenStaff
       objectReference: {fileID: 0}
+    - target: {fileID: 8133145392273534193, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: baseTowerPrefab
+      value: 
+      objectReference: {fileID: 3459076067257062456, guid: 576b7a76f51ad4126986f7b6ad267069, type: 3}
     - target: {fileID: 9156929146310591553, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1409,17 +1327,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6560960741340584313, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
   m_PrefabInstance: {fileID: 5710224464202621679}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4602808844838194718 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8133145392273534193, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-  m_PrefabInstance: {fileID: 5710224464202621679}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b8a310c986b40045ac775c4413aa9dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &7739330593582045903
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1534,30 +1441,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 280751183645140838}
-    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectSushiTower
-      objectReference: {fileID: 0}
-    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Shop, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 1997659310503818814}
-    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: ShopButton, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 7786229570037556212, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_Name
       value: SushiChef
@@ -1566,6 +1449,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: KitchenStaff
       objectReference: {fileID: 0}
+    - target: {fileID: 8133145392273534193, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: baseTowerPrefab
+      value: 
+      objectReference: {fileID: 3246167590149267767, guid: ad3712eb77b78c74994741b381f40774, type: 3}
     - target: {fileID: 9156929146310591553, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1575,17 +1462,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
---- !u!114 &1997659310503818814 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8133145392273534193, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-  m_PrefabInstance: {fileID: 7739330593582045903}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b8a310c986b40045ac775c4413aa9dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &3488767041843151798 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6560960741340584313, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
@@ -1705,30 +1581,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 280751183645140838}
-    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectBurgerTower
-      objectReference: {fileID: 0}
-    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Shop, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 157172081998425062}
-    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: ShopButton, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 7786229570037556212, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_Name
       value: BurgerChef
@@ -1737,6 +1589,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: KitchenStaff
       objectReference: {fileID: 0}
+    - target: {fileID: 8133145392273534193, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: baseTowerPrefab
+      value: 
+      objectReference: {fileID: 1616419476327217012, guid: eae89f8ef6118d54e834eaff1c884f7f, type: 3}
     - target: {fileID: 9156929146310591553, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1746,17 +1602,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
---- !u!114 &157172081998425062 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8133145392273534193, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-  m_PrefabInstance: {fileID: 8282365496805705495}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b8a310c986b40045ac775c4413aa9dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &3025830169671491182 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6560960741340584313, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
@@ -1860,30 +1705,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 280751183645140838}
-    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectFridgeTower
-      objectReference: {fileID: 0}
-    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Shop, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 1070087345468308680}
-    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: ShopButton, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 7786229570037556212, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_Name
       value: Fridge
@@ -1892,6 +1713,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: KitchenStaff
       objectReference: {fileID: 0}
+    - target: {fileID: 8133145392273534193, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: baseTowerPrefab
+      value: 
+      objectReference: {fileID: 3718583968090340071, guid: 1e74d0f119905e54797abc4b659dfcf2, type: 3}
     - target: {fileID: 9156929146310591553, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1901,17 +1726,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
---- !u!114 &1070087345468308680 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8133145392273534193, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
-  m_PrefabInstance: {fileID: 9081238589443330105}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b8a310c986b40045ac775c4413aa9dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &2669013252779100480 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6560960741340584313, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
