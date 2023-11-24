@@ -30,6 +30,7 @@ public class QuestManager : MonoBehaviour {
 		}
 
 		currentQuests = new Transform[3];
+		// Set the initial quests to be the first three in the quest pool
 		usedIndices = new int[] { 0, 1, 2 };
 		questTypes = new QuestType[currentQuests.Length];
 
@@ -38,6 +39,7 @@ public class QuestManager : MonoBehaviour {
 
 	public void UpdateQuest(int index) {
 		int newQuestIndex = Random.Range(0, questPool.Length);
+		// Reroll quest index until a not-in-use index is obtained
 		while (usedIndices.Contains(newQuestIndex)) {
 			newQuestIndex = Random.Range(0, questPool.Length);
 		}
@@ -45,6 +47,7 @@ public class QuestManager : MonoBehaviour {
 
 		Destroy(currentQuests[index].gameObject);
 		Transform newQuest = Instantiate(questPool[newQuestIndex], questsPanel);
+		// Place quest in the same place as the just-completed quest
 		newQuest.SetSiblingIndex(index);
 		questTypes[index] = newQuest.GetComponent<Quest>().questType;
 		currentQuests[index] = newQuest;
@@ -81,12 +84,13 @@ public class QuestManager : MonoBehaviour {
 			}
 
 			Quest quest = currentQuests[i].GetComponent<Quest>();
+			// Only progress quest if required conditions match
 			if (questType == QuestType.SERVE_FOOD && quest.foodType != foodType) {
 				continue;
 			} else if (questType == QuestType.SERVE_CUSTOMER && quest.customerType != customerType) {
 				continue;
 			} else {
-				quest.AddToProgress(amount);
+				quest.AddToQuestProgress(amount);
 			}
 		}
 	}

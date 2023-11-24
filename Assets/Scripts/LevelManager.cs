@@ -38,7 +38,6 @@ public class LevelManager : MonoBehaviour {
 	private int reputation = 0;
 	private int round = 0;
 
-	private GameObject towerToBuild;
     private int runningCost = 0;
 
 	public Dictionary<FoodType, int> foodRewards;
@@ -115,13 +114,5 @@ public class LevelManager : MonoBehaviour {
 			}
 		}
 	}
-
-	public GameObject GetTowerToBuild() {
-        return towerToBuild;
-    }
-
-    public void SetTowerToBuild(GameObject tower) {
-        towerToBuild = tower;
-    }
 
 }

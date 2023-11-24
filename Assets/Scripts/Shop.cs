@@ -1,135 +1,130 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Shop : MonoBehaviour {
 
     public static Shop Instance;
+    public const string KitchenNodeTag = "KitchenNode";
+    private const string KitchenStaffTag = "KitchenStaff";
+    private const string WaitStaffTag = "WaitStaff";
 
     [HideInInspector]
-	public GameObject[] kitchenStaff;
+	public ShopButton[] kitchenStaffButtons;
     [HideInInspector]
-    public Button waitStaff;
+    public ShopButton waitStaffButton;
     public Button buyButton;
     public Button sellButton;
-    public GameObject upgradePanel;
-    
-    private GameObject selectedTower;
 
-    private void Awake() {
-        if (Instance != null) {
-            Debug.LogError("More than one Shop in scene!");
-            return;
-        }
-        Instance = this;
-    }
+    public Transform upgradePanel;
+
+	private Button rotateButton;
+	private Button upgradeButton;
+	private TextMeshProUGUI upgradeButtonText;
+
+	private ShopButton selectedButton;
+
+	private void Awake() {
+		if (Instance != null) {
+			Debug.LogError("More than one Shop in scene!");
+			return;
+		}
+		Instance = this;
+	}
 
     private void Start() {
-        kitchenStaff = GameObject.FindGameObjectsWithTag("KitchenStaff");
-        waitStaff = GameObject.FindWithTag("WaitStaff").GetComponent<Button>();
-    }
+		SetKitchenStaffButtons();
+        waitStaffButton = GameObject.FindWithTag(WaitStaffTag).GetComponent<ShopButton>();
 
-    private void Update() {
-        CheckNode();
-    }
+		rotateButton = upgradePanel.GetChild(0).GetComponent<Button>();
+		upgradeButton = upgradePanel.GetChild(1).GetComponent<Button>();
+		upgradeButtonText = upgradeButton.GetComponentInChildren<TextMeshProUGUI>(true);
+	}
 
 	public void BuyTower() {
         Transform towerToBuild = BuildManager.Instance.towerToBuild;
-        Transform upgradedTowerToBuild = BuildManager.Instance.upgradedTowerToBuild;
 		if (towerToBuild == null) {
 			return;
 		}
 
-		Chef chefComponent = towerToBuild.GetComponent<Chef>();
-		Waiter waiterComponent = towerToBuild.GetComponent<Waiter>();
+        Staff staffComponent = towerToBuild.GetComponent<Staff>();
 		Fridge fridgeComponent = towerToBuild.GetComponent<Fridge>();
 
-        StaffCosts costs = new StaffCosts();
-		if (chefComponent != null) {
-            costs = chefComponent.costs;
-		} else if (waiterComponent != null) {
-			costs = waiterComponent.costs;
-		} else if (fridgeComponent != null) {
+        StaffCosts costs;
+		if (fridgeComponent != null) {
 			costs = fridgeComponent.costs;
-		}
-
-		if (BuildManager.Instance.CheckCanBuild(costs.hirePrice)) {
-			Player.Instance.currentNode.BuildTower(towerToBuild, upgradedTowerToBuild, costs);
-		}
-	}
-
-    public void Rotate() {
-        if (Player.Instance.currentNode.tower != null) {
-            GameObject towerGFX = Player.Instance.currentNode.tower.transform.Find("GFX").gameObject;
-            towerGFX.transform.Rotate(0, 90, 0); 
+		} else {
+            costs = staffComponent.costs;
         }
-    }
 
-    public void UpgradeTower() {
-        Player.Instance.currentNode.UpgradeTower();
-    }
+        BuildManager.Instance.BuildTower(costs);
+	}
 
 	public void SellTower() {
         Player.Instance.currentNode.SellTower();
 	}
 
-	// Check to see which shop object should be displayed depending on player location
-	private void CheckNode() {
-        if (Player.Instance.currentNode == null) {
-            return;
+	/// <summary>
+    /// Check to see which shop object should be enabled depending on player location
+    /// </summary>
+	public void UpdateButtons(Node node, bool isKitchenNode) {
+		// Set buttons to be enabled depending on tower type and where player is
+		waitStaffButton.interactable = !isKitchenNode && waitStaffButton.IsAffordable;
+        foreach (ShopButton staffButton in kitchenStaffButtons) {
+            staffButton.interactable = isKitchenNode && staffButton.IsAffordable;
         }
 
-        if (Player.Instance.currentNode.tag == "KitchenNode") {
-            waitStaff.interactable = false;
-            foreach (GameObject staff in kitchenStaff) {
-                staff.GetComponent<Button>().interactable = true;
-            }
-            if (selectedTower != null && selectedTower.tag != "KitchenStaff") {
-                selectedTower = null;
-                LevelManager.Instance.SetTowerToBuild(null);
-            }
-        } else {
-            waitStaff.interactable = true;
-            foreach (GameObject staff in kitchenStaff) {
-                staff.GetComponent<Button>().interactable = false;
-            }
-            if (selectedTower != null && selectedTower.tag != "WaitStaff") {
-                selectedTower = null;
-				LevelManager.Instance.SetTowerToBuild(null);
-            }
-        }
+        bool hasStaff = node.tower != null;
+		buyButton.interactable = !hasStaff;
+        sellButton.interactable = hasStaff;
+	}
 
-        if (Player.Instance.currentNode.tower == null) {
-            buyButton.interactable = true;
-            sellButton.interactable = false;
-        } else {
-            buyButton.interactable = false;
-            sellButton.interactable = true;
-        }
+	public void SetSelectedButton(ShopButton button) {
+		selectedButton = button;
+	}
 
-        if (Player.Instance.currentNode.upgradeButton) {
-            if (Player.Instance.currentNode.isUpgraded) {
-                Player.Instance.currentNode.upgradeButton.GetComponent<Button>().interactable = false;
-            } else {
-                Player.Instance.currentNode.upgradeButton.GetComponent<Button>().interactable = true;
-            }
-        }
-    }
+	public void ClearSelectedTower() {
+		if (selectedButton != null) {
+			selectedButton.SetSelected(false);
+		}
+	}
 
-}
+	public void EnableUpgradePanel(bool canUpgrade, int upgradePrice) {
+		Transform towerTransform = Player.Instance.GetCurrentTowerTransform();
 
-[System.Serializable]
-public class StaffCosts {
+		// Set buttons position
+		Vector3 position = towerTransform.position;
+		position.y = upgradePanel.position.y;
+		upgradePanel.position = position;
 
-    public int hirePrice;
-    public int sellPrice;
-    public int runningCost;
-    public int upgradePrice;
+		// Link button functions so they upgrade and rotate tower when clicked
+		rotateButton.onClick.AddListener(() => BuildManager.Instance.Rotate());
+		upgradeButton.onClick.AddListener(() => BuildManager.Instance.UpgradeTower());
 
-    public StaffCosts() {
-        hirePrice = 0;
-        sellPrice = 0;
-        runningCost = 0;
-        upgradePrice = 0;
-    }
+		upgradeButton.interactable = canUpgrade;
+		upgradeButtonText.text = "$" + upgradePrice;
+
+		upgradePanel.gameObject.SetActive(true);
+	}
+
+	public void DisableUpgradeButton() {
+		upgradeButton.interactable = false;
+	}
+
+	public void DisableUpgradePanel() {
+		// Make sure the buttons will not do anything relating to this node when clicked
+		rotateButton.onClick.RemoveAllListeners();
+		upgradeButton.onClick.RemoveAllListeners();
+
+		upgradePanel.gameObject.SetActive(false);
+	}
+
+	private void SetKitchenStaffButtons() {
+		GameObject[] kitchenStaffButtonGOs = GameObject.FindGameObjectsWithTag(KitchenStaffTag);
+		kitchenStaffButtons = new ShopButton[kitchenStaffButtonGOs.Length];
+		for (int i = 0; i < kitchenStaffButtonGOs.Length; i++) {
+			kitchenStaffButtons[i] = kitchenStaffButtonGOs[i].GetComponent<ShopButton>();
+		}
+	}
 
 }

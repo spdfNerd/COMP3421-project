@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Node : MonoBehaviour {
 
@@ -14,72 +13,45 @@ public class Node : MonoBehaviour {
 
     [HideInInspector]
     public Transform tower;
-    public Transform upgradedTowerPrefab;
-    public GameObject rotateButton;
-    public GameObject upgradeButton;
     public bool isUpgraded;
-    private int towerSellPrice;
-    private int towerRunningCost;
-    private int towerUpgradePrice;
 
-    private Chef chef;
-    private Waiter waiter;
+    public bool CanUpgrade {
+        get => !isUpgraded && tower.TryGetComponent<Staff>(out _) && towerCosts.upgradePrice <= LevelManager.Instance.Money;
+    }
+
+    private StaffCosts towerCosts;
 
     private void Start() {
         rend = GetComponent<Renderer>();
         startColour = rend.material.color;
         isUpgraded = false;
-    }
+	}
 
-    public void BuildTower(Transform towerToBuild, Transform upgradedTowerToBuild, StaffCosts costs) {
+    public void BuildTower(Transform towerToBuild, StaffCosts costs) {
         LevelManager.Instance.Money -= costs.hirePrice;
-		QuestManager.Instance.TryUpdateSpendQuestProgress(costs.hirePrice);
+        UpdateQuest(costs);
 
+		// Create tower model and update costs
 		tower = Instantiate(towerToBuild, transform.position + positionOffset, Quaternion.identity);
-        towerSellPrice = costs.sellPrice;
-        towerRunningCost = costs.runningCost;
-        LevelManager.Instance.RunningCost += costs.runningCost;
-        towerUpgradePrice = costs.upgradePrice;
-        upgradedTowerPrefab = upgradedTowerToBuild;
+        towerCosts = costs;
 
-        if (type == NodeType.KITCHEN) {
-            chef = tower.GetComponent<Chef>();
-        } else {
-			waiter = tower.GetComponent<Waiter>();
-		}
-        DisplayTowerUIButtons();
+		LevelManager.Instance.RunningCost += costs.runningCost;
+
+        Shop.Instance.EnableUpgradePanel(CanUpgrade, towerCosts.upgradePrice);
     }
 
     public void UpgradeTower() {
-        if (!BuildManager.Instance.CanUpgrade(towerUpgradePrice)) {
+        if (!CanUpgrade) {
             Debug.Log("Cannot upgrade");
 			return;
 		}
 
-        LevelManager.Instance.Money -= towerUpgradePrice;
-        towerSellPrice += towerUpgradePrice / 2;
+        LevelManager.Instance.Money -= towerCosts.upgradePrice;
+        towerCosts.sellPrice += towerCosts.upgradePrice / 2;
 
-        FoodType foodType = FoodType.PIZZA;
-        int foodCount = 0;
-        if (chef != null) {
-            foodType = chef.foodType;
-            foodCount = chef.FoodCount;
-        } else if (waiter != null) {
-            foodType = waiter.FoodType;
-            foodCount = waiter.FoodCount;
-        }
-
-        Destroy(tower.gameObject);
-        tower = Instantiate(upgradedTowerPrefab, transform.position + positionOffset, Quaternion.identity);
-        chef = tower.GetComponent<Chef>();
-        waiter = tower.GetComponent<Waiter>();
-        if (chef != null) {
-            chef.Upgrade(foodType, foodCount);
-        } else if (waiter != null) {
-			waiter.Upgrade(foodType, foodCount);
-        }
-
+        tower.GetComponent<Staff>().Upgrade();
         isUpgraded = true;
+        Shop.Instance.DisableUpgradeButton();
     }
 
     public void SellTower() {
@@ -89,50 +61,39 @@ public class Node : MonoBehaviour {
             return;
         }
 
+        // Destroy tower model and reset related fields
         Destroy(tower.gameObject);
-        tower = null;
-        chef = null;
-        waiter = null;
-        isUpgraded = false;
+        ResetNode();
 
-        LevelManager.Instance.Money += towerSellPrice;
-        LevelManager.Instance.RunningCost -= towerRunningCost;
+        LevelManager.Instance.Money += towerCosts.sellPrice;
+        LevelManager.Instance.RunningCost -= towerCosts.runningCost;
     }
 
+    /// <summary>
+    /// To be called when the player enters the node
+    /// </summary>
 	public void OnPlayerEnter() {
         rend.material.color = hoverColour;
         if (tower != null) {
-            DisplayTowerUIButtons();
-        }
-    }
+			Shop.Instance.EnableUpgradePanel(CanUpgrade, towerCosts.upgradePrice);
+		}
+	}
 
-    private void DisplayTowerUIButtons () {
-		Transform shopTransform = Shop.Instance.upgradePanel.transform;
-        Transform towerTransform = Player.Instance.currentNode.tower.transform;
-
-		Vector3 position = shopTransform.position;
-        position.x = towerTransform.position.x;
-        position.z = towerTransform.position.z;
-        shopTransform.position = position;
-
-        Transform rotateButton = shopTransform.GetChild(0).GetChild(0);
-        Transform upgradeButton = shopTransform.GetChild(0).GetChild(1);
-        rotateButton.GetComponent<Button>().onClick.AddListener(() => Shop.Instance.Rotate());
-        upgradeButton.GetComponent<Button>().onClick.AddListener(() => Shop.Instance.UpgradeTower());
-
-        shopTransform.gameObject.SetActive(true);
-    }
-
+    /// <summary>
+    /// To be called when the player exits the node
+    /// </summary>
 	public void OnPlayerExit() {
-        rend.material.color = startColour;
+		rend.material.color = startColour;
+        Shop.Instance.DisableUpgradePanel();
+	}
 
-		Transform shopTransform = Shop.Instance.upgradePanel.transform;
-		Transform rotateButton = shopTransform.GetChild(0).GetChild(0);
-		Transform upgradeButton = shopTransform.GetChild(0).GetChild(1);
+    private void UpdateQuest(StaffCosts costs) {
+		QuestManager.Instance.TryUpdateSpendQuestProgress(costs.hirePrice);
+	}
 
-        rotateButton.GetComponent<Button>().onClick.RemoveAllListeners();
-        upgradeButton.GetComponent<Button>().onClick.RemoveAllListeners();
-		Shop.Instance.upgradePanel.SetActive(false);
+    private void ResetNode() {
+		tower = null;
+		isUpgraded = false;
 	}
 
 }
