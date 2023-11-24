@@ -243,6 +243,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1832622113835783113, guid: 5cecd1f21e7d59146ab68a78f3fb9504, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6858442260925884125, guid: 5cecd1f21e7d59146ab68a78f3fb9504, type: 3}
       propertyPath: m_Name
       value: UpgradePanel
@@ -1221,14 +1225,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 175300089652580360, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 180.0215
-      objectReference: {fileID: 0}
-    - target: {fileID: 175300089652580360, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 90.0108
-      objectReference: {fileID: 0}
     - target: {fileID: 282841266024108816, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1253,10 +1249,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1127442932140752785, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: f6c96cd43567b46359b3cb35db93b29c, type: 3}
     - target: {fileID: 1256084548547582255, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1593,14 +1585,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6659070514606334952, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 73c5e1cb1fedc4824a812c71492284b7, type: 3}
-    - target: {fileID: 6712655701379167433, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 8badbb6fb95e247189e953a9a2755b8a, type: 3}
     - target: {fileID: 6760261701888069727, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1625,10 +1609,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7036821877379548688, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 7c3ef485bfcff436090c1b726b7f4a7a, type: 3}
     - target: {fileID: 7191282908026930461, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1673,14 +1653,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8043869300330226208, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-      propertyPath: upgradePanel
-      value: 
-      objectReference: {fileID: 1010674169}
-    - target: {fileID: 8660615137518738376, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: f89b76ef36eb9436c9580a8a1dc01351, type: 3}
     - target: {fileID: 8680407740646129360, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1955,11 +1927,6 @@ Transform:
   - {fileID: 1512251532}
   m_Father: {fileID: 1452708530}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!224 &1010674169 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8756467951157524884, guid: 5cecd1f21e7d59146ab68a78f3fb9504, type: 3}
-  m_PrefabInstance: {fileID: 20461526}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1096345608
 PrefabInstance:
   m_ObjectHideFlags: 0
