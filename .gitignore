@@ -6,3 +6,4 @@ obj/
 Logs/
 .vs/
 .DS_Store
+Builds/
