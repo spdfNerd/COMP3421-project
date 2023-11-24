@@ -99,7 +99,7 @@ public class WaveManager : MonoBehaviour {
 		Wave wave = new Wave();
 		for (int i = 0; i < normalCustomersCount; i++) {
 			// Randomise customer type, count,, and spacing
-			wave.InsertSubWave((CustomerType) UnityEngine.Random.Range(0, Enum.GetValues(typeof(CustomerType)).Length - 1),
+			wave.InsertSubWave((CustomerType) UnityEngine.Random.Range(0, Enum.GetValues(typeof(CustomerType)).Length),
 				UnityEngine.Random.Range(3, i),
 				UnityEngine.Random.Range(MinCustomerSpacing(i, 1f), maxSpacing));
 		}
@@ -114,15 +114,13 @@ public class WaveManager : MonoBehaviour {
 	}
 
 	private void CheckCanContinue() {
-		if (LevelManager.Instance.isEndlessMode) {
-			if (LevelManager.Instance.Reputation <= 0 || LevelManager.Instance.Money < 0) {
-				// Switch to game summary screen
-			}
-		} else {
-			if (LevelManager.Instance.Reputation <= 0 || LevelManager.Instance.Money < 0) {
-				// Switch to lose screen
-				SceneManager.LoadScene("LoseScreen");
-			} else if (LevelManager.Instance.Round == waves.Length && enemyCount == 0) {
+		if (LevelManager.Instance.Reputation <= 0 || LevelManager.Instance.Money < 0) {
+			// Switch to lose screen
+			SceneManager.LoadScene("LoadScreen");
+		}
+
+		if (!LevelManager.Instance.isEndlessMode) {
+			if (LevelManager.Instance.Round == waves.Length && enemyCount == 0) {
 				// Switch to win screen
 				SceneManager.LoadScene("WinScreen");
 			}
