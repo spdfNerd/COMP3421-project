@@ -766,9 +766,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "- Floorboards designed by Kjpargeter / Freepik \"http://www.freepik.com\"\n-
-    Wallpaper designed by macrovector / Freepik \"http://www.freepik.com\"\n- Upload
-    icons created by Pixel Buddha - Flaticon \"https://www.flaticon.com/free-icons/upload\"
-    \n- Rotate left icons created by Febrian Hidayat - Flaticon\n\"https://www.flaticon.com/free-icons/rotate-left\""
+    Wallpaper designed by macrovector / Freepik \"http://www.freepik.com\"\n- Free
+    fonts and elements by Canva\n- Upload icons created by Pixel Buddha - Flaticon
+    \"https://www.flaticon.com/free-icons/upload\" \n- Rotate left icons created
+    by Febrian Hidayat - Flaticon\n\"https://www.flaticon.com/free-icons/rotate-left\""
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
