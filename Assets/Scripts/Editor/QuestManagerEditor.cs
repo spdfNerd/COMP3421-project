@@ -11,6 +11,7 @@ public class QuestManagerEditor : Editor {
 	}
 
 	public override void OnInspectorGUI() {
+		// Only draw fields if the level is endless mode
 		if (levelManager.isEndlessMode) {
 			base.OnInspectorGUI();
 		} else {

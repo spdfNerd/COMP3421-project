@@ -1,8 +1,7 @@
 using System.Linq;
-using TMPro;
 using UnityEngine;
 
-public class Waiter : MonoBehaviour {
+public class Waiter : Staff {
 
 	[Header("Shoot Settings")]
 	public Transform[] projectiles;
@@ -12,12 +11,8 @@ public class Waiter : MonoBehaviour {
 	public float range = 4f;
 	public float fireCooldown = 2f;
 
-	[Header("Costs")]
-	public StaffCosts costs;
-
-	[Header("Graphics")]
+	[Header("Food Icons")]
 	public Transform[] icons;
-	public TextMeshProUGUI foodCountText;
 
 	private Transform target = null;
 	private float timer = 0f;
@@ -44,10 +39,6 @@ public class Waiter : MonoBehaviour {
 		}
 	}
 
-	private void Start() {
-		UpdateFoodType(0, 0);
-	}
-
 	private void Update() {
 		FindTarget();
 		if (target != null) {
@@ -55,10 +46,16 @@ public class Waiter : MonoBehaviour {
 		}
 	}
 
+	/// <summary>
+	/// Update the type of food the waiter is to shoot, along with the amount of food they have to shoot
+	/// </summary>
+	/// <param name="type">Type of food to be shot</param>
+	/// <param name="count">Number of food available to be shot</param>
 	public void UpdateFoodType(FoodType type, int count) {
 		if (FoodCount == 0) {
 			FoodType = type;
 			FoodCount = count;
+			// Only make icon appear if the updated food type has count more than 0
 			if (count > 0) {
 				Instantiate(icons[(int) type], foodHolder);
 			}
@@ -68,23 +65,22 @@ public class Waiter : MonoBehaviour {
 	}
 
 	private void FindTarget() {
-		if (target != null) {
-			if (target.GetComponent<Customer>().FoodCountRequested == 0) {
-				target = null;
-			} else {
-				return;
-			}
+		if (target != null && target.GetComponent<Customer>().FoodCountRequested == 0) {
+			target = null;
 		}
 
 		float targetDistance = Mathf.Infinity;
+		// Find all colliders which are within the range sphere of the waiter
 		Collider[] colliders = Physics.OverlapSphere(transform.position, range);
+		// Find all colliders which are customers
+		colliders = colliders.Where(collider => collider.GetComponent<Customer>() != null).ToArray();
 		if (colliders.Length == 0) {
 			return;
 		}
 
-		colliders = colliders.Where(collider => collider.GetComponent<Customer>() != null).ToArray();
 		foreach (Collider collider in colliders) {
 			Customer customer = collider.GetComponent<Customer>();
+			// Ignore customer if they don't match the food type or the customer is satisfied
 			if (customer.FoodTypeRequested != FoodType) {
 				continue;
 			}
@@ -93,6 +89,7 @@ public class Waiter : MonoBehaviour {
 			}
 
 			if (target == null) {
+				// Set target if target is already null
 				target = collider.transform;
 				targetDistance = Vector3.Distance(transform.position, target.position);
 			} else {
@@ -113,6 +110,7 @@ public class Waiter : MonoBehaviour {
 		}
 
 		if (timer <= 0f) {
+			// Get food projectile direction
 			Vector3 direction = target.position - firePoint.position;
 			Transform foodTransform = Instantiate(projectiles[(int) foodType], firePoint.position, Quaternion.LookRotation(direction));
 			Food food = foodTransform.GetComponent<Food>();
@@ -124,10 +122,12 @@ public class Waiter : MonoBehaviour {
 		}
 	}
 
-	public void Upgrade(FoodType foodType, int foodCount) {
+	protected override void InitStaff() {
+		UpdateFoodType(0, 0);
+	}
+
+	protected override void UpgradeStats() {
 		fireCooldown = 1f;
-		FoodType = foodType;
-		FoodCount = foodCount;
 	}
 
 }
