@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Node : MonoBehaviour {
 
@@ -14,45 +13,45 @@ public class Node : MonoBehaviour {
 
     [HideInInspector]
     public Transform tower;
-    public GameObject rotateButton;
-    public GameObject upgradeButton;
     public bool isUpgraded;
 
-    private int towerSellPrice;
-    private int towerRunningCost;
-    private int towerUpgradePrice;
+    public bool CanUpgrade {
+        get => !isUpgraded && tower.TryGetComponent<Staff>(out _) && towerCosts.upgradePrice <= LevelManager.Instance.Money;
+    }
+
+    private StaffCosts towerCosts;
 
     private void Start() {
         rend = GetComponent<Renderer>();
         startColour = rend.material.color;
         isUpgraded = false;
-    }
+	}
 
     public void BuildTower(Transform towerToBuild, StaffCosts costs) {
         LevelManager.Instance.Money -= costs.hirePrice;
         UpdateQuest(costs);
 
-		// Create tower model and update related fields
+		// Create tower model and update costs
 		tower = Instantiate(towerToBuild, transform.position + positionOffset, Quaternion.identity);
-        towerSellPrice = costs.sellPrice;
-        towerRunningCost = costs.runningCost;
-        towerUpgradePrice = costs.upgradePrice;
-        LevelManager.Instance.RunningCost += costs.runningCost;
+        towerCosts = costs;
 
-        DisplayTowerUIButtons();
+		LevelManager.Instance.RunningCost += costs.runningCost;
+
+        Shop.Instance.EnableUpgradePanel(CanUpgrade, towerCosts.upgradePrice);
     }
 
     public void UpgradeTower() {
-        if (!BuildManager.Instance.CanUpgrade(towerUpgradePrice)) {
+        if (!CanUpgrade) {
             Debug.Log("Cannot upgrade");
 			return;
 		}
 
-        LevelManager.Instance.Money -= towerUpgradePrice;
-        towerSellPrice += towerUpgradePrice / 2;
+        LevelManager.Instance.Money -= towerCosts.upgradePrice;
+        towerCosts.sellPrice += towerCosts.upgradePrice / 2;
 
         tower.GetComponent<Staff>().Upgrade();
         isUpgraded = true;
+        Shop.Instance.DisableUpgradeButton();
     }
 
     public void SellTower() {
@@ -66,8 +65,8 @@ public class Node : MonoBehaviour {
         Destroy(tower.gameObject);
         ResetNode();
 
-        LevelManager.Instance.Money += towerSellPrice;
-        LevelManager.Instance.RunningCost -= towerRunningCost;
+        LevelManager.Instance.Money += towerCosts.sellPrice;
+        LevelManager.Instance.RunningCost -= towerCosts.runningCost;
     }
 
     /// <summary>
@@ -76,8 +75,8 @@ public class Node : MonoBehaviour {
 	public void OnPlayerEnter() {
         rend.material.color = hoverColour;
         if (tower != null) {
-            DisplayTowerUIButtons();
-        }
+			Shop.Instance.EnableUpgradePanel(CanUpgrade, towerCosts.upgradePrice);
+		}
 	}
 
     /// <summary>
@@ -85,38 +84,8 @@ public class Node : MonoBehaviour {
     /// </summary>
 	public void OnPlayerExit() {
 		rend.material.color = startColour;
-
-		Transform shopTransform = Shop.Instance.upgradePanel.transform;
-		Transform rotateButton = shopTransform.GetChild(0).GetChild(0);
-		Transform upgradeButton = shopTransform.GetChild(0).GetChild(1);
-
-        // Make sure the buttons will not do anything relating to this node when clicked
-		rotateButton.GetComponent<Button>().onClick.RemoveAllListeners();
-		upgradeButton.GetComponent<Button>().onClick.RemoveAllListeners();
-		
-        Shop.Instance.upgradePanel.SetActive(false);
+        Shop.Instance.DisableUpgradePanel();
 	}
-
-    /// <summary>
-    /// Display the upgrade and rotate buttons related to the tower
-    /// </summary>
-	private void DisplayTowerUIButtons () {
-		Transform shopTransform = Shop.Instance.upgradePanel.transform;
-        Transform towerTransform = Player.Instance.GetCurrentTowerTransform();
-
-        // Set buttons position
-		Vector3 position = towerTransform.position;
-        position.y = shopTransform.position.y;
-        shopTransform.position = position;
-
-        // Link button functions so they upgrade and rotate tower when clicked
-        Transform rotateButton = shopTransform.GetChild(0).GetChild(0);
-        Transform upgradeButton = shopTransform.GetChild(0).GetChild(1);
-        rotateButton.GetComponent<Button>().onClick.AddListener(() => BuildManager.Instance.Rotate());
-        upgradeButton.GetComponent<Button>().onClick.AddListener(() => BuildManager.Instance.UpgradeTower());
-
-        shopTransform.gameObject.SetActive(true);
-    }
 
     private void UpdateQuest(StaffCosts costs) {
 		QuestManager.Instance.TryUpdateSpendQuestProgress(costs.hirePrice);

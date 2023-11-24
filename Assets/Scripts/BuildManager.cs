@@ -57,26 +57,4 @@ public class BuildManager : MonoBehaviour {
 		return true;
 	}
 
-	public bool CanUpgrade(int upgradePrice) {
-		// Check that there is a tower on the tile
-		if (Player.Instance.GetCurrentTowerTransform() == null) {
-			Debug.Log("Can't upgrade a nonexistant tower");
-			return false;
-		}
-
-		// Check that the tower is not already upgraded
-		if (Player.Instance.currentNode.isUpgraded) {
-			Debug.Log("Already upgraded");
-			return false;
-		}
-
-		// Check that there is enough money to upgrade
-		if (LevelManager.Instance.Money < upgradePrice) {
-			Debug.Log("Not enough money to upgrade that!");
-			return false;
-		}
-
-		return true;
-	}
-
 }

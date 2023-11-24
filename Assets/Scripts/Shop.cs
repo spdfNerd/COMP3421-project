@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,9 +15,14 @@ public class Shop : MonoBehaviour {
     public ShopButton waitStaffButton;
     public Button buyButton;
     public Button sellButton;
-    public GameObject upgradePanel;
 
-    private ShopButton selectedButton;
+    public Transform upgradePanel;
+
+	private Button rotateButton;
+	private Button upgradeButton;
+	private TextMeshProUGUI upgradeButtonText;
+
+	private ShopButton selectedButton;
 
 	private void Awake() {
 		if (Instance != null) {
@@ -29,7 +35,11 @@ public class Shop : MonoBehaviour {
     private void Start() {
 		SetKitchenStaffButtons();
         waitStaffButton = GameObject.FindWithTag(WaitStaffTag).GetComponent<ShopButton>();
-    }
+
+		rotateButton = upgradePanel.GetChild(0).GetComponent<Button>();
+		upgradeButton = upgradePanel.GetChild(1).GetComponent<Button>();
+		upgradeButtonText = upgradeButton.GetComponentInChildren<TextMeshProUGUI>(true);
+	}
 
 	public void BuyTower() {
         Transform towerToBuild = BuildManager.Instance.towerToBuild;
@@ -67,10 +77,6 @@ public class Shop : MonoBehaviour {
         bool hasStaff = node.tower != null;
 		buyButton.interactable = !hasStaff;
         sellButton.interactable = hasStaff;
-
-        if (node.upgradeButton) {
-            node.upgradeButton.GetComponent<Button>().interactable = node.isUpgraded;
-        }
 	}
 
 	public void SetSelectedButton(ShopButton button) {
@@ -81,6 +87,36 @@ public class Shop : MonoBehaviour {
 		if (selectedButton != null) {
 			selectedButton.SetSelected(false);
 		}
+	}
+
+	public void EnableUpgradePanel(bool canUpgrade, int upgradePrice) {
+		Transform towerTransform = Player.Instance.GetCurrentTowerTransform();
+
+		// Set buttons position
+		Vector3 position = towerTransform.position;
+		position.y = upgradePanel.position.y;
+		upgradePanel.position = position;
+
+		// Link button functions so they upgrade and rotate tower when clicked
+		rotateButton.onClick.AddListener(() => BuildManager.Instance.Rotate());
+		upgradeButton.onClick.AddListener(() => BuildManager.Instance.UpgradeTower());
+
+		upgradeButton.interactable = canUpgrade;
+		upgradeButtonText.text = "$" + upgradePrice;
+
+		upgradePanel.gameObject.SetActive(true);
+	}
+
+	public void DisableUpgradeButton() {
+		upgradeButton.interactable = false;
+	}
+
+	public void DisableUpgradePanel() {
+		// Make sure the buttons will not do anything relating to this node when clicked
+		rotateButton.onClick.RemoveAllListeners();
+		upgradeButton.onClick.RemoveAllListeners();
+
+		upgradePanel.gameObject.SetActive(false);
 	}
 
 	private void SetKitchenStaffButtons() {
