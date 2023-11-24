@@ -157,11 +157,10 @@ public class Player : MonoBehaviour {
 
 		RaycastHit hit;
 		if (Physics.Raycast(transform.position, Vector3.down, out hit, rayLength)) {
-			if (hit.transform.TryGetComponent(out Node node)) {
-				previousNode = currentNode;
-				currentNode = node;
-				UpdateCurrentNode();
-			}
+			previousNode = currentNode;
+			hit.transform.TryGetComponent(out currentNode);
+			UpdateCurrentNode();
+
 		}
 	}
 
@@ -209,10 +208,22 @@ public class Player : MonoBehaviour {
 				currentWaiter = null;
 				shouldGiveFood = false;
 			}
+
+			UpdateShopButtons();
 		} else {
 			shouldCollect = false;
 			currentWaiter = null;
 			shouldGiveFood = false;
+		}
+	}
+
+	/// <summary>
+	/// Tell shop to enable and disable buttons based on player position
+	/// </summary>
+	private void UpdateShopButtons() {
+		Shop.Instance.UpdateButtons(currentNode, currentNode.CompareTag(Shop.KitchenNodeTag));
+		if (previousNode != null && !currentNode.CompareTag(previousNode.tag)) {
+			Shop.Instance.ClearSelectedTower();
 		}
 	}
 

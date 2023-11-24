@@ -4,9 +4,9 @@ using UnityEngine.UI;
 public class Shop : MonoBehaviour {
 
     public static Shop Instance;
-    private static readonly string KitchenStaffTag = "KitchenStaff";
-    private static readonly string WaitStaffTag = "WaitStaff";
-    private static readonly string KitchenNodeTag = "KitchenNode";
+    public const string KitchenNodeTag = "KitchenNode";
+    private const string KitchenStaffTag = "KitchenStaff";
+    private const string WaitStaffTag = "WaitStaff";
 
     [HideInInspector]
 	public GameObject[] kitchenStaffButtons;
@@ -15,6 +15,8 @@ public class Shop : MonoBehaviour {
     public Button buyButton;
     public Button sellButton;
     public GameObject upgradePanel;
+
+    private ShopButton selectedButton;
 
     private void Awake() {
         if (Instance != null) {
@@ -29,9 +31,35 @@ public class Shop : MonoBehaviour {
         waitStaffButton = GameObject.FindWithTag(WaitStaffTag).GetComponent<Button>();
     }
 
-    private void Update() {
-        UpdateShopButtons();
-    }
+	public void SelectPizzaTower(ShopButton button) {
+		BuildManager.Instance.SetTowerToBuild(BuildManager.PizzaTowerString);
+        SetSelectedButton(button);
+	}
+
+	public void SelectBurgerTower(ShopButton button) {
+		BuildManager.Instance.SetTowerToBuild(BuildManager.BurgerTowerString);
+		SetSelectedButton(button);
+	}
+
+	public void SelectSushiTower(ShopButton button) {
+		BuildManager.Instance.SetTowerToBuild(BuildManager.SushiTowerString);
+		SetSelectedButton(button);
+	}
+
+	public void SelectNoodlesTower(ShopButton button) {
+		BuildManager.Instance.SetTowerToBuild(BuildManager.NoodlesTowerString);
+		SetSelectedButton(button);
+	}
+
+	public void SelectWaiterTower(ShopButton button) {
+		BuildManager.Instance.SetTowerToBuild(BuildManager.WaiterTowerString);
+		SetSelectedButton(button);
+	}
+
+	public void SelectFridgeTower(ShopButton button) {
+		BuildManager.Instance.SetTowerToBuild(BuildManager.FridgeTowerString);
+		SetSelectedButton(button);
+	}
 
 	public void BuyTower() {
         Transform towerToBuild = BuildManager.Instance.towerToBuild;
@@ -49,53 +77,21 @@ public class Shop : MonoBehaviour {
             costs = staffComponent.costs;
         }
 
-		if (BuildManager.Instance.CheckCanBuild(costs.hirePrice)) {
-			Player.Instance.currentNode.BuildTower(towerToBuild, costs);
-		}
+        BuildManager.Instance.BuildTower(costs);
 	}
-
-    public void Rotate() {
-        if (Player.Instance.GetCurrentTowerTransform() != null) {
-            Staff staff = Player.Instance.GetCurrentTowerTransform().GetComponent<Staff>();
-            if (staff == null) {
-                return;
-            }
-			staff.GetActiveGFX().transform.Rotate(0, 90, 0);
-        }
-    }
-
-    public void UpgradeTower() {
-        Player.Instance.currentNode.UpgradeTower();
-    }
 
 	public void SellTower() {
         Player.Instance.currentNode.SellTower();
 	}
 
 	/// <summary>
-    /// Check to see which shop object should be displayed depending on player location
+    /// Check to see which shop object should be enabled depending on player location
     /// </summary>
-	private void UpdateShopButtons() {
-        Node node = Player.Instance.currentNode;
-        if (node == null) {
-            return;
-        }
-        
-        bool isKitchenNode = node.CompareTag(KitchenNodeTag);
-        // Set buttons to be active depending on tower type and where player is
+	public void UpdateButtons(Node node, bool isKitchenNode) {
+        // Set buttons to be enabled depending on tower type and where player is
         waitStaffButton.interactable = !isKitchenNode;
         foreach (GameObject staffButton in kitchenStaffButtons) {
             staffButton.GetComponent<Button>().interactable = isKitchenNode;
-        }
-
-        // Clear selected tower if player moves between kitchen and normal nodes
-        Transform selectedTower = BuildManager.Instance.towerToBuild;
-        if (selectedTower != null) {
-            bool waiterInKitchen = isKitchenNode && selectedTower.CompareTag(WaitStaffTag);
-            bool chefNotInKitchen = !isKitchenNode && selectedTower.CompareTag(KitchenStaffTag);
-            if (waiterInKitchen || chefNotInKitchen) {
-                LevelManager.Instance.SetTowerToBuild(null);
-            }
         }
 
         bool hasStaff = node.tower != null;
@@ -105,6 +101,20 @@ public class Shop : MonoBehaviour {
         if (node.upgradeButton) {
             node.upgradeButton.GetComponent<Button>().interactable = node.isUpgraded;
         }
+	}
+
+	public void ClearSelectedTower() {
+		if (selectedButton != null) {
+			selectedButton.SetSelected(false);
+			selectedButton = null;
+		}
+
+		BuildManager.Instance.SetTowerToBuild(BuildManager.NoTowerString);
+	}
+
+	private void SetSelectedButton(ShopButton button) {
+        button.SetSelected(true);
+        selectedButton = button;
     }
 
 }

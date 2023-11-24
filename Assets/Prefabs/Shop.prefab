@@ -296,9 +296,9 @@ RectTransform:
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3488767041843151798}
-  - {fileID: 3025830169671491182}
   - {fileID: 1455786299128118166}
+  - {fileID: 3025830169671491182}
+  - {fileID: 3488767041843151798}
   - {fileID: 5187939961945204719}
   - {fileID: 1545328943546936503}
   - {fileID: 2669013252779100480}
@@ -307,8 +307,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -282}
-  m_SizeDelta: {x: 255.94, y: 464}
+  m_AnchoredPosition: {x: 0, y: 163.93}
+  m_SizeDelta: {x: 255.94, y: 437.14}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1216858450172887625
 MonoBehaviour:
@@ -683,8 +683,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f29c47cba4b88423f940841f05f069db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kitchenStaff: []
-  waitStaff: {fileID: 0}
+  kitchenStaffButtons: []
+  waitStaffButton: {fileID: 0}
   buyButton: {fileID: 8934016261841271279}
   sellButton: {fileID: 96056735017228527}
   upgradePanel: {fileID: 0}
@@ -965,7 +965,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4091235988395702513, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_text
-      value: Noodle Chef
+      value: 'Noodle Chef
+
+        $300'
       objectReference: {fileID: 0}
     - target: {fileID: 4091235988395702513, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_fontColor32.rgba
@@ -1051,9 +1053,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 280751183645140838}
+    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectNoodlesTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Shop, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 7794825251237270119}
+    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: ShopButton, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 7786229570037556212, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_Name
-      value: ShopButton (4)
+      value: NoodleChef
       objectReference: {fileID: 0}
     - target: {fileID: 7786229570037556212, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_TagString
@@ -1073,6 +1099,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6560960741340584313, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
   m_PrefabInstance: {fileID: 2085858086994558614}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7794825251237270119 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8133145392273534193, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+  m_PrefabInstance: {fileID: 2085858086994558614}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b8a310c986b40045ac775c4413aa9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5656287438274639310
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1083,7 +1120,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4091235988395702513, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_text
-      value: Waiter
+      value: 'Waiter
+
+        $150'
       objectReference: {fileID: 0}
     - target: {fileID: 4091235988395702513, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_fontColor32.rgba
@@ -1169,9 +1208,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 280751183645140838}
+    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectWaiterTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Shop, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 4513055223036287295}
+    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: ShopButton, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 7786229570037556212, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_Name
-      value: ShopButton (5)
+      value: Waiter
       objectReference: {fileID: 0}
     - target: {fileID: 7786229570037556212, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_TagString
@@ -1191,6 +1254,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6560960741340584313, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
   m_PrefabInstance: {fileID: 5656287438274639310}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4513055223036287295 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8133145392273534193, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+  m_PrefabInstance: {fileID: 5656287438274639310}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b8a310c986b40045ac775c4413aa9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5710224464202621679
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1201,7 +1275,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4091235988395702513, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_text
-      value: Pizza Chef
+      value: 'Pizza Chef
+
+        $100'
       objectReference: {fileID: 0}
     - target: {fileID: 4091235988395702513, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_fontColor32.rgba
@@ -1287,9 +1363,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 280751183645140838}
+    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectPizzaTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Shop, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 4602808844838194718}
+    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: ShopButton, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 7786229570037556212, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_Name
-      value: ShopButton (3)
+      value: PizzaChef
       objectReference: {fileID: 0}
     - target: {fileID: 7786229570037556212, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_TagString
@@ -1309,6 +1409,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6560960741340584313, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
   m_PrefabInstance: {fileID: 5710224464202621679}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4602808844838194718 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8133145392273534193, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+  m_PrefabInstance: {fileID: 5710224464202621679}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b8a310c986b40045ac775c4413aa9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7739330593582045903
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1319,7 +1430,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4091235988395702513, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_text
-      value: Sushi Chef
+      value: 'Sushi Chef
+
+        $250'
       objectReference: {fileID: 0}
     - target: {fileID: 4091235988395702513, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_fontSize
@@ -1421,9 +1534,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 280751183645140838}
+    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectSushiTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Shop, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 1997659310503818814}
+    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: ShopButton, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 7786229570037556212, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_Name
-      value: ShopButton (1)
+      value: SushiChef
       objectReference: {fileID: 0}
     - target: {fileID: 7786229570037556212, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_TagString
@@ -1438,6 +1575,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+--- !u!114 &1997659310503818814 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8133145392273534193, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+  m_PrefabInstance: {fileID: 7739330593582045903}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b8a310c986b40045ac775c4413aa9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &3488767041843151798 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6560960741340584313, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
@@ -1453,7 +1601,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4091235988395702513, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_text
-      value: Burger Chef
+      value: 'Burger Chef
+
+        $200'
       objectReference: {fileID: 0}
     - target: {fileID: 4091235988395702513, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_fontSize
@@ -1555,9 +1705,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 280751183645140838}
+    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectBurgerTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Shop, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 157172081998425062}
+    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: ShopButton, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 7786229570037556212, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_Name
-      value: ShopButton (2)
+      value: BurgerChef
       objectReference: {fileID: 0}
     - target: {fileID: 7786229570037556212, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_TagString
@@ -1572,6 +1746,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+--- !u!114 &157172081998425062 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8133145392273534193, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+  m_PrefabInstance: {fileID: 8282365496805705495}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b8a310c986b40045ac775c4413aa9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &3025830169671491182 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6560960741340584313, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
@@ -1587,7 +1772,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4091235988395702513, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_text
-      value: Fridge
+      value: 'Fridge
+
+        $150'
       objectReference: {fileID: 0}
     - target: {fileID: 4091235988395702513, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_fontColor32.rgba
@@ -1673,9 +1860,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 280751183645140838}
+    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectFridgeTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Shop, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 1070087345468308680}
+    - target: {fileID: 6779608080903851308, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: ShopButton, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 7786229570037556212, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_Name
-      value: ShopButton (6)
+      value: Fridge
       objectReference: {fileID: 0}
     - target: {fileID: 7786229570037556212, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_TagString
@@ -1690,6 +1901,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+--- !u!114 &1070087345468308680 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8133145392273534193, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
+  m_PrefabInstance: {fileID: 9081238589443330105}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b8a310c986b40045ac775c4413aa9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &2669013252779100480 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6560960741340584313, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}

@@ -1215,17 +1215,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1503782119 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3552611188793140248, guid: 7df76b8e52be3de4f9781b5d60d56738, type: 3}
-  m_PrefabInstance: {fileID: 8889070869381682504}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80af265412646eb4a9e43dd0c227165a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1519835794
 GameObject:
   m_ObjectHideFlags: 0
@@ -2610,14 +2599,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 429895934535949859, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: -100
-      objectReference: {fileID: 0}
-    - target: {fileID: 429895934535949859, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -50
-      objectReference: {fileID: 0}
     - target: {fileID: 1256084548547582255, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2709,28 +2690,6 @@ PrefabInstance:
     - target: {fileID: 1400055717266527177, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1944758116833396857, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-      propertyPath: m_text
-      value: 'Waiter
-
-        $150'
-      objectReference: {fileID: 0}
-    - target: {fileID: 1998695147058913112, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-      propertyPath: m_text
-      value: 'Pizza Chef
-
-        $100'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770522777302268576, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-      propertyPath: m_text
-      value: 'Burger Chef
-
-        $200'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770522777302268576, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-      propertyPath: m_VerticalAlignment
-      value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 2944052847353369602, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
       propertyPath: m_Pivot.x
@@ -2812,12 +2771,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3063866258654129550, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-      propertyPath: m_text
-      value: 'Fridge
-
-        $150'
-      objectReference: {fileID: 0}
     - target: {fileID: 3151322220427879081, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2862,32 +2815,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3359835360914962172, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1503782119}
-    - target: {fileID: 3859423278786264020, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: -100
-      objectReference: {fileID: 0}
-    - target: {fileID: 3859423278786264020, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -50
-      objectReference: {fileID: 0}
-    - target: {fileID: 4141263190995840250, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4604262577289160568, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-      propertyPath: m_text
-      value: 'Sushi Chef
-
-        $250'
-      objectReference: {fileID: 0}
-    - target: {fileID: 4657323571192795005, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1503782119}
     - target: {fileID: 5024070729114049320, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2911,12 +2838,6 @@ PrefabInstance:
     - target: {fileID: 5024070729114049320, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5219800198952977185, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-      propertyPath: m_text
-      value: 'Noodle Chef
-
-        $300'
       objectReference: {fileID: 0}
     - target: {fileID: 5282370922678799366, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2966,10 +2887,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5500574050492651603, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1503782119}
     - target: {fileID: 5632526663711998138, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2994,10 +2911,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6428146017975866021, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1503782119}
     - target: {fileID: 6642363149776111344, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3045,14 +2958,6 @@ PrefabInstance:
     - target: {fileID: 6760261701888069727, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7120948012490090574, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 437.14
-      objectReference: {fileID: 0}
-    - target: {fileID: 7120948012490090574, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 163.93
       objectReference: {fileID: 0}
     - target: {fileID: 7191282908026930461, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
       propertyPath: m_AnchorMax.y
@@ -3154,14 +3059,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8948045398737649060, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1503782119}
-    - target: {fileID: 9037658407838198405, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1503782119}
     - target: {fileID: 9136802832617806359, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

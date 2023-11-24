@@ -5,6 +5,14 @@ public class BuildManager : MonoBehaviour {
 	// Singleton instance
 	public static BuildManager Instance;
 
+	public const string PizzaTowerString = "pizza";
+	public const string BurgerTowerString = "burger";
+	public const string SushiTowerString = "sushi";
+	public const string NoodlesTowerString = "noodles";
+	public const string WaiterTowerString = "waiter";
+	public const string FridgeTowerString = "fridge";
+	public const string NoTowerString = "none";
+
 	[Header("Base Tower Models")]
 	public Transform sushiTowerPrefab;
 	public Transform burgerTowerPrefab;
@@ -25,34 +33,51 @@ public class BuildManager : MonoBehaviour {
 		Instance = this;
 	}
 
-	public void SelectSushiTower(ShopButton button) {
-		towerToBuild = sushiTowerPrefab;
-		button.ToggleSelect();
+	public void SetTowerToBuild(string type) {
+		switch (type) {
+			case PizzaTowerString:
+				towerToBuild = sushiTowerPrefab;
+				break;
+			case BurgerTowerString:
+				towerToBuild = burgerTowerPrefab;
+				break;
+			case SushiTowerString:
+				towerToBuild = sushiTowerPrefab;
+				break;
+			case NoodlesTowerString:
+				towerToBuild = noodlesTowerPrefab;
+				break;
+			case WaiterTowerString:
+				towerToBuild = waiterTowerPrefab;
+				break;
+			case FridgeTowerString:
+				towerToBuild = fridgeTowerPrefab;
+				break;
+			case NoTowerString:
+			default:
+				towerToBuild = null;
+				break;
+		}
 	}
 
-	public void SelectBurgerTower(ShopButton button) {
-		towerToBuild = burgerTowerPrefab;
-		button.ToggleSelect();
+	public void BuildTower(StaffCosts costs) {
+		if (CheckCanBuild(costs.hirePrice)) {
+			Player.Instance.currentNode.BuildTower(towerToBuild, costs);
+		}
 	}
 
-	public void SelectPizzaTower(ShopButton button) {
-		towerToBuild = pizzaTowerPrefab;
-		button.ToggleSelect();
+	public void Rotate() {
+		if (Player.Instance.GetCurrentTowerTransform() != null) {
+			Staff staff = Player.Instance.GetCurrentTowerTransform().GetComponent<Staff>();
+			if (staff == null) {
+				return;
+			}
+			staff.GetActiveGFX().transform.Rotate(0, 90, 0);
+		}
 	}
 
-	public void SelectNoodlesTower(ShopButton button) {
-		towerToBuild = noodlesTowerPrefab;
-		button.ToggleSelect();
-	}
-
-	public void SelectWaiterTower(ShopButton button) {
-		towerToBuild = waiterTowerPrefab;
-		button.ToggleSelect();
-	}
-
-	public void SelectFridgeTower(ShopButton button) {
-		towerToBuild = fridgeTowerPrefab;
-		button.ToggleSelect();
+	public void UpgradeTower() {
+		Player.Instance.currentNode.UpgradeTower();
 	}
 
 	public bool CheckCanBuild(int hirePrice) {

@@ -112,8 +112,8 @@ public class Node : MonoBehaviour {
         // Link button functions so they upgrade and rotate tower when clicked
         Transform rotateButton = shopTransform.GetChild(0).GetChild(0);
         Transform upgradeButton = shopTransform.GetChild(0).GetChild(1);
-        rotateButton.GetComponent<Button>().onClick.AddListener(() => Shop.Instance.Rotate());
-        upgradeButton.GetComponent<Button>().onClick.AddListener(() => Shop.Instance.UpgradeTower());
+        rotateButton.GetComponent<Button>().onClick.AddListener(() => BuildManager.Instance.Rotate());
+        upgradeButton.GetComponent<Button>().onClick.AddListener(() => BuildManager.Instance.UpgradeTower());
 
         shopTransform.gameObject.SetActive(true);
     }
