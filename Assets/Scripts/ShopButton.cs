@@ -9,6 +9,8 @@ public class ShopButton : MonoBehaviour {
 	private Image image;
 	private Button button;
 
+	private bool selected;
+
 	public bool interactable {
 		get => button.interactable;
 		set => button.interactable = value;
@@ -41,11 +43,12 @@ public class ShopButton : MonoBehaviour {
 		image = GetComponent<Image>();
 	}
 
-	public void SetSelected() {
-		SetSelected(true);
+	public void ToggleSelected() {
+		SetSelected(!selected);
 	}
 
 	public void SetSelected(bool selected) {
+		this.selected = selected;
 		BuildManager.Instance.SetTowerToBuild(selected ? baseTowerPrefab : null);
 		image.color = selected ? button.colors.selectedColor : button.colors.normalColor;
 		Shop.Instance.SetSelectedButton(selected ? this : null);
