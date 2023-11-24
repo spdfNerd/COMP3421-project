@@ -186,7 +186,7 @@ public class Customer : MonoBehaviour {
 	}
 
 	/// <summary>
-	/// Rotate the model of the cusctomer to match the movement direction
+	/// Rotate the model of the customer to match the movement direction
 	/// </summary>
 	/// <param name="direction">The direction in which the customer is moving</param>
 	private void RotateModel(Vector3 direction) {

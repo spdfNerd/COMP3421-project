@@ -1,18 +1,11 @@
-using TMPro;
 using UnityEngine;
 
-public class Chef : MonoBehaviour {
+public class Chef : Staff {
 
 	[Header("Food Settings")]
 	public float cooldown = 1f;
 	public int foodLimit;
 	public FoodType foodType;
-
-	[Header("Costs")]
-	public StaffCosts costs;
-
-	[Header("Graphics")]
-	public TextMeshProUGUI foodCountText;
 
 	private float cooldownTimer;
 	private int foodCount;
@@ -27,11 +20,6 @@ public class Chef : MonoBehaviour {
 			// Change the text colour to red if the food limit is reached
 			foodCountText.color = foodCount == foodLimit ? Color.red : Color.white;
 		}
-	}
-
-	private void Start() {
-		cooldownTimer = cooldown;
-		FoodCount = 0;
 	}
 
 	private void Update() {
@@ -59,11 +47,14 @@ public class Chef : MonoBehaviour {
 		FoodCount++;
 	}
 
-	public void Upgrade(FoodType foodType, int foodCount) {
+	protected override void InitStaff() {
+		cooldownTimer = cooldown;
+		FoodCount = 0;
+	}
+
+	protected override void UpgradeStats() {
 		foodLimit = 10;
 		cooldown = 1f;
-		this.foodType = foodType;
-		FoodCount = foodCount;
 	}
 
 }

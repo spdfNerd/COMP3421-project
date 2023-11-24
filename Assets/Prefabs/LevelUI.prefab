@@ -1353,57 +1353,9 @@ PrefabInstance:
       value: 63.174
       objectReference: {fileID: 0}
     - target: {fileID: 1051112540288118024, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 440.14
-      objectReference: {fileID: 0}
-    - target: {fileID: 1051112540288118024, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 165.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 1051112540288118024, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1182523474757384418, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1182523474757384418, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectWaiterTower
-      objectReference: {fileID: 0}
-    - target: {fileID: 1182523474757384418, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: BuildManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 1182523474757384418, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 5973298008503524473}
-    - target: {fileID: 1182523474757384418, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: ShopButton, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 1236461592144424899, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1236461592144424899, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectPizzaTower
-      objectReference: {fileID: 0}
-    - target: {fileID: 1236461592144424899, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: BuildManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 1236461592144424899, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 6027095538492590936}
-    - target: {fileID: 1236461592144424899, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: ShopButton, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 1455786299128118166, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1451,26 +1403,6 @@ PrefabInstance:
     - target: {fileID: 1545328943546936503, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2310641006417190165, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2310641006417190165, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectFridgeTower
-      objectReference: {fileID: 0}
-    - target: {fileID: 2310641006417190165, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: BuildManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 2310641006417190165, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 7105919285719824782}
-    - target: {fileID: 2310641006417190165, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: ShopButton, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2608861354843506279, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
       propertyPath: m_fontColor32.rgba
@@ -1604,26 +1536,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3235517648572385851, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3235517648572385851, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectBurgerTower
-      objectReference: {fileID: 0}
-    - target: {fileID: 3235517648572385851, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: BuildManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3235517648572385851, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 7956345523637972640}
-    - target: {fileID: 3235517648572385851, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: ShopButton, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 3488767041843151798, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1648,26 +1560,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3851036773666854883, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3851036773666854883, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectSushiTower
-      objectReference: {fileID: 0}
-    - target: {fileID: 3851036773666854883, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: BuildManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3851036773666854883, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8646315054817276792}
-    - target: {fileID: 3851036773666854883, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: ShopButton, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 4585439751548510392, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
       propertyPath: m_SizeDelta.y
       value: 95.14
@@ -1675,26 +1567,6 @@ PrefabInstance:
     - target: {fileID: 4585439751548510392, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 47.570007
-      objectReference: {fileID: 0}
-    - target: {fileID: 4820106426540880826, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4820106426540880826, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectNoodlesTower
-      objectReference: {fileID: 0}
-    - target: {fileID: 4820106426540880826, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: BuildManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 4820106426540880826, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 29332152874440481}
-    - target: {fileID: 4820106426540880826, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: ShopButton, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4979657381722428512, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1763,22 +1635,6 @@ PrefabInstance:
     - target: {fileID: 6026200439158727230, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 6470423835199389330, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: -95
-      objectReference: {fileID: 0}
-    - target: {fileID: 6470423835199389330, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -52.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7616626177063279461, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: -95
-      objectReference: {fileID: 0}
-    - target: {fileID: 7616626177063279461, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -52.5
       objectReference: {fileID: 0}
     - target: {fileID: 7864023421859069747, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
       propertyPath: m_Name
@@ -1886,74 +1742,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
---- !u!114 &29332152874440481 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7794825251237270119, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-  m_PrefabInstance: {fileID: 7801638855947978054}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b8a310c986b40045ac775c4413aa9dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &5386520834854189310 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2775406068863565240, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
   m_PrefabInstance: {fileID: 7801638855947978054}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5973298008503524473 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4513055223036287295, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-  m_PrefabInstance: {fileID: 7801638855947978054}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b8a310c986b40045ac775c4413aa9dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6027095538492590936 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4602808844838194718, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-  m_PrefabInstance: {fileID: 7801638855947978054}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b8a310c986b40045ac775c4413aa9dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &7105919285719824782 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1070087345468308680, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-  m_PrefabInstance: {fileID: 7801638855947978054}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b8a310c986b40045ac775c4413aa9dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &7956345523637972640 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 157172081998425062, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-  m_PrefabInstance: {fileID: 7801638855947978054}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b8a310c986b40045ac775c4413aa9dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8646315054817276792 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1997659310503818814, guid: a231ed24955404f67a23a5e330e88e02, type: 3}
-  m_PrefabInstance: {fileID: 7801638855947978054}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b8a310c986b40045ac775c4413aa9dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
