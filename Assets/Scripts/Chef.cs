@@ -28,7 +28,8 @@ public class Chef : Staff {
 		}
 
 		// Produce food if cooldown timer is finished counting down
-		if (cooldownTimer <= 0f) {
+		// and there are enemies on the map
+		if (cooldownTimer <= 0f && WaveManager.Instance.EnemyCount > 0) {
 			ProduceFood();
 			cooldownTimer = cooldown;
 		} else {

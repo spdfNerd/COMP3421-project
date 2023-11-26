@@ -22,6 +22,8 @@ public class WaveManager : MonoBehaviour {
 
 	private Transform spawnpoint;
 
+	public int EnemyCount { get => enemyCount; }
+
 	private void Awake() {
 		if (Instance != null) {
 			Debug.LogError("More than one WaveManager in scene!");
