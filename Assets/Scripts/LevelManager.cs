@@ -39,6 +39,7 @@ public class LevelManager : MonoBehaviour {
 	private int round = 0;
 
     private int runningCost = 30;
+	private int maxReputation = 50;
 
 	public int Money {
 		get => money;
@@ -60,6 +61,7 @@ public class LevelManager : MonoBehaviour {
 		get => reputation;
 		set {
 			reputation = value;
+			reputation = Mathf.Clamp(reputation, 0, maxReputation);
 			reputationText.text = reputation + " Reputation";
 		}
 	}
