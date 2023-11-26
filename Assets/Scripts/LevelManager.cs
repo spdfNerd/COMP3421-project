@@ -50,7 +50,10 @@ public class LevelManager : MonoBehaviour {
 
     public int RunningCost {
 		get => runningCost;
-		set => runningCost = value;
+		set {
+			runningCost = value;
+			moneyText.text = string.Format("${0} (Running Cost: ${1})", money, runningCost);
+		}
 	}
 
 	public int Reputation {

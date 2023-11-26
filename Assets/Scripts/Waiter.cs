@@ -8,8 +8,9 @@ public class Waiter : Staff {
 	public Transform firePoint;
 	public Transform foodHolder;
 
-	public float range = 4f;
-	public float fireCooldown = 2f;
+	public float range = 20f;
+	public float fireCooldown = 3f;
+	public float upgradedFireCooldown = 1.5f;
 
 	public int foodLimit = 10;
 
@@ -118,6 +119,8 @@ public class Waiter : Staff {
 		}
 
 		if (timer <= 0f) {
+			Debug.Log("timer!");
+
 			// Get food projectile direction
 			Vector3 direction = target.position - firePoint.position;
 			Transform foodTransform = Instantiate(projectiles[(int) foodType], firePoint.position, Quaternion.LookRotation(direction));
@@ -139,7 +142,7 @@ public class Waiter : Staff {
 	}
 
 	protected override void UpgradeStats() {
-		fireCooldown = 1f;
+		fireCooldown = upgradedFireCooldown;
 		foodLimit += 5;
 		// Make icon appear if the updated food count is more than 0
 		if (FoodCount > 0) {

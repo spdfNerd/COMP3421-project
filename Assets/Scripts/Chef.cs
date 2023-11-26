@@ -3,7 +3,8 @@ using UnityEngine;
 public class Chef : Staff {
 
 	[Header("Food Settings")]
-	public float cooldown = 1f;
+	public float cooldown = 2f;
+	public float upgradedCooldown = 1f;
 	public int foodLimit;
 	public FoodType foodType;
 
@@ -55,7 +56,7 @@ public class Chef : Staff {
 
 	protected override void UpgradeStats() {
 		foodLimit = 10;
-		cooldown = 1f;
+		upgradedCooldown = 1f;
 	}
 
 }
