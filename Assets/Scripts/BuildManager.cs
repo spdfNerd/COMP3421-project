@@ -42,6 +42,12 @@ public class BuildManager : MonoBehaviour {
 	}
 
 	public bool CheckCanBuild(int hirePrice) {
+		// Check player is over a tile
+		if (Player.Instance.currentNode == null) {
+			Debug.Log("No node!");
+			return false;
+		}
+
 		// Check if there is already a tower on the tile
 		if (Player.Instance.GetCurrentTowerTransform() != null) {
 			Debug.Log("Can't build there");
