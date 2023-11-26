@@ -128,6 +128,10 @@ public class Waiter : Staff {
 
 	protected override void UpgradeStats() {
 		fireCooldown = 1f;
+		// Make icon appear if the updated food count is more than 0
+		if (FoodCount > 0) {
+			Instantiate(icons[(int) FoodType], foodHolder);
+		}
 	}
 
 }
