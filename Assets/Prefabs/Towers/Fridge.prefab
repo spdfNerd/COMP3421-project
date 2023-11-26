@@ -347,7 +347,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a868ba1816425344a660635c2a14c54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 1
+  cooldown: 2
+  waterLimit: 10
+  cokeLimit: 10
   costs:
     hirePrice: 150
     sellPrice: 75

@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -38,27 +37,30 @@ public class LevelManager : MonoBehaviour {
 	private int reputation = 0;
 	private int round = 0;
 
-    private int runningCost = 0;
-
-	public Dictionary<FoodType, int> foodRewards;
+    private int runningCost = 30;
+	private int maxReputation = 50;
 
 	public int Money {
 		get => money;
 		set {
 			money = value;
-			moneyText.text = "$" + money;
+			moneyText.text = string.Format("${0} (Running Cost: ${1})", money, runningCost);
 		}
 	}
 
     public int RunningCost {
 		get => runningCost;
-		set => runningCost = value;
+		set {
+			runningCost = value;
+			moneyText.text = string.Format("${0} (Running Cost: ${1})", money, runningCost);
+		}
 	}
 
 	public int Reputation {
 		get => reputation;
 		set {
 			reputation = value;
+			reputation = Mathf.Clamp(reputation, 0, maxReputation);
 			reputationText.text = reputation + " Reputation";
 		}
 	}
@@ -83,20 +85,8 @@ public class LevelManager : MonoBehaviour {
 	private void Start() {
 		Money = startingMoney;
 		Reputation = startingReputation;
-		InitFoodRewards();
 
 		GenerateNodes();
-	}
-
-	private void InitFoodRewards() {
-		foodRewards = new Dictionary<FoodType, int> {
-			{ FoodType.PIZZA, 50 },
-			{ FoodType.BURGER, 100 },
-			{ FoodType.SUSHI, 125 },
-			{ FoodType.NOODLE, 150 },
-			{ FoodType.COKE, 40 },
-			{ FoodType.WATER, 20 }
-		};
 	}
 
 	private void GenerateNodes() {

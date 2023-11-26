@@ -8,8 +8,11 @@ public class Waiter : Staff {
 	public Transform firePoint;
 	public Transform foodHolder;
 
-	public float range = 4f;
-	public float fireCooldown = 2f;
+	public float range = 20f;
+	public float fireCooldown = 3f;
+	public float upgradedFireCooldown = 1.5f;
+
+	public int foodLimit = 10;
 
 	[Header("Food Icons")]
 	public Transform[] icons;
@@ -32,7 +35,10 @@ public class Waiter : Staff {
 		set {
 			foodCount = value;
 			foodCountText.text = foodCount == 0 ? "" : foodCount.ToString();
+			// Change the text colour to red if the food limit is reached
+			foodCountText.color = foodCount == foodLimit ? Color.red : Color.white;
 
+			// Remove icon if food count falls to 0
 			if (foodCount == 0 && foodHolder.childCount > 0) {
 				Destroy(foodHolder.GetChild(0).gameObject);
 			}
@@ -51,17 +57,20 @@ public class Waiter : Staff {
 	/// </summary>
 	/// <param name="type">Type of food to be shot</param>
 	/// <param name="count">Number of food available to be shot</param>
-	public void UpdateFoodType(FoodType type, int count) {
-		if (FoodCount == 0) {
-			FoodType = type;
-			FoodCount = count;
-			// Only make icon appear if the updated food type has count more than 0
-			if (count > 0) {
-				Instantiate(icons[(int) type], foodHolder);
-			}
-		} else if (FoodType == type) {
-			FoodCount += count;
+	/// <returns>The amount of food not transferred</returns>
+	public int UpdateFoodType(FoodType type, int count) {
+		if (FoodCount > 0 && FoodType != type) {
+			return count;
 		}
+
+		// Only update food icon if count is more than 0
+		if (count > 0) {
+			FoodType = type;
+			ShowIcon();
+		}
+		int foodTransferred = Mathf.Min(count, foodLimit - FoodCount);
+		FoodCount += foodTransferred;
+		return count - foodTransferred;
 	}
 
 	private void FindTarget() {
@@ -110,6 +119,8 @@ public class Waiter : Staff {
 		}
 
 		if (timer <= 0f) {
+			Debug.Log("timer!");
+
 			// Get food projectile direction
 			Vector3 direction = target.position - firePoint.position;
 			Transform foodTransform = Instantiate(projectiles[(int) foodType], firePoint.position, Quaternion.LookRotation(direction));
@@ -122,12 +133,21 @@ public class Waiter : Staff {
 		}
 	}
 
+	private void ShowIcon() {
+		Instantiate(icons[(int) FoodType], foodHolder);
+	}
+
 	protected override void InitStaff() {
 		UpdateFoodType(0, 0);
 	}
 
 	protected override void UpgradeStats() {
-		fireCooldown = 1f;
+		fireCooldown = upgradedFireCooldown;
+		foodLimit += 5;
+		// Make icon appear if the updated food count is more than 0
+		if (FoodCount > 0) {
+			ShowIcon();
+		}
 	}
 
 }

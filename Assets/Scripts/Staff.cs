@@ -25,6 +25,7 @@ public abstract class Staff : MonoBehaviour {
 		upgradedGFX.SetActive(true);
 
 		UpgradeStats();
+		UpdateQuest();
 	}
 
 	public GameObject GetActiveGFX() {
@@ -33,6 +34,10 @@ public abstract class Staff : MonoBehaviour {
 		} else {
 			return baseGFX;
 		}
+	}
+
+	private void UpdateQuest() {
+		QuestManager.Instance.TryUpdateSpendQuestProgress(costs.upgradePrice);
 	}
 
 	protected abstract void InitStaff();

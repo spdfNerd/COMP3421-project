@@ -3,7 +3,8 @@ using UnityEngine;
 public class Chef : Staff {
 
 	[Header("Food Settings")]
-	public float cooldown = 1f;
+	public float cooldown = 2f;
+	public float upgradedCooldown = 1f;
 	public int foodLimit;
 	public FoodType foodType;
 
@@ -28,7 +29,8 @@ public class Chef : Staff {
 		}
 
 		// Produce food if cooldown timer is finished counting down
-		if (cooldownTimer <= 0f) {
+		// and there are enemies on the map
+		if (cooldownTimer <= 0f && WaveManager.Instance.EnemyCount > 0) {
 			ProduceFood();
 			cooldownTimer = cooldown;
 		} else {
@@ -54,7 +56,7 @@ public class Chef : Staff {
 
 	protected override void UpgradeStats() {
 		foodLimit = 10;
-		cooldown = 1f;
+		upgradedCooldown = 1f;
 	}
 
 }

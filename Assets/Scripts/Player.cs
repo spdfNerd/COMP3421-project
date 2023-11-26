@@ -180,9 +180,9 @@ public class Player : MonoBehaviour {
 
 		int count = inventory.GetItemCount(foodType);
 		if (count > 0) {
-			currentWaiter.UpdateFoodType(foodType, count);
-			inventory.ClearItem(foodType);
-			inventoryScreen.SetCountToZero(foodType);
+			count = currentWaiter.UpdateFoodType(foodType, count);
+			inventory.SetItemCount(foodType, count);
+			inventoryScreen.SetCount(foodType, count);
 		}
 	}
 

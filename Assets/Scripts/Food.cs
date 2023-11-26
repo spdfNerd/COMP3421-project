@@ -4,6 +4,7 @@ public class Food : MonoBehaviour {
 
 	public float speed = 25f;
 	public FoodType type;
+	public int reward;
 
 	private Transform target;
 	private Customer targetCustomer;

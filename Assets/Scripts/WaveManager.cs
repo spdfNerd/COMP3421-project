@@ -22,6 +22,8 @@ public class WaveManager : MonoBehaviour {
 
 	private Transform spawnpoint;
 
+	public int EnemyCount { get => enemyCount; }
+
 	private void Awake() {
 		if (Instance != null) {
 			Debug.LogError("More than one WaveManager in scene!");
@@ -98,8 +100,8 @@ public class WaveManager : MonoBehaviour {
 
 		Wave wave = new Wave();
 		for (int i = 0; i < normalCustomersCount; i++) {
-			// Randomise customer type, count,, and spacing
-			wave.InsertSubWave((CustomerType) UnityEngine.Random.Range(0, Enum.GetValues(typeof(CustomerType)).Length),
+			// Randomise customer type, count, and spacing
+			wave.InsertSubWave((CustomerType) UnityEngine.Random.Range(0, Enum.GetValues(typeof(CustomerType)).Length - 1),
 				UnityEngine.Random.Range(3, i),
 				UnityEngine.Random.Range(MinCustomerSpacing(i, 1f), maxSpacing));
 		}
@@ -116,7 +118,7 @@ public class WaveManager : MonoBehaviour {
 	private void CheckCanContinue() {
 		if (LevelManager.Instance.Reputation <= 0 || LevelManager.Instance.Money < 0) {
 			// Switch to lose screen
-			SceneManager.LoadScene("LoadScreen");
+			SceneManager.LoadScene("LoseScreen");
 		}
 
 		if (!LevelManager.Instance.isEndlessMode) {

@@ -90,16 +90,12 @@ public class Customer : MonoBehaviour {
 			requestsSatisfied = true;
 			// Disable collider to prevent projectiles from hitting the customer again
 			GetComponent<Collider>().enabled = false;
+			speed = 50f;
 			// Remove food icon
 			Destroy(foodHolder.GetChild(0).gameObject);
 		}
 
-		bool success = LevelManager.Instance.foodRewards.TryGetValue(food.type, out int foodReward);
-		if (success) {
-			rewardsToGrant += foodReward;
-		} else {
-			Debug.LogError("Food reward has not been entered yet!");
-		}
+		rewardsToGrant += food.reward;
 	}
 
 	/// <summary>
@@ -180,7 +176,7 @@ public class Customer : MonoBehaviour {
 			transform.Translate(speed * Time.deltaTime * direction, Space.World);
 			float distanceToWaypoint = Vector3.Distance(transform.position, nextWaypoint.position);
 			// Check that the customer has reached the waypoint within a tolerance
-			reachedWaypoint = FloatComparer.AreEqual(distanceToWaypoint, 0f, 0.1f);
+			reachedWaypoint = FloatComparer.AreEqual(distanceToWaypoint, 0f, speed / 40f);
 		}
 		return direction;
 	}
