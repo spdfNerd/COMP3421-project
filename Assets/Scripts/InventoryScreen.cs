@@ -53,8 +53,8 @@ public class InventoryScreen : MonoBehaviour {
 		}
 	}
 
-	public void SetCountToZero(FoodType type) {
-		foodCountTexts[(int) type].text = "0";
+	public void SetCount(FoodType type, int count) {
+		foodCountTexts[(int) type].text = count.ToString();
 	}
 
 }
