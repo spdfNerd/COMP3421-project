@@ -5,6 +5,8 @@ public class Fridge : MonoBehaviour {
 
 	[Header("Food Settings")]
 	public float cooldown = 1f;
+	public int waterLimit;
+	public int cokeLimit;
 
 	[Header("Costs")]
 	public StaffCosts costs;
@@ -21,7 +23,11 @@ public class Fridge : MonoBehaviour {
 		get => cokeCount;
 		set {
 			cokeCount = value;
+			// Make sure that the coke is between 0 and the coke limit
+			cokeCount = Mathf.Clamp(cokeCount, 0, cokeLimit);
 			cokeCountText.text = cokeCount == 0 ? "No cokes!" : "Cokes: " + cokeCount;
+			// Change the text colour to red if the coke limit is reached
+			cokeCountText.color = cokeCount == cokeLimit ? Color.red : Color.white;
 		}
 	}
 
@@ -29,7 +35,11 @@ public class Fridge : MonoBehaviour {
 		get => waterCount;
 		set {
 			waterCount = value;
+			// Make sure that the water is between 0 and the water limit
+			waterCount = Mathf.Clamp(waterCount, 0, waterLimit);
 			waterCountText.text = waterCount == 0 ? "No water!" : "Water: " + waterCount;
+			// Change the text colour to red if the water limit is reached
+			waterCountText.color = waterCount == waterLimit ? Color.red : Color.white;
 		}
 	}
 

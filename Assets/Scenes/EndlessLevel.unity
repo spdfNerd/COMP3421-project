@@ -1653,6 +1653,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8043869300330226208, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
+      propertyPath: upgradePanel
+      value: 
+      objectReference: {fileID: 1969460051}
     - target: {fileID: 8680407740646129360, guid: 79f3af1b7799467418eca560f471fa28, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2832,6 +2836,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad2175c0832cee4fafcd71ef96c2772, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &1969460051 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8756467951157524884, guid: 5cecd1f21e7d59146ab68a78f3fb9504, type: 3}
+  m_PrefabInstance: {fileID: 20461526}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1994352628
 PrefabInstance:
   m_ObjectHideFlags: 0

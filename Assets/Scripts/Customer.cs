@@ -94,12 +94,7 @@ public class Customer : MonoBehaviour {
 			Destroy(foodHolder.GetChild(0).gameObject);
 		}
 
-		bool success = LevelManager.Instance.foodRewards.TryGetValue(food.type, out int foodReward);
-		if (success) {
-			rewardsToGrant += foodReward;
-		} else {
-			Debug.LogError("Food reward has not been entered yet!");
-		}
+		rewardsToGrant += food.reward;
 	}
 
 	/// <summary>

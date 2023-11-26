@@ -40,8 +40,6 @@ public class LevelManager : MonoBehaviour {
 
     private int runningCost = 0;
 
-	public Dictionary<FoodType, int> foodRewards;
-
 	public int Money {
 		get => money;
 		set {
@@ -83,20 +81,8 @@ public class LevelManager : MonoBehaviour {
 	private void Start() {
 		Money = startingMoney;
 		Reputation = startingReputation;
-		InitFoodRewards();
 
 		GenerateNodes();
-	}
-
-	private void InitFoodRewards() {
-		foodRewards = new Dictionary<FoodType, int> {
-			{ FoodType.PIZZA, 50 },
-			{ FoodType.BURGER, 100 },
-			{ FoodType.SUSHI, 125 },
-			{ FoodType.NOODLE, 150 },
-			{ FoodType.COKE, 40 },
-			{ FoodType.WATER, 20 }
-		};
 	}
 
 	private void GenerateNodes() {
