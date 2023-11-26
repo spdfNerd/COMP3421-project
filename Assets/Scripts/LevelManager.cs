@@ -38,7 +38,7 @@ public class LevelManager : MonoBehaviour {
 	private int reputation = 0;
 	private int round = 0;
 
-    private int runningCost = 0;
+    private int runningCost = 30;
 
 	public int Money {
 		get => money;
