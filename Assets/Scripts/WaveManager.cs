@@ -100,8 +100,8 @@ public class WaveManager : MonoBehaviour {
 
 		Wave wave = new Wave();
 		for (int i = 0; i < normalCustomersCount; i++) {
-			// Randomise customer type, count,, and spacing
-			wave.InsertSubWave((CustomerType) UnityEngine.Random.Range(0, Enum.GetValues(typeof(CustomerType)).Length),
+			// Randomise customer type, count, and spacing
+			wave.InsertSubWave((CustomerType) UnityEngine.Random.Range(0, Enum.GetValues(typeof(CustomerType)).Length - 1),
 				UnityEngine.Random.Range(3, i),
 				UnityEngine.Random.Range(MinCustomerSpacing(i, 1f), maxSpacing));
 		}

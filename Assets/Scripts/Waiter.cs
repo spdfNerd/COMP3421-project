@@ -65,7 +65,7 @@ public class Waiter : Staff {
 		// Only update food icon if count is more than 0
 		if (count > 0) {
 			FoodType = type;
-			Instantiate(icons[(int) type], foodHolder);
+			ShowIcon();
 		}
 		int foodTransferred = Mathf.Min(count, foodLimit - FoodCount);
 		FoodCount += foodTransferred;
@@ -130,6 +130,10 @@ public class Waiter : Staff {
 		}
 	}
 
+	private void ShowIcon() {
+		Instantiate(icons[(int) FoodType], foodHolder);
+	}
+
 	protected override void InitStaff() {
 		UpdateFoodType(0, 0);
 	}
@@ -139,7 +143,7 @@ public class Waiter : Staff {
 		foodLimit += 5;
 		// Make icon appear if the updated food count is more than 0
 		if (FoodCount > 0) {
-			Instantiate(icons[(int) FoodType], foodHolder);
+			ShowIcon();
 		}
 	}
 

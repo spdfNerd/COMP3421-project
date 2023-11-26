@@ -967,7 +967,7 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Noodle Chef
 
-        $300'
+        $300 ($60)'
       objectReference: {fileID: 0}
     - target: {fileID: 4091235988395702513, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_fontColor32.rgba
@@ -1091,7 +1091,7 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Waiter
 
-        $150'
+        $150 ($30)'
       objectReference: {fileID: 0}
     - target: {fileID: 4091235988395702513, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_fontColor32.rgba
@@ -1215,7 +1215,7 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Pizza Chef
 
-        $100'
+        $100 ($20)'
       objectReference: {fileID: 0}
     - target: {fileID: 4091235988395702513, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_fontColor32.rgba
@@ -1339,7 +1339,7 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Sushi Chef
 
-        $250'
+        $250 ($50)'
       objectReference: {fileID: 0}
     - target: {fileID: 4091235988395702513, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_fontSize
@@ -1479,7 +1479,7 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Burger Chef
 
-        $200'
+        $200 ($40)'
       objectReference: {fileID: 0}
     - target: {fileID: 4091235988395702513, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_fontSize
@@ -1619,7 +1619,7 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Fridge
 
-        $150'
+        $150 ($30)'
       objectReference: {fileID: 0}
     - target: {fileID: 4091235988395702513, guid: 75b09a94e217d9749ba7b3b1be5dc533, type: 3}
       propertyPath: m_fontColor32.rgba

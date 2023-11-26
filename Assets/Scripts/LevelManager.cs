@@ -44,7 +44,7 @@ public class LevelManager : MonoBehaviour {
 		get => money;
 		set {
 			money = value;
-			moneyText.text = "$" + money;
+			moneyText.text = string.Format("${0} (Running Cost: ${1})", money, runningCost);
 		}
 	}
 

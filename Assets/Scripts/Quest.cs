@@ -70,7 +70,7 @@ public class Quest : MonoBehaviour {
 	}
 
 	private void UpdateProgressBar() {
-		float progressPercentage = currentAmount / requiredAmount;
+		float progressPercentage = (float) currentAmount / requiredAmount;
 		float width = progressBarBackground.rectTransform.rect.width * progressPercentage;
 		float height = progressBarBackground.rectTransform.rect.height;
 		progressBar.rectTransform.sizeDelta = new Vector2(width, height);
