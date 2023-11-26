@@ -3073,6 +3073,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1673037859}
     - target: {fileID: 964670866056294259, guid: 7df76b8e52be3de4f9781b5d60d56738, type: 3}
+      propertyPath: startingMoney
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 964670866056294259, guid: 7df76b8e52be3de4f9781b5d60d56738, type: 3}
       propertyPath: reputationText
       value: 
       objectReference: {fileID: 2034910122}
