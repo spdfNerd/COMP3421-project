@@ -116,7 +116,7 @@ public class WaveManager : MonoBehaviour {
 	private void CheckCanContinue() {
 		if (LevelManager.Instance.Reputation <= 0 || LevelManager.Instance.Money < 0) {
 			// Switch to lose screen
-			SceneManager.LoadScene("LoadScreen");
+			SceneManager.LoadScene("LoseScreen");
 		}
 
 		if (!LevelManager.Instance.isEndlessMode) {
